@@ -1,0 +1,270 @@
+"use client"
+
+import { useState, useRef, useEffect } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { usePathname } from "next/navigation"
+import { ChevronDown, Menu, X } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
+import { motion, AnimatePresence } from "framer-motion"
+
+interface UnifiedHeaderProps {
+  texts?: Record<string, string> // الآن اختياري مع قيمة افتراضية
+}
+
+export default function UnifiedHeader({ texts = {} }: UnifiedHeaderProps) {
+  const { language } = useLanguage()
+  const lang = language as "en" | "ar"
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const isRTL = lang === "ar"
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const pathname = usePathname()
+
+  // serviceSections ثابتة ومترجمة حرفيًا
+  const serviceSections = lang === "ar"
+    ? ["سافي وورلد", "سافي إكسبو", "سافي ميديا", "سافي انوفيشن"]
+    : ["Savvy World", "Savvy Expo", "Savvy Media", "Savvy Innovation"]
+
+  // إغلاق القائمة عند النقر خارجها
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsServicesOpen(false)
+      }
+    }
+
+    if (isServicesOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isServicesOpen])
+
+  // تنظيف timeout عند unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+    setIsServicesOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsServicesOpen(false)
+    }, 200) // تأخير 200ms قبل الإغلاق
+  }
+
+  return (
+    <>
+      <header
+        className="animate-slideDownFadeIn fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
+      >
+        <div
+          className="rounded-full px-4 md:px-6 py-3 backdrop-blur-md w-full md:w-auto"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.45)' }}
+        >
+          <div className={`flex items-center justify-between gap-4 md:gap-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link href={`/${lang}`}>
+                <Image
+                  src="/Savvy 2 1.svg"
+                  alt="Savvy"
+                  width={100}
+                  height={32}
+                  className="h-6 md:h-8 w-auto"
+                />
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-white p-2"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
+            {/* Navigation */}
+            <nav className={`hidden md:flex items-center gap-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              {Object.entries(texts)
+                .filter(([key]) => key !== "ourServices" && key !== "contactUs")
+                .map(([key, value]) => (
+                  <Link
+                    key={key}
+                    href={`#${key}`}
+                    className="text-white hover:text-gray-200 transition-colors text-sm font-medium whitespace-nowrap"
+                  >
+                    {value}
+                  </Link>
+                ))}
+
+              {/* Services Dropdown */}
+              {texts["ourServices"] && (
+                <div
+                  ref={dropdownRef}
+                  className="relative"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button
+                    onClick={() => setIsServicesOpen(!isServicesOpen)}
+                    className="text-white hover:text-gray-200 transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap"
+                  >
+                    {texts["ourServices"]}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  <AnimatePresence>
+                    {isServicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        className={`absolute top-full mt-2 w-48 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? 'right-0' : 'left-0'}`}
+                      >
+                        <Link
+                          href={`/${lang}`}
+                          onClick={() => setIsServicesOpen(false)}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          {serviceSections[0]}
+                        </Link>
+                        <Link
+                          href={`/${lang}/expo`}
+                          onClick={() => setIsServicesOpen(false)}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          {serviceSections[1]}
+                        </Link>
+                        <Link
+                          href={`/${lang}/media`}
+                          onClick={() => setIsServicesOpen(false)}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          {serviceSections[2]}
+                        </Link>
+                        <Link
+                          href={`/${lang}/innovation`}
+                          onClick={() => setIsServicesOpen(false)}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          {serviceSections[3]}
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )}
+            </nav>
+
+            {/* Language Switcher */}
+            <div className="hidden md:block">
+              <LanguageSwitcher currentLang={lang} />
+            </div>
+
+            {/* Contact Button */}
+            <Link
+              href={`/${lang}/contact`}
+              className="hidden md:block px-5 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-colors text-sm font-medium whitespace-nowrap"
+            >
+              {texts["contactUs"] || (lang === "ar" ? "اتصل بنا" : "Contact Us")}
+            </Link>
+          </div>
+
+          {/* Mobile Menu */}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="md:hidden absolute top-full left-4 right-4 mt-2 bg-black/90 backdrop-blur-md rounded-2xl overflow-hidden"
+              >
+                <nav className="py-4">
+                  {Object.entries(texts)
+                    .filter(([key]) => key !== "ourServices" && key !== "contactUs")
+                    .map(([key, value]) => (
+                      <Link
+                        key={key}
+                        href={`#${key}`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-6 py-3 text-white hover:bg-white/10 transition-colors text-sm font-medium"
+                      >
+                        {value}
+                      </Link>
+                    ))}
+
+                  {/* Services في القائمة الموبايل */}
+                  {texts["ourServices"] && (
+                    <>
+                      <div className="px-6 py-3 text-white/60 text-xs font-semibold uppercase">
+                        {texts["ourServices"]}
+                      </div>
+                      <Link
+                        href={`/${lang}`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        {serviceSections[0]}
+                      </Link>
+                      <Link
+                        href={`/${lang}/expo`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        {serviceSections[1]}
+                      </Link>
+                      <Link
+                        href={`/${lang}/media`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        {serviceSections[2]}
+                      </Link>
+                      <Link
+                        href={`/${lang}/innovation`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        {serviceSections[3]}
+                      </Link>
+                    </>
+                  )}
+
+                  {/* Language & Contact */}
+                  <div className="px-6 py-4 mt-2 border-t border-white/10 space-y-2">
+                    <LanguageSwitcher currentLang={lang} isMobile />
+                    <Link
+                      href={`/${lang}/contact`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block w-full px-5 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-colors text-sm font-medium text-center"
+                    >
+                      {texts["contactUs"] || (lang === "ar" ? "اتصل بنا" : "Contact Us")}
+                    </Link>
+                  </div>
+                </nav>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </header>
+    </>
+  )
+}
