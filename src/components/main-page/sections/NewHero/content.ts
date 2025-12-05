@@ -2,20 +2,20 @@ export type Language = "en" | "ar"
 
 export const heroContent = {
   en: {
-    welcomeText: "Welcome to",
-    savvyWorld: "Savvy World",
-    description: "A company that brings together media, exhibitions, and smart techniques for building sustainable and future-oriented.",
-    subDescription: "We link artificial intelligence, digital interaction, and the appropriate solutions to transform exclusive spaces into smart and future-oriented experiences.",
-    ctaButton: "Learn More",
-    partners: "Our Trusted Partners",
+    welcomeText: "We introduce you to good technologies in a simple way",
+    savvyWorld: ".. led by Mr. Savvy",
+    description: "A comprehensive system that combines media, exhibitions, and smart technologies. Building sustainable and connected cities.",
+    subDescription: "We link artificial intelligence, digital interaction, and green energy solutions to transform urban spaces into smart and profitable experiences.",
+    ctaButton: "Contact Us",
+    partners: "Companies that trusted us to create different experiences.. You're next",
   },
   ar: {
-    welcomeText: "مرحباً بكم في",
-    savvyWorld: "عالم سافي",
-    description: "شركة تجمع بين الإعلام، والمعارض، والتقنيات الذكية لبناء مدن مستدامة ومتصلة",
+    welcomeText: "نعرّفك على التقنيات الحسنة بطريقة بسيطة",
+    savvyWorld: ".. يقودها مستر سافي",
+    description: "منظومة تجمع بين الإعلام، والمعارض، والتقنيات الذكية لبناء مدن مستدامة ومتصلة.",
     subDescription: "نربط بين الذكاء الاصطناعي، والتفاعل الرقمي، والحلول الطاقة النظيفة لتحويل المساحات الحضرية إلى تجارب ذكية ومربحة.",
-    ctaButton: "تعلم المزيد",
-    partners: "شركاؤنا الموثوقون",
+    ctaButton: "تواصل معنا",
+    partners: "شركاء وفقونا بصناعة تجارب مختلفة.. أنت التالي",
   },
 }
 

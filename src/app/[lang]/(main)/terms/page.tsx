@@ -1,0 +1,38 @@
+import PageTransition from "@/components/shared/PageTransition/PageTransition"
+import TermsPage from "@/components/terms-page/TermsPage"
+import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
+
+interface TermsPageProps {
+  params: Promise<{
+    lang: string
+  }>
+}
+
+// نصوص الهيدر الخاصة بصفحة شروط الاستخدام
+const headerTextsEn = {
+  ourServices: "Our Services",
+  contactUs: "Contact Us",
+}
+
+const headerTextsAr = {
+  ourServices: "خدماتنا",
+  contactUs: "تواصل معنا",
+}
+
+export default async function Terms({ params }: TermsPageProps) {
+  const { lang } = await params
+  const currentLang = lang as "en" | "ar"
+  const texts = currentLang === "ar" ? headerTextsAr : headerTextsEn
+
+  return (
+    <>
+      <UnifiedHeader texts={texts} hasBanner={false} />
+      <PageTransition>
+        <TermsPage lang={currentLang} />
+        <PromoSection />
+      </PageTransition>
+    </>
+  )
+}
+

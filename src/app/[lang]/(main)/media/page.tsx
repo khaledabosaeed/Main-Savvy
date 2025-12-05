@@ -1,10 +1,11 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import MediaHero from "@/components/media-page/sections/MediaHero/MediaHero"
-import MediaAbout from "@/components/media-page/sections/MediaAbout/MediaAbout"
-import MediaProjects from "@/components/media-page/sections/MediaProjects/MediaProjects"
-import MediaServices from "@/components/media-page/sections/MediaServices/MediaServices"
-import MediaPartners from "@/components/media-page/sections/MediaPartners/MediaPartners"
+import MediaContent from "@/components/media-page/sections/MediaContent/MediaContent"
+import WhySavvy from "@/components/media-page/sections/WhySavvy/WhySavvy"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
+import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
+import GallerySection from "@/components/main-page/sections/GallerySection/GallerySection"
 
 interface MediaPageProps {
   params: Promise<{
@@ -40,23 +41,25 @@ export default async function MediaPage({ params }: MediaPageProps) {
 
   return (
     <>
-      <UnifiedHeader texts={texts} />
+      <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
         <section id="hero">
           <MediaHero lang={currentLang} />
         </section>
-        <section id="about">
-          <MediaAbout lang={currentLang} />
+
+        <section id="content">
+          <MediaContent lang={currentLang} />
         </section>
-        <section id="projects">
-          <MediaProjects lang={currentLang} />
-        </section>
-        <section id="services">
-          <MediaServices lang={currentLang} />
-        </section>
-        <section id="partners">
-          <MediaPartners lang={currentLang} />
-        </section>
+    
+      
+        <GallerySection />
+
+        <WhySavvy lang={currentLang} />
+              {/* Latest News Section */}
+              <LatestNews />
+
+{/* Promo Section */}
+<PromoSection />
       </PageTransition>
     </>
   )

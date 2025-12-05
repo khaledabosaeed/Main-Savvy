@@ -4,6 +4,9 @@ import ExpoAbout from "@/components/expo-page/sections/ExpoAbout/ExpoAbout"
 import ExpoServices from "@/components/expo-page/sections/ExpoServices/ExpoServices"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
+import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
+import ExpoPartners from "@/components/expo-page/sections/ExpoPartners/ExpoPartners"
 
 interface ExpoPageProps {
   params: Promise<{
@@ -37,20 +40,29 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
 
   return (
     <>
-      <UnifiedHeader texts={texts} />
+      <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
         <section id="hero">
           <ExpoHero lang={currentLang} />
         </section>
-        <section id="about">
+        {/* <section id="about">
           <ExpoAbout lang={currentLang} />
-        </section>
+        </section> */}
         <section id="services">
           <ExpoServices lang={currentLang} />
         </section>
         <section id="projects">
           <LatestProjects />
         </section>
+
+        {/* Partners Section */}
+        <ExpoPartners />
+
+        {/* Latest News Section */}
+        <LatestNews />
+
+        {/* Promo Section */}
+        <PromoSection />
       </PageTransition>
     </>
   )

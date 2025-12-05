@@ -66,289 +66,172 @@ function LatestProjects() {
   }, [])
 
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Decorative background with brand color */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.05, 0.1, 0.05],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#3960F9]/10 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.1, 0.05, 0.1],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#3960F9]/10 rounded-full blur-3xl"
-        />
-      </div>
-
+    <section className="py-20 md:py-32 bg-white relative overflow-hidden">
       <div className="container relative z-10">
-        {/* Enhanced Title */}
+        {/* Title and Subtitle */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={sectionSlideUp}
-          className={`mb-16 ${isRTL ? 'rtl text-right' : 'ltr text-left'}`}
+          className={`text-center mb-6 ${isRTL ? 'rtl' : 'ltr'}`}
         >
-          <motion.div
-            initial={{ width: 0, opacity: 0 }}
-            whileInView={{ width: "60px", opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="h-1 bg-[#3960F9] rounded-full mb-6 shadow-lg"
-          />
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
             {t("title")}
           </h2>
+          <p className="text-gray-500 text-sm md:text-base">
+            {t("subtitle")}
+          </p>
         </motion.div>
 
-        {/* Enhanced Navigation Tabs */}
+        {/* Navigation Tabs */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
           variants={fadeInUp}
           transition={{ delay: 0.2 }}
-          className={`flex gap-6 mb-16 ${isRTL ? 'flex-row-reverse justify-end' : 'justify-start'} flex-wrap`}
-          style={{ willChange: 'transform, opacity' }}
+          className={`flex gap-8 mb-12 justify-center border-b border-gray-200 pb-4`}
         >
           {projects.map((project, index) => (
             <motion.button
               key={project.id}
               onClick={() => handleTabClick(index)}
-              className={`relative group px-4 py-3 ${isRTL ? 'text-right' : 'text-left'}`}
+              className={`relative px-2 py-2 text-sm md:text-base font-medium transition-colors ${activeProject === index
+                  ? "text-gray-900"
+                  : "text-gray-400 hover:text-gray-600"
+                }`}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className={`flex items-baseline gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <motion.span
-                  animate={{
-                    scale: activeProject === index ? [1, 1.2, 1] : 1,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className={`text-sm font-bold transition-all ${activeProject === index 
-                    ? "text-[#3960F9]" 
-                    : "text-gray-400"
-                  }`}
-                >
-                  {String(index + 1).padStart(2, '0')}
-                </motion.span>
-                <span
-                  className={`text-lg font-bold transition-all ${activeProject === index
-                    ? "text-[#3960F9]"
-                    : "text-gray-600 hover:text-gray-900"
-                  }`}
-                >
-                  {project.title}
-                </span>
-              </div>
+              {project.title}
               {activeProject === index && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-[#3960F9] rounded-full shadow-lg"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900"
                   initial={false}
                   transition={{ type: "spring", stiffness: 400, damping: 35 }}
                 />
               )}
-              {/* Hover background */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                className="absolute inset-0 bg-[#3960F9]/5 rounded-xl -z-10"
-              />
             </motion.button>
           ))}
         </motion.div>
 
-        {/* Enhanced Main Content Display */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="relative mb-20"
-        >
-          <div className="relative w-full h-[500px] md:h-[700px] rounded-3xl overflow-hidden bg-gray-100 shadow-2xl group">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeProject}
-                variants={crossfade}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                className="absolute inset-0"
+        {/* Main Content - Image and Text Side by Side */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeProject}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${isRTL ? 'md:flex-row-reverse' : ''}`}
+          >
+            {/* Image Section */}
+            <motion.div
+              className={`relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-xl ${isRTL ? 'md:order-2' : 'md:order-1'}`}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={currentProject.image}
+                alt={currentProject.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+
+            {/* Content Section */}
+            <div className={`${isRTL ? 'md:order-1 text-right' : 'md:order-2 text-left'} space-y-6`}>
+              <motion.h3
+                initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
               >
-                <Image
-                  src={currentProject.image}
-                  alt={currentProject.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  priority
-                />
-                {/* Enhanced Gradient overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#3960F9]/10 to-transparent" />
-                
-                {/* Project Info Overlay */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className={`absolute bottom-0 left-0 right-0 p-8 md:p-12 ${isRTL ? 'text-right' : 'text-left'}`}
-                >
-                  <motion.h3
-                    initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
-                  >
-                    {currentProject.title}
-                  </motion.h3>
-                  <motion.p
-                    initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 }}
-                    className="text-lg md:text-xl text-white/90 max-w-2xl"
-                  >
-                    {currentProject.description}
-                  </motion.p>
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
+                {currentProject.title}
+              </motion.h3>
 
-            {/* Enhanced Navigation Arrows */}
-            <motion.button
-              onClick={handlePrev}
-              whileHover={{ scale: 1.15, x: isRTL ? 4 : -4 }}
-              whileTap={{ scale: 0.9 }}
-              className={`absolute top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-white backdrop-blur-md flex items-center justify-center transition-all shadow-xl hover:shadow-2xl border-2 border-white/20 ${isRTL ? 'right-6' : 'left-6'
-                }`}
-              aria-label="Previous project"
-            >
-              <ChevronLeft className={`w-7 h-7 text-gray-900 ${isRTL ? 'rotate-180' : ''}`} />
-            </motion.button>
-            <motion.button
-              onClick={handleNext}
-              whileHover={{ scale: 1.15, x: isRTL ? -4 : 4 }}
-              whileTap={{ scale: 0.9 }}
-              className={`absolute top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full bg-white backdrop-blur-md flex items-center justify-center transition-all shadow-xl hover:shadow-2xl border-2 border-white/20 ${isRTL ? 'left-6' : 'right-6'
-                }`}
-              aria-label="Next project"
-            >
-              <ChevronRight className={`w-7 h-7 text-gray-900 ${isRTL ? 'rotate-180' : ''}`} />
-            </motion.button>
+              <motion.p
+                initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-base md:text-lg text-gray-600 leading-relaxed"
+              >
+                {currentProject.description}
+              </motion.p>
 
-            {/* Progress indicators */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-              {projects.map((_, index) => (
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
                 <motion.button
-                  key={index}
-                  onClick={() => handleTabClick(index)}
-                  whileHover={{ scale: 1.2 }}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    activeProject === index 
-                      ? 'bg-white w-8' 
-                      : 'bg-white/50 hover:bg-white/80'
-                  }`}
-                  aria-label={`Go to project ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </motion.div>
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-[#3960F9] text-white rounded-lg font-medium text-sm md:text-base shadow-lg hover:shadow-xl transition-shadow"
+                >
+                  {t("ctaButton")}
+                </motion.button>
+              </motion.div>
 
-        {/* Enhanced Statistics */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {/* Stat 1 */}
-          <motion.div
-            className={`${isRTL ? 'rtl text-right' : 'ltr text-left'} relative group`}
-            whileHover={{ y: -8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="relative bg-white p-8 rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-              {/* Decorative gradient */}
-              <div className="absolute inset-0 bg-[#3960F9]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                <div className="flex items-baseline gap-2 mb-3">
-                  <Counter
-                    to={250}
-                    className="text-5xl md:text-6xl font-bold text-[#3960F9]"
-                    formatter={(n) => `${Math.floor(n)}+`}
-                  />
-                  <span className="text-3xl md:text-4xl font-bold text-[#3960F9]">
-                    {t("stat1Label")}
-                  </span>
+              {/* Statistics - Horizontal Layout */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="grid grid-cols-3 gap-6 pt-8"
+              >
+                {/* Stat 1 */}
+                <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <Counter
+                      to={8000}
+                      className="text-3xl md:text-4xl font-bold text-gray-900"
+                      formatter={(n) => `${Math.floor(n)}+`}
+                    />
+                  </div>
+                  <p className="text-xs md:text-sm text-gray-600">
+                    {t("stat3Description")}
+                  </p>
                 </div>
-                <p className="text-base md:text-lg text-gray-600 font-medium">
-                  {t("stat1Description")}
-                </p>
-              </div>
+
+                {/* Stat 2 */}
+                <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <Counter
+                      to={60}
+                      className="text-3xl md:text-4xl font-bold text-gray-900"
+                      formatter={(n) => `${Math.floor(n)}+`}
+                    />
+                  </div>
+                  <p className="text-xs md:text-sm text-gray-600">
+                    {t("stat2Description")}
+                  </p>
+                </div>
+
+                {/* Stat 3 */}
+                <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <Counter
+                      to={250}
+                      className="text-3xl md:text-4xl font-bold text-gray-900"
+                      formatter={(n) => `${Math.floor(n)}`}
+                    />
+                    <span className="text-xl md:text-2xl font-bold text-gray-900">
+                      {t("stat1Label")}+
+                    </span>
+                  </div>
+                  <p className="text-xs md:text-sm text-gray-600">
+                    {t("stat1Description")}
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
-
-          {/* Stat 2 */}
-          <motion.div
-            className={`${isRTL ? 'rtl text-right' : 'ltr text-left'} relative group`}
-            whileHover={{ y: -8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="relative bg-white p-8 rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-              {/* Decorative gradient */}
-              <div className="absolute inset-0 bg-[#3960F9]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                <div className="mb-3">
-                  <Counter
-                    to={60}
-                    className="text-5xl md:text-6xl font-bold text-[#3960F9]"
-                    formatter={(n) => `${Math.floor(n)}+`}
-                  />
-                </div>
-                <p className="text-base md:text-lg text-gray-600 font-medium">
-                  {t("stat2Description")}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Stat 3 */}
-          <motion.div
-            className={`${isRTL ? 'rtl text-right' : 'ltr text-left'} relative group`}
-            whileHover={{ y: -8 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="relative bg-white p-8 rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-              {/* Decorative gradient */}
-              <div className="absolute inset-0 bg-[#3960F9]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                <div className="mb-3">
-                  <Counter
-                    to={8000}
-                    className="text-5xl md:text-6xl font-bold text-[#3960F9]"
-                    formatter={(n) => `${Math.floor(n)}+`}
-                  />
-                </div>
-                <p className="text-base md:text-lg text-gray-600 font-medium">
-                  {t("stat3Description")}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   )

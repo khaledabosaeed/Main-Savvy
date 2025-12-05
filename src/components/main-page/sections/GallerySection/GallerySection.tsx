@@ -1,0 +1,115 @@
+"use client"
+
+import { useLanguage } from "@/contexts/LanguageContext"
+import { getGalleryContent, type GalleryImage } from "./content"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import styles from "./GallerySection.module.css"
+
+export default function GallerySection() {
+    const { language } = useLanguage()
+    const lang = language as "en" | "ar"
+    const content = getGalleryContent(lang)
+
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+            },
+        },
+    }
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+            },
+        },
+    }
+
+    const titleVariants = {
+        hidden: { opacity: 0, y: -20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+            },
+        },
+    }
+
+    return (
+        <section className={styles.gallerySection}>
+            <div className={styles.container}>
+                {/* Title */}
+                <motion.h2
+                    className={styles.title}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={titleVariants}
+                >
+                    {content.title}
+                </motion.h2>
+
+                {/* Gallery Grid */}
+                {content.images.length > 0 ? (
+                    <motion.div
+                        className={styles.gallery}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={containerVariants}
+                    >
+                        {content.images.map((image: GalleryImage) => {
+                            const colSpan = image.gridSpan?.cols || 1
+                            const rowSpan = image.gridSpan?.rows || 1
+
+                            return (
+                                <motion.div
+                                    key={image.id}
+                                    className={styles.galleryItem}
+                                    style={{
+                                        gridColumn: `span ${colSpan}`,
+                                        gridRow: `span ${rowSpan}`,
+                                    }}
+                                    variants={itemVariants}
+                                    whileHover={{ scale: 1.02 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <div className={styles.imageWrapper}>
+                                        <Image
+                                            src={image.src}
+                                            alt={image.alt}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            className={styles.image}
+                                            loading="lazy"
+                                        />
+                                        {/* Overlay on hover */}
+                                        <div className={styles.overlay} />
+                                    </div>
+                                </motion.div>
+                            )
+                        })}
+                    </motion.div>
+                ) : (
+                    <div className={styles.emptyState}>
+                        <p className={styles.emptyText}>
+                            {lang === "ar"
+                                ? "لم يتم إضافة صور بعد. يرجى إضافة الصور في ملف content.ts"
+                                : "No images added yet. Please add images in content.ts"}
+                        </p>
+                    </div>
+                )}
+            </div>
+        </section>
+    )
+}

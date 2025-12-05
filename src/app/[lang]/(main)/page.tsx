@@ -1,61 +1,86 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import NewHero from "@/components/main-page/sections/NewHero/NewHero"
-import AboutSection from "@/components/main-page/sections/AboutSection/AboutSection"
-import ServicesGrid from "@/components/main-page/sections/ServicesGrid/ServicesGrid"
+import SavvySections from "@/components/main-page/sections/SavvySections/SavvySections"
+import GallerySection from "@/components/main-page/sections/GallerySection/GallerySection"
+import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
+import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
 import ToolsSection from "@/components/main-page/sections/ToolsSection/ToolsSection"
 import WhySavvy from "@/components/main-page/sections/WhySavvy/WhySavvy"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import CTA from "@/components/main-page/sections/CTA/CTA"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-
-interface HomeProps {
-  params: Promise<{
-    lang: string
-  }>
-}
+import TopBanner from "@/components/shared/TopBanner/TopBanner"
+import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 // نصوص الهيدر بالإنجليزية
 const headerTextsEn = {
-  whoWeAre: "Who We Are",
-  ourServices: "Our Services",
-  whySavvy: "Why Savvy",
+  whoWeAre: "Our Partners",
+  ourServices: "Our Sections",
+  whySavvy: "Data Expo",
   latestProjects: "Latest Projects",
   contactUs: "Contact Us",
 }
 
 // نصوص الهيدر بالعربية
 const headerTextsAr = {
-  whoWeAre: "من نحن",
-  ourServices: "خدماتنا",
-  whySavvy: "لماذا سافي",
-  latestProjects: "أحدث المشاريع",
+  whoWeAre: "شركائنا",
+  ourServices: "أقسامنا",
+  whySavvy: "معرض البيانات",
+  latestProjects: "آخر مشاريعنا",
   contactUs: "تواصل معنا",
 }
 
-export default async function Home({ params }: HomeProps) {
-  const { lang } = await params
-  const currentLang = lang as "en" | "ar"
-  const texts = currentLang === "ar" ? headerTextsAr : headerTextsEn
+export default function Home() {
+  const { language } = useLanguage()
+  const lang = language as "en" | "ar"
+  const texts = lang === "ar" ? headerTextsAr : headerTextsEn
+  const [showBadge, setShowBadge] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Hide badge when scrolled past hero section (approximately)
+      setShowBadge(window.scrollY < 600)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <>
+      {/* Top Banner */}
+      <TopBanner />
+
       {/* UnifiedHeader الديناميكي */}
-      <UnifiedHeader texts={texts} />
+      <UnifiedHeader texts={texts} showBadge={showBadge} hasBanner={true} />
 
       {/* Sections مرتبطة بالـ navbar عبر نفس أسماء المفاتيح */}
       <section id="whoWeAre">
         <NewHero />
       </section>
 
+      {/* Partners Slider - outside hero section */}
+      <PartnersSlider />
 
-      {/* <section id="aboutSection">
-        <AboutSection />
-      </section> */}
-
-      <section id="ourServices">
-        <ServicesGrid />
+      <section id="about">
+        <SavvySections />
       </section>
 
-      {/* <section id="toolsSection">
+      <section id="services">
+        <GallerySection />
+      </section>
+
+      {/* Latest News Section */}
+      <LatestNews />
+
+      {/* Promo Section */}
+      <PromoSection />
+
+      {/* 
+      <section id="tools">
         <ToolsSection />
       </section> */}
 
@@ -63,13 +88,13 @@ export default async function Home({ params }: HomeProps) {
         <WhySavvy />
       </section> */}
 
-      <section id="latestProjects">
+      {/* <section id="latestProjects">
         <LatestProjects />
       </section>
 
       <section id="contactUs">
         <CTA />
-      </section>
+      </section> */}
     </>
   )
 }

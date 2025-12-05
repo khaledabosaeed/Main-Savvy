@@ -9,21 +9,21 @@ export const expoServicesContent = {
 
     service2Title: "Savvy Robot Assistant",
     service2Description: "Savvy Innovation provides sustainable energy services and smart car charging solutions for electric vehicles and advanced companies.",
-    service2Button: "Learn More",
+
+    service3Title: "Interactive Corners",
+    service3Description: "We add innovative activities and interactive corners within events and exhibitions, creating a beautiful atmosphere that attracts and delights visitors.",
   },
   ar: {
-    title: "خدمات Savvy Expo",
+    title: "خدمات سافي إكسبو",
 
-    service1Title: "شاشات إعلانية : نوفر شاشات إعلانية مبتكرة وحديثة وبأحجام تصل الى 600 م2 لتعزيز علامتكم التجارية  وبناء ثقافة مميزة في فعاليات",
-    service1Description: "شاشات تفاعلية مخصصة مصممة لجذب الزوار وعرض ابتكاراتك بفعالية.",
+    service1Title: "شراكات استراتيجية",
+    service1Description: "تحالفات مدروسة مع الجهات المنظمة والعلامات الكبرى، لتعزيز تأثير جناحك وفتح فرص أوسع للظهور، النمو، وتحقيق نتائج ملموسة",
 
-    service2Title: "نوفر روبوتات تفاعلية ذكية وحديثة للمشاركة في الفعاليات مما يعزز تواجدكم ويصنع اجواء تقنية جميلة",
-    service2Description: "توفر Savvy Innovation خدمات الطاقة المستدامة وحلول شحن السيارات الكهربائية وحلول الذكاء الاصطناعي المتقدمة للشركات.",
-    service2Button: "تعلم المزيد",
+    service2Title: "روبوت مستر سافي",
+    service2Description: "سفير التقنيات الحسّنة داخل جناحك، يقدّم محتوى توعويّاً وتفاعلياً، يجذب الزوار بحضوره ويُظهر علامتك التجارية بروح مبتكرة.",
 
-    service3Title: "أضافة زوايا تفاعلية: نثوم بإضافاة الأنشطة والزواية التفاعلية المبتكرة داخل الفعاليات والمعارض مما يصنع اجواء جميلة تجذب الزوار وتنال اعجابهم",
-    service3Description: "توفر Savvy Innovation خدمات الطاقة المستدامة وحلول شحن السيارات الكهربائية وحلول الذكاء الاصطناعي المتقدمة للشركات.",
-    service3Button: "تعلم المزيد",
+    service3Title: "نشاطات ترفيهية وهادفة",
+    service3Description: "محطات غامرة تعتمد على الحركة والضوء والتقنيات الذكية، تمنح الزائر تجربة مختلفة تجذبه للاكتشاف وترفع من قيمة حضور جناحك",
   },
 }
 

@@ -1,219 +1,258 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import Image from "next/image"
-import { useRef, useEffect, useState } from "react"
-import { Play, Camera } from "lucide-react"
+import { motion } from "framer-motion"
 import type { Language } from "./content"
-import { getMediaHeroContent } from "./content"
+import { BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'
 
 interface MediaHeroProps {
   lang: Language
 }
 
+// بيانات الرسوم البيانية
+const viewerData = [
+  { month: 'Jan', viewers: 24500 },
+  { month: 'Feb', viewers: 19000 },
+  { month: 'Mar', viewers: 14000 },
+  { month: 'Apr', viewers: 19500 },
+  { month: 'May', viewers: 23000 },
+  { month: 'Jun', viewers: 18500 },
+]
+
+const locationData = [
+  { name: 'مدخل', value: 50, color: '#1E40AF' },
+  { name: 'موقع 1', value: 40, color: '#3960F9' },
+  { name: 'موقع 2', value: 10, color: '#1E293B' },
+]
+
+// بيانات خريطة الحرارة
+const heatmapData = [
+  { day: 'Mon', data: [1, 3, 5, 7, 9, 7, 5, 3, 8, 6, 4, 9] },
+  { day: 'Tue', data: [2, 4, 6, 8, 7, 5, 3, 9, 7, 5, 3, 8] },
+  { day: 'Wed', data: [9, 7, 5, 3, 8, 6, 4, 9, 7, 5, 3, 1] },
+  { day: 'Thu', data: [1, 9, 7, 5, 3, 8, 6, 4, 9, 7, 5, 3] },
+  { day: 'Fri', data: [2, 1, 9, 7, 5, 3, 8, 6, 4, 9, 7, 5] },
+  { day: 'Sat', data: [5, 2, 1, 9, 7, 5, 3, 8, 6, 4, 9, 7] },
+  { day: 'Sun', data: [7, 5, 2, 1, 9, 7, 5, 3, 8, 6, 4, 9] },
+]
+
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
 export default function MediaHero({ lang }: MediaHeroProps) {
   const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").mediaHeroContent.en) => getMediaHeroContent(lang, key)
-  const containerRef = useRef(null)
-  const [key, setKey] = useState(0)
-  
-  // Re-trigger animations on language change
-  useEffect(() => {
-    setKey(prev => prev + 1)
-  }, [lang])
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  })
-  
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.3])
-
-  // Badge animation (same as main hero)
-  const badgeVariants = {
-    hidden: { opacity: 0, y: -30, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  }
-
-  // Title with word-by-word animation (same as main hero)
-  const titleVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const wordVariants = {
-    hidden: { opacity: 0, y: 30, filter: "blur(4px)", scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  }
-
-  const buttonVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        delay: 0.5,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  }
 
   return (
     <section 
-      ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative py-20 md:py-32 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
     >
-      {/* Background Image with Parallax */}
-      <motion.div 
-        style={{ y }}
-        className="absolute inset-0 z-0 scale-110"
-      >
-        <Image
-          src="/media/hero/hero.png"
-          alt="Media Hero"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Enhanced Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-        <motion.div 
-          style={{ opacity }}
-          className="absolute inset-0 bg-gradient-to-t from-[#3960F9]/30 to-transparent"
-        />
-      </motion.div>
-
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {/* خلفية متحركة */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.1, 0.15, 0.1],
+            scale: [1, 1.2, 1],
+            opacity: [0.03, 0.05, 0.03],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#3960F9]/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.3, 1, 1.3],
-            opacity: [0.15, 0.1, 0.15],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#3960F9]/15 rounded-full blur-3xl"
+          className="absolute -top-1/2 -right-1/2 w-full h-full bg-[#3960F9] rounded-full blur-3xl"
         />
       </div>
 
-      {/* Content - Centered with Zoom Animation */}
-      <div className="container relative z-10 text-center px-4">
+      <div className="container relative z-10 px-6">
+        {/* القسم النصي */}
         <motion.div
-          key={key}
-          initial="hidden"
-          animate="visible"
-          className="text-center"
-          dir={isRTL ? 'rtl' : 'ltr'}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className={`text-center mb-16 ${isRTL ? 'rtl' : 'ltr'}`}
         >
-          {/* Badge */}
-          <motion.div
-            // variants={badgeVariants}
-            whileHover={{ scale: 1.05 }}
-            className={`inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 cursor-default ${isRTL ? 'flex-row-reverse' : ''}`}
-          >
-            <Camera className="w-4 h-4 text-white" />
-            <span className="text-white text-sm font-semibold">
-              {isRTL ? "الإعلام والإنتاج" : "Media & Production"}
-            </span>
-          </motion.div>
-
-          {/* Title with word animation and zoom effect */}
-          <motion.h1
-            variants={titleVariants}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white max-w-5xl mx-auto leading-tight drop-shadow-2xl"
-          >
-            {t("title").split(" ").map((word, index) => (
-              <motion.span
-                key={index}
-                // variants={wordVariants}
-                className={`inline-block ${isRTL ? 'ml-3' : 'mr-3'}`}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.h1>
-
-          {/* Decorative Line */}
-          <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-10 rounded-full"
-            style={{ width: "120px" }}
-          />
-
-          {/* CTA Button */}
-          <motion.div 
-          >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            {isRTL 
+              ? "حوّل واجهتك الى منصة جذب.. وشاشة تتكلم بدل عنك"
+              : "Transform your interface into an attraction platform.. A screen that speaks for you"
+            }
+          </h1>
+          <p className="text-gray-600 text-lg md:text-xl max-w-4xl mx-auto mb-8">
+            {isRTL
+              ? "حول حضورك إلى رسالة بصرية قوية، بمحتوى غني ومقاطع فيديلا 24/7 تبرز علامتك في كل لحظة"
+              : "Transform your presence into a powerful visual message with rich content and 24/7 videos highlighting your brand every moment"
+            }
+          </p>
+          
+          {/* الأزرار */}
+          <div className={`flex flex-wrap gap-4 justify-center ${isRTL ? 'flex-row-reverse' : ''}`}>
             <motion.button
-              whileHover={{ scale: 1.05, y: -3 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`group px-10 py-5 bg-[#3960F9] text-white rounded-full font-bold text-lg hover:bg-[#2848C7] transition-all shadow-2xl hover:shadow-[#3960F9]/50 inline-flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}
+              className="px-8 py-4 bg-[#3960F9] text-white rounded-full font-bold text-lg hover:bg-[#2848C7] transition-all shadow-lg"
             >
-              <span>{t("button")}</span>
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
-              >
-                <Play className="w-5 h-5 fill-current" />
-              </motion.div>
+              {isRTL ? "تواصل معنا" : "Contact Us"}
             </motion.button>
-          </motion.div>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-white text-gray-900 border-2 border-gray-200 rounded-full font-bold text-lg hover:border-[#3960F9] hover:text-[#3960F9] transition-all"
+            >
+              {isRTL ? "تعلم المزيد" : "Learn More"}
+            </motion.button>
+          </div>
         </motion.div>
-      </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2 cursor-pointer"
-        >
+        {/* قسم الإحصائيات */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {/* الرسم البياني الشريطي - عدد المشاهدين */}
           <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 bg-white rounded-full"
-          />
-        </motion.div>
-      </motion.div>
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100"
+          >
+            <div className={`text-center mb-6 ${isRTL ? 'text-right' : 'text-left'}`}>
+              <p className="text-gray-600 text-sm mb-1">{isRTL ? "عدد المشاهدين" : "Number of Viewers"}</p>
+              <p className="text-4xl font-bold text-gray-900">60,000</p>
+            </div>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={viewerData}>
+                <Bar dataKey="viewers" fill="#3960F9" radius={[8, 8, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </motion.div>
+
+          {/* مقياس جنس المشاهدين */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100"
+          >
+            <div className="text-center">
+              <p className="text-gray-600 text-sm mb-4">{isRTL ? "جنس المشاهدين" : "Viewer Gender"}</p>
+              <div className="relative w-64 h-64 mx-auto">
+                {/* مقياس دائري مخصص */}
+                <svg viewBox="0 0 200 120" className="w-full h-full">
+                  {/* الخلفية */}
+                  <path
+                    d="M 20 100 A 80 80 0 0 1 180 100"
+                    fill="none"
+                    stroke="#E5E7EB"
+                    strokeWidth="20"
+                    strokeLinecap="round"
+                  />
+                  {/* التقدم */}
+                  <path
+                    d="M 20 100 A 80 80 0 0 1 180 100"
+                    fill="none"
+                    stroke="#3960F9"
+                    strokeWidth="20"
+                    strokeLinecap="round"
+                    strokeDasharray="251.2"
+                    strokeDashoffset="62.8"
+                  />
+                  {/* النص */}
+                  <text x="100" y="90" textAnchor="middle" fontSize="14" fill="#6B7280">
+                    {isRTL ? "الذكور" : "Male"}
+                  </text>
+                  <text x="100" y="110" textAnchor="middle" fontSize="32" fontWeight="bold" fill="#111827">
+                    64%
+                  </text>
+                </svg>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* الرسم البياني الدائري - حركة المشاهدين */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100"
+          >
+            <div className={`mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
+              <p className="text-gray-900 font-bold text-lg mb-1">
+                {isRTL ? "حركة المشاهدين حسب الموقع" : "Viewer Movement by Location"}
+              </p>
+            </div>
+            <div className="flex items-center justify-center">
+              <ResponsiveContainer width="100%" height={200}>
+                <PieChart>
+                  <Pie
+                    data={locationData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={80}
+                    paddingAngle={0}
+                    dataKey="value"
+                  >
+                    {locationData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+              <div className={`space-y-2 ${isRTL ? 'mr-4' : 'ml-4'}`}>
+                {locationData.map((item, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
+                    <span className="text-sm text-gray-700">{item.name}</span>
+                    <span className="text-sm font-bold">{item.value}%</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* خريطة الحرارة */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100"
+          >
+            <div className={`mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
+              <p className="text-gray-900 font-bold text-lg mb-1">
+                {isRTL ? "خريطة الحركة" : "Activity Heatmap"}
+              </p>
+            </div>
+            <div className="space-y-1">
+              {heatmapData.map((row, rowIndex) => (
+                <div key={rowIndex} className="flex gap-1 items-center">
+                  <span className="text-xs text-gray-500 w-8">{row.day}</span>
+                  {row.data.map((value, colIndex) => (
+                    <div
+                      key={colIndex}
+                      className="w-6 h-6 rounded-sm transition-all hover:scale-110"
+                      style={{
+                        backgroundColor: `rgba(57, 96, 249, ${value / 10})`,
+                      }}
+                      title={`${row.day} - ${months[colIndex]}: ${value}`}
+                    />
+                  ))}
+                </div>
+              ))}
+              <div className="flex gap-1 items-center pt-2">
+                <span className="text-xs text-gray-500 w-8"></span>
+                {months.map((month, index) => (
+                  <span key={index} className="text-xs text-gray-500 w-6 text-center">
+                    {month.substring(0, 1)}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className={`flex items-center gap-2 mt-4 justify-end ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <span className="text-xs text-gray-500">{isRTL ? "أقل" : "Less"}</span>
+              <div className="flex gap-1">
+                {[0.2, 0.4, 0.6, 0.8, 1].map((opacity, index) => (
+                  <div
+                    key={index}
+                    className="w-4 h-4 rounded-sm"
+                    style={{ backgroundColor: `rgba(57, 96, 249, ${opacity})` }}
+                  />
+                ))}
+              </div>
+              <span className="text-xs text-gray-500">{isRTL ? "أكثر" : "More"}</span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

@@ -1,9 +1,10 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import InnovationHero from "@/components/innovation-page/sections/InnovationHero/InnovationHero"
-import InnovationAbout from "@/components/innovation-page/sections/InnovationAbout/InnovationAbout"
-import InnovationServices from "@/components/innovation-page/sections/InnovationServices/InnovationServices"
-import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
+import InnovationSolutions from "@/components/innovation-page/sections/InnovationSolutions/InnovationSolutions"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
+import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
+import ExpoPartners from "@/components/expo-page/sections/ExpoPartners/ExpoPartners"
 
 interface InnovationPageProps {
   params: Promise<{
@@ -39,24 +40,25 @@ export default async function InnovationPage({ params }: InnovationPageProps) {
   return (
     <>
       {/* UnifiedHeader للدعم الديناميكي */}
-      <UnifiedHeader texts={texts} />
+      <UnifiedHeader texts={texts} hasBanner={false} />
 
       <PageTransition>
         <section id="hero">
           <InnovationHero />
         </section>
 
-        <section id="about">
-          <InnovationAbout lang={currentLang} />
+        <section id="solutions">
+          <InnovationSolutions />
         </section>
 
-        <section id="services">
-          <InnovationServices lang={currentLang} />
-        </section>
+        {/* Partners Section */}
+        <ExpoPartners />
 
-        <section id="projects">
-          <LatestProjects />
-        </section>
+        {/* Latest News Section */}
+        <LatestNews />
+
+        {/* Promo Section */}
+        <PromoSection />
       </PageTransition>
     </>
   )

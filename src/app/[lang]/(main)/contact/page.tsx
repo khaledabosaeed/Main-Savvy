@@ -1,6 +1,7 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import ContactPage from "@/components/contact-page/ContactPage"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
 
 interface ContactPageProps {
   params: Promise<{
@@ -26,11 +27,16 @@ export default async function Contact({ params }: ContactPageProps) {
 
   return (
     <>
-      <UnifiedHeader texts={texts} />
+      <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
         <section id="contact" className="pt-20">
           <ContactPage lang={currentLang} />
         </section>
+             {/* Latest News Section */}
+             {/* <LatestNews /> */}
+
+{/* Promo Section */}
+<PromoSection />
       </PageTransition>
     </>
   )

@@ -236,15 +236,14 @@ export default function LanguageSwitcher({
         disabled={isTransitioning}
         className={`
           flex items-center gap-2 px-4 py-2 
-          bg-white/10 hover:bg-white/20 
-          text-white rounded-full 
+          bg-gray-100 hover:bg-gray-200 
+          text-gray-900 rounded-full 
           transition-all duration-300
           text-sm font-medium whitespace-nowrap
           disabled:opacity-50 disabled:cursor-not-allowed
-          backdrop-blur-sm
-          border border-white/20
-          hover:border-white/30
-          shadow-lg hover:shadow-xl
+          border border-gray-300
+          hover:border-gray-400
+          shadow-sm hover:shadow-md
           ${isMobile ? 'w-full justify-center' : ''}
           ${className}
         `}
@@ -259,9 +258,9 @@ export default function LanguageSwitcher({
             ease: "easeInOut"
           }}
         >
-          <Globe className="w-4 h-4" />
+          <Globe className="w-5 h-5" />
         </motion.div>
-        <span>{currentLang === 'ar' ? 'EN' : 'AR'}</span>
+        <span className="font-semibold">{currentLang === 'ar' ? 'EN' : 'AR'}</span>
       </motion.button>
     </>
   );

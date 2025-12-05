@@ -2,9 +2,11 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { Facebook, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react"
+import { Instagram } from "lucide-react"
+import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6"
 import type { Language } from "./content"
 import { getFooterContent } from "./content"
+import Image from "next/image"
 
 interface UnifiedFooterProps {
   lang: Language
@@ -16,244 +18,161 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
   const footerRef = useRef(null)
   const isInView = useInView(footerRef, { once: true, amount: 0.2 })
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 }, 
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
+  const footerSections = [
+    {
+      title: isRTL ? "عالم سافي" : "Savvy World",
+      links: [
+        { label: isRTL ? "القسم عالم سافي" : "Savvy World Section", href: "#" },
+        { label: isRTL ? "اخر معارضنا" : "Latest Exhibitions", href: "#" },
+        { label: isRTL ? "معرض الميديا" : "Media Gallery", href: "#" },
+        { label: isRTL ? "اخبار سافي" : "Savvy News", href: "#" },
+      ]
     },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1],
-      },
+    {
+      title: isRTL ? "سافي ميديا" : "Savvy Media",
+      links: [
+        { label: isRTL ? "معرض الميديا" : "Media Gallery", href: "#" },
+        { label: isRTL ? "معارضنا" : "Our Exhibitions", href: "#" },
+        { label: isRTL ? "خدماتنا" : "Our Services", href: "#" },
+      ]
     },
-  }
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  const socialIcons = [
-    { icon: Linkedin, href: "https://linkedin.com", label: t("linkedin") },
-    { icon: Twitter, href: "https://twitter.com", label: t("twitter") },
-    { icon: Facebook, href: "https://facebook.com", label: t("facebook") },
-    { icon: Instagram, href: "https://instagram.com", label: t("instagram") },
+    {
+      title: isRTL ? "سافي اكسبو" : "Savvy Expo",
+      links: [
+        { label: isRTL ? "شراكاتنا السابقين" : "Previous Partnerships", href: "#" },
+        { label: isRTL ? "معارضنا" : "Our Exhibitions", href: "#" },
+        { label: isRTL ? "حلولنا" : "Our Solutions", href: "#" },
+      ]
+    },
+    {
+      title: isRTL ? "سافي ابتكار" : "Savvy Innovation",
+      links: [
+        { label: isRTL ? "شراكاتنا السابقين" : "Previous Partnerships", href: "#" },
+        { label: isRTL ? "حلولنا" : "Our Solutions", href: "#" },
+      ]
+    },
+    {
+      title: isRTL ? "صفحات اخرى" : "Other Pages",
+      links: [
+        { label: isRTL ? "تواصل معنا" : "Contact Us", href: "/contact" },
+        { label: isRTL ? "اخبار سافي" : "Savvy News", href: "#" },
+        { label: isRTL ? "معرض الميديا" : "Media Gallery", href: "#" },
+      ]
+    },
   ]
 
   return (
-    <footer ref={footerRef} className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-16 mt-20 overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.15, 0.1],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-1/2 -left-1/4 w-96 h-96 bg-[#3960F9]/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.15, 0.1, 0.15],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-1/2 -right-1/4 w-96 h-96 bg-[#3960F9]/15 rounded-full blur-3xl"
-        />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Scroll to Top Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center mb-12"
-        >
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.05, y: -3 }}
-            whileTap={{ scale: 0.95 }}
-            className="group px-6 py-3 bg-[#3960F9] rounded-full font-semibold hover:bg-[#2848C7] transition-all shadow-lg hover:shadow-[#3960F9]/50 inline-flex items-center gap-2"
-          >
-            <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
-            <span>{isRTL ? "العودة للأعلى" : "Back to Top"}</span>
-          </motion.button>
-        </motion.div>
-
+    <footer ref={footerRef} className="relative bg-white text-gray-700 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Main Footer Content */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12 ${isRTL ? 'text-right' : 'text-left'}`}
-        >
-          {/* Logo and Copyright Column */}
-          <motion.div  className="col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="mb-6">
-              {/* Logo */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="text-4xl font-bold mb-4 inline-block cursor-pointer"
-                style={{ fontFamily: 'cursive' }}
-              >
-                <span className="text-white">Sav</span>
-                <span className="text-[#3960F9]">vy</span>
-              </motion.div>
+        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12 ${isRTL ? 'text-right' : 'text-left'}`}>
+          {/* Logo Column - Takes 1 column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+            className="col-span-2 md:col-span-1 flex flex-col items-start"
+          >
+            {/* Logo */}
+            <div className="mb-4">
+              <Image
+                src="/Savvy 2 1.svg"
+                alt="Savvy Logo"
+                width={120}
+                height={60}
+                className="h-12 w-auto"
+              />
             </div>
-            <p className="text-gray-300 text-sm mb-6 max-w-xs leading-relaxed">
-              {isRTL 
-                ? "نقدم حلول تقنية مبتكرة لتحويل أفكارك إلى واقع رقمي متميز"
-                : "Providing innovative tech solutions to transform your ideas into exceptional digital reality"
+            <p className={`text-sm text-gray-600 leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}>
+              {isRTL
+                ? "بوابتك للعالم الجديد من الإكسبو والميديا والابتكار"
+                : "Your gateway to the new world of Expo, Media and Innovation"
               }
             </p>
-            <p className="text-gray-400 text-xs">
-              {t("copyright")}
-            </p>
           </motion.div>
 
-          {/* Savvy World Column */}
-          <motion.div >
-            <h3 className="text-lg font-bold mb-4 text-white border-b-2 border-[#3960F9] pb-2 inline-block">
-              {t("savvyWorld")}
-            </h3>
-            <ul className="space-y-3">
-              {[
-                { href: "#about", label: t("aboutSavvy") },
-                { href: "#tools", label: t("tools") },
-                { href: "#ai-center", label: t("aiCenter") },
-                { href: "#integration", label: t("integrationCenter") },
-              ].map((item, index) => (
-                <motion.li
-                  key={index}
-                  whileHover={{ x: isRTL ? -5 : 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <a href={item.href} className="text-gray-300 hover:text-[#3960F9] transition-colors text-sm flex items-center gap-2">
-                    <span className="w-1 h-1 bg-[#3960F9] rounded-full"></span>
-                    {item.label}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Smart Gallery Column */}
-          <motion.div >
-            <h3 className="text-lg font-bold mb-4 text-white border-b-2 border-[#3960F9] pb-2 inline-block">
-              {t("smartAI")}
-            </h3>
-            <ul className="space-y-3">
-              {[1, 2, 3, 4].map((num) => (
-                <motion.li
-                  key={num}
-                  whileHover={{ x: isRTL ? -5 : 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <a href={`#section-${num}`} className="text-gray-300 hover:text-[#3960F9] transition-colors text-sm flex items-center gap-2">
-                    <span className="w-1 h-1 bg-[#3960F9] rounded-full"></span>
-                    {/* {t(`section${num}`)} */}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Smart Media Column */}
-          <motion.div >
-            <h3 className="text-lg font-bold mb-4 text-white border-b-2 border-[#3960F9] pb-2 inline-block">
-              {t("intelligentAdvertising")}
-            </h3>
-            <ul className="space-y-3">
-              {[1, 2, 3, 4].map((num) => (
-                <motion.li
-                  key={num}
-                  whileHover={{ x: isRTL ? -5 : 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <a href={`#section-${num}`} className="text-gray-300 hover:text-[#3960F9] transition-colors text-sm flex items-center gap-2">
-                    <span className="w-1 h-1 bg-[#3960F9] rounded-full"></span>
-                    {/* {t(`section${num}`)} */}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Smart Innovation Column */}
-          <motion.div >
-            <h3 className="text-lg font-bold mb-4 text-white border-b-2 border-[#3960F9] pb-2 inline-block">
-              {t("exhibition")}
-            </h3>
-            <ul className="space-y-3">
-              {[1, 2, 3, 4].map((num) => (
-                <motion.li
-                  key={num}
-                  whileHover={{ x: isRTL ? -5 : 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <a href={`#section-${num}`} className="text-gray-300 hover:text-[#3960F9] transition-colors text-sm flex items-center gap-2">
-                    <span className="w-1 h-1 bg-[#3960F9] rounded-full"></span>
-                    {/* {t(`section${num}`)} */}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </motion.div>
+          {/* Footer Sections - 5 columns */}
+          {footerSections.map((section, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="col-span-1"
+            >
+              <h3 className="text-base font-bold mb-4 text-gray-900">
+                {section.title}
+              </h3>
+              <ul className="space-y-2.5">
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Divider */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-8"
-        />
+        <div className="h-px bg-gray-200 mb-8" />
 
-        {/* Bottom Section - Social Media */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex flex-col md:flex-row items-center justify-between gap-6"
-        >
+        {/* Bottom Section */}
+        <div className={`flex flex-col md:flex-row items-center justify-between gap-6 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
           {/* Social Icons */}
-          <div className="flex items-center gap-4">
-            <span className="text-gray-400 text-sm font-semibold">{t("socialMedia")}:</span>
-            <div className="flex gap-3">
-              {socialIcons.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 bg-white/10 hover:bg-[#3960F9] rounded-full flex items-center justify-center transition-colors group"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors" />
-                </motion.a>
-              ))}
-            </div>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
+              aria-label="Twitter"
+            >
+              <FaXTwitter className="w-5 h-5" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedinIn className="w-5 h-5" />
+            </a>
           </div>
 
-          {/* Additional Info */}
-          {/* <div className="text-gray-400 text-sm text-center md:text-right">
-            {isRTL ? "صُنع بـ ❤️ في السعودية" : "Made with ❤️ in Saudi Arabia"}
-          </div> */}
-        </motion.div>
+          {/* Copyright and Links */}
+          <div className={`flex flex-col md:flex-row items-center gap-4 text-sm text-gray-500 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
+            <span>
+              {isRTL
+                ? "حقوق النشر © 2025 سافي. جميع الحقوق محفوظة"
+                : "Copyright © 2025 Savvy. All rights reserved"
+              }
+            </span>
+            <div className="flex items-center gap-4">
+              <a href="#" className="hover:text-gray-900 transition-colors">
+                {isRTL ? "سياسة الخصوصية" : "Privacy Policy"}
+              </a>
+              <a href="#" className="hover:text-gray-900 transition-colors">
+                {isRTL ? "شروط الاستخدام" : "Terms of Use"}
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   )

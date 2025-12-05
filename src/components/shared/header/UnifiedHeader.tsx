@@ -7,17 +7,21 @@ import { usePathname } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
+import Badge from "../Badge/Badge"
 import { motion, AnimatePresence } from "framer-motion"
 
 interface UnifiedHeaderProps {
-  texts?: Record<string, string> // الآن اختياري مع قيمة افتراضية
+  texts?: Record<string, string>
+  showBadge?: boolean
+  hasBanner?: boolean
 }
 
-export default function UnifiedHeader({ texts = {} }: UnifiedHeaderProps) {
+export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner = true }: UnifiedHeaderProps) {
   const { language } = useLanguage()
   const lang = language as "en" | "ar"
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const isRTL = lang === "ar"
   const dropdownRef = useRef<HTMLDivElement>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -45,6 +49,16 @@ export default function UnifiedHeader({ texts = {} }: UnifiedHeaderProps) {
     }
   }, [isServicesOpen])
 
+  // Scroll detection to move navbar to top
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   // تنظيف timeout عند unmount
   useEffect(() => {
     return () => {
@@ -64,127 +78,132 @@ export default function UnifiedHeader({ texts = {} }: UnifiedHeaderProps) {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIsServicesOpen(false)
-    }, 200) // تأخير 200ms قبل الإغلاق
+    }, 200)
   }
 
   return (
     <>
-      <header
-        className="animate-slideDownFadeIn fixed top-4 left-0 right-0 z-50 flex justify-center px-4"
+      <motion.header
+        animate={{
+          top: isScrolled ? "0px" : (hasBanner ? "40px" : "0px")
+        }}
+        transition={{
+          duration: 0.3,
+          ease: [0.16, 1, 0.3, 1]
+        }}
+        className="fixed left-0 right-0 z-40 bg-white/95 backdrop-blur-md shadow-md"
       >
-        <div
-          className="rounded-full px-4 md:px-6 py-3 backdrop-blur-md w-full md:w-auto"
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.45)' }}
-        >
-          <div className={`flex items-center justify-between gap-4 md:gap-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <Link href={`/${lang}`}>
-                <Image
-                  src="/Savvy 2 1.svg"
-                  alt="Savvy"
-                  width={100}
-                  height={32}
-                  className="h-6 md:h-8 w-auto"
-                />
-              </Link>
-            </div>
+        <div className="w-full">
+          <div className="container mx-auto px-6 md:px-8 py-5">
+            <div className={`flex items-center justify-between gap-4 md:gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              {/* Logo */}
+              <div className="flex-shrink-0">
+                <Link href={`/${lang}`}>
+                  <Image
+                    src="/Savvy 2 1.svg"
+                    alt="Savvy"
+                    width={100}
+                    height={32}
+                    className="h-7 md:h-9 w-auto"
+                  />
+                </Link>
+              </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-2"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden text-gray-900 p-2"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
 
-            {/* Navigation */}
-            <nav className={`hidden md:flex items-center gap-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              {Object.entries(texts)
-                .filter(([key]) => key !== "ourServices" && key !== "contactUs")
-                .map(([key, value]) => (
-                  <Link
-                    key={key}
-                    href={`#${key}`}
-                    className="text-white hover:text-gray-200 transition-colors text-sm font-medium whitespace-nowrap"
+              {/* Navigation */}
+              <nav className={`hidden md:flex items-center gap-8 flex-1 justify-center ${isRTL ? 'flex-row-reverse' : ''}`}>
+                {Object.entries(texts)
+                  .filter(([key]) => key !== "ourServices" && key !== "contactUs")
+                  .map(([key, value]) => (
+                    <Link
+                      key={key}
+                      href={`#${key}`}
+                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium whitespace-nowrap flex items-center"
+                    >
+                      {value}
+                      {key === "whySavvy" && showBadge && <Badge text="1512 × 69" />}
+                    </Link>
+                  ))}
+
+                {/* Services Dropdown */}
+                {texts["ourServices"] && (
+                  <div
+                    ref={dropdownRef}
+                    className="relative"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    {value}
-                  </Link>
-                ))}
+                    <button
+                      onClick={() => setIsServicesOpen(!isServicesOpen)}
+                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap"
+                    >
+                      {texts["ourServices"]}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
 
-              {/* Services Dropdown */}
-              {texts["ourServices"] && (
-                <div
-                  ref={dropdownRef}
-                  className="relative"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
+                    <AnimatePresence>
+                      {isServicesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                          className={`absolute top-full mt-2 w-48 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? 'right-0' : 'left-0'}`}
+                        >
+                          <Link
+                            href={`/${lang}`}
+                            onClick={() => setIsServicesOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+                            {serviceSections[0]}
+                          </Link>
+                          <Link
+                            href={`/${lang}/expo`}
+                            onClick={() => setIsServicesOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+                            {serviceSections[1]}
+                          </Link>
+                          <Link
+                            href={`/${lang}/media`}
+                            onClick={() => setIsServicesOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+                            {serviceSections[2]}
+                          </Link>
+                          <Link
+                            href={`/${lang}/innovation`}
+                            onClick={() => setIsServicesOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+                            {serviceSections[3]}
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )}
+              </nav>
+
+              {/* Language Switcher & Contact Button */}
+              <div className={`hidden md:flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <LanguageSwitcher currentLang={lang} />
+                <Link
+                  href={`/${lang}/contact`}
+                  className="px-5 py-2 bg-[#0066FF] text-white rounded-full hover:bg-[#0052CC] transition-colors text-sm font-medium whitespace-nowrap"
                 >
-                  <button
-                    onClick={() => setIsServicesOpen(!isServicesOpen)}
-                    className="text-white hover:text-gray-200 transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap"
-                  >
-                    {texts["ourServices"]}
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                  </button>
-
-                  <AnimatePresence>
-                    {isServicesOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className={`absolute top-full mt-2 w-48 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? 'right-0' : 'left-0'}`}
-                      >
-                        <Link
-                          href={`/${lang}`}
-                          onClick={() => setIsServicesOpen(false)}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                        >
-                          {serviceSections[0]}
-                        </Link>
-                        <Link
-                          href={`/${lang}/expo`}
-                          onClick={() => setIsServicesOpen(false)}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                        >
-                          {serviceSections[1]}
-                        </Link>
-                        <Link
-                          href={`/${lang}/media`}
-                          onClick={() => setIsServicesOpen(false)}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                        >
-                          {serviceSections[2]}
-                        </Link>
-                        <Link
-                          href={`/${lang}/innovation`}
-                          onClick={() => setIsServicesOpen(false)}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                        >
-                          {serviceSections[3]}
-                        </Link>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              )}
-            </nav>
-
-            {/* Language Switcher */}
-            <div className="hidden md:block">
-              <LanguageSwitcher currentLang={lang} />
+                  {texts["contactUs"] || (lang === "ar" ? "اتصل بنا" : "Contact Us")}
+                </Link>
+              </div>
             </div>
-
-            {/* Contact Button */}
-            <Link
-              href={`/${lang}/contact`}
-              className="hidden md:block px-5 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-colors text-sm font-medium whitespace-nowrap"
-            >
-              {texts["contactUs"] || (lang === "ar" ? "اتصل بنا" : "Contact Us")}
-            </Link>
           </div>
 
           {/* Mobile Menu */}
@@ -264,7 +283,7 @@ export default function UnifiedHeader({ texts = {} }: UnifiedHeaderProps) {
             )}
           </AnimatePresence>
         </div>
-      </header>
+      </motion.header>
     </>
   )
 }
