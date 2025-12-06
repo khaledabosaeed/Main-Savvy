@@ -1,3 +1,4 @@
+import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection";
 import UnifiedFooter from "@/components/shared/footer/UnifiedFooter"
 import PageTransition from "@/components/shared/PageTransition"
 import PageTransitionProvider from "@/components/shared/PageTransitionProvider"
@@ -32,6 +33,7 @@ export default async function MainLayout({
           </main>
         </PageTransition>
       </PageTransitionProvider>
+      <PromoSection />
       <UnifiedFooter lang={lang} />
     </>
   );

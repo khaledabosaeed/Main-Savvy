@@ -53,7 +53,7 @@ export default function PageServices({
         </motion.div>
 
         {/* Services Grid - 2 Rows Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 max-w-6xl mx-auto">
           {services.map((service, index) => {
             const IconComponent = service.icon
 
@@ -63,7 +63,7 @@ export default function PageServices({
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`flex gap-6 items-start ${isRTL ? 'flex-row-reverse text-right' : 'flex-row text-left'}`}
+                className={`flex gap-6 flex-col items-center justify-center ${isRTL ? ' text-right' : 'text-left'}`}
               >
                 {/* Icon with Blue Background */}
                 <motion.div
@@ -75,7 +75,7 @@ export default function PageServices({
                 </motion.div>
 
                 {/* Text Content */}
-                <div className="flex-1 pt-2">
+                <div className="flex-1 pt-2 text-center">
                   {/* Title */}
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">
                     {service.title}

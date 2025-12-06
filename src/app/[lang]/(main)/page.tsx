@@ -5,11 +5,6 @@ import NewHero from "@/components/main-page/sections/NewHero/NewHero"
 import SavvySections from "@/components/main-page/sections/SavvySections/SavvySections"
 import GallerySection from "@/components/main-page/sections/GallerySection/GallerySection"
 import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
-import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
-import ToolsSection from "@/components/main-page/sections/ToolsSection/ToolsSection"
-import WhySavvy from "@/components/main-page/sections/WhySavvy/WhySavvy"
-import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
-import CTA from "@/components/main-page/sections/CTA/CTA"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import TopBanner from "@/components/shared/TopBanner/TopBanner"
 import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
@@ -17,19 +12,17 @@ import { useLanguage } from "@/contexts/LanguageContext"
 
 // نصوص الهيدر بالإنجليزية
 const headerTextsEn = {
-  whoWeAre: "Our Partners",
-  ourServices: "Our Sections",
-  whySavvy: "Data Expo",
-  latestProjects: "Latest Projects",
+  about: "Our Sections",
+  services: "Gallery",
+  news: "Latest News",
   contactUs: "Contact Us",
 }
 
 // نصوص الهيدر بالعربية
 const headerTextsAr = {
-  whoWeAre: "شركائنا",
-  ourServices: "أقسامنا",
-  whySavvy: "معرض البيانات",
-  latestProjects: "آخر مشاريعنا",
+  about: "أقسامنا",
+  services: "معرض الصور",
+  news: "آخر الأخبار",
   contactUs: "تواصل معنا",
 }
 
@@ -74,27 +67,12 @@ export default function Home() {
       </section>
 
       {/* Latest News Section */}
-      <LatestNews />
-
-      {/* Promo Section */}
-      <PromoSection />
-
-      {/* 
-      <section id="tools">
-        <ToolsSection />
-      </section> */}
-
-      {/* <section id="whySavvy">
-        <WhySavvy />
-      </section> */}
-
-      {/* <section id="latestProjects">
-        <LatestProjects />
+      <section id="news">
+        <LatestNews />
       </section>
 
-      <section id="contactUs">
-        <CTA />
-      </section> */}
+
+
     </>
   )
 }

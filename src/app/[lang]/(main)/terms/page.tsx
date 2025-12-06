@@ -30,7 +30,6 @@ export default async function Terms({ params }: TermsPageProps) {
       <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
         <TermsPage lang={currentLang} />
-        <PromoSection />
       </PageTransition>
     </>
   )

@@ -1,11 +1,9 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import ExpoHero from "@/components/expo-page/sections/ExpoHero/ExpoHero"
-import ExpoAbout from "@/components/expo-page/sections/ExpoAbout/ExpoAbout"
 import ExpoServices from "@/components/expo-page/sections/ExpoServices/ExpoServices"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
-import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
 import ExpoPartners from "@/components/expo-page/sections/ExpoPartners/ExpoPartners"
 
 interface ExpoPageProps {
@@ -17,19 +15,19 @@ interface ExpoPageProps {
 // نصوص الهيدر الخاصة بصفحة Expo
 const headerTextsEn = {
   hero: "Hero",
-  about: "About",
   services: "Services",
   projects: "Projects",
-  ourServices: "Our Services",
+  partners: "Partners",
+  news: "News",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
   hero: "الرئيسية",
-  about: "عن المعارض",
   services: "الخدمات",
   projects: "المشاريع",
-  ourServices: "خدماتنا",
+  partners: "الشركاء",
+  news: "الأخبار",
   contactUs: "تواصل معنا",
 }
 
@@ -45,9 +43,7 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
         <section id="hero">
           <ExpoHero lang={currentLang} />
         </section>
-        {/* <section id="about">
-          <ExpoAbout lang={currentLang} />
-        </section> */}
+   
         <section id="services">
           <ExpoServices lang={currentLang} />
         </section>
@@ -56,13 +52,15 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
         </section>
 
         {/* Partners Section */}
-        <ExpoPartners />
+        <section id="partners">
+          <ExpoPartners />
+        </section>
 
         {/* Latest News Section */}
-        <LatestNews />
+        <section id="news">
+          <LatestNews />
+        </section>
 
-        {/* Promo Section */}
-        <PromoSection />
       </PageTransition>
     </>
   )

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Monitor, Users, TrendingUp, Globe } from "lucide-react"
+import { Clock, Users, Heart, UserCheck } from "lucide-react"
 import type { Language } from "./content"
 import { getMediaContentText } from "./content"
 
@@ -16,10 +16,10 @@ export default function MediaContent({ lang }: MediaContentProps) {
     getMediaContentText(lang, key)
 
   const features = [
-    { icon: Users, text: t("feature1") },
-    { icon: TrendingUp, text: t("feature2") },
-    { icon: Monitor, text: t("feature3") },
-    { icon: Globe, text: t("feature4") },
+    { icon: Clock, text: t("feature1"), link: "https://example.com/duration-analysis" },
+    { icon: Users, text: t("feature2"), link: "https://example.com/visitor-analytics" },
+    { icon: Heart, text: t("feature3"), link: "https://example.com/sentiment-analysis" },
+    { icon: UserCheck, text: t("feature4"), link: "https://example.com/demographic-analysis" },
   ]
 
   return (
@@ -37,7 +37,7 @@ export default function MediaContent({ lang }: MediaContentProps) {
           >
             <div className="relative w-full h-full min-h-[400px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/team/member-1.jpg"
+                src="/media/seconed/one.jpg"
                 alt="Content Production"
                 fill
                 className="object-cover"
@@ -72,34 +72,47 @@ export default function MediaContent({ lang }: MediaContentProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:w-1/2 order-2 lg:order-1 relative"
           >
-            <div className="relative w-full h-full min-h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative w-full min-h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/MediaProjects/1.jpg"
+                src="/media/seconed/tow.jpg"
                 alt="Digital Display"
                 fill
                 className="object-cover"
               />
-              {/* Pattern Overlay */}
-              <div className="absolute top-8 right-8 w-24 h-24 opacity-20">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <pattern id="pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <polygon points="10,0 20,10 10,20 0,10" fill="#3960F9" />
-                  </pattern>
-                  <rect width="100" height="100" fill="url(#pattern)" />
-                </svg>
-              </div>
             </div>
 
-            {/* Stats Card */}
+            {/* Stats Card - البطاقة البيضاء */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-6 border border-gray-100"
+              className="absolute bottom-2 left-[-20px] bg-white rounded-2xl shadow-xl p-6 border border-gray-100 min-w-[220px]"
             >
-              <p className="text-gray-600 text-sm mb-2">{t("hours")}</p>
-              <p className="text-4xl font-bold text-[#3960F9]">24/7</p>
+              {/* شعار Savvy */}
+              <div className="mb-6 text-center">
+                <Image
+                    src="/Savvy 2 1.svg"
+                    alt="Savvy"
+                    width={100}
+                    height={32}
+                    className="h-7 md:h-9 w-auto"
+                  />
+              </div>
+              
+              {/* الإحصائيات */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* عدد التفاعلات */}
+                <div className="text-center">
+                  <p className="text-gray-600 text-xs mb-1">{t("activeEngagements")}</p>
+                  <p className="text-3xl font-bold text-gray-900">89</p>
+                </div>
+                {/* نسبة التشغيل */}
+                <div className="text-center">
+                  <p className="text-gray-600 text-xs mb-1">{t("uptime")}</p>
+                  <p className="text-3xl font-bold text-gray-900">99.4%</p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -130,40 +143,32 @@ export default function MediaContent({ lang }: MediaContentProps) {
               {t("bottomDescription")}
             </p>
 
-            {/* الإحصائيات */}
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              {/* عدد المشاريع */}
-              <div className="text-center">
-                <p className="text-gray-600 text-sm mb-2">{t("projectsDelivered")}</p>
-                <p className="text-5xl font-bold text-gray-900">89</p>
-              </div>
-              {/* نسبة الإشغال */}
-              <div className="text-center">
-                <p className="text-gray-600 text-sm mb-2">{t("occupancyRate")}</p>
-                <p className="text-5xl font-bold text-gray-900">99.4%</p>
-              </div>
-            </div>
+            {/* الإحصائيات - مخفية لأنها ستظهر في البطاقة فوق الصورة */}
 
             {/* المميزات */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {features.map((feature, index) => {
                 const IconComponent = feature.icon
                 return (
-                  <motion.div
+                  <motion.a
                     key={index}
+                    href={feature.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className={`flex items-center gap-3 p-4 bg-gray-50 rounded-2xl ${isRTL ? 'flex-row-reverse' : ''}`}
+                    whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(57, 96, 249, 0.15)" }}
+                    className={`flex items-center gap-3 p-4 bg-gray-50 rounded-2xl cursor-pointer transition-all ${isRTL ? 'flex-row-reverse' : ''}`}
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-[#3960F9] rounded-full flex items-center justify-center">
+                    <div className="shrink-0 w-12 h-12 bg-[#3960F9] rounded-full flex items-center justify-center">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <p className={`text-gray-900 font-medium ${isRTL ? 'text-right' : 'text-left'}`}>
                       {feature.text}
                     </p>
-                  </motion.div>
+                  </motion.a>
                 )
               })}
             </div>

@@ -2,112 +2,74 @@ export type Language = "en" | "ar"
 
 export const termsContent = {
   en: {
-    title: "Terms of Use",
-    lastUpdated: "Last updated: December 11, 2025",
-    
-    // Sections
+    title: "Terms and Conditions",
+    lastUpdated: "Last Updated: December 2024",
     acceptanceTitle: "Acceptance of Terms",
-    acceptanceContent: "By accessing or using Savvy World and its related services, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, you may not use our services.",
-    
+    acceptanceContent: "By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.",
     permittedUseTitle: "Permitted Use",
-    permittedContent: "You may use our services for lawful purposes only. You agree not to:",
+    permittedContent: "You are granted a limited license to access and use the services for lawful purposes only:",
     permittedList: [
-      "Violate any applicable laws or regulations",
-      "Infringe on intellectual property rights",
-      "Upload malicious content or software",
-      "Attempt to gain unauthorized access",
-      "Use the service for illegal activities"
+      "• Personal and non-commercial use",
+      "• Educational purposes",
+      "• Professional research"
     ],
-    
-    intellectualPropertyTitle: "Intellectual Property",
-    intellectualPropertyContent: "All content on Savvy World, including text, graphics, logos, images, and software, is the property of Savvy or its licensors and is protected by intellectual property laws.",
-    
-    userTeamTitle: "User Team",
-    userTeamContent: "We offer team services that include information sharing and collaboration. Team features may include the ability to:",
+    intellectualPropertyTitle: "Intellectual Property Rights",
+    intellectualPropertyContent: "All content included on this site is the property of Savvy or its content suppliers and is protected by applicable laws:",
+    intellectualPropertyList: [
+      "• Trademarks and service marks",
+      "• Text, graphics, logos, and images",
+      "• Software and code"
+    ],
+    intellectualPropertyFooter: "Unauthorized use of any content may violate copyright, trademark, and other laws.",
+    userTeamTitle: "User Responsibilities",
+    userTeamContent: "Users agree to:",
     userTeamList: [
-      "Create teams",
-      "Share files",
-      "Collaborate",
-      "Manage projects",
-      "Invite members"
+      "• Provide accurate information",
+      "• Maintain the security of their account",
+      "• Not engage in any unlawful activities"
     ],
-    
-    paymentTitle: "Payment Terms",
-    paymentContent: "Some services may require payment. By purchasing:",
-    paymentList: [
-      "You agree to provide accurate payment information",
-      "You authorize us to charge your payment method",
-      "All fees are non-refundable unless otherwise stated",
-      "Subscriptions renew automatically",
-      "We reserve the right to modify pricing with notice"
-    ],
-    
     modificationsTitle: "Modifications to Terms",
-    modificationsContent: "We reserve the right to modify these terms at any time. We will notify users of material changes through our platform or via email. Your continued use constitutes acceptance of the modified terms.",
-    
+    modificationsContent: "We reserve the right to modify these terms at any time. Your continued use of the site following any changes constitutes acceptance of those changes.",
     terminationTitle: "Termination",
-    terminationContent: "We may terminate or suspend your access immediately, without prior notice or liability, for any reason, including breach of these Terms.",
-    
-    contactTitle: "Contact Us",
-    contactContent: "If you have any questions about these Terms of Use, please contact us:",
-    contactEmail: "support@savvy.com",
-    contactPhone: "+966 50 123 4567",
+    terminationContent: "We may terminate or suspend access to our service immediately, without prior notice or liability, for any reason whatsoever.",
   },
   ar: {
-    title: "شروط الاستخدام",
-    lastUpdated: "آخر تحديث: 11 ديسمبر 2025",
-    
-    // Sections
+    title: "الشروط والأحكام",
+    lastUpdated: "آخر تحديث: ديسمبر 2024",
     acceptanceTitle: "قبول الشروط",
-    acceptanceContent: "بالدخول أو استعمال خدماتنا وموقع أو أي من منصة خدمات سافي ورلد، انت توافق على التزامات باللتزام بالإتفاقية. إذا كانت توافق على أي جزء من هذه شروط، غير من وصل بعدم استخدام الموقع.",
-    
+    acceptanceContent: "من خلال الوصول إلى هذا الموقع واستخدامه، فإنك توافق على الالتزام بشروط وأحكام هذه الاتفاقية.",
     permittedUseTitle: "الاستخدام المسموح",
-    permittedContent: "سيمكن أن تستخدام الموقع الجنجاري لمنزلة القاهارية فقط: المرفقة الملف:",
+    permittedContent: "يتم منحك ترخيصًا محدودًا للوصول إلى الخدمات واستخدامها للأغراض القانونية فقط:",
     permittedList: [
-      "المنتجات",
-      "الشمس",
-      "البيانات",
-      "الشارات",
-      "المعلومات"
+      "• الاستخدام الشخصي وغير التجاري",
+      "• الأغراض التعليمية",
+      "• البحث المهني"
     ],
-    
-    intellectualPropertyTitle: "الملكية الفكرية",
-    intellectualPropertyContent: "كل المحتوى الوراثي الموسائحة سيرتائج محاي شحري، الشعار، الفقيمات، وما الكثير رواك بمالكيية سافي وركنز الموسورة المحتوى من سندن على بالقوبانين المعاكية العنبركية والإكتنار.",
-    
-    userTeamTitle: "فريق المستخدم",
-    userTeamContent: "نوفر أن خدمات الزفريزق العمل المانحة لمعلومات المشاركة ويتضن التالي (رؤوس عروض ، منافس ، مريح، زيارة، بمح المحتوى الدوري - أحجانا، مواصل، بحميا، حرا الأنشء أو الزادمين):",
+    intellectualPropertyTitle: "حقوق الملكية الفكرية",
+    intellectualPropertyContent: "جميع المحتويات المدرجة في هذا الموقع هي ملك لشركة سافي أو موردي المحتوى الخاصين بها ومحمية بموجب القوانين المعمول بها:",
+    intellectualPropertyList: [
+      "• العلامات التجارية وعلامات الخدمة",
+      "• النصوص والرسومات والشعارات والصور",
+      "• البرمجيات والأكواد"
+    ],
+    intellectualPropertyFooter: "قد يؤدي الاستخدام غير المصرح به لأي محتوى إلى انتهاك حقوق النشر والعلامات التجارية والقوانين الأخرى.",
+    userTeamTitle: "مسؤوليات المستخدم",
+    userTeamContent: "يوافق المستخدمون على:",
     userTeamList: [
-      "إنشاء الزفارق",
-      "مشاركة معلومات",
-      "مشاركة الفترق الشريعية",
-      "إدارة سفر المشارك المساعمة",
-      "أي مساهمة استرجلاه استخدام بشكل"
+      "• تقديم معلومات دقيقة",
+      "• الحفاظ على أمان حساباتهم",
+      "• عدم الانخراط في أي أنشطة غير قانونية"
     ],
-    
-    paymentTitle: "فريق المعلومات",
-    paymentContent: "قمن نسعى لتقديم معلومات: إبة يحتوج دقيقة الان.",
-    paymentList: [
-      "أنت نتعليق أن نقدام معلومات: أي يحتاج بدقيف",
-      "لا نحتفن أي تخويف منكعموات دخل الخدمات ودقن امجوال",
-      "لا نسمح بم انواع أو الأربلام أو الإختلافات",
-      "استخدام أو مفاورة أي معستانيية المحتسببة",
-      "استخدام محاور المنظامة ضد المستدامة"
-    ],
-    
-    modificationsTitle: "التغييرات على الشروط",
-    modificationsContent: "نحتفظ بالحق في تعديل شروط الاستخدام في اي وقت وأي نشعر المستخدمين أي استخدام تغييرات محيرة عبد البريد أو المنصة. استمرارك في استخدام يتكني الموافقة المعليه.",
-    
+    modificationsTitle: "التعديلات على الشروط",
+    modificationsContent: "نحتفظ بالحق في تعديل هذه الشروط في أي وقت. يشكل استمرارك في استخدام الموقع بعد أي تغييرات قبولاً لتلك التغييرات.",
     terminationTitle: "الإنهاء",
-    terminationContent: "قد نقوم مقابطة في إلأونهاء أو تعليمة بالوصول للخدمه فوراً، دون إشعار أي مسؤولية مسبوب، لأي سبب، يضمن نوخاتانق هذه الشروط.",
-    
-    contactTitle: "تواصل معنا",
-    contactContent: "إذا كان لديك أي أسئلة مفاعل شروط الاستخدام، يرجى التواصل معنا:",
-    contactEmail: "support@savvy.com",
-    contactPhone: "+966 50 123 4567",
-  },
+    terminationContent: "يجوز لنا إنهاء أو تعليق الوصول إلى خدمتنا على الفور، دون إشعار مسبق أو مسؤولية، لأي سبب كان.",
+  }
 }
 
-export const getTermsContent = (lang: Language, key: keyof typeof termsContent.en) => {
+export function getTermsContent<K extends keyof typeof termsContent.en>(
+  lang: Language,
+  key: K
+): typeof termsContent.en[K] {
   return termsContent[lang][key]
 }
-

@@ -49,3 +49,6 @@ export const getFaqContent = (lang: Language, key: keyof typeof faqContent.en) =
   return faqContent[lang][key]
 }
 
+
+
+

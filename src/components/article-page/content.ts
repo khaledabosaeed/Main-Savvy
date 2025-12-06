@@ -72,3 +72,6 @@ export const getArticleBySlug = (slug: string): Article | null => {
   return articlesData[slug] || null
 }
 
+
+
+

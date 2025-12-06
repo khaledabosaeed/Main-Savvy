@@ -30,14 +30,8 @@ export default function SavvySectionCard({
     const isRTL = language === "ar"
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="relative rounded-2xl overflow-hidden p-8 md:p-12"
-            style={{ backgroundColor: '#F6F6F6' }}
-        >
+        <Link href={`/${language}${link}`} className="relative rounded-2xl overflow-hidden p-8 md:p-12 block" style={{ backgroundColor: '#F6F6F6' }}>
+
             {/* Top Section: Icon + Title + Description */}
             <div className={`flex items-start gap-6 mb-8 `}>
                 {/* Icon */}
@@ -72,8 +66,8 @@ export default function SavvySectionCard({
                 <div className={`flex flex-col justify-between ${isRTL ? 'md:order-2' : ''}`}>
                     <ul className="space-y-3 mb-8">
                         {features.map((feature, idx) => (
-                            <li key={idx} className={`flex items-start gap-3 ${isRTL ? '' : ''}`}>
-                                <span className="text-gray-900 font-bold min-w-[2.5rem] text-sm">
+                            <li key={idx} className={`flex items-start gap-3 border-b border-[rgba(0,0,0,0.2)] ${isRTL ? '' : ''}`}>
+                                <span className="text-gray-900 font-bold min-w-[2.5rem] text-sm pb-2">
                                     {String(idx + 1).padStart(2, '0')}
                                 </span>
                                 <span className="text-gray-700 text-sm">{feature}</span>
@@ -110,13 +104,13 @@ export default function SavvySectionCard({
             </div>
 
             {/* Decorative Pattern at Bottom */}
-            <div
+            {/* <div
                 className="absolute bottom-0 left-0 right-0 h-3 w-full"
                 style={{
                     backgroundImage: 'repeating-linear-gradient(90deg, #3B82F6 0px, #3B82F6 10px, transparent 10px, transparent 20px)',
                     backgroundSize: '20px 100%'
                 }}
-            />
-        </motion.div>
+            /> */}
+        </Link>
     )
 }

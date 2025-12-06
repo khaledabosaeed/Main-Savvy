@@ -30,7 +30,6 @@ export default async function News({ params }: NewsPageProps) {
       <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
         <NewsPage lang={currentLang} />
-        <PromoSection />
       </PageTransition>
     </>
   )

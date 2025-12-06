@@ -70,13 +70,14 @@ export default function ExpoHero({ lang }: ExpoHeroProps) {
                 {isRTL ? "تعلم المزيد" : "Learn More"}
               </motion.button>
 
-              <motion.button
-                className="px-8 py-4 bg-white text-gray-900 border-2 border-gray-200 rounded-xl font-semibold hover:border-gray-300 transition-all"
+              <motion.a
+                href={`/${lang}/contact`}
+                className="inline-block px-8 py-4 bg-white text-gray-900 border-2 border-gray-200 rounded-xl font-semibold hover:border-gray-300 transition-all"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {isRTL ? "تواصل معنا" : "Contact Us"}
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
 

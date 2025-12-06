@@ -19,13 +19,13 @@ export const whySavvyContent = {
     subtitle: "لأن رسالتك نستحق أن تُعرض بشكل جميل وفعّال",
     
     feature1Title: "حلول عرض متكاملة",
-    feature1Description: "شبكة شاشات داخلية وخارجية بتجارب تفاعلية متميزة على مدار الساعة",
+    feature1Description: "شبكة شاشات داخلية وخارجية بمعايير تجارية تعمل على مدار الساعة",
     
     feature2Title: "محتوى غامر يرفع حضور العلامة",
-    feature2Description: "تقنيات 3D، AR، Hyper Realistic تمنحك تجربة بصرية قوية وجذابة للجمهور",
+    feature2Description: "تقنيات Hyper Realistic وAR و3D تمنحك تجربة بصرية قوية وجاذبة للجمهور",
     
     feature3Title: "استهداف وقياس يعتمد على البيانات",
-    feature3Description: "تحليلات دقيقة لفهم الزوار وتقاييم لتحسين اداة الحملات وتتبع النتائج",
+    feature3Description: "تحليلات دقيقة لحركة الزوار وتفاعلهم لتحسين أداء الحملات ورفع النتائج",
   },
 }
 

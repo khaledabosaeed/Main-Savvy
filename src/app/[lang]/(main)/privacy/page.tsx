@@ -30,7 +30,6 @@ export default async function Privacy({ params }: PrivacyPageProps) {
       <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
         <PrivacyPage lang={currentLang} />
-        <PromoSection />
 
       </PageTransition>
     </>

@@ -18,6 +18,8 @@ export default function PrivacyPage({ lang }: PrivacyPageProps) {
     {
       title: t("introTitle"),
       content: t("introContent"),
+      list: t("introList") as string[],
+      footer: t("introFooter"),
     },
     {
       title: t("dataCollectionTitle"),
@@ -45,7 +47,7 @@ export default function PrivacyPage({ lang }: PrivacyPageProps) {
       content: t("yourRightsContent"),
       list: t("yourRightsList") as string[],
     },
-  ]
+  ].filter(section => section.title && section.content)
 
   return (
     <div className="min-h-screen bg-white">
@@ -104,18 +106,24 @@ export default function PrivacyPage({ lang }: PrivacyPageProps) {
                 </p>
 
                 {/* List if exists */}
-                {section.list && (
-                  <ul className={`space-y-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+                {section.list && section.list.length > 0 && (
+                  <ul className={`space-y-3 mb-6 ${isRTL ? 'text-right' : 'text-left'}`}>
                     {section.list.map((item: string, i: number) => (
                       <li
                         key={i}
-                        className={`flex items-start gap-3 text-gray-700 ${isRTL ? 'flex-row-reverse' : ''}`}
+                        className={`text-gray-700 text-lg ${isRTL ? 'text-right' : 'text-left'}`}
                       >
-                        <span className="w-2 h-2 bg-[#3960F9] rounded-full mt-2 flex-shrink-0" />
-                        <span className="flex-1">{item}</span>
+                        {item}
                       </li>
                     ))}
                   </ul>
+                )}
+
+                {/* Footer text if exists */}
+                {section.footer && (
+                  <p className={`text-gray-700 leading-relaxed text-lg ${isRTL ? 'text-right' : 'text-left'}`}>
+                    {section.footer}
+                  </p>
                 )}
 
                 {/* Divider */}
@@ -125,92 +133,10 @@ export default function PrivacyPage({ lang }: PrivacyPageProps) {
               </motion.div>
             ))}
 
-            {/* Contact Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mt-16 p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl"
-            >
-              <h2 className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${isRTL ? 'text-right' : 'text-left'}`}>
-                {t("contactTitle")}
-              </h2>
-              <p className={`text-gray-700 leading-relaxed text-lg mb-8 ${isRTL ? 'text-right' : 'text-left'}`}>
-                {t("contactContent")}
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Email */}
-                <motion.a
-                  href={`mailto:${t("contactEmail")}`}
-                  whileHover={{ scale: 1.02 }}
-                  className={`flex items-center gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all ${isRTL ? 'flex-row-reverse' : ''}`}
-                >
-                  <div className="w-12 h-12 bg-[#3960F9]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-[#3960F9]" />
-                  </div>
-                  <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
-                    <p className="text-sm text-gray-600 mb-1">
-                      {isRTL ? "البريد الإلكتروني" : "Email"}
-                    </p>
-                    <p className="font-semibold text-gray-900">{t("contactEmail")}</p>
-                  </div>
-                </motion.a>
-
-                {/* Phone */}
-                <motion.a
-                  href={`tel:${t("contactPhone")}`}
-                  whileHover={{ scale: 1.02 }}
-                  className={`flex items-center gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all ${isRTL ? 'flex-row-reverse' : ''}`}
-                >
-                  <div className="w-12 h-12 bg-[#3960F9]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-[#3960F9]" />
-                  </div>
-                  <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
-                    <p className="text-sm text-gray-600 mb-1">
-                      {isRTL ? "رقم الهاتف" : "Phone"}
-                    </p>
-                    <p className="font-semibold text-gray-900" dir="ltr">{t("contactPhone")}</p>
-                  </div>
-                </motion.a>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      {/* <section className="py-20 bg-gradient-to-br from-[#3960F9] to-[#2848C7]">
-        <div className="container px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className={`text-center text-white max-w-3xl mx-auto ${isRTL ? 'rtl' : 'ltr'}`}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {isRTL
-                ? "هل لديك أسئلة؟"
-                : "Have Questions?"}
-            </h2>
-            <p className="text-lg mb-8 text-white/90">
-              {isRTL
-                ? "نحن هنا للمساعدة. تواصل معنا في أي وقت"
-                : "We're here to help. Contact us anytime"}
-            </p>
-            <motion.a
-              href={`/${lang}/contact`}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block px-8 py-4 bg-white text-[#3960F9] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-lg"
-            >
-              {isRTL ? "تواصل معنا" : "Contact Us"}
-            </motion.a>
-          </motion.div>
-        </div>
-      </section> */}
     </div>
   )
 }

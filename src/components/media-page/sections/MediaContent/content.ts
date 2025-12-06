@@ -8,21 +8,21 @@ export const mediaContentData = {
     
     // Bottom Section
     bottomTitle: "Indoor and outdoor digital screens for commercial use 24/7",
-    bottomDescription: "Interactive smart display network operating 24/7 with high-resolution, scalable displays. To provide an unprecedented interactive display experience, reaching thousands of visitors, customers, and occupants. Ideal display solution for commercial complexes, waiting areas, entertainment venues, and media communication reaches up to 250 users.",
+    bottomDescription: "An interactive network of indoor and outdoor smart displays operating 24/7 with high-resolution panels, weather-resistant. Managed by artificial intelligence that targets content, audience satisfaction, and attendance, along with targeted demographics. Visitor traffic, and impressions to enhance the effectiveness of ongoing promotional campaigns with a reach of up to 250.",
     
     // Stats
-    projectsDelivered: "Projects Delivered",
-    occupancyRate: "Occupancy Rate",
+    activeEngagements: "Active Engagements",
+    uptime: "Uptime",
     hours: "Hours",
     
     // Features
-    feature1: "Customer data analysis",
-    feature2: "Content analysis and trends",
-    feature3: "Data and statistics analysis",
-    feature4: "Arabic and English display",
+    feature1: "Duration analysis",
+    feature2: "Total visitors and attendance",
+    feature3: "Sentiment and impression analysis",
+    feature4: "Age and gender analysis",
     
     // Button
-    button: "Contact us to showcase your content",
+    button: "First of its kind in Saudi Arabia",
   },
   ar: {
     // Top Section
@@ -31,21 +31,21 @@ export const mediaContentData = {
     
     // Bottom Section
     bottomTitle: "شاشات رقمية داخلية وخارجية للاستخدام التجاري على مدار 24/7",
-    bottomDescription: "شبكة شاشات ذكية بتقنية وعالية الدقة 24/7 بلوحات عالية السطوع، مقاومة للظروف، من قبل التضمين عن طريق الذكاء الاصطناعي الذي يُمهد إيصال الإعلانات. تصل عدد الزوار والجالسين، وتصل مدة الذاعة السرعية المستهدفة والامتاع والاطلاعات لزبارة شرائع الحملة الدورية يونية بنسبة تصل إلى 250",
+    bottomDescription: "شبكة شاشات داخلية وخارجية تعمل 24/7 بلوحات عالية السطوع، مقاومة للطقس، مع إدارة المحتوى عن طريق الذكاء الذي يتفاعل عدد وقيد واستهداف الاستهداف الذي نقيس إجمالي عدد الزوار والحضور، وتحليل مدة التواجد، والفئة العمرية، والمشاعر والانطباعات لزيادة فعالية الحملة الترويجية بنسبة تصل إلى %50",
     
     // Stats
-    projectsDelivered: "عدد المشاريع المسلمة",
-    occupancyRate: "نسبة الإشغال",
+    activeEngagements: "عدد التفاعلات الفعالة",
+    uptime: "نسبة التشغيل",
     hours: "ساعات",
     
     // Features
-    feature1: "تحليل بيانات الزوار",
-    feature2: "إحصاء الزوار والحضور",
-    feature3: "تحليل البيانات والإحصائيات",
-    feature4: "عرض اللغة العربية والإنجليزية",
+    feature1: "تحليل مدة التواجد",
+    feature2: "إجمالي عدد الزوار والحضور",
+    feature3: "تحليل المشاعر والانطباعات",
+    feature4: "تحليل الفئة العمرية والجنس",
     
     // Button
-    button: "إطلع من نوافذنا الى العمومية",
+    button: "الأولى من نوعها في السعودية",
   },
 }
 

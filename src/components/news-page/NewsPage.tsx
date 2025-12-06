@@ -124,36 +124,7 @@ export default function NewsPage({ lang }: NewsPageProps) {
         </div>
       </section>
 
-      {/* CTA Section */}
-      {/* <section className="py-20 bg-gradient-to-br from-[#3960F9] to-[#2848C7]">
-        <div className="container px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className={`text-center text-white max-w-3xl mx-auto ${isRTL ? 'rtl' : 'ltr'}`}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {isRTL
-                ? "هل تريد معرفة المزيد عن خدماتنا؟"
-                : "Want to know more about our services?"}
-            </h2>
-            <p className="text-lg mb-8 text-white/90">
-              {isRTL
-                ? "تواصل معنا اليوم ودعنا نساعدك في تحقيق أهدافك"
-                : "Contact us today and let us help you achieve your goals"}
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white text-[#3960F9] rounded-xl font-bold text-lg hover:bg-gray-100 transition-all shadow-lg"
-            >
-              {isRTL ? "تواصل معنا" : "Contact Us"}
-            </motion.button>
-          </motion.div>
-        </div>
-      </section> */}
+
     </div>
   )
 }

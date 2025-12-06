@@ -4,7 +4,6 @@ import MediaContent from "@/components/media-page/sections/MediaContent/MediaCon
 import WhySavvy from "@/components/media-page/sections/WhySavvy/WhySavvy"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
-import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
 import GallerySection from "@/components/main-page/sections/GallerySection/GallerySection"
 
 interface MediaPageProps {
@@ -16,21 +15,19 @@ interface MediaPageProps {
 // نصوص الهيدر الخاصة بصفحة Media
 const headerTextsEn = {
   hero: "Hero",
-  about: "About",
-  projects: "Projects",
-  services: "Services",
-  partners: "Partners",
-  ourServices: "Our Services",
+  content: "Content",
+  gallery: "Gallery",
+  "why-savvy": "Why Savvy",
+  news: "News",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
   hero: "الرئيسية",
-  about: "عن الميديا",
-  projects: "المشاريع",
-  services: "الخدمات",
-  partners: "الشركاء",
-  ourServices: "خدماتنا",
+  content: "المحتوى",
+  gallery: "معرض الميديا",
+  "why-savvy": "لماذا سافي",
+  news: "الأخبار",
   contactUs: "تواصل معنا",
 }
 
@@ -51,15 +48,19 @@ export default async function MediaPage({ params }: MediaPageProps) {
           <MediaContent lang={currentLang} />
         </section>
     
-      
-        <GallerySection />
+        <section id="gallery">
+          <GallerySection />
+        </section>
 
-        <WhySavvy lang={currentLang} />
-              {/* Latest News Section */}
-              <LatestNews />
+        <section id="why-savvy">
+          <WhySavvy lang={currentLang} />
+        </section>
 
-{/* Promo Section */}
-<PromoSection />
+        {/* Latest News Section */}
+        <section id="news">
+          <LatestNews />
+        </section>
+
       </PageTransition>
     </>
   )

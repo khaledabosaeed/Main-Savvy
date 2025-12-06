@@ -17,19 +17,20 @@ export default function PromoSection() {
                 <div className={`relative flex flex-col md:flex-row items-center gap-12 md:gap-16 bg-[#F4F4F4] rounded-3xl p-8 md:p-16 shadow-xl overflow-visible ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
                     {/* Image - Left side (or right in RTL) - Overflowing */}
                     <motion.div
-                        className="flex-shrink-0 w-full  md:w-96 md:-my-24 md:-ml-8 "
-                        initial={{ opacity: 0, x: lang === 'ar' ? 50 : -50 }}
+                        className={`shrink-0 w-full md:w-96 md:-my-24 ${lang === 'ar' ? 'md:-mr-8' : 'md:-ml-8'}`}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <Image
-                            src={content.image}
-                            alt="Savvy World"
-                            width={450}
-                            height={600}
-                            className="w-full h-auto object-contain drop-shadow-2xl"
-                        />
+                        <div className="relative md:absolute md:top-[-100px] rotate-y-180">
+                            <Image
+                                src={content.image}
+                                alt="Savvy World"
+                                width={450}
+                                height={600}
+                                className="w-full h-auto object-contain ml-50 drop-shadow-2xl"
+                            />
+                        </div>
                     </motion.div>
 
                     {/* Text Content - Right side (or left in RTL) */}

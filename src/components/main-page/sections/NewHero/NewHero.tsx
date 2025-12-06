@@ -7,7 +7,6 @@ import { useEffect, useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import type { Language } from "./content"
 import { getHeroContent } from "./content"
-import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
 
 export default function NewHero() {
   const [animate, setAnimate] = useState(false)
@@ -20,41 +19,50 @@ export default function NewHero() {
     setAnimate(true)
   }, [])
 
-  // Enhanced animation variants - Sequence: Image -> Blur -> Text
+  // Enhanced animation variants with beautiful entrance effect
   const imageVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { 
+      opacity: 0, 
+      scale: 0.85,
+      y: 60,
+      rotateX: 15,
+    },
     visible: {
       opacity: 1,
       scale: 1,
+      y: 0,
+      rotateX: 0,
       transition: {
-        duration: 0.8,
-        delay: 0,
-        ease: [0.16, 1, 0.3, 1] as any,
+        duration: 1.2,
+        delay: 0.3,
+        ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
   }
 
   const blurVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 0.3,
+      scale: 1,
       transition: {
-        duration: 0.6,
-        delay: 0.3,
-        ease: [0.16, 1, 0.3, 1] as any,
+        duration: 1,
+        delay: 0.5,
+        ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
   }
 
   const titleVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.6,
-        delay: 0.6,
-        ease: [0.16, 1, 0.3, 1] as any,
+        duration: 0.8,
+        delay: 0,
+        ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
   }
@@ -65,17 +73,17 @@ export default function NewHero() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        delay: 0.8,
-        ease: [0.16, 1, 0.3, 1] as any,
+        duration: 0.7,
+        delay: 0.15,
+        ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden pt-[120px]">
+    <section className="relative min-h-screen flex flex-col pt-[120px] overflow-visible md:overflow-hidden">
       {/* Enhanced gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-blue-50/30 to-white" />
+      <div className="absolute inset-0 bg-linear-to-b from-gray-50 via-blue-50/30 to-white" />
 
       {/* Large radial glow behind image area */}
       <div
@@ -117,45 +125,113 @@ export default function NewHero() {
             initial="hidden"
             animate={animate ? "visible" : "hidden"}
             transition={{ delay: 0.4 }}
-            className="text-sm md:text-base text-gray-500 mb-8 max-w-3xl mx-auto"
+            className="text-sm md:text-base text-gray-500 mb-3 max-w-3xl mx-auto"
           >
             {t("subDescription")}
           </motion.p>
 
-          {/* Robot Image with edge blending */}
+          {/* Robot Image with enhanced blending */}
           <motion.div
             variants={imageVariants}
             initial="hidden"
             animate={animate ? "visible" : "hidden"}
-            className="relative w-full max-w-3xl mx-auto mb-4"
+            whileHover={{ 
+              scale: 1.03,
+              transition: { duration: 0.4, ease: [0.22, 0.61, 0.36, 1] as any }
+            }}
+            className="relative w-full max-w-5xl mx-auto mb-4"
+            style={{ perspective: '1000px' }}
           >
             <div className="relative">
-              <Image
-                src="/home-page/hero/new.png"
-                alt="Robot hand with coffee"
-                width={900}
-                height={900}
-                className="object-contain w-full h-auto drop-shadow-2xl relative z-10"
-                priority
-              />
-              {/* Original blur effect behind image - blue to purple */}
-              <motion.div
-                variants={blurVariants}
-                initial="hidden"
-                animate={animate ? "visible" : "hidden"}
-                className="absolute inset-0 -z-10 blur-3xl bg-gradient-to-b from-blue-200 to-purple-200"
-              />
-              {/* Subtle edge fade to blend with background */}
-              <div
-                className="absolute inset-0 pointer-events-none z-20"
-                style={{
-                  maskImage: 'radial-gradient(ellipse 70% 65% at 50% 45%, black 40%, black 60%, transparent 95%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 70% 65% at 50% 45%, black 40%, black 60%, transparent 95%)'
-                }}
-              >
-                <div className="w-full h-full bg-gradient-to-b from-blue-50/20 via-transparent to-white/30" />
-              </div>
-            </div>
+
+{/* Main Image wrapper */}
+<div className="relative z-10">
+
+  {/* Top fog overlay ON TOP of image */}
+  <div
+    className="absolute top-0 left-0 right-0 pointer-events-none z-30"
+    style={{
+      height: "45%",
+      background:
+        "linear-gradient(to bottom, rgba(255,255,255,0.90), rgba(255,255,255,0))",
+      filter: "blur(35px)",
+      opacity: 0.85,
+    }}
+  />
+
+  {/* Main Image with enhanced styling */}
+  <Image
+    src="/home-page/hero/new.png"
+    alt="Robot hand with coffee"
+    width={1200}
+    height={1200}
+    className="object-contain w-full h-auto relative z-10"
+    priority
+    style={{
+      filter: "brightness(1.05) contrast(1.02) saturate(0.95)",
+      WebkitMaskImage:
+        "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0.95) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
+      maskImage:
+        "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0.95) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
+    }}
+  />
+
+  {/* Gradient overlay at bottom */}
+  <div
+    className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none"
+    style={{
+      background:
+        "linear-gradient(to bottom, transparent 0%, rgba(147, 197, 253, 0.05) 40%, rgba(196, 181, 253, 0.08) 70%, rgba(255, 255, 255, 0.15) 100%)",
+      mixBlendMode: "multiply",
+      opacity: 0.4,
+    }}
+  />
+
+  {/* Soft glow behind hands */}
+  <div
+    className="absolute inset-0 -z-10"
+    style={{
+      filter: "blur(40px)",
+      opacity: 0.12,
+      background:
+        "radial-gradient(ellipse 60% 50% at 50% 45%, rgba(147, 197, 253, 0.3) 0%, rgba(196, 181, 253, 0.2) 40%, transparent 70%)",
+    }}
+  />
+</div>
+
+{/* Enhanced depth layer */}
+<div
+  className="absolute top-2 left-1/2 -translate-x-1/2 w-[95%] h-[95%] -z-20 opacity-15"
+  style={{
+    filter: "blur(30px)",
+    background:
+      "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(59, 130, 246, 0.25) 0%, rgba(147, 51, 234, 0.2) 50%, transparent 70%)",
+  }}
+/>
+
+{/* Background animated blur */}
+<motion.div
+  variants={blurVariants}
+  initial="hidden"
+  animate={animate ? "visible" : "hidden"}
+  className="absolute inset-0 -z-30 blur-3xl"
+  style={{
+    background:
+      "linear-gradient(to bottom, rgba(147, 197, 253, 0.15) 0%, rgba(196, 181, 253, 0.12) 100%)",
+  }}
+/>
+
+{/* Ground shadow */}
+<div
+  className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-24 -z-40"
+  style={{
+    background:
+      "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(147, 197, 253, 0.5) 0%, rgba(147, 197, 253, 0.2) 50%, transparent 100%)",
+    filter: "blur(40px)",
+  }}
+/>
+</div>
+
           </motion.div>
         </div>
       </div>

@@ -32,11 +32,7 @@ export default async function Contact({ params }: ContactPageProps) {
         <section id="contact" className="pt-20">
           <ContactPage lang={currentLang} />
         </section>
-             {/* Latest News Section */}
-             {/* <LatestNews /> */}
 
-{/* Promo Section */}
-<PromoSection />
       </PageTransition>
     </>
   )

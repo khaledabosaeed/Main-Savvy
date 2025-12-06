@@ -45,7 +45,7 @@ export default function InnovationSolutions() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`text-center mb-4 ${isRTL ? 'rtl' : 'ltr'}`}
+          className={`mb-4 ${isRTL ? 'rtl text-right' : 'ltr text-left'}`}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
             {t("title")}
@@ -58,9 +58,9 @@ export default function InnovationSolutions() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className={`text-center mb-16 ${isRTL ? 'rtl' : 'ltr'}`}
+          className={`mb-16 ${isRTL ? 'rtl text-right' : 'ltr text-left'}`}
         >
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg max-w-2xl">
             {t("subtitle")}
           </p>
         </motion.div>
@@ -82,9 +82,9 @@ export default function InnovationSolutions() {
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.3 }}
-                  className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-6"
+                  className="w-16 h-16 flex items-center justify-center mb-6"
                 >
-                  <IconComponent className="w-8 h-8 text-white" />
+                  <IconComponent className="w-12 h-12 text-gray-900" />
                 </motion.div>
 
                 {/* العنوان */}
@@ -104,4 +104,6 @@ export default function InnovationSolutions() {
     </section>
   )
 }
+
+
 

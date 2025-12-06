@@ -3,43 +3,46 @@ export type Language = "en" | "ar"
 export const privacyContent = {
   en: {
     title: "Privacy Policy",
-    lastUpdated: "Last updated: December 11, 2025",
+    lastUpdated: "Last updated: November 11, 2025",
     
     // Sections
     introTitle: "Introduction",
-    introContent: "We respect your privacy and are committed to protecting the personal information we collect from you. This privacy policy explains how we collect, use, and protect your data in accordance with applicable laws.",
+    introContent: "We respect your privacy and are committed to protecting the personal data we collect from you. This policy explains the types of data we collect, how we use it, and how we protect it.",
+    introList: [],
+    introFooter: "",
     
     dataCollectionTitle: "Data We Collect",
-    dataCollectionContent: "We may collect the following types of information: personal contact information (name, email, phone number), device and usage information, cookies and similar technologies.",
+    dataCollectionContent: "When you use the website or services (e.g., registration, subscription, newsletter signup):",
     dataCollectionList: [
-      "Name",
-      "Email",
-      "Phone number",
-      "Company information",
-      "Any other information you provide voluntarily"
+      "1. Name",
+      "2. Email",
+      "3. Phone number",
+      "4. Identity or company (optional)",
+      "5. Message or request",
+      "6. Any additional information you provide voluntarily",
     ],
     
     dataSharingTitle: "Sharing Data with Third Parties for Savvy World",
-    dataSharingContent: "We may share your data with carefully selected partners to provide you with the best services.",
+    dataSharingContent: "We may share your data within our established framework to provide better service.",
     
-    noSellingTitle: "We Do Not Sell Your Data",
-    noSellingContent: "We do not sell your data to any third parties. We only use it to improve our services.",
+    noSellingTitle: "We Do Not Sell Data",
+    noSellingContent: "We do not sell or trade your data under any circumstances.",
     
     dataRetentionTitle: "Data Retention",
-    dataRetentionContent: "We retain your data for as long as necessary to provide you with our services and comply with applicable legal obligations. Data may be retained indefinitely.",
+    dataRetentionContent: "We retain your data as long as necessary to provide services or as required by regulations. Non-essential data may be deleted periodically.",
     
     policyChangesTitle: "Changes to Privacy Policy",
-    policyChangesContent: "We may update this policy from time to time. Any updates will be posted on this page, and we will notify you of material changes via email or through our platform.",
+    policyChangesContent: "We may update this policy from time to time. Your continued use of the site constitutes acceptance of the updated version.",
     
     yourRightsTitle: "Your Rights",
-    yourRightsContent: "You have the following rights:",
+    yourRightsContent: "You have the right to:",
     yourRightsList: [
-      "Right to access your data",
-      "Right to correct your data",
-      "Right to delete your data",
-      "Right to object to processing",
-      "Right to withdraw consent (if applicable)",
-      "Right to file a complaint with the supervisory authority"
+      "Request a copy of your data",
+      "Request correction or update of data",
+      "Request deletion of data",
+      "Withdraw consent for data usage (when applicable)",
+      "File a complaint",
+      "Contact us through our contact platform",
     ],
     
     contactTitle: "Contact Us",
@@ -49,47 +52,53 @@ export const privacyContent = {
   },
   ar: {
     title: "صفحة الخصوصية",
-    lastUpdated: "آخر تحديث: 11 ديسمبر 2025",
+    lastUpdated: "آخر تحديث في: 11 نوفمبر 2025",
     
     // Sections
     introTitle: "المقدمة",
-    introContent: "نحن نحترم خصوصيتك ونلتزم بحماية المعلومات الشخصية التي نحصل عليها منك. توضح هذه السياسة كيفية جمعنا لبياناتك واستخدامها وحمايتها بما يتوافق مع القوانين السارية لحاية الخصوصية. من خلالك الموافقة، نوضحك بهذه متوقع استخدام ومن فيها في حقناتك التحكم بها.",
+    introContent: "نحترم خصوصيتك، ونلتزم بحماية بياناتك الشخصية التي نجمعها منك. توضح هذه السياسة أنواع البيانات التي نجمعها، وكيف نستخدمها، وكيف نحميها للتحكم بها.",
+    introList: [],
+    introFooter: "",
     
     dataCollectionTitle: "البيانات التي نقوم بجمعها",
-    dataCollectionContent: "قد نستخدامل أو تجمع أو تخزن أن بيانات تتعلقق بتفاعلاتك المتنوعة: معلومات المسجل الاتصال بالإضافة:",
+    dataCollectionContent: "عند استخدامك لل موقع أو الخدمات (مثال: تسجيل، اضمام، اشتراك بالأخبار):",
     dataCollectionList: [
-      "الاسم",
-      "البريد الإلكتروني",
-      "رقم الهاتف",
-      "معلومات الشركة (اختياري)",
-      "أي معلومات أخرى تقدمها استخدام بشكل",
+      "1. الاسم",
+      "2. البريد الإلكتروني",
+      "3. رقم الهاتف",
+      "4. الهوية أو الشركة (اختياري)",
+      "5. الرسالة أو الطلب",
+      "6. أي معلومات إضافية يكون استخدام بنفسه",
     ],
     
-    dataSharingTitle: "مشاركة البيانات مع الجهات الثالثة لسافي ورلد",
-    dataSharingContent: "قد نشارك بياناتك مع شركات محتاطة انتقنت بعناية لتوفير لكم خدمة الأفضل",
+    dataSharingTitle: "مشاركة البيانات مع الجهات التابعة لسافي وورلد",
+    dataSharingContent: "قد نشارك بياناتك داخل اساسها المحدثة لتقديم خدمة الفضل.",
     
     noSellingTitle: "عدم بيع البيانات",
-    noSellingContent: "لا نبيع أيا من الأطراف ملفاتك أو البيانات حيث بها طرف.",
+    noSellingContent: "لا نقوم ببيع أو اتو البيانات، في ظرف الفلت وما كان.",
     
     dataRetentionTitle: "الاحتفاظ بالبيانات",
-    dataRetentionContent: "نحتفظ بياناتك طالما اللازمة لتقديم الخدمات لك بموجب بط التزامات قانونية التطبيق التالية. قد نحتفظ البيانات أو التعريفية بنشكل مؤمن.",
+    dataRetentionContent: "نحتفظ ببياناتك فقط للمدة اللازمة لتقديم الخدمات أو بحسب ما تفرضه الأنظمة.قد نحذف البيانات غير الضرورية بشكل دوري.",
+
     
     policyChangesTitle: "التغييرات على سياسة الخصوصية",
-    policyChangesContent: "قد نقوم بتعديل السياسة من وقت لآخر. سي نشر موانعات على هذه الصفحة، و سنقمو بإشعاركم أي استخدام البريد غيرنا استخدامج الأساسية عبر البيانية أو المنصة.",
+    policyChangesContent: "قد نقوم بتحديث السياسة من وقت لآخر. يعتبر استمرارك في استخدام الموقع موافقة على النسخة المحدثة.",
     
     yourRightsTitle: "حقوقك",
-    yourRightsContent: "لديك الحقوق التالية:",
+    
+    yourRightsContent: "المستخدم الحق في:",
+
     yourRightsList: [
-      "استخدام الحق في الوصول إلى بياناتك",
-      "طلب تصحيح أي بيانات",
-      "طلب حذف أو تعديل البيانات",
-      "الاعتراض على المعالجة (في استخدام البريد الإلكتروني)",
-      "إلغاء أي موافقة المخطونة",
-      "تحديق أو تقنيد شكوى أو بالاستخدام المحلي"
+      "طلب نسخة من بياناته",
+      "طلب تعديل أو تحديث البيانات",
+      "طلب حذف البيانات",
+      "سحب الموافقة على استخدام البيانات (عند الحاجة)",
+      "الشكوى أو أو الخطورة",
+      "يمكنك التواصل عبر منصة الواصل معنا",
     ],
     
     contactTitle: "تواصل معنا",
-    contactContent: "إذا كنت تريد معلومات عن سياسة أو الوقتات الخصوصية أو إلى يمكنكم استخدام بياناتك:",
+    contactContent: "إذا كان لديك أي استفسارات حول سياسة الخصوصية أو كيفية التعامل مع بياناتك، يرجى التواصل معنا:",
     contactEmail: "privacy@savvy.com",
     contactPhone: "+966 50 123 4567",
   },
@@ -98,4 +107,6 @@ export const privacyContent = {
 export const getPrivacyContent = (lang: Language, key: keyof typeof privacyContent.en) => {
   return privacyContent[lang][key]
 }
+
+
 

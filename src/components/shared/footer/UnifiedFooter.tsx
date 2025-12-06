@@ -5,7 +5,6 @@ import { useRef } from "react"
 import { Instagram } from "lucide-react"
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6"
 import type { Language } from "./content"
-import { getFooterContent } from "./content"
 import Image from "next/image"
 
 interface UnifiedFooterProps {
@@ -14,49 +13,56 @@ interface UnifiedFooterProps {
 
 export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
   const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").footerContent.en) => getFooterContent(lang, key)
   const footerRef = useRef(null)
   const isInView = useInView(footerRef, { once: true, amount: 0.2 })
 
   const footerSections = [
     {
       title: isRTL ? "عالم سافي" : "Savvy World",
+      titleHref: `/${lang}`,
       links: [
-        { label: isRTL ? "القسم عالم سافي" : "Savvy World Section", href: "#" },
-        { label: isRTL ? "اخر معارضنا" : "Latest Exhibitions", href: "#" },
-        { label: isRTL ? "معرض الميديا" : "Media Gallery", href: "#" },
-        { label: isRTL ? "اخبار سافي" : "Savvy News", href: "#" },
+        { label: isRTL ? "أقسامنا" : "Our Sections", href: `/${lang}#about` },
+        { label: isRTL ? "معرض الصور" : "Gallery", href: `/${lang}#services` },
+        { label: isRTL ? "أخبار سافي" : "Savvy News", href: `/${lang}/news` },
       ]
     },
     {
       title: isRTL ? "سافي ميديا" : "Savvy Media",
+      titleHref: `/${lang}/media`,
       links: [
-        { label: isRTL ? "معرض الميديا" : "Media Gallery", href: "#" },
-        { label: isRTL ? "معارضنا" : "Our Exhibitions", href: "#" },
-        { label: isRTL ? "خدماتنا" : "Our Services", href: "#" },
+        { label: isRTL ? "المحتوى" : "Content", href: `/${lang}/media#content` },
+        { label: isRTL ? "معرض الميديا" : "Gallery", href: `/${lang}/media#gallery` },
+        { label: isRTL ? "لماذا سافي" : "Why Savvy", href: `/${lang}/media#why-savvy` },
+        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/media#news` },
       ]
     },
     {
       title: isRTL ? "سافي اكسبو" : "Savvy Expo",
+      titleHref: `/${lang}/expo`,
       links: [
-        { label: isRTL ? "شراكاتنا السابقين" : "Previous Partnerships", href: "#" },
-        { label: isRTL ? "معارضنا" : "Our Exhibitions", href: "#" },
-        { label: isRTL ? "حلولنا" : "Our Solutions", href: "#" },
+        { label: isRTL ? "الخدمات" : "Services", href: `/${lang}/expo#services` },
+        { label: isRTL ? "المشاريع" : "Projects", href: `/${lang}/expo#projects` },
+        { label: isRTL ? "شركائنا" : "Partners", href: `/${lang}/expo#partners` },
+        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/expo#news` },
       ]
     },
     {
       title: isRTL ? "سافي ابتكار" : "Savvy Innovation",
+      titleHref: `/${lang}/innovation`,
       links: [
-        { label: isRTL ? "شراكاتنا السابقين" : "Previous Partnerships", href: "#" },
-        { label: isRTL ? "حلولنا" : "Our Solutions", href: "#" },
+        { label: isRTL ? "الحلول" : "Solutions", href: `/${lang}/innovation#solutions` },
+        { label: isRTL ? "شركائنا" : "Partners", href: `/${lang}/innovation#partners` },
+        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/innovation#news` },
       ]
     },
     {
       title: isRTL ? "صفحات اخرى" : "Other Pages",
+      titleHref: null,
       links: [
-        { label: isRTL ? "تواصل معنا" : "Contact Us", href: "/contact" },
-        { label: isRTL ? "اخبار سافي" : "Savvy News", href: "#" },
-        { label: isRTL ? "معرض الميديا" : "Media Gallery", href: "#" },
+        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
+        { label: isRTL ? "تواصل معنا" : "Contact Us", href: `/${lang}/contact` },
+        { label: isRTL ? "سياسة الخصوصية" : "Privacy", href: `/${lang}/privacy` },
+        { label: isRTL ? "شروط الاستخدام" : "Terms", href: `/${lang}/terms` },
       ]
     },
   ]
@@ -100,9 +106,18 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="col-span-1"
             >
-              <h3 className="text-base font-bold mb-4 text-gray-900">
-                {section.title}
-              </h3>
+              {section.titleHref ? (
+                <a 
+                  href={section.titleHref}
+                  className="text-base font-bold mb-4 text-gray-900 hover:text-blue-600 transition-colors duration-200 inline-block"
+                >
+                  {section.title}
+                </a>
+              ) : (
+                <h3 className="text-base font-bold mb-4 text-gray-900">
+                  {section.title}
+                </h3>
+              )}
               <ul className="space-y-2.5">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
@@ -164,10 +179,10 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
               }
             </span>
             <div className="flex items-center gap-4">
-              <a href="#" className="hover:text-gray-900 transition-colors">
+              <a href={`/${lang}/privacy`} className="hover:text-gray-900 transition-colors">
                 {isRTL ? "سياسة الخصوصية" : "Privacy Policy"}
               </a>
-              <a href="#" className="hover:text-gray-900 transition-colors">
+              <a href={`/${lang}/terms`} className="hover:text-gray-900 transition-colors">
                 {isRTL ? "شروط الاستخدام" : "Terms of Use"}
               </a>
             </div>

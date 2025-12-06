@@ -2,10 +2,10 @@ export type Language = "en" | "ar"
 
 export const topBannerContent = {
     en: {
-        text: "Ready to join us in the next research? Learn more",
+        text: "Ready to join us in the next research? ",
     },
     ar: {
-        text: "جاهز شاركنا البحث القادم؟ تعلم المزيد",
+        text: "جاهز شاركنا البحث القادم؟  ",
     },
 }
 

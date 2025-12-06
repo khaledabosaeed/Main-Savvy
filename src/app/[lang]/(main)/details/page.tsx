@@ -30,7 +30,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
         <ArticleDetailPage lang={currentLang} />
-        <PromoSection />
       </PageTransition>
     </>
   )

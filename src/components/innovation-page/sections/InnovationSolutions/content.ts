@@ -39,3 +39,5 @@ export const getInnovationSolutionsText = (lang: Language, key: keyof typeof inn
   return innovationSolutionsContent[lang][key]
 }
 
+
+
