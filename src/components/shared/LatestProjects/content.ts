@@ -31,7 +31,7 @@ export const latestProjectsContent = {
   },
   ar: {
     title: "معارضنا السابقة",
-    subtitle: "خبرة من أول معرض - وليست مجرد تصميم",
+    subtitle: "خبرة من أرض المعارض .. وليست مجرد تصميم.",
 
     // Projects
     project1Title: "القمة العالمية للبروبتيك",

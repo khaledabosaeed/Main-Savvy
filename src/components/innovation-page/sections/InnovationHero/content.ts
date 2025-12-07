@@ -6,8 +6,8 @@ export const innovationHeroContent = {
     subtitle: "Where advanced AI meets sustainable innovation to transform your business with smart solutions.",
   },
   ar: {
-    title: "عالم جديد من الابداع، من خلال دمج التقنية والاستدامة بالواقع",
-    subtitle: "حلول عملية تربط الذكاء التقني بالاستخدام اليومي بموثوقية عالية.",
+    title: "نضع الابتكار بين يديك.. بدون تعقيد",
+    subtitle: "حلول ذكية تجمع بين التقنيات الحديثة والتجارب التفاعلية والمحتوى الغامر.. لنضعك على طريق مستقبل أكثر استدامة، دون أي تعقيد",
   },
 }
 

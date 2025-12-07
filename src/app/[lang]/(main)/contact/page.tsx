@@ -1,7 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import ContactPage from "@/components/contact-page/ContactPage"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
 
 interface ContactPageProps {
   params: Promise<{

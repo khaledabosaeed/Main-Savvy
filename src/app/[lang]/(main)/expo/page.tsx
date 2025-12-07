@@ -43,7 +43,7 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
         <section id="hero">
           <ExpoHero lang={currentLang} />
         </section>
-   
+
         <section id="services">
           <ExpoServices lang={currentLang} />
         </section>
