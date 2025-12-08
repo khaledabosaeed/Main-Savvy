@@ -86,7 +86,7 @@ export default function NewHero() {
   return (
     <section className="relative min-h-screen flex flex-col pt-[100px] md:pt-[120px] overflow-visible md:overflow-hidden">
       {/* Enhanced gradient background */}
-      <div className="absolute inset-0 bg-linear-to-b from-gray-50 via-blue-50/30 to-white" />
+      <div className="absolute inset-0  bg-white" />
 
       {/* Large radial glow behind image area - Hidden on mobile for performance */}
       {!isMobile && (
@@ -189,7 +189,7 @@ export default function NewHero() {
                 </motion.div>
 
                 {/* Gradient overlay at bottom */}
-                {!isMobile && (
+                {/* {!isMobile && (
                   <div
                     className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none"
                     style={{
@@ -199,13 +199,13 @@ export default function NewHero() {
                       opacity: 0.4,
                     }}
                   />
-                )}
+                )} */}
 
       
               </div>
 
               {/* Enhanced depth layer - Hidden on mobile */}
-              {!isMobile && (
+              {/* {!isMobile && (
                 <div
                   className="absolute top-2 left-1/2 -translate-x-1/2 w-[95%] h-[95%] -z-20 opacity-15"
                   style={{
@@ -214,10 +214,10 @@ export default function NewHero() {
                       "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(59, 130, 246, 0.25) 0%, rgba(147, 51, 234, 0.2) 50%, transparent 70%)",
                   }}
                 />
-              )}
+              )} */}
 
               {/* Background animated blur - Lighter on mobile */}
-              <motion.div
+              {/* <motion.div
                 variants={blurVariants}
                 initial="hidden"
                 animate={animate ? "visible" : "hidden"}
@@ -226,17 +226,17 @@ export default function NewHero() {
                   background:
                     "linear-gradient(to bottom, rgba(147, 197, 253, 0.15) 0%, rgba(196, 181, 253, 0.12) 100%)",
                 }}
-              />
+              /> */}
 
               {/* Ground shadow - Lighter on mobile */}
-              <div
+              {/* <div
                 className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-24 -z-40"
                 style={{
                   background:
                     "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(147, 197, 253, 0.5) 0%, rgba(147, 197, 253, 0.2) 50%, transparent 100%)",
                   filter: isMobile ? "blur(25px)" : "blur(40px)",
                 }}
-              />
+              /> */}
             </div>
 
           </motion.div>
