@@ -1,31 +1,22 @@
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { notFound } from "next/navigation";
 import { Inter } from "next/font/google"
-import localFont from "next/font/local"
 type Language = 'en' | 'ar';
 
-
-
-const expoArabic = localFont({
-  src: [
-    {
-      path: "../../../public/fonts/ExpoArabic-Book.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../../public/fonts/ExpoArabic-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  display: "swap",
-})
-
+// Inter for English (Latin only)
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
+  variable: "--font-inter",
+})
+
+// Inter for Arabic (with Arabic subset)
+const interArabic = Inter({
+  subsets: ["latin", "arabic"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-inter-arabic",
 })
 
 const languages: Language[] = ['en', 'ar'];
@@ -53,7 +44,7 @@ export default async function LangLayout({
 
   return (
     <LanguageProvider initialLanguage={lang}>
-      <div dir={dir} className={lang === "ar" ? expoArabic.className : inter.className}>
+      <div dir={dir} className={lang === "ar" ? interArabic.className : inter.className}>
         {children}
       </div>
     </LanguageProvider>

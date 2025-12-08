@@ -98,10 +98,10 @@ button {
 /* Arabic font styling */
 [dir="rtl"] body,
 .lang-ar {
-  /* Use Expo Arabic for Arabic */
-  font-family: var(--font-expo-arabic), "Expo Arabic", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  /* Use Inter for Arabic */
+  font-family: var(--font-inter-arabic), "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   /* Ensure Tailwind font-sans maps to Arabic in this mode */
-  --font-sans: var(--font-expo-arabic);
+  --font-sans: var(--font-inter-arabic);
 }
 
 /* Smooth scrolling for anchor links */

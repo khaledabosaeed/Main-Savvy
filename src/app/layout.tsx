@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Inter_Tight } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter_Tight, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/contexts/SmoothScrollContext";
@@ -13,20 +12,11 @@ const inter = Inter_Tight({
   display: "swap",
 });
 
-const expoArabic = localFont({
-  src: [
-    {
-      path: "../../public/fonts/ExpoArabic-Book.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/ExpoArabic-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-expo-arabic",
+// Inter for Arabic (with Arabic subset)
+const interArabic = Inter({
+  subsets: ["latin", "arabic"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-inter-arabic",
   display: "swap",
 });
 
@@ -51,7 +41,7 @@ export const metadata: Metadata = {
     'smart solutions'
   ],
 
-  authors: [{ name: 'Savvy Rating', url: 'https://savvy-rating.com' }],
+  authors: [{ name: 'Savvy Rating', url: 'https://savvyworld.ai' }],
 
   creator: 'Savvy Rating',
 
@@ -132,7 +122,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning className="overflow-x-hidden">
       <body
-        className={`${inter.variable} ${expoArabic.variable} font-sans antialiased overflow-x-hidden`}
+        className={`${inter.variable} ${interArabic.variable} font-sans antialiased overflow-x-hidden`}
       >
         {/* Google Analytics */}
         <Script
