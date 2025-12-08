@@ -1,6 +1,7 @@
 "use client"
 
 import { useLanguage } from "@/contexts/LanguageContext"
+import { useIsMobile } from "@/hooks/useIsMobile"
 import { getGalleryContent, type GalleryImage } from "./content"
 import Image from "next/image"
 import { motion } from "framer-motion"
@@ -8,39 +9,40 @@ import styles from "./GallerySection.module.css"
 
 export default function GallerySection() {
     const { language } = useLanguage()
+    const isMobile = useIsMobile()
     const lang = language as "en" | "ar"
     const content = getGalleryContent(lang)
 
-    // Animation variants
+    // Animation variants - Optimized for mobile
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
+                staggerChildren: isMobile ? 0.05 : 0.1,
+                delayChildren: isMobile ? 0.1 : 0.2,
             },
         },
     }
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: isMobile ? 15 : 20 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.6,
+                duration: isMobile ? 0.4 : 0.6,
             },
         },
     }
 
     const titleVariants = {
-        hidden: { opacity: 0, y: -20 },
+        hidden: { opacity: 0, y: isMobile ? -15 : -20 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.8,
+                duration: isMobile ? 0.5 : 0.8,
             },
         },
     }
@@ -62,7 +64,7 @@ export default function GallerySection() {
 
                 {/* Gallery Grid */}
          {content.images.length > 0 ? (
-  <motion.div
+       <motion.div
     className={styles.gallery}
     initial="hidden"
     whileInView="visible"

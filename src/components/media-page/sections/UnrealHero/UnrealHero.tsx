@@ -71,8 +71,8 @@ export default function UnrealHero() {
   }
 
   return (
-    <section className={`relative w-full h-screen bg-white flex items-center ${isRTL ? 'rtl' : 'ltr'}`}>
-      <div className="relative h-full pt-50 z-10 container mx-auto px-4 md:px-6 w-full">
+    <section className={`relative w-full h-screen pt-80 bg-white flex items-center mb-50 md:mb-0 ${isRTL ? 'rtl' : 'ltr'}`}>
+      <div className="relative h-full  mb-20 z-10 container mx-auto px-4 md:px-6 w-full">
         <div className={`flex flex-col h-full ${isRTL ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-12 lg:gap-30 items-center`}>
 
           {/* Right Side - Content */}
@@ -138,13 +138,19 @@ export default function UnrealHero() {
               className="h-[440px] relative"
             >
               <div className="relative h-full inline-block  max-w-md">
+                
                 <Image
                   src="/media/hero/hero-image.png"
                   alt={content.imageAlt}
                   width={450}
-                  height={624}
+                  height={624}  
                   className=" h-full  object-cover rounded-3xl shadow-2xl"
                   priority
+                />
+                {/* Overlay with inset shadow effect */}
+                <div 
+                  className="absolute inset-0 rounded-3xl pointer-events-none"
+                  style={{ boxShadow: 'inset 0 0 40px 5px rgba(0, 0, 0, 0.25)' }}
                 />
               </div>
 

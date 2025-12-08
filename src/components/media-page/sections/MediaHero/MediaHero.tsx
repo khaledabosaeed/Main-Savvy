@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
+import { useIsMobile } from "@/hooks/useIsMobile"
 import type { Language } from "./content"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'
 
@@ -41,61 +42,62 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
 
 export default function MediaHero({ lang }: MediaHeroProps) {
   const isRTL = lang === "ar"
+  const isMobile = useIsMobile()
   const [animate, setAnimate] = useState(false)
 
   useEffect(() => {
     setAnimate(true)
   }, [])
 
-  // Animation variants
+  // Animation variants - Optimized for mobile
   const titleVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    hidden: { opacity: 0, y: isMobile ? 25 : 40, scale: isMobile ? 1 : 0.95 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.8,
+        duration: isMobile ? 0.5 : 0.8,
         ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
   }
 
   const descriptionVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: isMobile ? 20 : 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.7,
-        delay: 0.2,
+        duration: isMobile ? 0.4 : 0.7,
+        delay: isMobile ? 0.1 : 0.2,
         ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
   }
 
   const buttonsVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: isMobile ? 15 : 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        delay: 0.4,
+        duration: isMobile ? 0.4 : 0.6,
+        delay: isMobile ? 0.2 : 0.4,
         ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    hidden: { opacity: 0, y: isMobile ? 30 : 50, scale: isMobile ? 0.95 : 0.9 },
     visible: (custom: number) => ({
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.8,
-        delay: 0.6 + custom * 0.15,
+        duration: isMobile ? 0.5 : 0.8,
+        delay: (isMobile ? 0.3 : 0.6) + custom * (isMobile ? 0.08 : 0.15),
         ease: [0.22, 0.61, 0.36, 1] as any,
       },
     }),

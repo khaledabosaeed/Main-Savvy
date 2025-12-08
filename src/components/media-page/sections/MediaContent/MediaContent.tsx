@@ -160,7 +160,7 @@ export default function MediaContent({ lang }: MediaContentProps) {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(57, 96, 249, 0.15)" }}
-                    className={`flex items-center gap-3 p-4 bg-gray-50 rounded-2xl cursor-pointer transition-all ${isRTL ? 'flex-row-reverse' : ''}`}
+                    className={`flex items-center gap-3 p-4 bg-gray-50 rounded-2xl cursor-pointer transition-all ${isRTL ? '' : ''}`}
                   >
                     <div className="shrink-0 w-12 h-12 bg-[#3960F9] rounded-full flex items-center justify-center">
                       <IconComponent className="w-6 h-6 text-white" />

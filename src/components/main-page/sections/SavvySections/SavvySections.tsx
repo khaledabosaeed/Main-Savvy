@@ -10,15 +10,15 @@ export default function SavvySections() {
     const content = getSavvySectionsContent(language)
 
     return (
-        <section className="py-20 bg-white">
+        <section className="py-12 md:py-16 lg:py-20 bg-white">
             <div className="container mx-auto px-4">
-                {/* Section Title - Aligned to right for RTL, left for LTR */}
-                <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-16 ${isRTL ? 'text-right rtl' : 'text-left ltr'}`}>
+                {/* Section Title - Better mobile sizing */}
+                <h2 className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-8 md:mb-12 lg:mb-16 ${isRTL ? 'text-right rtl' : 'text-left ltr'}`}>
                     {content.sectionTitle}
                 </h2>
 
-                {/* Cards Grid */}
-                <div className="space-y-8">
+                {/* Cards Grid - Tighter spacing on mobile */}
+                <div className="space-y-6 md:space-y-8">
                     {content.cards.map((card, index) => (
                         <SavvySectionCard
                             key={card.id}

@@ -14,10 +14,10 @@ export const unrealHeroContent = {
     imageAlt: "NHC Building - Innovation Center",
   },
   ar: {
-    badge: "مشروع NHC",
+    badge: "عزز ظهورك",
     title: "حول واجهتك الى منصة جذب.. وشاشة تتكلم بدل عنك.",
-    description: "حول شركتك إلى رسالة بصرية قوية، بمحتوى غامر وشاشات تفاعلية تعرض 24/7 تزيز عملك في كل لحظة.",
-    statsLabel1: "عدد الشاشات المعلقة",
+    description: "حول شركتك إلى رسالة بصرية قوية، بمحتوى غامر وشاشات تفاعلية تعرض 24/7 تبرز عملك في كل لحظة.",
+    statsLabel1: "عدد الشاشات الفعالة ",
     statsLabel2: "نسبة التشغيل",
     primaryButton: "تعلم المزيد",
     primaryButtonLink: "/contact",

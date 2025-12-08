@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion, useInView } from "framer-motion"
 import { CheckCircle, AlertCircle } from "lucide-react"
 import { useRef } from "react"
+import { useIsMobile } from "@/hooks/useIsMobile"
 import type { Language } from "./content"
 import { getFaqContent } from "./faq-content"
 import { 
@@ -17,6 +18,7 @@ interface ContactPageProps {
 
 export default function ContactPage({ lang }: ContactPageProps) {
   const isRTL = lang === "ar"
+  const isMobile = useIsMobile()
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -32,7 +34,7 @@ export default function ContactPage({ lang }: ContactPageProps) {
   const formRef = useRef(null)
   const faqRef = useRef(null)
   
-  const isFormInView = useInView(formRef, { once: true, amount: 0.2 })
+  const isFormInView = useInView(formRef, { once: true, amount: isMobile ? 0.1 : 0.2 })
   
   const tf = (key: keyof typeof import("./faq-content").faqContent.en) =>
     getFaqContent(lang, key)

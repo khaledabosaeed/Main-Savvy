@@ -72,10 +72,7 @@ export default function Home() {
         <LatestNews />
       </section>
 
-      {/* Unreal Hero Section */}
-      <section id="unreal">
-        <UnrealHero />
-      </section>
+      
 
 
 

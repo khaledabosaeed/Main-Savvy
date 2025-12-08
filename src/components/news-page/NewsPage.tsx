@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar } from "lucide-react"
+import { useIsMobile } from "@/hooks/useIsMobile"
 import type { Language } from "./content"
 import { newsContent, type NewsArticle } from "./content"
 
@@ -13,24 +14,25 @@ interface NewsPageProps {
 
 export default function NewsPage({ lang }: NewsPageProps) {
   const isRTL = lang === "ar"
+  const isMobile = useIsMobile()
   const content = newsContent[lang]
   const articles = content.articles as NewsArticle[]
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container px-6">
+      <section className="pt-24 md:pt-32 pb-12 md:pb-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container px-4 md:px-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: isMobile ? 20 : 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: isMobile ? 0.4 : 0.6 }}
             className={`text-center max-w-3xl mx-auto ${isRTL ? 'rtl' : 'ltr'}`}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
               {content.title}
             </h1>
-            <p className="text-lg md:text-xl text-gray-600">
+            <p className="text-base md:text-lg lg:text-xl text-gray-600">
               {content.subtitle}
             </p>
           </motion.div>
@@ -38,25 +40,25 @@ export default function NewsPage({ lang }: NewsPageProps) {
       </section>
 
       {/* News Articles */}
-      <section className="py-20">
-        <div className="container px-6">
-          <div className="max-w-6xl mx-auto space-y-8">
+      <section className="py-12 md:py-20">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-6xl mx-auto space-y-6 md:space-y-8">
             {articles.map((article, index) => (
               <Link 
                 key={article.id} 
                 href={article.slug ? `/${lang}/news/${article.slug}` : `/${lang}/news`}
               >
                 <motion.article
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: isMobile ? 20 : 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true, amount: isMobile ? 0.1 : 0.2 }}
+                  transition={{ duration: isMobile ? 0.4 : 0.6, delay: index * (isMobile ? 0.05 : 0.1) }}
                   className={`group cursor-pointer ${isRTL ? 'rtl' : 'ltr'}`}
                 >
-                  <div className={`flex flex-col md:flex-row gap-8 p-6 rounded-2xl hover:bg-gray-50 transition-all duration-300 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
+                  <div className={`flex flex-col md:flex-row gap-4 md:gap-8 p-4 md:p-6 rounded-xl md:rounded-2xl hover:bg-gray-50 transition-all duration-300 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
                   {/* Image */}
                   <motion.div
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={!isMobile ? { scale: 1.05 } : undefined}
                     transition={{ duration: 0.3 }}
                     className="md:w-1/3 flex-shrink-0"
                   >

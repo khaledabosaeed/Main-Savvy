@@ -11,9 +11,9 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-// Inter for Arabic (with Arabic subset)
+// Inter for Arabic
 const interArabic = Inter({
-  subsets: ["latin", "arabic"],
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-inter-arabic",

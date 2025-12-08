@@ -41,9 +41,9 @@ export default function ExpoPartners() {
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
                             {t("title")}
                         </h2>
-                        <p className="text-gray-600 text-base md:text-lg">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
                             {t("subtitle")}
-                        </p>
+                        </h2>
                     </motion.div>
 
                     {/* Partners Grid */}

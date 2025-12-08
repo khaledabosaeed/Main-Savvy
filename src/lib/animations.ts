@@ -24,6 +24,13 @@ export const transitions: Record<string, Transition> = {
   smooth: easings.smooth,
 };
 
+// Mobile-optimized transitions (faster and lighter)
+export const mobileTransitions: Record<string, Transition> = {
+  fast: { duration: 0.2, ease: easings.easeOutCubic },
+  medium: { duration: 0.3, ease: easings.easeOutCubic },
+  slow: { duration: 0.5, ease: easings.easeOutCubic },
+};
+
 // ===============================
 // FADE ANIMATIONS
 // ===============================
@@ -329,7 +336,15 @@ export const prefersReducedMotion = (): boolean => {
 };
 
 /**
- * Returns appropriate animation based on user preference
+ * Checks if device is mobile for performance optimization
+ */
+export const isMobileDevice = (): boolean => {
+  if (typeof window === 'undefined') return false;
+  return window.innerWidth < 768;
+};
+
+/**
+ * Returns appropriate animation based on user preference and device
  */
 export const getAnimation = (animation: Variants): Variants => {
   if (prefersReducedMotion()) {
@@ -338,6 +353,15 @@ export const getAnimation = (animation: Variants): Variants => {
       visible: { opacity: 1, transition: { duration: 0.2 } },
     };
   }
+  
+  // Simplify animations on mobile for better performance
+  if (isMobileDevice()) {
+    return {
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: easings.easeOutCubic } },
+    };
+  }
+  
   return animation;
 };
 

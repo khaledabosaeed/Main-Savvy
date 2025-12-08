@@ -90,7 +90,7 @@ export default function NotFound() {
             </motion.button>
           </Link>
 
-          <Link href="/contact">
+          <Link href="ar/contact">
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

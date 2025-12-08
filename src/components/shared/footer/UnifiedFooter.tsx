@@ -6,6 +6,7 @@ import { Instagram } from "lucide-react"
 import { FaXTwitter, FaLinkedinIn } from "react-icons/fa6"
 import type { Language } from "./content"
 import Image from "next/image"
+import { useIsMobile } from "@/hooks/useIsMobile"
 
 interface UnifiedFooterProps {
   lang: Language
@@ -13,8 +14,9 @@ interface UnifiedFooterProps {
 
 export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
   const isRTL = lang === "ar"
+  const isMobile = useIsMobile()
   const footerRef = useRef(null)
-  const isInView = useInView(footerRef, { once: true, amount: 0.2 })
+  const isInView = useInView(footerRef, { once: true, amount: isMobile ? 0.1 : 0.2 })
 
   const footerSections = [
     {
@@ -61,22 +63,22 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       links: [
         { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
         { label: isRTL ? "تواصل معنا" : "Contact Us", href: `/${lang}/contact` },
-        { label: isRTL ? "سياسة الخصوصية" : "Privacy", href: `/${lang}/privacy` },
-        { label: isRTL ? "شروط الاستخدام" : "Terms", href: `/${lang}/terms` },
+        // { label: isRTL ? "سياسة الخصوصية" : "Privacy", href: `/${lang}/privacy` },
+        // { label: isRTL ? "شروط الاستخدام" : "Terms", href: `/${lang}/terms` },
       ]
     },
   ]
 
   return (
-    <footer ref={footerRef} className="relative bg-white text-gray-700 pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        {/* Main Footer Content */}
-        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12 ${isRTL ? 'text-right' : 'text-left'}`}>
+    <footer ref={footerRef} className="relative bg-white text-gray-700 pt-12 md:pt-16 pb-6 md:pb-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-10">
+        {/* Main Footer Content - Better mobile spacing */}
+        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 mb-8 md:mb-12 ${isRTL ? 'text-right' : 'text-left'}`}>
           {/* Logo Column - Takes 1 column */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: isMobile ? 15 : 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: isMobile ? 0.4 : 0.5 }}
             className="col-span-2 md:col-span-1 flex flex-col items-start"
           >
             {/* Logo */}
@@ -142,7 +144,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
           {/* Social Icons */}
           <div className="flex items-center gap-3">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/mr.savvy_saudi/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
@@ -151,7 +153,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/mrsavvy_saudi"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
@@ -160,7 +162,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
               <FaXTwitter className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/mr-savvy-green"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"

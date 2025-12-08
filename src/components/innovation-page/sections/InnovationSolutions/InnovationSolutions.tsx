@@ -3,11 +3,13 @@
 import { motion } from "framer-motion"
 import { Users, Leaf, Bot, Home } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { useIsMobile } from "@/hooks/useIsMobile"
 import type { Language } from "./content"
 import { getInnovationSolutionsText } from "./content"
 
 export default function InnovationSolutions() {
   const { language } = useLanguage()
+  const isMobile = useIsMobile()
   const lang = language as Language
   const isRTL = lang === "ar"
   const t = (key: keyof typeof import("./content").innovationSolutionsContent.en) =>
@@ -37,58 +39,58 @@ export default function InnovationSolutions() {
   ]
 
   return (
-    <section className="py-20 md:py-32 bg-white">
-      <div className="container px-6">
+    <section className="py-12 md:py-20 lg:py-32 bg-white">
+      <div className="container px-4 md:px-6">
         {/* العنوان */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: isMobile ? 20 : 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className={`mb-4 ${isRTL ? 'rtl text-right' : 'ltr text-left'}`}
+          viewport={{ once: true, amount: isMobile ? 0.2 : 0.3 }}
+          transition={{ duration: isMobile ? 0.4 : 0.6 }}
+          className={`mb-3 md:mb-4 ${isRTL ? 'rtl text-right' : 'ltr text-left'}`}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900">
             {t("title")}
           </h2>
         </motion.div>
 
         {/* العنوان الفرعي */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: isMobile ? 15 : 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className={`mb-16 ${isRTL ? 'rtl text-right' : 'ltr text-left'}`}
+          viewport={{ once: true, amount: isMobile ? 0.2 : 0.3 }}
+          transition={{ duration: isMobile ? 0.4 : 0.6, delay: isMobile ? 0.05 : 0.1 }}
+          className={`mb-10 md:mb-16 ${isRTL ? 'rtl text-right' : 'ltr text-left'}`}
         >
-          <p className="text-gray-600 text-lg max-w-2xl">
+          <p className="text-gray-600 text-base md:text-lg max-w-2xl">
             {t("subtitle")}
           </p>
         </motion.div>
 
         {/* الحلول */}
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto ${isRTL ? 'rtl' : 'ltr'}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto ${isRTL ? 'rtl' : 'ltr'}`}>
           {solutions.map((solution, index) => {
             const IconComponent = solution.icon
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: isMobile ? 20 : 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true, amount: isMobile ? 0.2 : 0.3 }}
+                transition={{ duration: isMobile ? 0.4 : 0.6, delay: index * (isMobile ? 0.05 : 0.1) }}
                 className={`flex flex-col ${isRTL ? 'text-right' : 'text-left'}`}
               >
                 {/* الأيقونة */}
                 <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileHover={!isMobile ? { scale: 1.1, rotate: 5 } : undefined}
                   transition={{ duration: 0.3 }}
-                  className="w-16 h-16 flex items-center justify-center mb-6"
+                  className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mb-4 md:mb-6"
                 >
-                  <IconComponent className="w-12 h-12 text-gray-900" />
+                  <IconComponent className="w-10 h-10 md:w-12 md:h-12 text-gray-900" />
                 </motion.div>
 
                 {/* العنوان */}
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-3 md:mb-4">
                   {solution.title}
                 </h3>
 

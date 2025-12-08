@@ -6,6 +6,7 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { useIsMobile } from "@/hooks/useIsMobile"
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
 import Badge from "../Badge/Badge"
 import { motion, AnimatePresence } from "framer-motion"
@@ -18,6 +19,7 @@ interface UnifiedHeaderProps {
 
 export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner = true }: UnifiedHeaderProps) {
   const { language } = useLanguage()
+  const isMobile = useIsMobile()
   const lang = language as "en" | "ar"
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -84,18 +86,18 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
     <>
       <motion.header
         animate={{
-          top: isScrolled ? "0px" : (hasBanner ? "40px" : "0px")
+          top: isScrolled ? "0px" : (hasBanner ? (isMobile ? "35px" : "40px") : "0px")
         }}
         transition={{
-          duration: 0.3,
+          duration: isMobile ? 0.2 : 0.3,
           ease: [0.16, 1, 0.3, 1]
         }}
         className="fixed left-0 right-0 z-40 bg-white/95 backdrop-blur-md shadow-md"
       >
         <div className="w-full">
-          <div className="container mx-auto px-6 md:px-8 py-5">
-            <div className={`flex items-center justify-between gap-4 md:gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              {/* Logo */}
+          <div className="container mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5">
+            <div className={`flex items-center justify-between gap-3 md:gap-4 lg:gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              {/* Logo - Smaller on mobile */}
               <div className="flex-shrink-0">
                 <Link href={`/${lang}`}>
                   <Image
@@ -194,7 +196,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
 
               {/* Language Switcher & Contact Button */}
               <div className={`hidden md:flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                <LanguageSwitcher currentLang={lang} />
+                {/* <LanguageSwitcher currentLang={lang} /> */}
                 <Link
                   href={`/${lang}/contact`}
                   className="px-5 py-2 bg-[#0066FF] text-white rounded-full hover:bg-[#0052CC] transition-colors text-sm font-medium whitespace-nowrap"

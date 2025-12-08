@@ -23,14 +23,18 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    // Check if device is mobile for performance optimization
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    
     // Initialize Lenis with optimized settings
+    // Use lighter settings on mobile for better performance
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: isMobile ? 0.8 : 1.2, // Faster on mobile
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
       orientation: 'vertical',
-      smoothWheel: true,
+      smoothWheel: !isMobile, // Disable smooth wheel on mobile for better performance
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      touchMultiplier: isMobile ? 1.5 : 2, // Lighter touch multiplier on mobile
       infinite: false,
     });
 

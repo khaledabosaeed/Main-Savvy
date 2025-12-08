@@ -12,9 +12,9 @@ const inter = Inter_Tight({
   display: "swap",
 });
 
-// Inter for Arabic (with Arabic subset)
+// Inter for Arabic
 const interArabic = Inter({
-  subsets: ["latin", "arabic"],
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-inter-arabic",
   display: "swap",
