@@ -5,6 +5,7 @@ import WhySavvy from "@/components/media-page/sections/WhySavvy/WhySavvy"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
 import GallerySection from "@/components/main-page/sections/GallerySection/GallerySection"
+import UnrealHero from "@/components/media-page/sections/UnrealHero/UnrealHero"
 
 interface MediaPageProps {
   params: Promise<{
@@ -41,7 +42,7 @@ export default async function MediaPage({ params }: MediaPageProps) {
       <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
         <section id="hero">
-          <MediaHero lang={currentLang} />
+          <UnrealHero  />
         </section>
 
         <section id="content">

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import NewHero from "@/components/main-page/sections/NewHero/NewHero"
+import UnrealHero from "@/components/media-page/sections/UnrealHero/UnrealHero"
 import SavvySections from "@/components/main-page/sections/SavvySections/SavvySections"
 import GallerySection from "@/components/main-page/sections/GallerySection/GallerySection"
 import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
@@ -20,9 +21,9 @@ const headerTextsEn = {
 
 // نصوص الهيدر بالعربية
 const headerTextsAr = {
-  about: "أقسامنا",
-  services: "معرض الصور",
   news: "آخر الأخبار",
+  services: "معرض الصور",
+  about: "أقسامنا",
   contactUs: "تواصل معنا",
 }
 
@@ -69,6 +70,11 @@ export default function Home() {
       {/* Latest News Section */}
       <section id="news">
         <LatestNews />
+      </section>
+
+      {/* Unreal Hero Section */}
+      <section id="unreal">
+        <UnrealHero />
       </section>
 
 

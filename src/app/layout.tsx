@@ -31,21 +31,21 @@ const expoArabic = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://proptech.savvy-rating.com'),
+  metadataBase: new URL('https://savvyworld.ai'),
 
   title: {
-    default: "Savvy PropTech - حلول عقارية مبتكرة",
-    template: "%s | Savvy PropTech"
+    default: "Savvy Roboot   ",
+    template: "%s | Savvy Roboot"
   },
 
-  description: "منصة عقارية ذكية توفر أحدث التقنيات والحلول المبتكرة لتقييم وإدارة العقارات - Smart property solutions with innovative technology",
+  description: "منصة  ذكية توفر أحدث التقنيات والحلول المبتكرة - Smart property solutions with innovative technology",
 
   keywords: [
-    'عقارات',
-    'تقنية عقارية',
-    'proptech',
-    'تقييم عقاري',
-    'استثمار عقاري',
+    'ربوت ',
+    'تقنية روبوت',
+    'reboot technology',
+    'تقييم روبوت',
+    'استثمار روبوت',
     'real estate',
     'property technology',
     'smart solutions'
@@ -65,16 +65,16 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ar_SA',
     alternateLocale: 'en_US',
-    url: 'https://proptech.savvy-rating.com',
-    title: 'Savvy PropTech - حلول عقارية ذكية',
-    description: 'اكتشف منصتنا المبتكرة لتقييم وإدارة العقارات بأحدث التقنيات',
-    siteName: 'Savvy PropTech',
+    url: 'https://savvyworld.ai',
+    title: 'Savvy Roboot -  روبوت ذكي`',
+    description: 'اكتشف منصتنا المبتكرة لتقييم وإدارة الروبوتات بأحدث التقنيات',
+    siteName: 'Savvy Roboot',
     images: [
       {
         url: '/og-image.jpg', // تحتاج إنشاء هذه الصورة 1200x630
         width: 1200,
         height: 630,
-        alt: 'Savvy PropTech - Smart Property Solutions',
+        alt: 'Savvy Roboot - Smart Robot Solutions',
         type: 'image/jpeg',
       },
     ],
@@ -82,8 +82,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Savvy PropTech - حلول عقارية مبتكرة',
-    description: 'منصة عقارية ذكية توفر أحدث التقنيات والحلول المبتكرة',
+    title: 'Savvy Roboot - حلول روبوت مبتكرة',
+    description: 'منصة روبوت ذكية توفر أحدث التقنيات والحلول المبتكرة',
     images: ['/og-image.jpg'],
     creator: '@savvyrating', // غيّره لحسابك على تويتر
   },
@@ -104,10 +104,10 @@ export const metadata: Metadata = {
   referrer: 'origin-when-cross-origin',
 
   alternates: {
-    canonical: 'https://proptech.savvy-rating.com',
+    canonical: 'https://savvyworld.ai',
     languages: {
-      'ar-SA': 'https://proptech.savvy-rating.com/ar',
-      'en-US': 'https://proptech.savvy-rating.com/en',
+      'ar-SA': 'https://savvyworld.ai/ar',
+      'en-US': 'https://savvyworld.ai/en',
     },
   },
 
@@ -137,17 +137,17 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-YKRZN8MDY0"
+          src="https://www.googletagmanager.com/gtag/js?id="
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-YKRZN8MDY0');
+
           `}
         </Script>
-
+            
         <SmoothScrollProvider>
           <ScrollProgress />
           {children}

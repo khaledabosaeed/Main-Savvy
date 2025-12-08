@@ -14,21 +14,21 @@ export default function PromoSection() {
     return (
         <section className="w-full py-16 md:py-20 bg-white" >
             <div className="max-w-7xl mx-auto px-6 md:px-10" >
-                <div className={`relative flex flex-col md:flex-row items-center gap-12 md:gap-16 bg-[#F4F4F4] rounded-3xl p-8 md:p-16 shadow-xl overflow-visible ${lang === 'ar' ? 'md:flex-row-reverse' : ''}`}>
+                <div className={`relative flex flex-col  items-center gap-12 md:gap-16 bg-[#F4F4F4] rounded-3xl p-8 md:p-16 shadow-xl overflow-visible md:flex-row-reverse `}>
                     {/* Image - Left side (or right in RTL) - Overflowing */}
                     <motion.div
-                        className={`shrink-0 w-full md:w-96 md:-my-24 ${lang === 'ar' ? 'md:-mr-8' : 'md:-ml-8'}`}
+                        className={`shrink-0 w-full md:w-96 md:-my-24 md:-mr-8 `}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <div className="relative md:absolute md:top-[-100px] rotate-y-180">
+                        <div className={`relative md:absolute md:top-[-100px]  ${lang === 'ar' ? 'rotate-y-180 ' : ''}`}>
                             <Image
                                 src={content.image}
                                 alt="Savvy World"
                                 width={450}
                                 height={600}
-                                className="w-full h-auto object-contain ml-50 drop-shadow-2xl"
+                                className="w-full h-auto object-contain  drop-shadow-2xl"
                             />
                         </div>
                     </motion.div>
@@ -47,12 +47,14 @@ export default function PromoSection() {
                         <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                             {content.description}
                         </p>
+                        <div className="mt-4 flex md:justify-start justify-center">
                         <Link
                             href={content.buttonLink}
-                            className={`inline-block px-10 py-4 bg-blue-600 text-white rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 ${lang === 'ar' ? 'self-end' : 'self-start'} md:${lang === 'ar' ? 'self-end' : 'self-start'} self-center`}
+                            className={`  px-10 py-4 bg-blue-600 text-white rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 ${lang === 'ar' ? 'self-end' : 'self-start'} md:${lang === 'ar' ? 'self-end' : 'self-start'} self-center`}
                         >
                             {content.buttonText}
                         </Link>
+                        </div>
                     </motion.div>
                 </div>
             </div>

@@ -1,7 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import TermsPage from "@/components/terms-page/TermsPage"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
 
 interface TermsPageProps {
   params: Promise<{

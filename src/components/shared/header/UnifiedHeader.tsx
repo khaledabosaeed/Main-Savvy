@@ -25,7 +25,6 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
   const isRTL = lang === "ar"
   const dropdownRef = useRef<HTMLDivElement>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const pathname = usePathname()
 
   // serviceSections ثابتة ومترجمة حرفيًا
   const serviceSections = lang === "ar"
@@ -103,8 +102,8 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                     src="/Savvy 2 1.svg"
                     alt="Savvy"
                     width={100}
-                    height={32}
-                    className="h-7 md:h-9 w-auto"
+                    height={70}
+                    className="h-10 md:h-13 w-auto"
                   />
                 </Link>
               </div>
