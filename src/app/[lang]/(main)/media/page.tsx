@@ -25,9 +25,9 @@ const headerTextsEn = {
 
 const headerTextsAr = {
   news: "الأخبار",
-  "why-savvy": "لماذا سافي",
   gallery: "معرض الميديا",
-  content: "المحتوى",
+  "why-savvy": "لماذا سافي",
+  content: "الخدمات",
   hero: "الرئيسية",
   contactUs: "تواصل معنا",
 }
@@ -45,18 +45,21 @@ export default async function MediaPage({ params }: MediaPageProps) {
           <UnrealHero  />
         </section>
 
+
         <section id="content">
           <MediaContent lang={currentLang} />
         </section>
-    
+
+     <section id="why-savvy">
+          <WhySavvy lang={currentLang} />
+        </section>
+
+
         <section id="gallery">
           <GallerySection />
         </section>
 
-        <section id="why-savvy">
-          <WhySavvy lang={currentLang} />
-        </section>
-
+   
         {/* Latest News Section */}
         <section id="news">
           <LatestNews />
