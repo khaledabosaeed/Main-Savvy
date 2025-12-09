@@ -1,17 +1,9 @@
 "use client"
 
-import { motion } from "framer-motion"
 import Image from "next/image"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { partnersContent } from "./content"
 
-const partnersContent = {
-    en: {
-        heading: "Companies that trusted us to create different experiences.. You're next",
-    },
-    ar: {
-        heading: "شركاء وفقونا بصناعة تجارب مختلفة.. أنت التالي",
-    },
-}
 
 export default function PartnersSlider() {
     const { language } = useLanguage()
@@ -47,17 +39,7 @@ export default function PartnersSlider() {
                     <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
 
                     {/* Scrolling Partners */}
-                    <motion.div
-                        className="flex gap-12 items-center"
-                        animate={{
-                            x: isRTL ? [0, "50%"] : ["0%", "-50%"],
-                        }}
-                        transition={{
-                            duration: 30,
-                            repeat: Infinity,
-                            ease: "linear",
-                        }}
-                    >
+                    <div className={`flex gap-12 items-center `}>
                         {duplicatedPartners.map((partner, index) => {
                             // Smaller size for Samsung and Hisense
                             const isSmaller = partner.name === "Samsung" || partner.name === "Hisense"
@@ -80,7 +62,7 @@ export default function PartnersSlider() {
                                 </div>
                             )
                         })}
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

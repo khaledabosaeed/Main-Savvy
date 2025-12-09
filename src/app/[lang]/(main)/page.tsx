@@ -13,6 +13,7 @@ import { useLanguage } from "@/contexts/LanguageContext"
 
 // نصوص الهيدر بالإنجليزية
 const headerTextsEn = {
+
   about: "Our Sections",
   services: "Gallery",
   news: "Latest News",
@@ -25,6 +26,7 @@ const headerTextsAr = {
   services: "معرض الصور",
   about: "أقسامنا",
   contactUs: "تواصل معنا",
+
 }
 
 export default function Home() {
@@ -49,7 +51,7 @@ export default function Home() {
       <TopBanner />
 
       {/* UnifiedHeader الديناميكي */}
-      <UnifiedHeader texts={texts} showBadge={showBadge} hasBanner={true} />
+      <UnifiedHeader texts={texts} showBadge={showBadge} hasBanner={true} logoSrc="/Savvy 2 1.svg" logoAlt="Savvy" />
 
       {/* Sections مرتبطة بالـ navbar عبر نفس أسماء المفاتيح */}
       <section id="whoWeAre">

@@ -24,26 +24,34 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://savvyworld.ai'),
 
   title: {
-    default: "Savvy Roboot   ",
-    template: "%s | Savvy Roboot"
+    default: "سافي وورلد – بوابتك للعالم الجديد من الإكسبو والميديا والابتكار",
+    template: "%s | Savvy World"
   },
 
-  description: "منصة  ذكية توفر أحدث التقنيات والحلول المبتكرة - Smart property solutions with innovative technology",
+  description: "نعرّفك على التقنيات الحسنة بطريقة بسيطة يقودها مستر سافي. منظومة تجمع بين الإعلام، والمعارض، والتقنيات الذكية لبناء مدن مستدامة ومتصلة. نربط بين الذكاء الاصطناعي، والتفاعل الرقمي، وحلول الطاقة النظيفة لتحويل المساحات الحضرية إلى تجارب ذكية ومريحة.",
 
   keywords: [
-    'ربوت ',
-    'تقنية روبوت',
-    'reboot technology',
-    'تقييم روبوت',
-    'استثمار روبوت',
-    'real estate',
-    'property technology',
-    'smart solutions'
+    'سافي وورلد',
+    'سافي اكسبو',
+    'سافي ميديا',
+    'سافي ابتكار',
+    'معارض تفاعلية',
+    'تقنيات ذكية',
+    'روبوت مستر سافي',
+    'مدن مستدامة',
+    'الذكاء الاصطناعي',
+    'تفاعل رقمي',
+    'محتوى',
+    'شاشات ضخمة',
+    'ابتكار',
+    'شراكات استراتيجية',
+    'تجارب تفاعلية',
+    'طاقة نظيفة'
   ],
 
-  authors: [{ name: 'Savvy Rating', url: 'https://savvyworld.ai' }],
+  authors: [{ name: 'Savvy World', url: 'https://savvyworld.ai' }],
 
-  creator: 'Savvy Rating',
+  creator: 'Savvy World',
 
   icons: {
     icon: "/Savvy 2 1.svg",
@@ -53,18 +61,17 @@ export const metadata: Metadata = {
   // Open Graph للمشاركة على Facebook, WhatsApp, LinkedIn
   openGraph: {
     type: 'website',
-    locale: 'ar_SA',
-    alternateLocale: 'en_US',
+    locale: 'ar_AR',
     url: 'https://savvyworld.ai',
-    title: 'Savvy Roboot -  روبوت ذكي`',
-    description: 'اكتشف منصتنا المبتكرة لتقييم وإدارة الروبوتات بأحدث التقنيات',
-    siteName: 'Savvy Roboot',
+    title: 'سافي وورلد – بوابتك للعالم الجديد من الإكسبو والميديا والابتكار',
+    description: 'منظومة تجمع بين الإعلام، المعارض، والابتكار لبناء مدن مستدامة ومتصلة. نعرّفك على التقنيات الحسنة بطريقة بسيطة يقودها مستر سافي.',
+    siteName: 'Savvy World',
     images: [
       {
         url: '/og-image.jpg', // تحتاج إنشاء هذه الصورة 1200x630
         width: 1200,
         height: 630,
-        alt: 'Savvy Roboot - Smart Robot Solutions',
+        alt: 'Savvy World - الإعلام والمعارض والابتكار',
         type: 'image/jpeg',
       },
     ],
@@ -72,10 +79,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Savvy Roboot - حلول روبوت مبتكرة',
-    description: 'منصة روبوت ذكية توفر أحدث التقنيات والحلول المبتكرة',
+    title: 'سافي وورلد – الإكسبو والميديا والابتكار',
+    description: 'نعرّفك على التقنيات الحسنة بطريقة بسيطة. منظومة تجمع الإعلام، المعارض، والابتكار لبناء مدن مستدامة ومتصلة.',
     images: ['/og-image.jpg'],
-    creator: '@savvyrating', // غيّره لحسابك على تويتر
+    creator: '@savvyworld',
   },
 
   robots: {
@@ -90,7 +97,7 @@ export const metadata: Metadata = {
     },
   },
 
-  applicationName: 'Mr Savvy',
+  applicationName: 'Savvy World',
   referrer: 'origin-when-cross-origin',
 
   alternates: {

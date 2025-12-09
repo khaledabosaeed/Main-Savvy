@@ -130,7 +130,7 @@ export default function NewHero() {
             initial="hidden"
             animate={animate ? "visible" : "hidden"}
             transition={{ delay: isMobile ? 0.2 : 0.4 }}
-            className="text-xs md:text-sm lg:text-base text-gray-500 mb-2 md:mb-3 max-w-3xl mx-auto px-4"
+            className="text-xs md:text-sm lg:text-base text-gray-600 mb-2 md:mb-3 max-w-3xl mx-auto px-4"
           >
             {t("subDescription")}
           </motion.p>
@@ -187,56 +187,10 @@ export default function NewHero() {
                
                   />
                 </motion.div>
-
-                {/* Gradient overlay at bottom */}
-                {/* {!isMobile && (
-                  <div
-                    className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none"
-                    style={{
-                      background:
-                        "linear-gradient(to bottom, transparent 0%, rgba(147, 197, 253, 0.05) 40%, rgba(196, 181, 253, 0.08) 70%, rgba(255, 255, 255, 0.15) 100%)",
-                      mixBlendMode: "multiply",
-                      opacity: 0.4,
-                    }}
-                  />
-                )} */}
-
-      
+ 
               </div>
 
-              {/* Enhanced depth layer - Hidden on mobile */}
-              {/* {!isMobile && (
-                <div
-                  className="absolute top-2 left-1/2 -translate-x-1/2 w-[95%] h-[95%] -z-20 opacity-15"
-                  style={{
-                    filter: "blur(30px)",
-                    background:
-                      "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(59, 130, 246, 0.25) 0%, rgba(147, 51, 234, 0.2) 50%, transparent 70%)",
-                  }}
-                />
-              )} */}
-
-              {/* Background animated blur - Lighter on mobile */}
-              {/* <motion.div
-                variants={blurVariants}
-                initial="hidden"
-                animate={animate ? "visible" : "hidden"}
-                className={isMobile ? "absolute inset-0 -z-30 blur-2xl" : "absolute inset-0 -z-30 blur-3xl"}
-                style={{
-                  background:
-                    "linear-gradient(to bottom, rgba(147, 197, 253, 0.15) 0%, rgba(196, 181, 253, 0.12) 100%)",
-                }}
-              /> */}
-
-              {/* Ground shadow - Lighter on mobile */}
-              {/* <div
-                className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-24 -z-40"
-                style={{
-                  background:
-                    "radial-gradient(ellipse 100% 100% at 50% 50%, rgba(147, 197, 253, 0.5) 0%, rgba(147, 197, 253, 0.2) 50%, transparent 100%)",
-                  filter: isMobile ? "blur(25px)" : "blur(40px)",
-                }}
-              /> */}
+  
             </div>
 
           </motion.div>

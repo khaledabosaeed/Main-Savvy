@@ -39,7 +39,7 @@ export default async function MediaPage({ params }: MediaPageProps) {
 
   return (
     <>
-      <UnifiedHeader texts={texts} hasBanner={false} />
+      <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/media/media.svg" logoHref="#hero"/>
       <PageTransition>
         <section id="hero">
           <UnrealHero  />

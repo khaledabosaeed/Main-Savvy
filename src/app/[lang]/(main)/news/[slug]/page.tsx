@@ -1,7 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import ArticlePage from "@/components/article-page/ArticlePage"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
 
 interface ArticlePageProps {
   params: Promise<{

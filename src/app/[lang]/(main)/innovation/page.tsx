@@ -37,7 +37,7 @@ export default async function InnovationPage({ params }: InnovationPageProps) {
   return (
     <>
       {/* UnifiedHeader للدعم الديناميكي */}
-      <UnifiedHeader texts={texts} hasBanner={false} />
+      <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/innovation/invo.svg" logoHref="#hero"/>
 
       <PageTransition>
         <section id="hero">

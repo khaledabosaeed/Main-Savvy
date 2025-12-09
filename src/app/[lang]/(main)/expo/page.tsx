@@ -38,7 +38,7 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
 
   return (
     <>
-      <UnifiedHeader texts={texts} hasBanner={false} />
+      <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/expo/expo.svg" logoAlt="Savvy" logoHref="#hero" />
       <PageTransition>
         <section id="hero">
           <ExpoHero lang={currentLang} />

@@ -15,9 +15,12 @@ interface UnifiedHeaderProps {
   texts?: Record<string, string>
   showBadge?: boolean
   hasBanner?: boolean
+  logoHref?: string
+  logoAlt?: string
+  logoSrc?: string
 }
 
-export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner = true }: UnifiedHeaderProps) {
+export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner = true, logoHref, logoAlt = "Savvy", logoSrc = "/Savvy 2 1.svg" }: UnifiedHeaderProps) {
   const { language } = useLanguage()
   const isMobile = useIsMobile()
   const lang = language as "en" | "ar"
@@ -99,13 +102,13 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
             <div className={`flex items-center justify-between gap-3 md:gap-4 lg:gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
               {/* Logo - Smaller on mobile */}
               <div className="flex-shrink-0">
-                <Link href={`/${lang}`}>
+                <Link href={logoHref || `/${lang}`}>
                   <Image
-                    src="/Savvy 2 1.svg"
-                    alt="Savvy"
+                    src={logoSrc}
+                    alt={logoAlt}
                     width={100}
                     height={70}
-                    className="h-10 md:h-13 w-auto"
+                    className="h-20 md:h-13 w-auto"
                   />
                 </Link>
               </div>
