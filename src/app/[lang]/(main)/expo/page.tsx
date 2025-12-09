@@ -23,11 +23,11 @@ const headerTextsEn = {
 }
 
 const headerTextsAr = {
-  hero: "الرئيسية",
-  services: "الخدمات",
-  projects: "المشاريع",
-  partners: "الشركاء",
   news: "الأخبار",
+  partners: "الشركاء",
+  projects: "المشاريع",
+  services: "الخدمات",
+  hero: "الرئيسية",
   contactUs: "تواصل معنا",
 }
 

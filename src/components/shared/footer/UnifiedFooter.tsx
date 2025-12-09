@@ -25,7 +25,6 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       links: [
         { label: isRTL ? "أقسامنا" : "Our Sections", href: `/${lang}#about` },
         { label: isRTL ? "معرض الصور" : "Gallery", href: `/${lang}#services` },
-        { label: isRTL ? "أخبار سافي" : "Savvy News", href: `/${lang}/news` },
       ]
     },
     {
@@ -35,7 +34,6 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
         { label: isRTL ? "المحتوى" : "Content", href: `/${lang}/media#content` },
         { label: isRTL ? "معرض الميديا" : "Gallery", href: `/${lang}/media#gallery` },
         { label: isRTL ? "لماذا سافي" : "Why Savvy", href: `/${lang}/media#why-savvy` },
-        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/media#news` },
       ]
     },
     {
@@ -44,8 +42,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       links: [
         { label: isRTL ? "الخدمات" : "Services", href: `/${lang}/expo#services` },
         { label: isRTL ? "المشاريع" : "Projects", href: `/${lang}/expo#projects` },
-        { label: isRTL ? "شركائنا" : "Partners", href: `/${lang}/expo#partners` },
-        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/expo#news` },
+        { label: isRTL ? "شركاء النجاح" : "Partners", href: `/${lang}/expo#partners` },
       ]
     },
     {
@@ -53,8 +50,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       titleHref: `/${lang}/innovation`,
       links: [
         { label: isRTL ? "الحلول" : "Solutions", href: `/${lang}/innovation#solutions` },
-        { label: isRTL ? "شركائنا" : "Partners", href: `/${lang}/innovation#partners` },
-        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/innovation#news` },
+        { label: isRTL ? "شركاء النجاح" : "Partners", href: `/${lang}/innovation#partners` },
       ]
     },
     {

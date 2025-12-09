@@ -56,7 +56,8 @@ export default function LatestNews() {
                     variants={containerVariants}
                 >
                     {content.cards.map((card) => (
-                        <motion.div
+                        <motion.a
+                            href={card.link}
                             key={card.id}
                             className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
                             variants={cardVariants}
@@ -89,7 +90,7 @@ export default function LatestNews() {
                                     </Link>
                                 </div>
                             </div>
-                        </motion.div>
+                        </motion.a>
                     ))}
                 </motion.div>
             </div>

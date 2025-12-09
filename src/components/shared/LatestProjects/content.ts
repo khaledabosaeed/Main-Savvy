@@ -1,66 +1,214 @@
 export type Language = "en" | "ar"
 
+export interface ProjectStatistic {
+  value: number
+  label?: string
+  description: string
+  formatter?: string // "+" or "million" etc
+}
+
+export interface ProjectData {
+  title: string
+  description: string
+  image: string
+  ctaButton: string
+  statistics: ProjectStatistic[]
+}
+
 export const latestProjectsContent = {
   en: {
     title: "Our Latest Projects",
     subtitle: "Experience from the first exhibition - not just design",
 
-    // Projects
-    project1Title: "Global Robotics Summit",
-    project1Description: "A comprehensive robotics exhibition showcasing the latest innovations in AI and automation.",
-
-    project2Title: "Customer First Exhibition",
-    project2Description: "An innovative exhibition focused on customer experience and digital transformation.",
-
-    project3Title: "Al-Khuzama Exhibition",
-    project3Description: "A cultural and technological exhibition celebrating innovation and heritage.",
-
-    // CTA Button
-    ctaButton: "Read More About Global Robotics",
-
-    // Statistics
-    stat1Value: "250+",
-    stat1Label: "Million",
-    stat1Description: "Views across social media platforms",
-
-    stat2Value: "60+",
-    stat2Description: "Company Corners",
-
-    stat3Value: "8000+",
-    stat3Description: "Visitors",
+    projects: [
+      {
+        title: "Global Robotics Summit",
+        description: "A comprehensive robotics exhibition showcasing the latest innovations in AI and automation.",
+        image: "/expo/hero/hero.jpg",
+        ctaButton: "Read More About Global Robotics",
+        statistics: [
+          {
+            value: 8000,
+            description: "Visitors",
+            formatter: "+"
+          },
+          {
+            value: 60,
+            description: "Company Corners",
+            formatter: "+"
+          },
+          {
+            value: 250,
+            label: "Million",
+            description: "Views across social media platforms",
+            formatter: "+"
+          }
+        ]
+      },
+      {
+        title: "Customer First Exhibition",
+        description: "An innovative exhibition focused on customer experience and digital transformation.",
+        image: "/placeholder-project-2.jpg",
+        ctaButton: "Read More About Customer First",
+        statistics: [
+          {
+            value: 5000,
+            description: "Visitors",
+            formatter: "+"
+          },
+          {
+            value: 40,
+            description: "Company Corners",
+            formatter: "+"
+          },
+          {
+            value: 150,
+            label: "Million",
+            description: "Social Media Reach",
+            formatter: "+"
+          }
+        ]
+      },
+      {
+        title: "Al-Khuzama Exhibition",
+        description: "A cultural and technological exhibition celebrating innovation and heritage.",
+        image: "/placeholder-project-3.jpg",
+        ctaButton: "Read More About Al-Khuzama",
+        statistics: [
+          {
+            value: 6000,
+            description: "Visitors",
+            formatter: "+"
+          },
+          {
+            value: 35,
+            description: "Company Corners",
+            formatter: "+"
+          },
+          {
+            value: 200,
+            label: "Million",
+            description: "Online Engagement",
+            formatter: "+"
+          }
+        ]
+      }
+    ] as ProjectData[]
   },
   ar: {
     title: "معارضنا السابقة",
     subtitle: "خبرة من أرض المعارض .. وليست مجرد تصميم.",
 
-    // Projects
-    project1Title: "القمة العالمية للبروبتيك",
-    project1Description: "منصة عالمية تجمع مستقبل العقار والتقنية في مكان واحد، حيث يجتمع الرواد والمبتكرون لعرض أحدث حلول الذكاء الرقمي، وتقنيات التحول الرقمي، وفرص الشراكات التي تعيد تشكيل مستقبل التطوير العمراني.",
-
-    project2Title: "معرض \"العميل اولاً\" - جدة",
-    project2Description: "معرض مبتكر يركز على تجربة العملاء والتحول الرقمي.",
-
-    project3Title: "معرض الخزامه",
-    project3Description: "معرض ثقافي وتقني يحتفل بالابتكار والتراث.",
-
-    // CTA Button
-    ctaButton: "اقرأ دروبا في القمة العالمية للبروبتيك",
-
-    // Statistics
-    stat1Value: "250+",
-    stat1Label: "مليون",
-    stat1Description: "تفاعل على جميع منصات التواصل",
-
-    stat2Value: "60+",
-    stat2Description: "بوث",
-
-    stat3Value: "8000+",
-    stat3Description: "زائر",
+    projects: [
+      {
+        title: "القمة العالمية للبروبتيك",
+        description: "منصة عالمية تجمع مستقبل العقار والتقنية في مكان واحد، حيث يجتمع الرواد والمبتكرون لعرض أحدث حلول الذكاء الرقمي، وتقنيات التحول الرقمي، وفرص الشراكات التي تعيد تشكيل مستقبل التطوير العمراني.",
+        image: "/expo/hero/hero.jpg",
+        ctaButton: "اقرأ دروبا في القمة العالمية للبروبتيك",
+        statistics: [
+          {
+            value: 8000,
+            description: "زائر",
+            formatter: "+"
+          },
+          {
+            value: 60,
+            description: "بوث",
+            formatter: "+"
+          },
+          {
+            value: 250,
+            label: "مليون",
+            description: "تفاعل على جميع منصات التواصل",
+            formatter: "+"
+          }
+        ]
+      },
+      {
+        title: "معرض \"العميل اولاً\" - جدة",
+        description: "في جدة، معرض العميل أولاً كان فعالية تسويقية/عقارية لـ NHC، يقدّم وحدات سكنية ضمن مشاريع الشركة،",
+        image: "/expo/hero/jadh.png",
+        ctaButton: "اقرأ المزيد عن معرض العميل أولاً",
+        statistics: [
+          {
+            value: 7886,
+            description: "زائر",
+            formatter: "+"
+          },
+          {
+            value: 147,
+            description: "جائزة قيمة",
+            formatter: ""
+          },
+          {
+            value: 133,
+            label: "حجز",
+            description: "من المطوريين العقاريين والبنوك ",
+            formatter: ""
+          }
+        ]
+      },
+  
+      {
+        title: "معرض  \"العميل اولاً\" - الخُبر",
+        description: "في الخبر، المعرض بدا كفرصة تسويقية/عروض تملك ضمن مشاريع سكنيي, بتخفيضات وعروض خاصة وعدة جوائز، مع مشاركة الNHC كجهة عرض",
+        image: "/expo/hero/khazama.png",
+        ctaButton: "اقرأ المزيد عن معرض الخزامه",
+        statistics: [
+          {
+            value: 4000,
+            description: "زائر",
+            formatter: "+"
+          },
+          {
+            value: 15,
+            description: "مبيعات ",
+            formatter: "M+"
+          },
+          {
+            value: 120,
+            label: "جائزة قيمة  ",
+            description: "تفاعل على الإنترنت",
+            formatter: ""
+          }
+        ]
+      }
+      , {
+        title: "معرض الخزامى",
+        description: "شهدت فعالية الخزامى حضوراً واسعاً وتفاعلاً كبيراً، حيث قدّمت جوائز قيّمة ضمن أجواء مميزة، كما جرى خلالها إطلاق برنامج ولاء مخصّص للموظفين بالتعاون مع شركة سامسونج..",
+        image: "/expo/hero/khobar.jpg",
+        ctaButton: "اقرأ المزيد عن معرض الخزامه",
+        statistics: [
+          {
+            value: 50,
+            description: "جائزة قيمة",
+            formatter: ""
+          },
+          {
+            value: 1500,
+            description: "موظف",
+            formatter: "+"
+          },
+          {
+            label: "تفعيل برنامج ولاء الموظفين من سامسونج",
+            description: "",
+            formatter: ""
+          }
+        ]
+      },
+    ] as ProjectData[]
   },
 }
 
-export function getLatestProjectsContent(lang: Language, key: keyof typeof latestProjectsContent.en): string {
-  const content = latestProjectsContent[lang]
-  return (content[key as keyof typeof content] as string) || latestProjectsContent.en[key]
+export function getProjects(lang: Language): ProjectData[] {
+  return latestProjectsContent[lang].projects
+}
+
+export function getLatestProjectsTitle(lang: Language): string {
+  return latestProjectsContent[lang].title
+}
+
+export function getLatestProjectsSubtitle(lang: Language): string {
+  return latestProjectsContent[lang].subtitle
 }
 

@@ -7,7 +7,7 @@ import Image from "next/image"
 import Counter from "../Counter"
 import { useLanguage } from "@/contexts/LanguageContext"
 import type { Language } from "./content"
-import { getLatestProjectsContent } from "./content"
+import { getProjects, getLatestProjectsTitle, getLatestProjectsSubtitle } from "./content"
 import {
   fadeInUp,
   viewportConfig,
@@ -15,41 +15,16 @@ import {
   sectionSlideUp,
 } from "@/lib/animations"
 
-interface Project {
-  id: number
-  title: string
-  description: string
-  image: string
-}
-
 function LatestProjects() {
   const { language } = useLanguage()
   const lang = language as Language
   const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").latestProjectsContent.en) => getLatestProjectsContent(lang, key)
 
   const [activeProject, setActiveProject] = useState(0)
 
-  const projects: Project[] = [
-    {
-      id: 0,
-      title: t("project1Title"),
-      description: t("project1Description"),
-      image: "/expo/hero/hero.jpg",
-    },
-    {
-      id: 1,
-      title: t("project2Title"),
-      description: t("project2Description"),
-      image: "/placeholder-project-2.jpg",
-    },
-    {
-      id: 2,
-      title: t("project3Title"),
-      description: t("project3Description"),
-      image: "/placeholder-project-3.jpg",
-    },
-  ]
+  const projects = getProjects(lang)
+  const title = getLatestProjectsTitle(lang)
+  const subtitle = getLatestProjectsSubtitle(lang)
 
   const currentProject = projects[activeProject]
 
@@ -77,10 +52,10 @@ function LatestProjects() {
           className={`text-center mb-6 ${isRTL ? 'rtl' : 'ltr'}`}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
-            {t("title")}
+            {title}
           </h2>
           <p className="text-gray-500 text-sm md:text-base">
-            {t("subtitle")}
+            {subtitle}
           </p>
         </motion.div>
 
@@ -95,7 +70,7 @@ function LatestProjects() {
         >
           {projects.map((project, index) => (
             <motion.button
-              key={project.id}
+              key={index}
               onClick={() => handleTabClick(index)}
               className={`relative px-2 py-2 text-sm md:text-base font-medium transition-colors ${activeProject === index
                   ? "text-gray-900"
@@ -173,7 +148,7 @@ function LatestProjects() {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 bg-[#3960F9] text-white rounded-lg font-medium text-sm md:text-base shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  {t("ctaButton")}
+                  {currentProject.ctaButton}
                 </motion.button>
               </motion.div>
 
@@ -184,50 +159,36 @@ function LatestProjects() {
                 transition={{ delay: 0.5 }}
                 className="grid grid-cols-3 gap-6 pt-8"
               >
-                {/* Stat 1 */}
-                <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <Counter
-                      to={8000}
-                      className="text-3xl md:text-4xl font-bold text-gray-900"
-                      formatter={(n) => `${Math.floor(n)}+`}
-                    />
+                {currentProject.statistics.map((stat, index) => (
+                  <div key={index} className={`${isRTL ? 'text-right' : 'text-left'}`}>
+                    <div className="flex items-baseline gap-1 mb-1">
+                      {stat.value ? (
+                        <Counter
+                          to={stat.value}
+                          className="text-3xl md:text-4xl font-bold text-gray-900"
+                          formatter={(n) => `${Math.floor(n)}`}
+                        />
+                      ) : (
+                        <span className="text-3xl md:text-4xl font-bold text-gray-900">
+                          {stat.value}
+                        </span>
+                      )}
+                      {stat.label && (
+                        <span className="text-xl md:text-2xl font-bold text-gray-900">
+                          {stat.label}
+                        </span>
+                      )}
+                      {stat.formatter && (
+                        <span className="text-xl md:text-2xl font-bold text-gray-900">
+                          {stat.formatter}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs md:text-sm text-gray-600">
+                      {stat.description}
+                    </p>
                   </div>
-                  <p className="text-xs md:text-sm text-gray-600">
-                    {t("stat3Description")}
-                  </p>
-                </div>
-
-                {/* Stat 2 */}
-                <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <Counter
-                      to={60}
-                      className="text-3xl md:text-4xl font-bold text-gray-900"
-                      formatter={(n) => `${Math.floor(n)}+`}
-                    />
-                  </div>
-                  <p className="text-xs md:text-sm text-gray-600">
-                    {t("stat2Description")}
-                  </p>
-                </div>
-
-                {/* Stat 3 */}
-                <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <Counter
-                      to={250}
-                      className="text-3xl md:text-4xl font-bold text-gray-900"
-                      formatter={(n) => `${Math.floor(n)}`}
-                    />
-                    <span className="text-xl md:text-2xl font-bold text-gray-900">
-                      {t("stat1Label")}+
-                    </span>
-                  </div>
-                  <p className="text-xs md:text-sm text-gray-600">
-                    {t("stat1Description")}
-                  </p>
-                </div>
+                ))}
               </motion.div>
             </div>
           </motion.div>

@@ -24,11 +24,11 @@ const headerTextsEn = {
 }
 
 const headerTextsAr = {
-  hero: "الرئيسية",
-  content: "المحتوى",
-  gallery: "معرض الميديا",
-  "why-savvy": "لماذا سافي",
   news: "الأخبار",
+  "why-savvy": "لماذا سافي",
+  gallery: "معرض الميديا",
+  content: "المحتوى",
+  hero: "الرئيسية",
   contactUs: "تواصل معنا",
 }
 

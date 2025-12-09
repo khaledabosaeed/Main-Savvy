@@ -139,7 +139,6 @@ export default function RootLayout({
         </Script>
             
         <SmoothScrollProvider>
-          <ScrollProgress />
           {children}
         </SmoothScrollProvider>
       </body>
