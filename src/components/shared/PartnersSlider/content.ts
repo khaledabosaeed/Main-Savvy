@@ -5,7 +5,7 @@ export const partnersContent = {
         heading: "Companies that trusted us to create different experiences.. You're next",
     },
     ar: {
-        heading: "شركاء وفقونا بصناعة تجارب مختلفة.. أنت التالي",
+        heading: "شركاء وثقوا بنا لصناعة تجارب مختلفة.. أنت التالي",
     },
 }
 
