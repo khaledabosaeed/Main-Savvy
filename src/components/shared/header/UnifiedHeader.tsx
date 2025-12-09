@@ -270,7 +270,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
 
                   {/* Language & Contact */}
                   <div className="px-6 py-4 mt-2 border-t border-white/10 space-y-2">
-                    <LanguageSwitcher currentLang={lang} isMobile />
+                    {/* <LanguageSwitcher currentLang={lang} isMobile /> */}
                     <Link
                       href={`/${lang}/contact`}
                       onClick={() => setIsMobileMenuOpen(false)}
