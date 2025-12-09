@@ -55,7 +55,7 @@ export default function PromoSection() {
                         </p>
                         <div className="mt-2 md:mt-4 flex md:justify-start justify-center">
                         <Link
-                            href={content.buttonLink}
+                            href={`/${lang}/contact`}
                             className={`px-8 md:px-10 py-3 md:py-4 bg-blue-600 text-white rounded-xl text-base md:text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 ${lang === 'ar' ? 'self-end' : 'self-start'} md:${lang === 'ar' ? 'self-end' : 'self-start'} self-center`}
                         >
                             {content.buttonText}

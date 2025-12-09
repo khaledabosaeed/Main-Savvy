@@ -110,18 +110,23 @@ export default function UnrealHero() {
               variants={itemVariants}
               className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}
             >
-              <Link
-                href={content.primaryButtonLink}
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg text-center"
+             <motion.a
+              href={`/${lang}/contact`}
+              className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
               >
-                {content.primaryButton}
-              </Link>
-              <Link
-                href={content.secondaryButtonLink}
-                className="inline-block bg-white hover:bg-gray-50 text-gray-700 border border-gray-300 px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-center"
+                {isRTL ? "تواصل معنا " : "Learn More"}
+              </motion.a>
+
+              <motion.a
+                href={`#content`}
+                className="inline-block px-8 py-4 bg-white text-gray-900 border-2 border-gray-200 rounded-xl font-semibold hover:border-gray-300 transition-all"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {content.secondaryButton}
-              </Link>
+                {isRTL ? "تعلم المزيد" : "Contact Us"}
+              </motion.a>
             </motion.div>
           </motion.div>
 
