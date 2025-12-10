@@ -110,7 +110,7 @@ export default function NewHero() {
             className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight px-2"
           >
             {t("welcomeText")}{" "}
-            <span className="text-gray-700">
+            <span className="text-primary">
               {t("savvyWorld")}
             </span>
           </motion.h1>

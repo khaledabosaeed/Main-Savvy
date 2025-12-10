@@ -133,7 +133,7 @@ export default function ContactPage({ lang }: ContactPageProps) {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
-                    placeholder={isRTL ? "محمد أحمد" : "John Doe"}
+                    placeholder={isRTL ? "اسم المستخدم" : "John Doe"}
                     className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all ${isRTL ? 'text-right' : 'text-left'}`}
                     dir={isRTL ? 'rtl' : 'ltr'}
                     required
