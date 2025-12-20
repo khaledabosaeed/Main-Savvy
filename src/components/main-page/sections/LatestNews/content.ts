@@ -17,7 +17,7 @@ export const latestNewsContent = {
                 id: "news-1",
                 title: "How to build interactive future activities?",
                 date: "October 12",
-                                image: "/news/news-3.jpg",
+image: "/news/news-3.jpg",
 
                 buttonText: "News",
                 link: "/news/interactive-displays-future",

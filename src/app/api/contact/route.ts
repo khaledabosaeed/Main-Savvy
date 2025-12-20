@@ -2,34 +2,65 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
-    const { name, email, phone, message, lang } = body
+    const requestData = await request.json()
 
-    if (!name || !email || !message) {
+    // Validate required fields
+    if (!requestData.pfullname || !requestData.pemail) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: 'Full name and email are required' },
         { status: 400 }
       )
     }
 
-    if (!email.includes('@')) {
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(requestData.pemail)) {
       return NextResponse.json(
-        { error: 'Invalid email address' },
+        { error: 'Invalid email format' },
         { status: 400 }
       )
     }
 
-    console.log('Contact form:', { name, email, phone, message, lang })
+    // Prepare data for the external API
+    const payload = {
+      pfullname: requestData.pfullname || "",
+      pjob_title: requestData.pjob_title || "",
+      pcomapny_name: requestData.pcomapny_name || "",
+      paddress: requestData.paddress || "",
+      pemail: requestData.pemail || "",
+      ptel: requestData.ptel || ""
+    }
+
+    // Send request to external API
+    const response = await fetch('https://sakani.incube-events.com/newsavvy/ContactUs.asmx/AddNewContcat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error('External API error:', errorText)
+      return NextResponse.json(
+        { error: 'Failed to submit contact form' },
+        { status: response.status }
+      )
+    }
+
+    const result = await response.json().catch(() => response.text())
 
     return NextResponse.json(
-      { message: 'Message sent successfully' },
+      { message: 'Contact form submitted successfully', data: result },
       { status: 200 }
     )
   } catch (error) {
-    console.error('Contact error:', error)
+    console.error('Error submitting contact form:', error)
     return NextResponse.json(
-      { error: 'Failed to send message' },
+      { error: 'Internal server error' },
       { status: 500 }
     )
   }
 }
+

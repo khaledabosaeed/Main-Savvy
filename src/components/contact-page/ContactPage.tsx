@@ -42,7 +42,7 @@ export default function ContactPage({ lang }: ContactPageProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!formData.fullName || !formData.email || !formData.message) {
+    if (!formData.email || !formData.email.includes('@')) {
       setStatus("error")
       return
     }
@@ -50,12 +50,12 @@ export default function ContactPage({ lang }: ContactPageProps) {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...formData, lang }),
+        body: JSON.stringify({ email: formData.email, lang }),
       })
 
       if (response.ok) {

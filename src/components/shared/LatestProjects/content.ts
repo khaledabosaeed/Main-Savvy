@@ -26,7 +26,7 @@ en: {
         description: "Savvy World participated in the Global PropTech Summit as one of the leading entities driving technological transformation in the real estate sector in Saudi Arabia. Our presence was not just participation, but a live showcase of the future of smart cities, demonstrating how sustainability, AI, and robotics can come together in a single system supporting Saudi Vision 2030.",
 
         image: "/expo/hero/hero.jpg",
-        ctaButton: "Read Case Study: Global PropTech Summit",
+        ctaButton: "Global PropTech Summit",
         statistics: [
           {
             value: 8000,
@@ -50,7 +50,7 @@ en: {
         title: '"Customer First" Exhibition - Jeddah',
         description: "In Jeddah, the Customer First Exhibition was a marketing/real estate event for NHC, presenting residential units within the company's projects.",
         image: "/expo/hero/jadh.png",
-        ctaButton: "Read More About the Customer First Exhibition",
+        ctaButton: '"Customer First" Exhibition - Jeddah',
         statistics: [
           {
             value: 7886,
@@ -74,7 +74,7 @@ en: {
         title: '"Customer First" Exhibition - Khobar',
         description: "In Khobar, the exhibition served as a marketing/sales opportunity for residential projects, with discounts, special offers, and multiple prizes, featuring NHC as the showcasing entity.",
               image: "/expo/hero/khobar.jpg",
-        ctaButton: "Read More About the Khazama Exhibition",
+        ctaButton: '"Customer First" Exhibition - Khobar',
         statistics: [
           {
             value: 4000,
@@ -98,7 +98,7 @@ en: {
         title: "Al-Khozama Exhibition",
         description: "The Al-Khozama event witnessed wide attendance and significant engagement, with valuable prizes awarded in a distinctive atmosphere. The event also launched a dedicated employee loyalty program in collaboration with Samsung.",
                 image: "/expo/hero/khazama.png",
-        ctaButton: "Read More About the Khazama Exhibition",
+        ctaButton: "Al-Khozama Exhibition",
         statistics: [
           {
             value: 50,
@@ -127,10 +127,9 @@ en: {
     projects: [
       {
         title: "القمة العالمية للبروبتيك",
-        description: "ساڤي وورلد شاركت في القمة العالمية للبروبتك كأحد أبرز الجهات التي تقود التحول التقني في قطاع العقار داخل المملكة.وجودنا في القمة لم يكن مجرد مشاركة .. بل كان عرضًا حيًا لمستقبل المدن الذكية، وكيف يمكن الجمع بين الاستدامة، الذكاء الاصطناعي، والروبوتات في منظومة واحدة تخدم رؤية السعودية 2030.",
-
+description: "ساڤي وورلد شاركت في القمة العالمية للبروبتك أحد أبرز الجهات التي تقود التحول التقني في قطاع العقار داخل المملكة.وجودنا في القمة لم يكن مجرد مشاركة .. بل كان عرضًا حيًا لمستقبل المدن الذكية، وكيف يمكن الجمع بين الاستدامة، الذكاء الاصطناعي، والروبوتات في منظومة واحدة تخدم رؤية السعودية 2030.",
         image: "/expo/hero/hero.jpg",
-        ctaButton: "اقرأ دروبا في القمة العالمية للبروبتيك",
+        ctaButton: " القمة العالمية للبروبتيك",
         statistics: [
           {
             value: 8000,
@@ -154,7 +153,7 @@ en: {
         title: "معرض \"العميل اولاً\" - جدة",
         description: "في جدة، معرض العميل أولاً كان فعالية تسويقية/عقارية لـ NHC، يقدّم وحدات سكنية ضمن مشاريع الشركة،",
         image: "/expo/hero/jadh.png",
-        ctaButton: "اقرأ المزيد عن معرض العميل أولاً",
+        ctaButton: "معرض \"العميل اولاً\" - جدة",
         statistics: [
           {
             value: 7886,
@@ -179,7 +178,7 @@ en: {
         title: "معرض  \"العميل اولاً\" - الخُبر",
         description: "في الخبر، المعرض بدا كفرصة تسويقية/عروض تملك ضمن مشاريع سكنيي, بتخفيضات وعروض خاصة وعدة جوائز، مع مشاركة الNHC كجهة عرض",
               image: "/expo/hero/khobar.jpg",
-        ctaButton: "اقرأ المزيد عن معرض الخزامه",
+        ctaButton: "معرض  \"العميل اولاً\" - الخُبر",
         statistics: [
           {
             value: 4000,
@@ -205,7 +204,7 @@ en: {
                 image: "/expo/hero/khazama.png",
 
 
-        ctaButton: "اقرأ المزيد عن معرض الخزامه",
+        ctaButton: "معرض الخزامى",
         statistics: [
           {
             value: 50,
