@@ -91,28 +91,27 @@ export default function InnovationHero() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
               {/* Video Thumbnail/Poster */}
               <div className="relative aspect-video bg-gray-100">
-                <img
-                  src="/innovation/hero/hero.jpg"
-                  alt="Innovation Video"
-                  className="w-full h-full object-cover"
-                />
+          <video 
+          src="/innovation/Savvy Innovation Site web_LQ_2.mp4"
+          autoPlay
+          ></video>
 
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
-                  <motion.button
+                  {/* <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl group-hover:bg-blue-600 transition-colors"
                   >
                     <Play className="w-8 h-8 text-gray-900 group-hover:text-white ml-1" fill="currentColor" />
-                  </motion.button>
+                  </motion.button> */}
                 </div>
 
                 {/* Video Duration Badge */}
-                <div className="absolute bottom-4 right-4 px-3 py-1.5 bg-black/70 backdrop-blur-sm rounded-lg text-white text-sm font-medium flex items-center gap-2">
+                {/* <div className="absolute bottom-4 right-4 px-3 py-1.5 bg-black/70 backdrop-blur-sm rounded-lg text-white text-sm font-medium flex items-center gap-2">
                   <Play className="w-4 h-4" fill="currentColor" />
                   <span>Watch Video • 3:21</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </motion.div>
