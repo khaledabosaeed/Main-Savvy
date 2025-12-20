@@ -1,5 +1,4 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
-import MediaHero from "@/components/media-page/sections/MediaHero/MediaHero"
 import MediaContent from "@/components/media-page/sections/MediaContent/MediaContent"
 import WhySavvy from "@/components/media-page/sections/WhySavvy/WhySavvy"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"

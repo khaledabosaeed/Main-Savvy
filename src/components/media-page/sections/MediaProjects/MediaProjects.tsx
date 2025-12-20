@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useLanguage } from "@/contexts/LanguageContext"
 import Image from "next/image"
 import type { Language } from "./content"
 import { getMediaProjectsContent } from "./content"

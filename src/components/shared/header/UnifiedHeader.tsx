@@ -3,7 +3,6 @@
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
@@ -101,7 +100,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
           <div className="container mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5">
             <div className={`flex items-center justify-between gap-3 md:gap-4 lg:gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
               {/* Logo - Smaller on mobile */}
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <Link href={logoHref || `/${lang}`}>
                   <Image
                     src={logoSrc}

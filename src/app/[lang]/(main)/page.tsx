@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import NewHero from "@/components/main-page/sections/NewHero/NewHero"
-import UnrealHero from "@/components/media-page/sections/UnrealHero/UnrealHero"
 import SavvySections from "@/components/main-page/sections/SavvySections/SavvySections"
 import GallerySection from "@/components/main-page/sections/GallerySection/GallerySection"
 import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"

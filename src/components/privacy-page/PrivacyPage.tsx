@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Shield, Mail, Phone } from "lucide-react"
+import { Shield, } from "lucide-react"
 import type { Language } from "./content"
 import { getPrivacyContent } from "./content"
 

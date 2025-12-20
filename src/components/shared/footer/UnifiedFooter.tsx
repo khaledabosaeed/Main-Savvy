@@ -25,7 +25,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       links: [
         { label: isRTL ? "أقسامنا" : "Our Sections", href: `/${lang}#about` },
         { label: isRTL ? "معرض الصور" : "Gallery", href: `/${lang}#services` },
-        { label: isRTL ? "شركاء النجاح" : "Partners", href: `/${lang}/expo#partners` },
+        // { label: isRTL ? "شركاء النجاح" : "Partners", href: `/${lang}/expo#partners` },
         { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
 
       ]

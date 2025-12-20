@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { Play } from "lucide-react"
 import type { Language } from "./content"
 import { getExpoHeroContent } from "./content"
 

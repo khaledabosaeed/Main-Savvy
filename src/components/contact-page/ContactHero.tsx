@@ -18,19 +18,7 @@ export default function ContactHero({ lang }: ContactHeroProps) {
     setKey(prev => prev + 1)
   }, [lang])
 
-  // Badge animation (same as main hero)
-  const badgeVariants = {
-    hidden: { opacity: 0, y: -30, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  }
+
 
   // Title with word-by-word animation (same as main hero)
   const titleVariants = {
@@ -44,31 +32,6 @@ export default function ContactHero({ lang }: ContactHeroProps) {
     },
   }
 
-  const wordVariants = {
-    hidden: { opacity: 0, y: 30, filter: "blur(4px)" },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  }
-
-  const subtitleVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.3,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  }
 
   const title = isRTL ? "تواصل معنا" : "Get In Touch"
   const subtitle = isRTL 
@@ -76,7 +39,7 @@ export default function ContactHero({ lang }: ContactHeroProps) {
     : "We're here to answer your questions and help with your next project"
 
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <section className="relative py-24 overflow-hidden bg-linear-to-br from-blue-50 via-white to-purple-50">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -141,7 +104,7 @@ export default function ContactHero({ lang }: ContactHeroProps) {
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="h-1 bg-gradient-to-r from-transparent via-[#3960F9] to-transparent mx-auto mb-6 rounded-full"
+            className="h-1 bg-linear-to-r from-transparent via-[#3960F9] to-transparent mx-auto mb-6 rounded-full"
             style={{ width: "120px" }}
           />
 

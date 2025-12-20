@@ -3,14 +3,13 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Home } from "lucide-react"
-import UnifiedFooter from "@/components/shared/footer/UnifiedFooter"
-import { useLanguage } from "@/contexts/LanguageContext"
+
 
 export default function NotFound() {
     // const { language } = useLanguage()
     // const lang = language as "en" | "ar"
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center px-6">
+    <div className="min-h-screen bg-linear-to-b from-gray-50 to-white flex items-center justify-center px-6">
       <div className="max-w-3xl w-full text-center">
         {/* Logo */}
         <motion.div

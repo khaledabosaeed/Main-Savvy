@@ -43,18 +43,6 @@ export default function NewHero() {
     },
   }
 
-  const blurVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: isMobile ? 0.2 : 0.3,
-      scale: 1,
-      transition: {
-        duration: isMobile ? 0.5 : 1,
-        delay: isMobile ? 0.2 : 0.5,
-        ease: [0.22, 0.61, 0.36, 1] as any,
-      },
-    },
-  }
 
   const titleVariants = {
     hidden: { opacity: 0, y: isMobile ? 20 : 30, scale: isMobile ? 1 : 0.95 },

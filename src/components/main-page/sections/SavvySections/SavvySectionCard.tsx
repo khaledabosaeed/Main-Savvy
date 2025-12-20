@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -25,7 +24,6 @@ export default function SavvySectionCard({
     image,
     link,
     buttonText,
-    index
 }: SavvySectionCardProps) {
     const { language } = useLanguage()
     const isMobile = useIsMobile()
@@ -42,7 +40,7 @@ export default function SavvySectionCard({
             <div className={`flex items-start gap-4 md:gap-6 mb-6 md:mb-8`}>
                 {/* Icon - Smaller on mobile */}
                 <div
-                    className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-lg md:rounded-xl flex items-center justify-center p-2.5 md:p-3 lg:p-4 flex-shrink-0"
+                    className="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-lg md:rounded-xl flex items-center justify-center p-2.5 md:p-3 lg:p-4 shrink-0"
                     style={{ backgroundColor: '#1649F0' }}
                 >
                     <Image

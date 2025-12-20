@@ -7,8 +7,7 @@ import type { Language } from "./content"
 import { getServicesGridContent } from "./content"
 import {
   sectionSlideUp,
-  imageReveal,
-  imageHover,
+
   fadeInLeft,
   fadeInRight,
 } from "@/lib/animations"

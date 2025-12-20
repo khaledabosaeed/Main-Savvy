@@ -3,7 +3,6 @@ import { Inter_Tight, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/contexts/SmoothScrollContext";
-import ScrollProgress from "@/components/shared/ScrollProgress";
 
 const inter = Inter_Tight({
   subsets: ["latin"],

@@ -2,7 +2,7 @@
 
 import { useState, memo, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+// import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Counter from "../Counter"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -11,7 +11,7 @@ import { getProjects, getLatestProjectsTitle, getLatestProjectsSubtitle } from "
 import {
   fadeInUp,
   viewportConfig,
-  crossfade,
+  // crossfade,
   sectionSlideUp,
 } from "@/lib/animations"
 
@@ -28,13 +28,13 @@ function LatestProjects() {
 
   const currentProject = projects[activeProject]
 
-  const handleNext = useCallback(() => {
-    setActiveProject((prev) => (prev + 1) % projects.length)
-  }, [projects.length])
+  // const handleNext = useCallback(() => {
+  //   setActiveProject((prev) => (prev + 1) % projects.length)
+  // }, [projects.length])
 
-  const handlePrev = useCallback(() => {
-    setActiveProject((prev) => (prev - 1 + projects.length) % projects.length)
-  }, [projects.length])
+  // const handlePrev = useCallback(() => {
+  //   setActiveProject((prev) => (prev - 1 + projects.length) % projects.length)
+  // }, [projects.length])
 
   const handleTabClick = useCallback((index: number) => {
     setActiveProject(index)

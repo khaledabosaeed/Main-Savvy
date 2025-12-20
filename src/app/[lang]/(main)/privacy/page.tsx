@@ -1,7 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import PrivacyPage from "@/components/privacy-page/PrivacyPage"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection"
 
 interface PrivacyPageProps {
   params: Promise<{
