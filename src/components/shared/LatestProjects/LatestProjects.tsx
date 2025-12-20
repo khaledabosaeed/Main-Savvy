@@ -72,7 +72,7 @@ function LatestProjects() {
             <motion.button
               key={index}
               onClick={() => handleTabClick(index)}
-              className={`relative px-2 py-2 text-sm md:text-base font-medium transition-colors ${activeProject === index
+              className={`relative px-5 py-2 text-xs md:text-sm font-medium transition-colors ${activeProject === index
                   ? "text-gray-900"
                   : "text-gray-400 hover:text-gray-600"
                 }`}
@@ -83,7 +83,7 @@ function LatestProjects() {
               {activeProject === index && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900"
+                  className="absolute bottom-0 left-2 right-2 h-0.5 bg-gray-900"
                   initial={false}
                   transition={{ type: "spring", stiffness: 400, damping: 35 }}
                 />

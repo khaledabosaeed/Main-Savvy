@@ -17,9 +17,11 @@ export const latestNewsContent = {
                 id: "news-1",
                 title: "How to build interactive future activities?",
                 date: "October 12",
-                image: "/news/news-1.jpg",
+                                image: "/news/news-3.jpg",
+
                 buttonText: "News",
-                link: "/news/1"
+                link: "/news/interactive-displays-future",
+
             },
             {
                 id: "news-2",
@@ -33,7 +35,7 @@ export const latestNewsContent = {
                 id: "news-3",
                 title: "How does technology change the future of events?",
                 date: "October 5",
-                image: "/news/news-3.jpg",
+                image: "/news/news-1.jpg",
                 buttonText: "News",
                 link: "/news/3"
             }

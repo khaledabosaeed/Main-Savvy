@@ -73,7 +73,7 @@ en: {
       {
         title: '"Customer First" Exhibition - Khobar',
         description: "In Khobar, the exhibition served as a marketing/sales opportunity for residential projects, with discounts, special offers, and multiple prizes, featuring NHC as the showcasing entity.",
-        image: "/expo/hero/khazama.png",
+              image: "/expo/hero/khobar.jpg",
         ctaButton: "Read More About the Khazama Exhibition",
         statistics: [
           {
@@ -97,7 +97,7 @@ en: {
       {
         title: "Al-Khozama Exhibition",
         description: "The Al-Khozama event witnessed wide attendance and significant engagement, with valuable prizes awarded in a distinctive atmosphere. The event also launched a dedicated employee loyalty program in collaboration with Samsung.",
-        image: "/expo/hero/khobar.jpg",
+                image: "/expo/hero/khazama.png",
         ctaButton: "Read More About the Khazama Exhibition",
         statistics: [
           {
@@ -118,12 +118,12 @@ en: {
         ]
       },
     ] as ProjectData[]
-},
-
+  },
+  
   ar: {
     title: "معارضنا السابقة",
     subtitle: "خبرة من أرض المعارض .. وليست مجرد تصميم.",
-
+    
     projects: [
       {
         title: "القمة العالمية للبروبتيك",
@@ -178,7 +178,7 @@ en: {
       {
         title: "معرض  \"العميل اولاً\" - الخُبر",
         description: "في الخبر، المعرض بدا كفرصة تسويقية/عروض تملك ضمن مشاريع سكنيي, بتخفيضات وعروض خاصة وعدة جوائز، مع مشاركة الNHC كجهة عرض",
-        image: "/expo/hero/khazama.png",
+              image: "/expo/hero/khobar.jpg",
         ctaButton: "اقرأ المزيد عن معرض الخزامه",
         statistics: [
           {
@@ -202,7 +202,9 @@ en: {
       , {
         title: "معرض الخزامى",
         description: "شهدت فعالية الخزامى حضوراً واسعاً وتفاعلاً كبيراً، حيث قدّمت جوائز قيّمة ضمن أجواء مميزة، كما جرى خلالها إطلاق برنامج ولاء مخصّص للموظفين بالتعاون مع شركة سامسونج..",
-        image: "/expo/hero/khobar.jpg",
+                image: "/expo/hero/khazama.png",
+
+
         ctaButton: "اقرأ المزيد عن معرض الخزامه",
         statistics: [
           {
