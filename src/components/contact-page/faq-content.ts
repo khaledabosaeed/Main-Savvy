@@ -1,27 +1,28 @@
 export type Language = "en" | "ar"
 
 export const faqContent = {
-  en: {
+en: {
     title: "Frequently Asked Questions",
-    
-    question1: "What is Savvy Media?",
-    answer1: "Savvy Media is a leading provider of innovative media and exhibition solutions. We specialize in creating engaging experiences through cutting-edge technology and creative content.",
-    
-    question2: "Who is Savvy for?",
-    answer2: "Savvy is for businesses, exhibitions, events, and organizations looking to enhance their presence through innovative digital solutions and interactive experiences.",
-    
-    question3: "What is Savvy Innovate?",
-    answer3: "Savvy Innovate focuses on AI-powered solutions, smart technologies, and sustainable innovations. We bring together advanced tech with practical applications for modern businesses.",
-    
-    question4: "Do you provide Green Energy solutions?",
-    answer4: "Yes, we offer comprehensive green energy solutions including solar-powered displays, sustainable technologies, and eco-friendly innovations aligned with Saudi Vision 2030.",
-    
-    question5: "What is Savvy Media?",
-    answer5: "Savvy Media provides comprehensive media production, digital content creation, and interactive display solutions for businesses looking to enhance their brand presence.",
-    
-    question6: "What are Savvy services?",
-    answer6: "Savvy services include exhibition design, media production, smart displays, interactive technologies, AI solutions, green energy systems, and comprehensive digital transformation services.",
-  },
+
+    question1: "What is Savvy World?",
+    answer1: "Savvy World is an innovative Saudi platform combining modern technologies + sustainability + digital transformation + robotics, presented to people and businesses in a simple way, aiming to bring AI and robotics into a better world — the Savvy World.",
+
+    question2: "What does Savvy Media offer?",
+    answer2: "It provides indoor and outdoor digital display screens operating 24/7, along with advanced immersive content using 3D and AR technologies, featuring smart targeting and precise interaction measurement.",
+
+    question3: "Who is mr.savvy?",
+    answer3: "mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
+
+    question4: "What is the role of Savvy Expo?",
+    answer4: "Savvy Expo is the events and exhibitions arm of Savvy World. Its main role is to transform any event into an intelligent, engaging, and educational experience using robotics, AI, and interactive content.",
+
+    question5: "Do you offer green energy solutions?",
+    answer5: "Yes — comprehensively and clearly. In collaboration with the Saudi Green Building Forum, we provide fully certified green solutions. We offer it as a complete 'Green Transformation Journey' for developers, companies, and banks with profitable business models.",
+
+    question6: "What is Savvy Innovation?",
+    answer6: "Savvy Innovation links AI, digital interaction, and green solutions to develop more sustainable urban spaces, providing solutions geared toward the future of cities and experiences.",
+},
+
   ar: {
     title: "الأسئلة الشائعة",
     

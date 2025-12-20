@@ -1,10 +1,11 @@
 export type Language = "en" | "ar"
 
 export const mediaHeroContent = {
-  en: {
-    title: "Stronger Brand Presence Everywhere",
+en: {
+    title: "Your Brand in a New and Innovative Way",
     button: "Learn More",
-  },
+},
+
   ar: {
     title: "علامتك التجارية بشكل جديد ومبتكر",
     button: "تعلم المزيد",

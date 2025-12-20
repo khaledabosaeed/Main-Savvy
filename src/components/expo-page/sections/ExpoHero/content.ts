@@ -1,10 +1,11 @@
 export type Language = "en" | "ar"
 
 export const expoHeroContent = {
-  en: {
-    title: "Next-Level Robot Industry",
-    subtitle: "We offer exhibitions, events, and innovative technologies to serve visitors with interactive experiences.",
-  },
+en: {
+  title: "Bring your booth to life… and let the experience speak for you",
+  subtitle: "mr.savvy and interactive screens give you a distinctive presence",
+},
+
   ar: {
     title: "خلّ جناحك حيّ.. وخَلّي التجربة تحكي عنك",
     subtitle: "مستر سافي والشاشات يعطونك حضور مختلف",

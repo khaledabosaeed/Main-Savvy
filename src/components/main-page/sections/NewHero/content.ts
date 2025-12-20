@@ -1,14 +1,15 @@
 export type Language = "en" | "ar"
 
 export const heroContent = {
-  en: {
-    welcomeText: "We introduce you to good technologies in a simple way",
-    savvyWorld: ".. led by Mr. Savvy",
-    description: "A comprehensive system that combines media, exhibitions, and smart technologies. Building sustainable and connected cities.",
-    subDescription: "We link artificial intelligence, digital interaction, and green energy solutions to transform urban spaces into smart and profitable experiences.",
-    ctaButton: "Contact Us",
-    partners: "Companies that trusted us to create different experiences.. You're next",
-  },
+en: {
+  welcomeText: "We introduce smart technologies in a simple, guided way led by…",
+  savvyWorld: "mr.savvy",
+  description: "An ecosystem that brings together media, exhibitions, and smart technologies to build sustainable, connected cities.",
+  subDescription: "We connect artificial intelligence, digital interaction, and clean energy solutions to transform urban spaces into smart, seamless experiences.",
+  ctaButton: "Contact Us",
+  partners: "Partners who trusted us to create different experiences… you’re next",
+},
+
   ar: {
     welcomeText: "نعرّفك على التقنيات الحسنة بطريقة بسيطة يقودها ..",
     savvyWorld: "  مستر سافي",

@@ -1,19 +1,24 @@
 export type Language = "en" | "ar"
 
 export const innovationServicesContent = {
-  en: {
+en: {
     title: "What Services Do We Offer?",
-    service1Title: "Sustainable Technology Offers",
-    service1Description: "Innovative and eco-friendly technology solutions that promote sustainability and environmental responsibility.",
-    service2Title: "Advanced robotic technologies (humanoid robots)",
-    service2Description: "Cutting-edge humanoid robotics designed to enhance automation and human-robot interaction.",
+    service1Title: "Sustainable Technology Solutions",
+    service1Description: "Innovative, eco-friendly tech solutions that enhance sustainability and environmental responsibility.",
+    
+    service2Title: "Humanoid-Like Robotics (Hajer Robota)",
+    service2Description: "Advanced humanoid robots designed to enhance automation and human-robot interaction.",
+    
     service3Title: "Electric Vehicle Solutions",
-    service3Description: "Comprehensive electric vehicle technologies and charging infrastructure for sustainable transportation.",
+    service3Description: "Comprehensive EV technologies and charging infrastructure for sustainable transportation.",
+    
     service4Title: "Smart AI Systems",
-    service4Description: "Intelligent artificial intelligence systems that optimize processes and enhance decision-making capabilities.",
-    service5Title: "Cooperation with the Saudi Innovation Forum for Green Technology",
-    service5Description: "Strategic partnerships fostering innovation in green technology and sustainable development initiatives.",
-  },
+    service4Description: "Advanced AI systems that optimize operations and enhance decision-making capabilities.",
+    
+    service5Title: "Collaboration with the Saudi Green Technology Forum",
+    service5Description: "Strategic partnerships that drive innovation in green technology and sustainable development initiatives.",
+},
+
   ar: {
     title: "ما الخدمات التي نقدمها؟",
     service1Title: "عروض التكنولوجيا المستدامة",

@@ -16,16 +16,17 @@ export interface ProjectData {
 }
 
 export const latestProjectsContent = {
-  en: {
-    title: "Our Latest Projects",
-    subtitle: "Experience from the first exhibition - not just design",
+en: {
+    title: "Our Past Exhibitions",
+    subtitle: "Experience from the exhibition floor… not just design.",
 
     projects: [
       {
-        title: "Global Robotics Summit",
-        description: "A comprehensive robotics exhibition showcasing the latest innovations in AI and automation.",
+        title: "Global PropTech Summit",
+        description: "Savvy World participated in the Global PropTech Summit as one of the leading entities driving technological transformation in the real estate sector in Saudi Arabia. Our presence was not just participation, but a live showcase of the future of smart cities, demonstrating how sustainability, AI, and robotics can come together in a single system supporting Saudi Vision 2030.",
+
         image: "/expo/hero/hero.jpg",
-        ctaButton: "Read More About Global Robotics",
+        ctaButton: "Read Case Study: Global PropTech Summit",
         statistics: [
           {
             value: 8000,
@@ -34,67 +35,91 @@ export const latestProjectsContent = {
           },
           {
             value: 60,
-            description: "Company Corners",
+            description: "Booths",
             formatter: "+"
           },
           {
             value: 250,
             label: "Million",
-            description: "Views across social media platforms",
+            description: "Interactions across all social platforms",
             formatter: "+"
           }
         ]
       },
       {
-        title: "Customer First Exhibition",
-        description: "An innovative exhibition focused on customer experience and digital transformation.",
-        image: "/placeholder-project-2.jpg",
-        ctaButton: "Read More About Customer First",
+        title: '"Customer First" Exhibition - Jeddah',
+        description: "In Jeddah, the Customer First Exhibition was a marketing/real estate event for NHC, presenting residential units within the company's projects.",
+        image: "/expo/hero/jadh.png",
+        ctaButton: "Read More About the Customer First Exhibition",
         statistics: [
           {
-            value: 5000,
+            value: 7886,
             description: "Visitors",
             formatter: "+"
           },
           {
-            value: 40,
-            description: "Company Corners",
-            formatter: "+"
+            value: 147,
+            description: "Valuable Prizes",
+            formatter: ""
           },
           {
-            value: 150,
-            label: "Million",
-            description: "Social Media Reach",
-            formatter: "+"
+            value: 133,
+            label: "Bookings",
+            description: "From real estate developers and banks",
+            formatter: ""
           }
         ]
       },
       {
-        title: "Al-Khuzama Exhibition",
-        description: "A cultural and technological exhibition celebrating innovation and heritage.",
-        image: "/placeholder-project-3.jpg",
-        ctaButton: "Read More About Al-Khuzama",
+        title: '"Customer First" Exhibition - Khobar',
+        description: "In Khobar, the exhibition served as a marketing/sales opportunity for residential projects, with discounts, special offers, and multiple prizes, featuring NHC as the showcasing entity.",
+        image: "/expo/hero/khazama.png",
+        ctaButton: "Read More About the Khazama Exhibition",
         statistics: [
           {
-            value: 6000,
+            value: 4000,
             description: "Visitors",
             formatter: "+"
           },
           {
-            value: 35,
-            description: "Company Corners",
-            formatter: "+"
+            value: 15,
+            description: "Sales",
+            formatter: "M+"
           },
           {
-            value: 200,
-            label: "Million",
+            value: 120,
+            label: "Valuable Prizes",
             description: "Online Engagement",
-            formatter: "+"
+            formatter: ""
           }
         ]
-      }
+      },
+      {
+        title: "Al-Khozama Exhibition",
+        description: "The Al-Khozama event witnessed wide attendance and significant engagement, with valuable prizes awarded in a distinctive atmosphere. The event also launched a dedicated employee loyalty program in collaboration with Samsung.",
+        image: "/expo/hero/khobar.jpg",
+        ctaButton: "Read More About the Khazama Exhibition",
+        statistics: [
+          {
+            value: 50,
+            description: "Valuable Prizes",
+            formatter: ""
+          },
+          {
+            value: 1500,
+            description: "Employees",
+            formatter: "+"
+          },
+          {
+            label: "Samsung Employee Loyalty Program Activated",
+            description: "",
+            formatter: ""
+          }
+        ]
+      },
     ] as ProjectData[]
-  },
+},
+
   ar: {
     title: "معارضنا السابقة",
     subtitle: "خبرة من أرض المعارض .. وليست مجرد تصميم.",

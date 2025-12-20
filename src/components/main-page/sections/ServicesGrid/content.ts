@@ -1,25 +1,26 @@
 export type Language = "en" | "ar"
 
 export const servicesGridContent = {
-  en: {
-    title: "Savvy Services",
-    subtitle: "Discover a variety of marketing and technical solutions provided by Savvy for companies and institutions",
+en: {
+  title: "Savvy Services",
+  subtitle: "We offer a wide range of solutions designed to support businesses, enhance experiences, and deliver value across every touchpoint.",
 
-    // Savvy Innovation
-    innovationTitle: "Savvy Innovation",
-    innovationDescription: "Professional technical services including smart solutions and advanced digital innovation technologies for institutional and commercial entities.",
-    innovationButton: "Learn More",
+  // Savvy Innovation
+  innovationTitle: "Savvy Innovation",
+  innovationDescription: "We provide sustainable energy services, electric vehicle charging solutions, and advanced AI solutions for businesses.",
+  innovationButton: "Learn more",
 
-    // Savvy Expo
-    expoTitle: "Savvy Expo",
-    expoDescription: "Organizing exhibitions and events that highlight companies' products and services, including interactive spaces through modern technical activities.",
-    expoButton: "Learn More",
+  // Savvy Expo
+  expoTitle: "Savvy Expo",
+  expoDescription: "We focus on building strategic partnerships while delivering engaging entertainment activities, creating environments that attract audiences and generate meaningful impact through curated activations.",
+  expoButton: "Learn more",
 
-    // Savvy Media
-    mediaTitle: "Savvy Media",
-    mediaDescription: "Providing media services and advertising programs from the production of exclusive media materials including media services, exhibition events, content marketing, and brand communication initiatives.",
-    mediaButton: "Learn More",
-  },
+  // Savvy Media
+  mediaTitle: "Savvy Media",
+  mediaDescription: "Our media division offers a range of premium services, including large-scale advertising display systems that strengthen brand presence, in addition to a dedicated content creation and brand marketing unit that maximizes reach and visibility.",
+  mediaButton: "Learn more",
+},
+
   ar: {
     title: "خدمات سافي",
     subtitle: "نحن نقدم مجموعة واسعة من الحلول المصممة لدعم الشركات وتعزيز التجارب وتقديم قيمة عبر كل نقطة اتصال.",

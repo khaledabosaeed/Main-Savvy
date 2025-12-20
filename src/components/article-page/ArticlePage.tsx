@@ -14,7 +14,7 @@ interface ArticlePageProps {
 
 export default function ArticlePage({ lang, slug }: ArticlePageProps) {
   const isRTL = lang === "ar"
-  const article = getArticleBySlug(slug)
+  const article = getArticleBySlug(lang,slug)
 
   // If article not found, show not found message
   if (!article) {

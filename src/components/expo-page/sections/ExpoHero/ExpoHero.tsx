@@ -68,7 +68,7 @@ export default function ExpoHero({ lang }: ExpoHeroProps) {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               >
-                {isRTL ? "تواصل معنا " : "Learn More"}
+                {isRTL ? "تواصل معنا " : "Contact Us "}
               </motion.a>
 
               <motion.a
@@ -77,7 +77,7 @@ export default function ExpoHero({ lang }: ExpoHeroProps) {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {isRTL ? "تعلم المزيد" : "Contact Us"}
+                {isRTL ? "تعلم المزيد" : "Learn More"}
               </motion.a>
             </motion.div>
           </motion.div>

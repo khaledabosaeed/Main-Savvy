@@ -1,10 +1,11 @@
 export type Language = "en" | "ar"
 
 export const expoPartnersContent = {
-    en: {
-        title: "Our Partners Create With Us",
-        subtitle: "Proven experiences in memory",
-    },
+en: {
+  title: "Our partners create with us",
+  subtitle: "Experiences that stay in memory",
+},
+
     ar: {
         title: "شركاؤنا يصنعون معنا",
         subtitle: "تجارب تثبت في الذاكرة",

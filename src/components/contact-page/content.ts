@@ -1,9 +1,9 @@
 export type Language = "en" | "ar"
 
 export const contactContent = {
-  en: {
-    title: "Get In Touch",
-    subtitle: "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+en: {
+    title: "Contact Us",
+    subtitle: "We’re happy to hear from you. Send us a message and we’ll get back to you as soon as possible.",
 
     namePlaceholder: "Your Name",
     emailPlaceholder: "Your Email",
@@ -14,7 +14,7 @@ export const contactContent = {
     submitting: "Sending...",
 
     successMessage: "Thank you! Your message has been sent successfully.",
-    errorMessage: "Oops! Something went wrong. Please try again.",
+    errorMessage: "Sorry! Something went wrong. Please try again.",
 
     contactInfo: "Contact Information",
     emailLabel: "Email",
@@ -24,7 +24,8 @@ export const contactContent = {
     emailValue: "info@savvyinnovation.sa",
     phoneValue: "+966 XX XXX XXXX",
     addressValue: "Riyadh, Saudi Arabia",
-  },
+},
+
   ar: {
     title: "تواصل معنا",
     subtitle: "يسعدنا تواصلك معنا. أرسل لنا رسالة وسنرد عليك في أقرب وقت ممكن.",

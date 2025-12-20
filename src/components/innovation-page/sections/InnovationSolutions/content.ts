@@ -1,22 +1,23 @@
 export type Language = "en" | "ar"
 
 export const innovationSolutionsContent = {
-  en: {
+en: {
     title: "Savvy Innovation Solutions",
-    subtitle: "Smart solutions that serve you today.. and develop with you tomorrow",
+    subtitle: "Smart solutions for today… evolving for tomorrow",
     
     solution1Title: "Smart Targeting",
-    solution1Description: "We provide a comprehensive analysis that combines demographic data of visitors with smart goal-setting and needs analysis. We showcase data in a suitable time display that matches your project.",
+    solution1Description: "We provide a comprehensive system combining smart targeting, content monitoring, and delivering the right content to the right audience at the right time, ensuring maximum impact and accuracy.",
     
     solution2Title: "Green Energy",
-    solution2Description: "Solutions for capturing green energy from the sun and wind with modern heat-resistant monitors. Showcasing smart and sustainable screens that fit the audience and achieve Saudi Vision 2030 goals organically.",
+    solution2Description: "Green energy solutions from solar panels and sustainable buildings reduce electricity consumption, generate steady returns, support energy efficiency, and contribute to achieving the national Vision 2030 goals.",
     
-    solution3Title: "Advisor Savvy",
-    solution3Description: "Savvy advisor that knows the audience with AI technology and analyzes psychological influences. Present solutions and options suitable for visitor needs with smart service scheduling and approvals.",
+    solution3Title: "mr.savvy",
+    solution3Description: "mr.savvy is an engaging robot that educates audiences about sustainable technologies and carbon reduction, presenting solutions in a simple way and giving your brand an innovative presence that supports sustainability.",
     
     solution4Title: "Smart Homes",
-    solution4Description: "An integrated platform for managing communities, properties, apartments. Linking residents with real-time management. Presenting facilities, managing payments and requests. A single interactive platform for modern property management and security.",
-  },
+    solution4Description: "An integrated platform for managing communities and properties, connecting residents, visitors, and facility teams, simplifying payments, service requests, and facility bookings, with seamless and secure smart home and digital key integration.",
+},
+
   ar: {
     title: "حلول سافي إبتكار",
     subtitle: "حلول ذكية تُستخدم اليوم.. وتتطوّرك لبكرة",

@@ -1,13 +1,14 @@
 export type Language = "en" | "ar"
 
 export const promoContent = {
-    en: {
-        title: "Savvy World.. Your gateway to the new world of Expo, Media and Innovation",
-        description: "A comprehensive platform that combines innovation, exhibitions, and digital experiences. We transform your ideas into tangible reality through advanced technical solutions and creative content that tells your story in a unique way.",
-        buttonText: "Contact Us",
-        buttonLink: "/contact",
-        image: "/promo/robot-hand.png"
-    },
+en: {
+  title: "Savvy World.. Your gateway to the new world",
+  description: "An integrated ecosystem that combines inspiration, exhibitions, and smart technologies to build sustainable and innovative cities. We connect artificial intelligence, digital interaction, and physical analytics to transform experiential spaces into smart and comfortable experiences.",
+  buttonText: "Contact Us",
+  buttonLink: "/contact",
+  image: "/promo/robot-hand.png"
+}
+,
     ar: {
         title: "سافي وورلد.. بوابتك للعالم الجديد ",
         description: "منظومة تجمع بين الإبهار، المعارض، والتقنيات الذكية لبناء مدن مستدامة ومبتكرة. نربط بين الذكاء الاصطناعي، التفاعل الرقمي، والتحليل الجسدي لتحويل المساحات التجريبية إلى تجارب ذكية ومريحة.",

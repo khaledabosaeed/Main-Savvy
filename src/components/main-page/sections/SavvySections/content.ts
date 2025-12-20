@@ -1,56 +1,59 @@
 export type Language = "en" | "ar"
 
 export const savvySectionsContent = {
-    en: {
-        sectionTitle: "Savvy World Sections",
-        cards: [
-            {
-                id: "expo",
-                title: "Savvy Expo",
-                description: "Enter any exhibition as a unique experience. Interactive technologies that make your brand unforgettable.",
-                features: [
-                    "Strategic partnerships",
-                    "Promotional and targeted activities",
-                    "Mr. Savvy robot",
-                    "Interactive and innovative exhibition experiences"
-                ],
-                icon: "/home-page/icons/expo-icon.svg", // User will add icon
-                image: "/sections/expo-image.jpg", // User will add image
-                link: "/expo",
-                buttonText: "Learn More"
-            },
-            {
-                id: "media",
-                title: "Savvy Media",
-                description: "We tell your story in a creative way. From content creation to digital marketing strategies.",
-                features: [
-                    "Creative content production",
-                    "Digital marketing strategies",
-                    "Social media management",
-                    "Brand identity development"
-                ],
-                icon: "/home-page/icons/media-icon.svg", // User will add icon
-                image: "/sections/media-image.jpg", // User will add image
-                link: "/media",
-                buttonText: "Learn More"
-            },
-            {
-                id: "innovation",
-                title: "Savvy Innovation",
-                description: "Smart technology solutions that transform your business. From AI to IoT.",
-                features: [
-                    "Artificial intelligence solutions",
-                    "Internet of Things (IoT)",
-                    "Smart city technologies",
-                    "Digital transformation consulting"
-                ],
-                icon: "/home-page/icons/innovation-icon.svg", // User will add icon
-                image: "/sections/innovation-image.jpg", // User will add image
-                link: "/innovation",
-                buttonText: "Learn More"
-            }
-        ]
+ en: {
+  sectionTitle: "Savvy World Sections",
+  cards: [
+    {
+      id: "expo",
+      title: "Savvy Expo",
+      description: "We transform any exhibition into an interactive experience visitors will never forget",
+      features: [
+        "Strategic partnerships",
+        "Engaging and purposeful activities",
+        "mr.savvy robot",
+        "Innovative and interactive visitor experiences"
+      ],
+      icon: "/home-page/icons/expo-icon.svg",
+      image: "/sections/expo-image.jpg",
+      link: "/expo",
+      buttonText: "Learn more"
     },
+    {
+      id: "media",
+      title: "Savvy Media",
+      description: "We turn facades into attraction points and a continuous, effective revenue source",
+      features: [
+        "Brand building",
+        "Digital marketing",
+        "Creative content production",
+        "Digital marketing",
+        "Large-scale screens on building facades promoting your brand"
+      ],
+      icon: "/home-page/icons/media-icon.svg",
+      image: "/sections/media-image.jpg",
+      link: "/media",
+      buttonText: "Learn more"
+    },
+    {
+      id: "innovation",
+      title: "Savvy Innovation",
+      description: "We connect innovation with reality — robotics, intelligence, and sustainability delivered in a simple, integrated experience",
+      features: [
+        "Smart targeting capabilities",
+        "Content monitoring",
+        "Audience-tailored content",
+        "mr.savvy robot",
+        "Developing innovative solutions for building sustainable cities"
+      ],
+      icon: "/home-page/icons/innovation-icon.svg",
+      image: "/sections/innovation-image.jpg",
+      link: "/innovation",
+      buttonText: "Learn more"
+    }
+  ]
+}
+,
     ar: {
         sectionTitle: "أقسام سافي وورلد",
         cards: [

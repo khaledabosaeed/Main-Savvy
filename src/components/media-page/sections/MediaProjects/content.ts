@@ -1,16 +1,17 @@
 export type Language = "en" | "ar"
 
 export const mediaProjectsContent = {
-  en: {
-    title: "Your project's growth is our priority",
-    subtitle: "We are not the usual marketing team. We help brands grow through a clear strategy, creative energy, and a human touch.",
+en: {
+    title: "Growing Your Project Is Our Priority",
+    subtitle: "We are not your typical marketing team. We help brands grow through clear strategy, creative energy, and a human touch.",
 
     project1Title: "Media Facade Screens",
-    project1Description: "Huge facade screens across Saudi Arabia give your brand a prominent presence in high-traffic cities.",
+    project1Description: "Large-scale facade screens across Saudi Arabia giving your brand a striking presence in high-traffic cities.",
 
     project2Title: "Content and Production",
-    project2Description: "Comprehensive production including 4K photography, motion graphics, content for screens and social media, fast editing, and sponsored publishing with influencer and media management.",
-  },
+    project2Description: "Comprehensive production including 4K filming, motion graphics, screen and social media content, fast editing, paid promotion, and influencer/media management.",
+},
+
   ar: {
     title: "نمو مشروعك هو أولويتنا",
     subtitle: "نحن لسنا فريق التسويق المعتاد. نحن نساعد العلامات التجارية على النمو من خلال استراتيجية واضحة وطاقة إبداعية ولمسة إنسانية.",

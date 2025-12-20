@@ -16,8 +16,11 @@ export interface Article {
   }
 }
 
-export const articlesData: Record<string, Article> = {
-  "interactive-displays-future": {
+export const articlesData: Record< Language,Record<string, Article>> = {
+ar:{
+    
+  "interactive-displays-future": 
+  {
     id: "interactive-displays-future",
     title: "كيف تغير الشاشات التفاعلية مستقبل الفعاليات؟",
     date: "ديسمبر 5, 2024",
@@ -65,11 +68,63 @@ export const articlesData: Record<string, Article> = {
         }
       ]
     }
+  }}
+,
+en:{
+"interactive-displays-future": {
+  id: "interactive-displays-future",
+  title: "How Interactive Displays Are Shaping the Future of Events",
+  date: "December 5, 2024",
+  image: "/news/news-1.jpg",
+  category: "Innovation",
+  content: {
+    intro: "Interactive displays at exhibitions represent the future, transforming communication and changing how brands engage with audiences or visitors. They allow direct interaction with content, creating an immersive experience that attracts attendees and enhances their understanding of a service or product effortlessly and interactively.",
+    sections: [
+      {
+        title: "Enhancing Direct Audience Engagement",
+        content: "Interactive displays provide valuable data while creating an engaging platform. Visitors interact with the screens, exploring content in real-time, which encourages communication and engagement at any moment of the event."
+      },
+      {
+        title: "Dynamic Content Tailored to the Event",
+        content: "Display content can be dynamically customized to suit each event. This flexibility ensures the right content is shown at the right time and helps organizers convey key messages more effectively and attractively to the target audience."
+      },
+      {
+        title: "Reducing Costs and Increasing Efficiency",
+        content: "Interactive displays minimize the need for traditional printed materials such as brochures and posters, saving both cost and effort. They deliver information efficiently while eliminating the hassle associated with conventional methods.",
+        list: [
+          "No reprinting costs",
+          "No paper waste",
+          "Easily updated content with real-time control"
+        ]
+      }
+    ]
+  }
+},
+"ai-smart-tools": {
+  id: "ai-smart-tools",
+  title: "Smart AI Tools: Turning Outdoor Interactions into Intelligent Insights",
+  date: "December 3, 2024",
+  image: "/news/news-2.jpg",
+  category: "Artificial Intelligence",
+  content: {
+    intro: "AI tools transform outdoor interactions into intelligent sources of data and insights. By processing and analyzing information, companies can better understand their customers and deliver personalized services.",
+    sections: [
+      {
+        title: "Smart Data Processing",
+        content: "AI tools use advanced algorithms to process massive amounts of data in record time."
+      },
+      {
+        title: "User Behavior Analysis",
+        content: "AI can track and analyze user behavior to provide personalized recommendations and improve customer experiences."
+      }
+    ]
   }
 }
+} 
+}
 
-export const getArticleBySlug = (slug: string): Article | null => {
-  return articlesData[slug] || null
+export const getArticleBySlug = (lang:Language,  slug: string): Article | null => {
+  return articlesData[lang][slug] || null;
 }
 
 

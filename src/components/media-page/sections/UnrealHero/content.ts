@@ -1,18 +1,19 @@
 export type Language = "en" | "ar"
 
 export const unrealHeroContent = {
-  en: {
-    badge: "NHC Project",
-    title: "Discover the future of innovation with us",
-    description: "Visit us to explore a comprehensive platform that combines innovation, exhibitions, and digital experiences. We transform your ideas into tangible reality through advanced technical solutions and creative content that tells your story in a unique way.",
-    statsLabel1: "Projects completed",
-    statsLabel2: "Client satisfaction",
-    primaryButton: "Explore More",
+en: {
+    badge: "Boost Your Visibility",
+    title: "Turn Your Facade into an Attraction… A Screen That Speaks for You.",
+    description: "Transform your company into a powerful visual message with immersive content and interactive screens operating 24/7, highlighting your business at every moment.",
+    statsLabel1: "Active Screens",
+    statsLabel2: "Uptime",
+    primaryButton: "Learn More",
     primaryButtonLink: "/contact",
     secondaryButton: "Contact Us",
     secondaryButtonLink: "/contact",
     imageAlt: "NHC Building - Innovation Center",
-  },
+},
+
   ar: {
     badge: "عزز ظهورك",
     title: "حول واجهتك الى منصة جذب.. وشاشة تتكلم بدل عنك.",

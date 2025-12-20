@@ -11,49 +11,55 @@ export interface NewsArticle {
 }
 
 export const newsContent = {
-  en: {
+en: {
     title: "Savvy News",
-    subtitle: "Our latest news.. so you stay in touch step by step",
+    subtitle: "Our latest updates… keeping you in the loop every step of the way",
     
     // News Articles
     articles: [
       {
         id: 1,
-        title: "How do modern innovations contribute to enhancing visitor experience in exhibitions?",
+        title: "How Modern Innovations Enhance Visitor Experiences at Contemporary Exhibitions",
         date: "December 5, 2024",
         image: "/news/news-1.jpg",
         category: "Innovation",
+        slug: "interactive-displays-future",
       },
       {
         id: 2,
-        title: "Smart AI tools: How do they transform external interactions into a reliable resource?",
+        title: "Smart AI Tools: Turning Outdoor Interactions into Intelligent Insights",
         date: "December 3, 2024",
         image: "/news/news-2.jpg",
-        category: "AI",
+        category: "Artificial Intelligence",
+        slug: "ai-smart-tools",
       },
       {
         id: 3,
-        title: "Thinking without borders: a practical solution that helps companies serve today and grow tomorrow",
+        title: "Innovation Made Simple: Practical Solutions for Today’s Companies and Tomorrow’s Growth",
         date: "December 1, 2024",
         image: "/news/news-3.jpg",
         category: "Innovation",
+        slug: "interactive-displays-future",
       },
       {
         id: 4,
-        title: "How did the development of the Egyptian Museum and exhibitions transform the first public launch to global?",
+        title: "How to Create High-Quality Exhibits and Displays for First Impressions",
         date: "November 28, 2024",
         image: "/news/news-1.jpg",
         category: "Projects",
+        slug: "interactive-displays-future",
       },
       {
         id: 5,
-        title: "How does smart advertising showcase the future of interactive advertising?",
+        title: "How Advertising Screens Are Shaping the Future of Interactive Marketing",
         date: "November 25, 2024",
         image: "/news/news-2.jpg",
         category: "Media",
+        slug: "interactive-displays-future",
       },
     ],
-  },
+},
+
   ar: {
     title: "اخبار سافي",
     subtitle: "آخر اخبارنا.. عشان تكون محط خطانا بخطوة",

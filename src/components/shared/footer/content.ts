@@ -1,37 +1,38 @@
 export type Language = "en" | "ar"
 
 export const footerContent = {
-  en: {
+en: {
     // Savvy World Section
-    savvyWorld: "Savvy World",
+    savvyWorld: "Smart World",
     aboutSavvy: "About Savvy",
-    tools: "Tools",
-    aiCenter: "AI Center",
-    integrationCenter: "Integration Center",
+    tools: "Automation Tools",
+    aiCenter: "AI Workflow Builder",
+    integrationCenter: "Integration Hub",
 
     // Smart AI Section
-    smartAI: "Smart AI",
+    smartAI: "Smart Exhibition",
     section1: "Section 1",
     section2: "Section 2",
     section3: "Section 3",
     section4: "Section 4",
 
     // Intelligent Advertising Section
-    intelligentAdvertising: "Intelligent Advertising",
+    intelligentAdvertising: "Intelligent Media",
 
     // Exhibition Section
-    exhibition: "Exhibition",
+    exhibition: "Smart Innovation",
 
     // Social Media Section
-    socialMedia: "Social Media Platforms",
+    socialMedia: "Social Media",
     linkedin: "LinkedIn",
     twitter: "Twitter / X",
     facebook: "Facebook",
     instagram: "Instagram",
 
     // Copyright
-    copyright: "© Savvy World 2025. All rights reserved.",
-  },
+    copyright: "© Savvy World 2025. All rights reserved",
+},
+
   ar: {
     // Savvy World Section
     savvyWorld: "عالم ذكي",

@@ -1,10 +1,11 @@
 export type Language = "en" | "ar"
 
 export const innovationHeroContent = {
-  en: {
-    title: "AI-powered Innovations and Sustainable Solutions — Smart Robots for the Future",
-    subtitle: "Where advanced AI meets sustainable innovation to transform your business with smart solutions.",
-  },
+en: {
+    title: "We Put Innovation in Your Hands… Without the Complexity",
+    subtitle: "Smart solutions combining modern technologies, interactive experiences, and immersive content… guiding you toward a more sustainable future, effortlessly.",
+},
+
   ar: {
     title: "نضع الابتكار بين يديك.. بدون تعقيد",
     subtitle: "حلول ذكية تجمع بين التقنيات الحديثة والتجارب التفاعلية والمحتوى الغامر.. لنضعك على طريق مستقبل أكثر استدامة، دون أي تعقيد",

@@ -1,10 +1,11 @@
 export type Language = "en" | "ar"
 
 export const innovationAboutContent = {
-  en: {
-    title: "Smart Solutions for Tomorrow",
-    description: "Savvy Innovation transforms ideas into reality through advanced AI, sustainable energy solutions, and cutting-edge robotics that shape the future of technology.",
-  },
+en: {
+    title: "Savvy Innovation is an R&D program featuring the mr.savvy robot, camera-tracking screens, and AR maps. We develop intelligent content on instant dashboards, implement smart home experiences, and ensure full PDPL compliance. We continuously test and improve based on real-world usage.",
+    description: "Savvy Innovation turns ideas into reality through advanced AI, sustainable energy solutions, and cutting-edge robotics that shape the future of technology.",
+},
+
   ar: {
     title: "سافي إنوفيشن برنامج بحث وتطوير يضم روبوت مستر سافي، مع شاشات تتبع الكاميرا وخرائط AR. نطوّر محتوى ذكيًا بلوحات فورية، وننفّذ تجارب للمنازل الذكية، مع التزام كامل بـ PDPL. نختبر ونحسّن باستمرار وفق الاستخدام الحقيقي.",
     description: "تحول Savvy Innovation الأفكار إلى واقع من خلال الذكاء الاصطناعي المتقدم، وحلول الطاقة المستدامة، والروبوتات المتطورة التي تشكل مستقبل التكنولوجيا.",

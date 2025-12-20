@@ -1,38 +1,49 @@
 export type Language = "en" | "ar"
 
 export const termsContent = {
-  en: {
+en: {
     title: "Terms and Conditions",
     lastUpdated: "Last Updated: December 2024",
+
     acceptanceTitle: "Acceptance of Terms",
-    acceptanceContent: "By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.",
+    acceptanceContent: "By using the Savvy World website or any of its pages and services, you agree to comply with these terms. If you do not agree with any part of them, please do not use the site.",
+
     permittedUseTitle: "Permitted Use",
-    permittedContent: "You are granted a limited license to access and use the services for lawful purposes only:",
+    permittedContent: "You are allowed to use the site for the following purposes only:",
     permittedList: [
-      "• Personal and non-commercial use",
-      "• Educational purposes",
-      "• Professional research"
+      "Browsing and learning about Savvy World’s services",
+      "Contacting us through official forms",
+      "Registering for events or expressing interest in projects",
+      "Reading displayed content (news, images, exhibitions, solutions, services)"
     ],
-    intellectualPropertyTitle: "Intellectual Property Rights",
-    intellectualPropertyContent: "All content included on this site is the property of Savvy or its content suppliers and is protected by applicable laws:",
+
+    intellectualPropertyTitle: "Intellectual Property",
+    intellectualPropertyContent: "All content published on the site is owned by Savvy World and includes:",
     intellectualPropertyList: [
-      "• Trademarks and service marks",
-      "• Text, graphics, logos, and images",
-      "• Software and code"
+      "Texts",
+      "Images",
+      "Designs",
+      "Logos",
+      "Videos"
     ],
-    intellectualPropertyFooter: "Unauthorized use of any content may violate copyright, trademark, and other laws.",
-    userTeamTitle: "User Responsibilities",
-    userTeamContent: "Users agree to:",
+    intellectualPropertyFooter: "Creative content related to mr.savvy, robots, and solutions — any content from Savvy exhibitions, media, or innovation — may not be used without prior written permission.",
+
+    userTeamTitle: "Accuracy of Information",
+    userTeamContent: "We strive to provide accurate and up-to-date information, but:",
     userTeamList: [
-      "• Provide accurate information",
-      "• Maintain the security of their account",
-      "• Not engage in any unlawful activities"
+      "Content or services may change without notice",
+      "Some pages may contain experimental or preliminary information",
+      "We do not guarantee the site is error-free or uninterrupted",
+      "Use of any information is at your own risk."
     ],
+
     modificationsTitle: "Modifications to Terms",
-    modificationsContent: "We reserve the right to modify these terms at any time. Your continued use of the site following any changes constitutes acceptance of those changes.",
+    modificationsContent: "We reserve the right to modify the terms of use at any time. Continued use of the site after changes constitutes explicit acceptance of the new version.",
+
     terminationTitle: "Termination",
-    terminationContent: "We may terminate or suspend access to our service immediately, without prior notice or liability, for any reason whatsoever.",
-  },
+    terminationContent: "We may suspend or prevent your use of the site if you violate any of the stated terms. This may occur without prior notice.",
+},
+
   ar: {
     title: "الشروط والأحكام",
     lastUpdated: "آخر تحديث: ديسمبر 2024",

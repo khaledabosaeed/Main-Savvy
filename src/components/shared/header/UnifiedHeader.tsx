@@ -199,7 +199,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
 
               {/* Language Switcher & Contact Button */}
               <div className={`hidden md:flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                {/* <LanguageSwitcher currentLang={lang} /> */}
+                <LanguageSwitcher currentLang={lang} />
                 <Link
                   href={`/${lang}/contact`}
                   className="px-5 py-2 bg-[#0066FF] text-white rounded-full hover:bg-[#0052CC] transition-colors text-sm font-medium whitespace-nowrap"
@@ -273,7 +273,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
 
                   {/* Language & Contact */}
                   <div className="px-6 py-4 mt-2 border-t border-white/10 space-y-2">
-                    {/* <LanguageSwitcher currentLang={lang} isMobile /> */}
+                    <LanguageSwitcher currentLang={lang} isMobile />
                     <Link
                       href={`/${lang}/contact`}
                       onClick={() => setIsMobileMenuOpen(false)}

@@ -1,18 +1,19 @@
 export type Language = "en" | "ar"
 
 export const expoServicesContent = {
-  en: {
-    title: "What Services Do We Offer?",
+en: {
+    title: "Savvy Expo Services",
 
-    service1Title: "Specialized Screens",
-    service1Description: "Custom interactive displays designed to engage visitors and showcase your innovations effectively.",
+    service1Title: "Strategic Partnerships",
+    service1Description: "Well-planned alliances with organizers and major brands to enhance your booth’s impact, expand visibility opportunities, drive growth, and achieve tangible results.",
 
-    service2Title: "Savvy Robot Assistant",
-    service2Description: "Savvy Innovation provides sustainable energy services and smart car charging solutions for electric vehicles and advanced companies.",
+    service2Title: "mr.savvy Robot",
+    service2Description: "The ambassador of smart technologies at your booth, delivering educational and interactive content, attracting visitors with its presence, and showcasing your brand innovatively.",
 
-    service3Title: "Interactive Corners",
-    service3Description: "We add innovative activities and interactive corners within events and exhibitions, creating a beautiful atmosphere that attracts and delights visitors.",
-  },
+    service3Title: "Engaging and Purposeful Activities",
+    service3Description: "Immersive stations using motion, light, and smart technologies that offer visitors a unique experience, encouraging exploration and increasing the value of your booth presence.",
+},
+
   ar: {
     title: "خدمات سافي إكسبو",
 

@@ -1,55 +1,56 @@
 export type Language = "en" | "ar"
 
 export const privacyContent = {
-  en: {
+en: {
     title: "Privacy Policy",
-    lastUpdated: "Last updated: November 11, 2025",
+    lastUpdated: "Last Updated: November 11, 2025",
     
     // Sections
-    introTitle: "Introduction",
-    introContent: "We respect your privacy and are committed to protecting the personal data we collect from you. This policy explains the types of data we collect, how we use it, and how we protect it.",
+    introTitle: "Acceptance of Terms",
+    introContent: "We respect your privacy and are committed to protecting your personal data while you use Savvy World and its services. This policy explains the types of data we collect, how we use it, and your options for managing it.",
     introList: [],
     introFooter: "",
     
     dataCollectionTitle: "Data We Collect",
-    dataCollectionContent: "When you use the website or services (e.g., registration, subscription, newsletter signup):",
+    dataCollectionContent: "When using any form on the site (Contact Us, Interest Registration, Newsletter Subscription):",
     dataCollectionList: [
       "1. Name",
       "2. Email",
-      "3. Phone number",
-      "4. Identity or company (optional)",
-      "5. Message or request",
-      "6. Any additional information you provide voluntarily",
+      "3. Phone Number",
+      "4. ID or Company (Optional)",
+      "5. Message or Request",
+      "6. Any additional information provided by the user",
     ],
     
-    dataSharingTitle: "Sharing Data with Third Parties for Savvy World",
-    dataSharingContent: "We may share your data within our established framework to provide better service.",
+    dataSharingTitle: "Sharing Data Within Savvy World",
+    dataSharingContent: "We may share your data across our different departments to provide better services.",
     
-    noSellingTitle: "We Do Not Sell Data",
-    noSellingContent: "We do not sell or trade your data under any circumstances.",
+    noSellingTitle: "No Selling of Data",
+    noSellingContent: "We do not sell or rent your data to any third party under any circumstances.",
     
     dataRetentionTitle: "Data Retention",
-    dataRetentionContent: "We retain your data as long as necessary to provide services or as required by regulations. Non-essential data may be deleted periodically.",
+    dataRetentionContent: "We retain your data only for as long as necessary to provide services or as required by law. Unnecessary data may be deleted periodically.",
     
-    policyChangesTitle: "Changes to Privacy Policy",
-    policyChangesContent: "We may update this policy from time to time. Your continued use of the site constitutes acceptance of the updated version.",
+    policyChangesTitle: "Changes to the Privacy Policy",
+    policyChangesContent: "We may update this policy from time to time. Continued use of the site constitutes acceptance of the updated version.",
     
     yourRightsTitle: "Your Rights",
-    yourRightsContent: "You have the right to:",
+    yourRightsContent: "Users have the right to:",
     yourRightsList: [
-      "Request a copy of your data",
-      "Request correction or update of data",
-      "Request deletion of data",
-      "Withdraw consent for data usage (when applicable)",
-      "File a complaint",
-      "Contact us through our contact platform",
+      "Request a copy of their data",
+      "Request data modification or updates",
+      "Request data deletion",
+      "Withdraw consent for data usage (where applicable)",
+      "To exercise any of these rights:",
+      "You can contact us via the Contact Us page.",
     ],
     
     contactTitle: "Contact Us",
-    contactContent: "If you have any questions about this privacy policy or how we handle your data, please contact us:",
+    contactContent: "If you have any questions about the privacy policy or how your data is handled, please reach out to us:",
     contactEmail: "privacy@savvy.com",
     contactPhone: "+966 50 123 4567",
-  },
+},
+
   ar: {
     title: "صفحة الخصوصية",
     lastUpdated: "آخر تحديث في: 11 نوفمبر 2025",
