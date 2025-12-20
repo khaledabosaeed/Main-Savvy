@@ -46,7 +46,8 @@ export const latestNewsContent = {
                 id: "news-1",
                 title: "كيف تغيّر الروبوتات تجربة الزوار في المعارض الحديثة؟",
                 date: " ١١ نوفمبر ٢٠٢٥",
-                image: "/news/news-1.jpg",
+                                image: "/news/news-3.jpg",
+
                 buttonText: "أخبار",
                 link: "/news/1"
             },
@@ -62,7 +63,8 @@ export const latestNewsContent = {
                 id: "news-3",
                 title: "كيف تغيّر الشاشات التفاعلية مستقبل الفعاليات؟",
                 date: "١١ نوفمبر ٢٠٢٥",
-                image: "/news/news-3.jpg",
+                                image: "/news/news-1.jpg",
+
                 buttonText: "أخبار",
                 link: "/news/3"
             }

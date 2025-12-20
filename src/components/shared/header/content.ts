@@ -11,7 +11,7 @@ export const headerContent = {
   ar: {
     whoWeAre: "من نحن",
     ourServices: "خدماتنا",
-    whySavvy: "لماذا سافي",
+    whySavvy: "لماذا ساڤي",
     latestProjects: "آخر مشاريعنا",
     contactUs: "تواصل معنا",
   },

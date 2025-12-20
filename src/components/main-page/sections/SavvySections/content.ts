@@ -55,16 +55,16 @@ export const savvySectionsContent = {
 }
 ,
     ar: {
-        sectionTitle: "أقسام سافي وورلد",
+        sectionTitle: "أقسام ساڤي وورلد",
         cards: [
             {
                 id: "expo",
-                title: "سافي اكسبو",
+                title: "ساڤي اكسبو",
                 description: "نحوّل أي معرض إلى تجربة تفاعلية يعيشها الزوار بشكل لا يُنسى",
                 features: [
                     "شراكات استراتيجية",
                     "نشاطات ترفيهية وهادفة",
-                    "روبوت مستر سافي",
+                    "روبوت مستر ساڤي",
                     "تجارب تفاعلية وابتكارية للزوار"
                 ],
                 icon: "/home-page/icons/expo-icon.svg", // المستخدم سيضيف الأيقونة
@@ -74,7 +74,7 @@ export const savvySectionsContent = {
             },
             {
                 id: "media",
-                title: "سافي ميديا",
+                title: "ساڤي ميديا",
                 description: "نحوّل الواجهة إلى نقطة جذب. ومصدر دخل مستمر وفعّال",
                 features: [
                     "بناء العلامات التجارية",
@@ -90,13 +90,13 @@ export const savvySectionsContent = {
             },
             {
                 id: "innovation",
-                title: "سافي ابتكار",
+                title: "ساڤي ابتكار",
                 description: "نربط الابتكار بالواقع. روبوت، ذكاء، واستدامة بشكل مبسّط لمنح تجربة متكاملة",
                 features: [
                     "خاصية الاستهداف ذكـي",
                     "مراقبـة محتوى",
                     "محتوى مناسب للمتلقي",
-                    "روبوت مستر سافي",
+                    "روبوت مستر ساڤي",
                     "تطوير حلول مبتكرة لبناء مدن مستدامة"
                 ],
                 icon: "/home-page/icons/innovation-icon.svg", // المستخدم سيضيف الأيقونة

@@ -20,7 +20,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
 
   const footerSections = [
     {
-      title: isRTL ? "عالم سافي" : "Savvy World",
+      title: isRTL ? "عالم ساڤي" : "Savvy World",
       titleHref: `/${lang}`,
       links: [
         { label: isRTL ? "أقسامنا" : "Our Sections", href: `/${lang}#about` },
@@ -31,17 +31,17 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       ]
     },
     {
-      title: isRTL ? "سافي ميديا" : "Savvy Media",
+      title: isRTL ? "ساڤي ميديا" : "Savvy Media",
       titleHref: `/${lang}/media`,
       links: [
         { label: isRTL ? "المحتوى" : "Content", href: `/${lang}/media#content` },
         { label: isRTL ? "معرض الميديا" : "Gallery", href: `/${lang}/media#gallery` },
-        { label: isRTL ? "لماذا سافي" : "Why Savvy", href: `/${lang}/media#why-savvy` },
+        { label: isRTL ? "لماذا ساڤي" : "Why Savvy", href: `/${lang}/media#why-savvy` },
         
       ]
     },
     {
-      title: isRTL ? "سافي اكسبو" : "Savvy Expo",
+      title: isRTL ? "ساڤي اكسبو" : "Savvy Expo",
       titleHref: `/${lang}/expo`,
       links: [
         { label: isRTL ? "الخدمات" : "Services", href: `/${lang}/expo#services` },
@@ -49,7 +49,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       ]
     },
     {
-      title: isRTL ? "سافي ابتكار" : "Savvy Innovation",
+      title: isRTL ? "ساڤي ابتكار" : "Savvy Innovation",
       titleHref: `/${lang}/innovation`,
       links: [
         { label: isRTL ? "الحلول" : "Solutions", href: `/${lang}/innovation#solutions` },
@@ -174,7 +174,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
           <div className={`flex flex-col md:flex-row items-center gap-4 text-sm text-gray-500 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
             <span>
               {isRTL
-                ? "حقوق النشر © 2025 سافي. جميع الحقوق محفوظة"
+                ? "حقوق النشر © 2025 ساڤي. جميع الحقوق محفوظة"
                 : "Copyright © 2025 Savvy. All rights reserved"
               }
             </span>

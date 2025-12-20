@@ -25,7 +25,7 @@ const headerTextsEn = {
 const headerTextsAr = {
   news: "الأخبار",
   gallery: "معرض الميديا",
-  "why-savvy": "لماذا سافي",
+  "why-savvy": "لماذا ساڤي",
   content: "الخدمات",
   hero: "الرئيسية",
   contactUs: "تواصل معنا",
@@ -45,7 +45,7 @@ export default async function MediaPage({ params }: MediaPageProps) {
         </section>
 
 
-        <section id="content">
+        <section id="content" className="bg-white">
           <MediaContent lang={currentLang} />
         </section>
 

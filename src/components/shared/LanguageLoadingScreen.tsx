@@ -10,17 +10,17 @@ export default function LanguageLoadingScreen({ isVisible }: LanguageLoadingScre
   const floatingTexts = [
     'Expo', 'Media', 'Innovation', 'Contact',
     'المعارض', 'الإعلام', 'الابتكار', 'تواصل معنا',
-    'Savvy Robot', 'سافي روبوت',
+    'Savvy Robot', 'ساڤي روبوت',
     'نعزز حضورك', 'نُظهر علامتك',
     'جدة', 'الخبر', 'الرياض',
     'Jeddah', 'Khobar', 'Riyadh',
     'العميل أولاً', 'Client First',
-    'Savvy World', 'سافي وورلد',
+    'Savvy World', 'ساڤي وورلد',
     'Digital Solutions', 'الحلول الرقمية',
     'Excellence', 'التميز',
     'Expo', 'المعارض', 'Innovation', 'الابتكار',
     'Media', 'الإعلام', 'Contact', 'تواصل معنا',
-    'Savvy', 'سافي', 'Robot', 'روبوت',
+    'Savvy', 'ساڤي', 'Robot', 'روبوت',
     'جدة', 'الرياض', 'الخبر',
   ]
 
