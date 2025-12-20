@@ -26,7 +26,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
         { label: isRTL ? "أقسامنا" : "Our Sections", href: `/${lang}#about` },
         { label: isRTL ? "معرض الصور" : "Gallery", href: `/${lang}#services` },
         // { label: isRTL ? "شركاء النجاح" : "Partners", href: `/${lang}/expo#partners` },
-        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
+        // { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
 
       ]
     },
@@ -59,7 +59,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       title: isRTL ? "صفحات اخرى" : "Other Pages",
       titleHref: null,
       links: [
-        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
+        // { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
         { label: isRTL ? "تواصل معنا" : "Contact Us", href: `/${lang}/contact` },
         // { label: isRTL ? "سياسة الخصوصية" : "Privacy", href: `/${lang}/privacy` },
         // { label: isRTL ? "شروط الاستخدام" : "Terms", href: `/${lang}/terms` },

@@ -57,9 +57,9 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
         </section>
 
         {/* Latest News Section */}
-        <section id="news">
+        {/* <section id="news">
           <LatestNews />
-        </section>
+        </section> */}
 
       </PageTransition>
     </>

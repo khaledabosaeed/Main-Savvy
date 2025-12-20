@@ -60,9 +60,9 @@ export default async function MediaPage({ params }: MediaPageProps) {
 
    
         {/* Latest News Section */}
-        <section id="news">
+        {/* <section id="news">
           <LatestNews />
-        </section>
+        </section> */}
 
       </PageTransition>
     </>

@@ -69,9 +69,9 @@ export default function Home() {
       </section>
 
       {/* Latest News Section */}
-      <section id="news">
+      {/* <section id="news">
         <LatestNews />
-      </section>
+      </section> */}
 
       
 

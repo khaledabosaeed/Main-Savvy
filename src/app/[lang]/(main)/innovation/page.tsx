@@ -54,9 +54,9 @@ export default async function InnovationPage({ params }: InnovationPageProps) {
         </section>
 
         {/* Latest News Section */}
-        <section id="news">
+        {/* <section id="news">
           <LatestNews />
-        </section>
+        </section> */}
     
   
       </PageTransition>
