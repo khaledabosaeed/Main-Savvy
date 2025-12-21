@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Inter } from "next/font/google";
-import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/contexts/SmoothScrollContext";
 
@@ -130,20 +130,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${interArabic.variable} font-sans antialiased overflow-x-hidden`}
       >
-        {/* Google Analytics */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id="
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+        <GoogleAnalytics gaId="G-8YX74VQZ87" />
 
-          `}
-        </Script>
-            
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>
