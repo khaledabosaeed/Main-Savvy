@@ -130,7 +130,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${interArabic.variable} font-sans antialiased overflow-x-hidden`}
       >
-        <GoogleAnalytics gaId="G-8YX74VQZ87" />
+        <GoogleAnalytics gaId="G-W5W59KEFQX" />
 
         <SmoothScrollProvider>
           {children}
