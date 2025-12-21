@@ -3,7 +3,7 @@ export type Language = "en" | "ar"
 export const heroContent = {
 en: {
   welcomeText: "We introduce smart technologies in a simple, guided way led by…",
-  savvyWorld: "mr.savvy",
+  savvyWorld: "Mr.savvy",
   description: "An ecosystem that brings together media, exhibitions, and smart technologies to build sustainable, connected cities.",
   subDescription: "We connect artificial intelligence, digital interaction, and clean energy solutions to transform urban spaces into smart, seamless experiences.",
   ctaButton: "Contact Us",

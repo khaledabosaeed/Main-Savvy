@@ -62,9 +62,9 @@ export default function TermsPage({ lang }: TermsPageProps) {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-block mb-6"
+              className="inline-block mb-6 "
             >
-              <div className="w-20 h-20 bg-[#3960F9]/10 rounded-full flex items-center justify-center mx-auto">
+              <div className="mt-20 md:mt-10 w-20 h-20 bg-[#3960F9]/10 rounded-full flex items-center justify-center mx-auto">
                 <FileText className="w-10 h-10 text-[#3960F9]" />
               </div>
             </motion.div>

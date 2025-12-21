@@ -3,7 +3,7 @@ export type Language = "en" | "ar"
 export const expoHeroContent = {
 en: {
   title: "Bring your booth to life… and let the experience speak for you",
-  subtitle: "mr.savvy and interactive screens give you a distinctive presence",
+  subtitle: "Mr.savvy and interactive screens give you a distinctive presence",
 },
 
   ar: {

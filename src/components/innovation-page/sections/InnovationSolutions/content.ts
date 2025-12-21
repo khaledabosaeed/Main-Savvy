@@ -11,7 +11,7 @@ en: {
     solution2Title: "Green Energy",
     solution2Description: "Green energy solutions from solar panels and sustainable buildings reduce electricity consumption, generate steady returns, support energy efficiency, and contribute to achieving the national Vision 2030 goals.",
     
-    solution3Title: "mr.savvy",
+    solution3Title: "Mr.savvy",
     solution3Description: "mr.savvy is an engaging robot that educates audiences about sustainable technologies and carbon reduction, presenting solutions in a simple way and giving your brand an innovative presence that supports sustainability.",
     
     solution4Title: "Smart Homes",

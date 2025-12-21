@@ -99,7 +99,7 @@ export default function ContactPage({ lang }: ContactPageProps) {
       {/* <ContactHero lang={lang} /> */}
 
       {/* Contact Form Section */}
-      <section className="relative py-16 md:py-24 bg-white overflow-hidden">
+      <section className="relative pt-20 md:pt-0 py-20 md:py-24 bg-white overflow-hidden">
         <div className="container relative z-10 px-6">
 
         {/* Content Grid */}
@@ -111,7 +111,7 @@ export default function ContactPage({ lang }: ContactPageProps) {
             animate={isFormInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className={`text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center`}>
+            <h2 className={`text-3xl mt-20  md:text-4xl font-bold text-gray-900 mb-12 text-center`}>
               {isRTL ? "ارسل رسالة" : "Send a Message"}
             </h2>
 

@@ -7,7 +7,7 @@ en: {
     service1Title: "Strategic Partnerships",
     service1Description: "Well-planned alliances with organizers and major brands to enhance your booth’s impact, expand visibility opportunities, drive growth, and achieve tangible results.",
 
-    service2Title: "mr.savvy Robot",
+    service2Title: "Mr.savvy Robot",
     service2Description: "The ambassador of smart technologies at your booth, delivering educational and interactive content, attracting visitors with its presence, and showcasing your brand innovatively.",
 
     service3Title: "Engaging and Purposeful Activities",
