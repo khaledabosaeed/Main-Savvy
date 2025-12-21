@@ -160,7 +160,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
               <FaXTwitter className="w-5 h-5" />
             </a>
             <a
-              href="https://www.linkedin.com/in/mr-savvy-green"
+              href="https://www.linkedin.com/company/savvy-world/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"

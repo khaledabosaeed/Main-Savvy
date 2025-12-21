@@ -92,8 +92,9 @@ export default function ExpoHero({ lang }: ExpoHeroProps) {
               {/* Video Thumbnail/Poster */}
               <div className="relative aspect-video bg-gray-100">
                 <video
-                autoPlay
-                 src="/expo/Savvy Expo_LQ_2.mp4"
+  autoPlay
+  loop
+  muted                 src="/expo/Savvy Expo_LQ_2.mp4"
                                   className="w-full h-full object-cover"
 
                 >

@@ -79,7 +79,7 @@ export default function NewHero() {
       {/* Large radial glow behind image area - Hidden on mobile for performance */}
       {!isMobile && (
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-40"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[60px] opacity-40"
           style={{
             background: 'radial-gradient(circle, rgba(147, 197, 253, 0.3) 0%, rgba(196, 181, 253, 0.2) 50%, transparent 70%)',
             filter: 'blur(60px)'

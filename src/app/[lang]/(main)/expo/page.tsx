@@ -15,16 +15,14 @@ interface ExpoPageProps {
 // نصوص الهيدر الخاصة بصفحة Expo
 const headerTextsEn = {
   services: "Services",
-  projects: "Projects",
+  projects: "Latest Projects",
   partners: "Partners",
-  // news: "News",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
-  // news: "الأخبار",
   partners: "الشركاء",
-  projects: "المشاريع",
+  projects: "معارضنا السابقة ",
   services: "الخدمات",
   contactUs: "تواصل معنا",
 }

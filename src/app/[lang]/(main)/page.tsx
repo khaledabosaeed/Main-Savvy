@@ -9,19 +9,20 @@ import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import TopBanner from "@/components/shared/TopBanner/TopBanner"
 import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
 import { useLanguage } from "@/contexts/LanguageContext"
+import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 
 // نصوص الهيدر بالإنجليزية
 const headerTextsEn = {
-
+  projects: "Latest Projects",
   about: "Our Sections",
   services: "Gallery",
-  // news: "Latest News",
   contactUs: "Contact Us",
 }
 
 // نصوص الهيدر بالعربية
 const headerTextsAr = {
   // news: "آخر الأخبار",
+  projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",
   contactUs: "تواصل معنا",
@@ -68,6 +69,9 @@ export default function Home() {
         <GallerySection />
       </section>
 
+        <section id="projects">
+          <LatestProjects />
+        </section>
       {/* Latest News Section */}
       {/* <section id="news">
         <LatestNews />

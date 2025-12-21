@@ -92,8 +92,10 @@ export default function InnovationHero() {
               <div className="relative aspect-video bg-gray-100">
           <video 
           src="/innovation/Savvy Innovation Site web_LQ_2.mp4"
-          autoPlay
-          ></video>
+  autoPlay
+  loop
+  muted
+            ></video>
 
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center group-hover:bg-black/40 transition-colors">
