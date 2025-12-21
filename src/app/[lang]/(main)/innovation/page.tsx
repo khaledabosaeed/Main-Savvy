@@ -13,7 +13,6 @@ interface InnovationPageProps {
 
 // نصوص الهيدر الخاصة بهذه الصفحة
 const headerTextsEn = {
-  hero: "Hero",
   solutions: "Solutions",
   partners: "Partners",
   news: "News",
@@ -24,7 +23,6 @@ const headerTextsAr = {
   news: "الأخبار",
   partners: "الشركاء",
   solutions: "الحلول",
-  hero: "الرئيسية",
   contactUs: "تواصل معنا",
 }
 

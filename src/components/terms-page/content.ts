@@ -43,8 +43,7 @@ en: {
     terminationTitle: "Termination",
     terminationContent: "We may suspend or prevent your use of the site if you violate any of the stated terms. This may occur without prior notice.",
 },
-
-  ar: {
+ar: {
     title: "الشروط والأحكام",
     lastUpdated: "آخر تحديث: ديسمبر 2024",
     acceptanceTitle: "قبول الشروط",

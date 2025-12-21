@@ -14,7 +14,6 @@ interface MediaPageProps {
 
 // نصوص الهيدر الخاصة بصفحة Media
 const headerTextsEn = {
-  hero: "Hero",
   content: "Content",
   gallery: "Gallery",
   "why-savvy": "Why Savvy",
@@ -27,7 +26,6 @@ const headerTextsAr = {
   gallery: "معرض الميديا",
   "why-savvy": "لماذا ساڤي",
   content: "الخدمات",
-  hero: "الرئيسية",
   contactUs: "تواصل معنا",
 }
 
