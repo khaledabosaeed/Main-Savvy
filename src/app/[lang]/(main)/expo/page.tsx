@@ -17,12 +17,12 @@ const headerTextsEn = {
   services: "Services",
   projects: "Projects",
   partners: "Partners",
-  news: "News",
+  // news: "News",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
-  news: "الأخبار",
+  // news: "الأخبار",
   partners: "الشركاء",
   projects: "المشاريع",
   services: "الخدمات",

@@ -53,6 +53,7 @@ export default function GallerySection() {
                 {/* Title */}
                 <motion.h2
                     className={styles.title}
+                    
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}

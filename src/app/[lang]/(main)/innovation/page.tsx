@@ -15,12 +15,12 @@ interface InnovationPageProps {
 const headerTextsEn = {
   solutions: "Solutions",
   partners: "Partners",
-  news: "News",
+  // news: "News",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
-  news: "الأخبار",
+  // news: "الأخبار",
   partners: "الشركاء",
   solutions: "الحلول",
   contactUs: "تواصل معنا",

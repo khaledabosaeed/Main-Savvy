@@ -17,12 +17,12 @@ const headerTextsEn = {
   content: "Content",
   gallery: "Gallery",
   "why-savvy": "Why Savvy",
-  news: "News",
+  // news: "News",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
-  news: "الأخبار",
+  // news: "الأخبار",
   gallery: "معرض الميديا",
   "why-savvy": "لماذا ساڤي",
   content: "الخدمات",

@@ -15,13 +15,13 @@ const headerTextsEn = {
 
   about: "Our Sections",
   services: "Gallery",
-  news: "Latest News",
+  // news: "Latest News",
   contactUs: "Contact Us",
 }
 
 // نصوص الهيدر بالعربية
 const headerTextsAr = {
-  news: "آخر الأخبار",
+  // news: "آخر الأخبار",
   services: "معرض الصور",
   about: "أقسامنا",
   contactUs: "تواصل معنا",
