@@ -55,7 +55,13 @@ export default function ContactPage({ lang }: ContactPageProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: formData.email, lang }),
+        body: JSON.stringify({   fullName: formData.fullName,
+  email: formData.email,
+  phone: formData.phone,
+  companyName: formData.companyName,
+  jobTitle: formData.jobTitle,
+  message: formData.message,
+   lang }),
       })
 
       if (response.ok) {

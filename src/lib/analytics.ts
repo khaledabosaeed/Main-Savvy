@@ -7,6 +7,7 @@
  */
 
 // Extend the Window interface to include gtag
+
 declare global {
   interface Window {
     gtag?: (
@@ -15,12 +16,15 @@ declare global {
       config?: Record<string, any>
     ) => void;
   }
+
 }
 
 /**
  * Event Categories - organize your events by category
  */
+
 export enum EventCategory {
+  
   NAVIGATION = 'navigation',
   USER_INTERACTION = 'user_interaction',
   FORM = 'form',
@@ -29,12 +33,15 @@ export enum EventCategory {
   LANGUAGE = 'language',
   NEWSLETTER = 'newsletter',
   CONTACT = 'contact',
+
 }
 
 /**
  * Common Event Names - predefined event names for consistency
  */
+
 export enum EventName {
+
   // Navigation
   PAGE_VIEW = 'page_view',
   LINK_CLICK = 'link_click',
@@ -67,11 +74,13 @@ export enum EventName {
   CONTACT_FORM_SUBMIT = 'contact_form_submit',
   CONTACT_SUCCESS = 'contact_success',
   CONTACT_ERROR = 'contact_error',
+
 }
 
 /**
  * Event Parameters Interface
  */
+
 interface EventParams {
   category?: EventCategory | string;
   label?: string;
@@ -98,6 +107,7 @@ interface EventParams {
  *   button_text: 'Learn More'
  * });
  */
+
 export const trackEvent = (
   eventName: EventName | string,
   params?: EventParams
@@ -133,6 +143,7 @@ export const trackEvent = (
  * @example
  * trackButtonClick('Subscribe Now', 'footer');
  */
+
 export const trackButtonClick = (
   buttonText: string,
   location?: string
@@ -154,6 +165,7 @@ export const trackButtonClick = (
  * @example
  * trackLinkClick('https://example.com', 'Read More', 'blog-post');
  */
+
 export const trackLinkClick = (
   linkUrl: string,
   linkText?: string,
@@ -177,6 +189,7 @@ export const trackLinkClick = (
  * @example
  * trackForm('submit', 'contact-form', { email_type: 'business' });
  */
+
 export const trackForm = (
   action: 'start' | 'submit' | 'success' | 'error',
   formName: string,
@@ -207,6 +220,7 @@ export const trackForm = (
  * @example
  * trackNewsletter('success');
  */
+
 export const trackNewsletter = (
   action: 'subscribe' | 'success' | 'error',
   errorMessage?: string
@@ -232,6 +246,7 @@ export const trackNewsletter = (
  * @example
  * trackContact('success', { response_time: 1500 });
  */
+
 export const trackContact = (
   action: 'submit' | 'success' | 'error',
   additionalParams?: Record<string, any>
@@ -257,13 +272,16 @@ export const trackContact = (
  * @example
  * trackLanguageChange('ar', 'en');
  */
+
 export const trackLanguageChange = (fromLang: string, toLang: string): void => {
   trackEvent(EventName.LANGUAGE_CHANGE, {
     category: EventCategory.LANGUAGE,
     from_language: fromLang,
     to_language: toLang,
   });
+
 };
+
 
 /**
  * Track scroll depth
@@ -274,6 +292,7 @@ export const trackLanguageChange = (fromLang: string, toLang: string): void => {
  * @example
  * trackScrollDepth(50, '/ar/media');
  */
+
 export const trackScrollDepth = (
   percentage: number,
   pagePath?: string
@@ -286,6 +305,7 @@ export const trackScrollDepth = (
   });
 };
 
+
 /**
  * Track video interactions
  *
@@ -296,6 +316,7 @@ export const trackScrollDepth = (
  * @example
  * trackVideo('play', 'Savvy World Intro', 0);
  */
+
 export const trackVideo = (
   action: 'play' | 'pause' | 'complete',
   videoTitle: string,
@@ -306,11 +327,11 @@ export const trackVideo = (
     pause: EventName.VIDEO_PAUSE,
     complete: EventName.VIDEO_COMPLETE,
   };
-
   trackEvent(eventMap[action], {
     category: EventCategory.MEDIA,
     label: videoTitle,
     video_title: videoTitle,
     video_progress: progress,
   });
+  
 };
