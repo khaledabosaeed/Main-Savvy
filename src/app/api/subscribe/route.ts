@@ -51,8 +51,8 @@ if (!fullName) {
     // Email content
     const isArabic = lang === 'ar'
     const subject = isArabic
-      ? 'طلب جديد من صفحة Coming Soon - Savvy'
-      : 'New Subscription from Coming Soon Page - Savvy'
+      ? 'طلب جديد من صفحة Main - Savvy'
+      : 'New Subscription Main- Savvy'
 const htmlContent = isArabic
   ? `
   <div dir="rtl" style="font-family: Arial; max-width:600px; margin:auto">
