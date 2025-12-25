@@ -48,7 +48,7 @@ if (!fullName) {
         console.error('❌ SMTP connection failed:', err)
         throw err   // إذا فشل الاتصال نوقف الإرسال
       })
-    // Email content
+    // Email contentn
     const isArabic = lang === 'ar'
     const subject = isArabic
       ? 'طلب جديد من صفحة Main - Savvy'

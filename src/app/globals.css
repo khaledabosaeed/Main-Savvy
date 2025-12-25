@@ -258,3 +258,44 @@ a[href^="#"] {
     padding: 0.625rem 1rem;
   }
 }
+
+/* Infinite Scroll Animation for Image Rows */
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+@keyframes infinite-scroll-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(50% + 1rem));
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 30s linear infinite;
+  display: flex;
+  will-change: transform;
+}
+
+[dir="rtl"] .animate-infinite-scroll,
+.rtl .animate-infinite-scroll {
+  animation: infinite-scroll-rtl 30s linear infinite;
+}
+
+/* Pause animation on hover for better UX */
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-infinite-scroll {
+    animation: none;
+  }
+}

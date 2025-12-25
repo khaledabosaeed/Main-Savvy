@@ -6,7 +6,9 @@ export const partnersContent = {
     },
     ar: {
         heading: "شركاء وثقوا بنا لصناعة تجارب مختلفة.. أنت التالي",
+        
     },
+
 }
 
 export function getPartnersContent(lang: Language, key: keyof typeof partnersContent.en): string {

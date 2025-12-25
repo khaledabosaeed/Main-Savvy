@@ -18,7 +18,6 @@ const PartnersSlider: React.FC = () => {
         { name: "Mohammed Al Habib", logo: "/home-page/partners/mohammed-al-habib.svg" },
         { name: "Manzil Alarabia", logo: "/home-page/partners/manzil-alarabia.svg" },
         { name: "Samsung", logo: "/home-page/partners/samsung.svg" },
-        // { name: "Al Awaly", logo: "/home-page/partners/M.webp" },
     ]
 
    // Double the array for seamless loop

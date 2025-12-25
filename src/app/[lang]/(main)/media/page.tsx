@@ -5,6 +5,7 @@ import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
 import GallerySection from "@/components/main-page/sections/GallerySection/GallerySection"
 import UnrealHero from "@/components/media-page/sections/UnrealHero/UnrealHero"
+import ImageSlider from "@/components/media-page/sections/ImageSlider/PartnersSlider"
 
 interface MediaPageProps {
   params: Promise<{
@@ -57,10 +58,7 @@ export default async function MediaPage({ params }: MediaPageProps) {
         </section>
 
    
-        {/* Latest News Section */}
-        {/* <section id="news">
-          <LatestNews />
-        </section> */}
+  
 
       </PageTransition>
     </>

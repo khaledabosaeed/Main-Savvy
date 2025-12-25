@@ -5,6 +5,7 @@ import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
 import ExpoPartners from "@/components/expo-page/sections/ExpoPartners/ExpoPartners"
+import ImageSlider from "@/components/media-page/sections/ImageSlider/PartnersSlider"
 
 interface ExpoPageProps {
   params: Promise<{
@@ -46,11 +47,17 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
         <section id="projects">
           <LatestProjects />
         </section>
+                   {/* Latest News Section */}
+        <section id="news">
+          <ImageSlider />
+        </section>
 
         {/* Partners Section */}
         <section id="partners">
           <ExpoPartners />
         </section>
+
+   
 
         {/* Latest News Section */}
         {/* <section id="news">

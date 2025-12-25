@@ -72,7 +72,7 @@ export default function NewHero() {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col pt-[100px] md:pt-[120px] overflow-visible md:overflow-hidden">
+    <section className="relative  flex flex-col pt-[100px] md:pt-[120px] overflow-visible md:overflow-hidden">
       {/* Enhanced gradient background */}
       <div className="absolute inset-0  bg-white" />
 

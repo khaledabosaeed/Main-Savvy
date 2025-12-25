@@ -10,7 +10,8 @@ export interface ProjectStatistic {
 export interface ProjectData {
   title: string
   description: string
-  image: string
+  video: string // YouTube video URL
+  images: string[] // Array of all photos for the third row infinite slider
   ctaButton: string
   statistics: ProjectStatistic[]
 }
@@ -24,8 +25,12 @@ en: {
       {
         title: "Global PropTech Summit",
         description: "Savvy World participated in the Global PropTech Summit as one of the leading entities driving technological transformation in the real estate sector in Saudi Arabia. Our presence was not just participation, but a live showcase of the future of smart cities, demonstrating how sustainability, AI, and robotics can come together in a single system supporting Saudi Vision 2030.",
-
-        image: "/expo/hero/hero.jpg",
+        video: "https://www.youtube.com/watch?v=8l047bfZsW8", // Replace with actual YouTube URL
+        images: [
+          "/ouer_project/propTeach/1.png", "/ouer_project/propTeach/2.png", "/ouer_project/propTeach/3.png", "/ouer_project/propTeach/4.jpg",
+          "/ouer_project/propTeach/5.jpg", "/ouer_project/propTeach/6.jpg", "/ouer_project/propTeach/7.jpg", "/ouer_project/propTeach/8.jpg",
+          "/ouer_project/propTeach/9.jpg", "/ouer_project/propTeach/10.jpg", "/ouer_project/propTeach/11.jpg", "/ouer_project/propTeach/12.jpg"
+        ],
         ctaButton: "Global PropTech Summit",
         statistics: [
           {
@@ -49,7 +54,12 @@ en: {
       {
         title: '"Customer First" Exhibition - Jeddah',
         description: "In Jeddah, the Customer First Exhibition was a marketing/real estate event for NHC, presenting residential units within the company's projects.",
-        image: "/expo/hero/jadh.png",
+        video: "https://www.youtube.com/watch?v=2KLtvXSgR-U", 
+        images: [
+          "/ouer_project/skani-jadha/1.jpg", "/ouer_project/skani-jadha/2.jpg", "/ouer_project/skani-jadha/3.jpg", "/ouer_project/skani-jadha/4.jpg",
+          "/ouer_project/skani-jadha/6.jpg", "/ouer_project/skani-jadha/5.jpg", "/ouer_project/skani-jadha/7.jpg", "/ouer_project/skani-jadha/8.jpg",
+          "/ouer_project/skani-jadha/9.jpg", "/ouer_project/skani-jadha/10.jpg", "/ouer_project/skani-jadha/11.jpg", "/ouer_project/skani-jadha/12.jpg"
+        ],
         ctaButton: '"Customer First" Exhibition - Jeddah',
         statistics: [
           {
@@ -73,7 +83,12 @@ en: {
       {
         title: '"Customer First" Exhibition - Khobar',
         description: "In Khobar, the exhibition served as a marketing/sales opportunity for residential projects, with discounts, special offers, and multiple prizes, featuring NHC as the showcasing entity.",
-              image: "/expo/hero/khobar.jpg",
+        video: "https://www.youtube.com/watch?v=3bMZeQJjs5g", // Replace with actual YouTube URL
+        images: [
+          "/ouer_project/khoubar-skani/1.jpg", "/ouer_project/khoubar-skani/2.jpg", "/ouer_project/khoubar-skani/3.jpg",
+          "/ouer_project/khoubar-skani/4.jpg", "/ouer_project/khoubar-skani/5.jpg", "/ouer_project/khoubar-skani/6.jpg",
+          "/ouer_project/khoubar-skani/7.jpg", "/ouer_project/khoubar-skani/8.jpg", "/ouer_project/khoubar-skani/9.jpg"
+        ],
         ctaButton: '"Customer First" Exhibition - Khobar',
         statistics: [
           {
@@ -94,29 +109,100 @@ en: {
           }
         ]
       },
-      {
-        title: "Al-Khozama Exhibition",
-        description: "The Al-Khozama event witnessed wide attendance and significant engagement, with valuable prizes awarded in a distinctive atmosphere. The event also launched a dedicated employee loyalty program in collaboration with Samsung.",
-                image: "/expo/hero/khazama.png",
-        ctaButton: "Al-Khozama Exhibition",
-        statistics: [
-          {
-            value: 50,
-            description: "Valuable Prizes",
-            formatter: ""
-          },
-          {
-            value: 1500,
-            description: "Employees",
-            formatter: "+"
-          },
-          {
-            label: "Samsung Employee Loyalty Program Activated",
-            description: "",
-            formatter: ""
-          }
-        ]
-      },
+      // {
+      //   title: "Al-Khozama Exhibition",
+      //   description: "The Al-Khozama event witnessed wide attendance and significant engagement, with valuable prizes awarded in a distinctive atmosphere. The event also launched a dedicated employee loyalty program in collaboration with Samsung.",
+      //   video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
+      //   images: [
+      //     "/ouer_project/khouzma/1.jpg", "/ouer_project/khouzma/2.jpg", "/ouer_project/khouzma/3.jpg", "/ouer_project/khouzma/10.jpg",
+      //     "/ouer_project/khouzma/4.jpg", "/ouer_project/khouzma/5.jpg", "/ouer_project/khouzma/6.jpg", "/ouer_project/khouzma/11.jpg",
+      //     "/ouer_project/khouzma/7.jpg", "/ouer_project/khouzma/8.jpg", "/ouer_project/khouzma/9.jpg"
+      //   ],
+      //   ctaButton: "Al-Khozama Exhibition",
+      //   statistics: [
+      //     {
+      //       value: 50,
+      //       description: "Valuable Prizes",
+      //       formatter: ""
+      //     },
+      //     {
+      //       value: 1500,
+      //       description: "Employees",
+      //       formatter: "+"
+      //     },
+      //     {
+      //       label: "Samsung Employee Loyalty Program Activated",
+      //       description: "",
+      //       formatter: ""
+      //     }
+      //   ]
+      // },{
+      //   title: 'HajjConfex',
+      //   description: "In Khobar, the exhibition served as a marketing/sales opportunity for residential projects, with discounts, special offers, and multiple prizes, featuring NHC as the showcasing entity.",
+      //   video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
+      //   images: [
+      //     "/ouer_project/HajjConfex/1.jpg", "/ouer_project/HajjConfex/2.jpg",
+      //     "/ouer_project/HajjConfex/3.jpg", "/ouer_project/HajjConfex/4.jpg",
+      //     "/ouer_project/HajjConfex/5.jpg", "/ouer_project/HajjConfex/6.jpg"
+      //   ],
+      //     ctaButton: 'HajjConfex',
+      //        statistics: [
+      //     {
+      //       value: 420000,
+      //       description: "Visitors",
+      //       formatter: "+"
+      //     },
+      //     {
+      //       value: 750,
+      //       description: "Exhibitors",
+      //       formatter: "+"
+      //     },
+      //      {
+      //       value: 450,
+      //       description: "Speakers",
+      //       formatter: "+"
+      //     },
+      //      {
+      //       value: 137,
+      //       description: "Countries",
+      //       formatter: "+"
+      //     },
+      //   ]
+
+      // },{
+      //   title: 'Cityscape',
+      //   description: "In Khobar, the exhibition served as a marketing/sales opportunity for residential projects, with discounts, special offers, and multiple prizes, featuring NHC as the showcasing entity.",
+      //   video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
+      //   images: [
+      //     "/ouer_project/HajjConfex/1.jpg", "/ouer_project/HajjConfex/2.jpg",
+      //     "/ouer_project/HajjConfex/3.jpg", "/ouer_project/HajjConfex/4.jpg",
+      //     "/ouer_project/HajjConfex/5.jpg", "/ouer_project/HajjConfex/6.jpg"
+      //   ],
+      //     ctaButton: 'HajjConfex',
+      //        statistics: [
+      //     {
+      //       value: 550,
+      //       description: "Exhibitors",
+      //       formatter: "+"
+      //     },
+      //      {
+      //       value: 470,
+      //       description: "Speakers",
+      //       formatter: "+"
+      //     },
+      //      {
+      //       value: 120,
+      //       description: "Countries Represented",
+      //       formatter: "+"
+      //     },
+      //         {
+      //       value: 10,
+      //       description: "Country Pavilions",
+      //       formatter: ""
+      //     },
+      //   ]
+
+      // }
     ] as ProjectData[]
   },
   
@@ -127,8 +213,13 @@ en: {
     projects: [
       {
         title: "القمة العالمية للبروبتيك",
-description: "ساڤي وورلد شاركت في القمة العالمية للبروبتك أحد أبرز الجهات التي تقود التحول التقني في قطاع العقار داخل المملكة.وجودنا في القمة لم يكن مجرد مشاركة .. بل كان عرضًا حيًا لمستقبل المدن الذكية، وكيف يمكن الجمع بين الاستدامة، الذكاء الاصطناعي، والروبوتات في منظومة واحدة تخدم رؤية السعودية 2030.",
-        image: "/expo/hero/hero.jpg",
+        description: "ساڤي وورلد شاركت في القمة العالمية للبروبتك أحد أبرز الجهات التي تقود التحول التقني في قطاع العقار داخل المملكة.وجودنا في القمة لم يكن مجرد مشاركة .. بل كان عرضًا حيًا لمستقبل المدن الذكية، وكيف يمكن الجمع بين الاستدامة، الذكاء الاصطناعي، والروبوتات في منظومة واحدة تخدم رؤية السعودية 2030.",
+        video: "https://www.youtube.com/watch?v=8l047bfZsW8", // Replace with actual YouTube URL
+        images: [
+          "/ouer_project/propTeach/1.png", "/ouer_project/propTeach/2.png", "/ouer_project/propTeach/3.png", "/ouer_project/propTeach/4.jpg",
+          "/ouer_project/propTeach/5.jpg", "/ouer_project/propTeach/6.jpg", "/ouer_project/propTeach/7.jpg", "/ouer_project/propTeach/8.jpg",
+          "/ouer_project/propTeach/9.jpg", "/ouer_project/propTeach/10.jpg", "/ouer_project/propTeach/11.jpg", "/ouer_project/propTeach/12.jpg"
+        ],
         ctaButton: " القمة العالمية للبروبتيك",
         statistics: [
           {
@@ -152,7 +243,12 @@ description: "ساڤي وورلد شاركت في القمة العالمية ل
       {
         title: "معرض \"العميل اولاً\" - جدة",
         description: "في جدة، معرض العميل أولاً كان فعالية تسويقية/عقارية لـ NHC، يقدّم وحدات سكنية ضمن مشاريع الشركة،",
-        image: "/expo/hero/jadh.png",
+        video: "https://www.youtube.com/watch?v=2KLtvXSgR-U", 
+        images: [
+          "/ouer_project/skani-jadha/1.jpg", "/ouer_project/skani-jadha/2.jpg", "/ouer_project/skani-jadha/3.jpg", "/ouer_project/skani-jadha/4.jpg",
+          "/ouer_project/skani-jadha/6.jpg", "/ouer_project/skani-jadha/5.jpg", "/ouer_project/skani-jadha/7.jpg", "/ouer_project/skani-jadha/8.jpg",
+          "/ouer_project/skani-jadha/9.jpg", "/ouer_project/skani-jadha/10.jpg", "/ouer_project/skani-jadha/11.jpg", "/ouer_project/skani-jadha/12.jpg"
+        ],
         ctaButton: "معرض \"العميل اولاً\" - جدة",
         statistics: [
           {
@@ -173,11 +269,15 @@ description: "ساڤي وورلد شاركت في القمة العالمية ل
           }
         ]
       },
-  
       {
         title: "معرض  \"العميل اولاً\" - الخُبر",
         description: "في الخبر، المعرض بدا كفرصة تسويقية/عروض تملك ضمن مشاريع سكنيي, بتخفيضات وعروض خاصة وعدة جوائز، مع مشاركة الNHC كجهة عرض",
-              image: "/expo/hero/khobar.jpg",
+        video: "https://www.youtube.com/watch?v=3bMZeQJjs5g", // Replace with actual YouTube URL
+        images: [
+          "/ouer_project/khoubar-skani/1.jpg", "/ouer_project/khoubar-skani/2.jpg", "/ouer_project/khoubar-skani/3.jpg","/ouer_project/khoubar-skani/8.jpg",
+          "/ouer_project/khoubar-skani/4.jpg", "/ouer_project/khoubar-skani/5.jpg", "/ouer_project/khoubar-skani/6.jpg", "/ouer_project/khoubar-skani/5.jpg", 
+          "/ouer_project/khoubar-skani/7.jpg", "/ouer_project/khoubar-skani/4.jpg", "/ouer_project/khoubar-skani/9.jpg", "/ouer_project/khoubar-skani/2.jpg", "/ouer_project/khoubar-skani/3.jpg"
+        ],
         ctaButton: "معرض  \"العميل اولاً\" - الخُبر",
         statistics: [
           {
@@ -198,31 +298,101 @@ description: "ساڤي وورلد شاركت في القمة العالمية ل
           }
         ]
       }
-      , {
-        title: "معرض الخزامى",
-        description: "شهدت فعالية الخزامى حضوراً واسعاً وتفاعلاً كبيراً، حيث قدّمت جوائز قيّمة ضمن أجواء مميزة، كما جرى خلالها إطلاق برنامج ولاء مخصّص للموظفين بالتعاون مع شركة سامسونج..",
-                image: "/expo/hero/khazama.png",
+//       ,{
+//         title: "معرض الخزامى",
+//         description: "شهدت فعالية الخزامى حضوراً واسعاً وتفاعلاً كبيراً، حيث قدّمت جوائز قيّمة ضمن أجواء مميزة، كما جرى خلالها إطلاق برنامج ولاء مخصّص للموظفين بالتعاون مع شركة سامسونج..",
+//         video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
+//         images: [
+//           "/ouer_project/khouzma/1.jpg", "/ouer_project/khouzma/2.jpg", "/ouer_project/khouzma/3.jpg", "/ouer_project/khouzma/10.jpg",
+//           "/ouer_project/khouzma/4.jpg", "/ouer_project/khouzma/5.jpg", "/ouer_project/khouzma/6.jpg", "/ouer_project/khouzma/11.jpg",
+//           "/ouer_project/khouzma/7.jpg", "/ouer_project/khouzma/8.jpg", "/ouer_project/khouzma/9.jpg"
+//         ],
+//         ctaButton: "معرض الخزامى",
+//         statistics: [
+//           {
+//             value: 50,
+//             description: "جائزة قيمة",
+//             formatter: ""
+//           },
+//           {
+//             value: 1500,
+//             description: "موظف",
+//             formatter: "+"
+//           },
+//           {
+//             label: "تفعيل برنامج ولاء الموظفين من سامسونج",
+//             description: "",
+//             formatter: ""
+//           }
+//         ]
+//       },{
+//         title: 'الحج والعمرة ',
+//         description: "في الخبر، شكّل المعرض فرصة تسويقية وبيعية للمشاريع السكنية، حيث تضمن خصومات وعروضًا خاصة والعديد من الجوائز، مع شركة NHC كجهة عارضة رئيسية.",
+//         video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", 
+//         images: [
+//           "/ouer_project/HajjConfex/1.jpg", "/ouer_project/HajjConfex/2.jpg",
+//           "/ouer_project/HajjConfex/3.jpg", "/ouer_project/HajjConfex/4.jpg",
+//           "/ouer_project/HajjConfex/5.jpg", "/ouer_project/HajjConfex/6.jpg"
+//         ],
+// ctaButton: 'HajjConfex',
+// statistics: [
+//   {
+//     value: 420000,
+//     description: "زائر",
+//     formatter: "+"
+//   },
+//   {
+//     value: 750,
+//     description: "عارض",
+//     formatter: "+"
+//   },
+//   {
+//     value: 450,
+//     description: "متحدث",
+//     formatter: "+"
+//   },
+//   {
+//     value: 137,
+//     description: "دولة",
+//     formatter: "+"
+//   },
+// ]
 
+//       },{
+//         title: 'سيتي سكيب',
+//         description: "في الخبر، شكّل المعرض فرصة تسويقية وبيعية للمشاريع السكنية، حيث قدّم خصومات وعروضًا خاصة والعديد من الجوائز، مع شركة NHC كجهة عارضة رئيسية.",
+//         video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
+//         images: [
+//           "/ouer_project/city-scape/1.jpg", "/ouer_project/city-scape/2.jpg", "/ouer_project/city-scape/7.jpg", "/ouer_project/city-scape/8.jpg",
+//           "/ouer_project/city-scape/3.jpg", "/ouer_project/city-scape/4.jpg", "/ouer_project/city-scape/9.jpg", "/ouer_project/city-scape/10.jpg",
+//           "/ouer_project/city-scape/5.jpg", "/ouer_project/city-scape/6.jpg", "/ouer_project/city-scape/11.jpg", "/ouer_project/city-scape/12.jpg"
+//         ],
+//   ctaButton: 'سيتي سكيب',
+//   statistics: [
+//     {
+//       value: 550,
+//       description: "عارض",
+//       formatter: "+"
+//     },
+//     {
+//       value: 470,
+//       description: "متحدث",
+//       formatter: "+"
+//     },
+//     {
+//       value: 120,
+//       description: "دولة ممثَّلة",
+//       formatter: "+"
+//     },
+//     {
+//       value: 10,
+//       description: "أجنحة دول",
+//       formatter: ""
+//     },
+//   ]
+// }
 
-        ctaButton: "معرض الخزامى",
-        statistics: [
-          {
-            value: 50,
-            description: "جائزة قيمة",
-            formatter: ""
-          },
-          {
-            value: 1500,
-            description: "موظف",
-            formatter: "+"
-          },
-          {
-            label: "تفعيل برنامج ولاء الموظفين من سامسونج",
-            description: "",
-            formatter: ""
-          }
-        ]
-      },
+      
     ] as ProjectData[]
   },
 }

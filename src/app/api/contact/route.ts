@@ -20,8 +20,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
-
-    // Prepare data for the external API
+    // Prepare data for the external APIs
     const payload = {
       pfullname: requestData.pfullname || "",
       pjob_title: requestData.pjob_title || "",

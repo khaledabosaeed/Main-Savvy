@@ -2,7 +2,7 @@
 
 import { useState, memo, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-// import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Counter from "../Counter"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -21,6 +21,7 @@ function LatestProjects() {
   const isRTL = lang === "ar"
 
   const [activeProject, setActiveProject] = useState(0)
+  const [photoIndex, setPhotoIndex] = useState(0)
 
   const projects = getProjects(lang)
   const title = getLatestProjectsTitle(lang)
@@ -28,17 +29,57 @@ function LatestProjects() {
 
   const currentProject = projects[activeProject]
 
-  // const handleNext = useCallback(() => {
-  //   setActiveProject((prev) => (prev + 1) % projects.length)
-  // }, [projects.length])
-
-  // const handlePrev = useCallback(() => {
-  //   setActiveProject((prev) => (prev - 1 + projects.length) % projects.length)
-  // }, [projects.length])
-
   const handleTabClick = useCallback((index: number) => {
     setActiveProject(index)
+    setPhotoIndex(0) // Reset photo index when changing project
   }, [])
+
+  const handlePreviousPhoto = useCallback(() => {
+    if (currentProject?.images && currentProject.images.length > 0) {
+      setPhotoIndex((prev) => {
+        // Move back by 4, or to the last valid group if at the beginning
+        if (prev <= 3) {
+          // Find the last valid starting index for a group of 4
+          const lastIndex = Math.max(0, currentProject.images.length - 4)
+          return lastIndex
+        }
+        return prev - 4
+      })
+    }
+  }, [currentProject?.images])
+
+  const handleNextPhoto = useCallback(() => {
+    if (currentProject?.images && currentProject.images.length > 0) {
+      setPhotoIndex((prev) => {
+        // Move forward by 4, or loop to start if at the end
+        const maxIndex = Math.max(0, currentProject.images.length - 4)
+        if (prev >= maxIndex) {
+          return 0
+        }
+        return prev + 4
+      })
+    }
+  }, [currentProject?.images])  
+
+  // Helper function to convert YouTube URL to embed URL
+  const getYouTubeEmbedUrl = (url: string): string => {
+    if (!url) return ""
+  
+    const regExp =
+      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
+    const match = url.match(regExp)
+    const videoId = match && match[2].length === 11 ? match[2] : null
+  
+    if (!videoId) return url
+  
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&rel=0&modestbranding=1&playsinline=1&vq=hd1080`
+  }
+  
+
+  // Safety check after hooks
+  if (!currentProject) {
+    return null
+  }
 
   return (
     <section className="py-20 md:py-32 bg-white relative overflow-hidden">
@@ -51,7 +92,7 @@ function LatestProjects() {
           variants={sectionSlideUp}
           className={`text-center mb-6 ${isRTL ? 'rtl' : 'ltr'}`}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
+          <h2 className="text-3xl md:text-4xl  nolg:text-5xl font-bold text-gray-900 mb-3">
             {title}
           </h2>
           <p className="text-gray-500 text-sm md:text-base">
@@ -102,20 +143,111 @@ function LatestProjects() {
             transition={{ duration: 0.5 }}
             className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${isRTL ? 'md:flex-row-reverse' : ''}`}
           >
-            {/* Image Section */}
-            <motion.div
-              className={`relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-xl ${isRTL ? 'md:order-2' : 'md:order-1'}`}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image
-                src={currentProject.image}
-                alt={currentProject.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </motion.div>
+            {/* Media Section - 1 Video + Photo Gallery with Arrows */}
+            <div className={`space-y-4 ${isRTL ? 'md:order-2 rtl' : 'md:order-1'}`}>
+              {/* Video Row */}
+              {currentProject.video && (
+                <div className="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-xl">
+                  <iframe
+                    src={getYouTubeEmbedUrl(currentProject.video)}
+                    title={`${currentProject.title} - Video`}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              )}
+
+              {/* Photos Gallery with Navigation Arrows - 4 Photos per Row */}
+              {currentProject.images && currentProject.images.length > 0 && (
+                <div className="relative h-[120px] md:h-[180px] w-full rounded-xl overflow-hidden">
+                  {/* Photos Container */}
+                  <div className="relative h-full w-full flex items-center">
+                    {/* Left Arrow */}
+                    <button
+                      onClick={handlePreviousPhoto}
+                      className={`absolute ${isRTL ? 'right-0' : 'left-0'} z-10 h-full px-2 md:px-4 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-colors`}
+                      aria-label="Previous photos"
+                    >
+                      <ChevronLeft className={`w-6 h-6 md:w-8 md:h-8 text-white ${isRTL ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    {/* Four Photos Display */}
+                    <div className="flex-1 h-full flex items-center justify-center gap-1 md:gap-2 px-2 md:px-4 overflow-hidden">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={photoIndex}
+                          initial={{ opacity: 0, x: isRTL ? -20 : 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: isRTL ? 20 : -20 }}
+                          transition={{ duration: 0.3 }}
+                          className="flex gap-1 md:gap-2 w-full h-full"
+                        >
+                          {/* First Photo */}
+                          {currentProject.images[photoIndex] && (
+                            <div className="relative flex-1 h-full rounded-lg overflow-hidden">
+                              <Image
+                                src={currentProject.images[photoIndex]}
+                                alt={`${currentProject.title} - Photo ${photoIndex + 1}`}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 25vw, 12.5vw"
+                              />
+                            </div>
+                          )}
+                          {/* Second Photo */}
+                          {currentProject.images[photoIndex + 1] && (
+                            <div className="relative flex-1 h-full rounded-lg overflow-hidden">
+                              <Image
+                                src={currentProject.images[photoIndex + 1]}
+                                alt={`${currentProject.title} - Photo ${photoIndex + 2}`}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 25vw, 12.5vw"
+                              />
+                            </div>
+                          )}
+                          {/* Third Photo */}
+                          {currentProject.images[photoIndex + 2] && (
+                            <div className="relative flex-1 h-full rounded-lg overflow-hidden">
+                              <Image
+                                src={currentProject.images[photoIndex + 2]}
+                                alt={`${currentProject.title} - Photo ${photoIndex + 3}`}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 25vw, 12.5vw"
+                              />
+                            </div>
+                          )}
+                          {/* Fourth Photo */}
+                          {currentProject.images[photoIndex + 3] && (
+                            <div className="relative flex-1 h-full rounded-lg overflow-hidden">
+                              <Image
+                                src={currentProject.images[photoIndex + 3]}
+                                alt={`${currentProject.title} - Photo ${photoIndex + 4}`}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 25vw, 12.5vw"
+                              />
+                            </div>
+                          )}
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
+
+                    {/* Right Arrow */}
+                    <button
+                      onClick={handleNextPhoto}
+                      className={`absolute ${isRTL ? 'left-0' : 'right-0'} z-10 h-full px-2 md:px-4 flex items-center justify-center bg-black/30 hover:bg-black/50 transition-colors`}
+                      aria-label="Next photos"
+                    >
+                      <ChevronRight className={`w-6 h-6 md:w-8 md:h-8 text-white ${isRTL ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
+
+                </div>
+              )}
+            </div>
 
             {/* Content Section */}
             <div className={`${isRTL ? 'md:order-1 text-right' : 'md:order-2 text-left'} space-y-6`}>
@@ -169,17 +301,17 @@ function LatestProjects() {
                           formatter={(n) => `${Math.floor(n)}`}
                         />
                       ) : (
-                        <span className="text-3xl md:text-4xl font-bold text-gray-900">
+                        <span className="text-1xl md:text-4xl font-bold text-gray-900">
                           {stat.value}
                         </span>
                       )}
                       {stat.label && (
-                        <span className="text-xl md:text-2xl font-bold text-gray-900">
+                        <span className="text-xs md:text-2xl font-bold text-gray-900">
                           {stat.label}
                         </span>
                       )}
                       {stat.formatter && (
-                        <span className="text-xl md:text-2xl font-bold text-gray-900">
+                        <span className="text-xs md:text-2xl font-bold text-gray-900">
                           {stat.formatter}
                         </span>
                       )}
