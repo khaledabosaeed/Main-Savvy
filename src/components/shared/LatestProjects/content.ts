@@ -109,6 +109,7 @@ en: {
           }
         ]
       },
+      
       // {
       //   title: "Al-Khozama Exhibition",
       //   description: "The Al-Khozama event witnessed wide attendance and significant engagement, with valuable prizes awarded in a distinctive atmosphere. The event also launched a dedicated employee loyalty program in collaboration with Samsung.",
@@ -137,8 +138,8 @@ en: {
       //     }
       //   ]
       // },{
-      //   title: 'HajjConfex',
-      //   description: "In Khobar, the exhibition served as a marketing/sales opportunity for residential projects, with discounts, special offers, and multiple prizes, featuring NHC as the showcasing entity.",
+      //   title: 'Hajj confex',
+      //   description: "Savvy World participated in HajjConfex, one of the leading international platforms dedicated to the Hajj and Umrah ecosystem, with participation from countries around the world. Our presence was not merely a participation, but a live demonstration of how innovation, smart infrastructure, and digital solutions can support the Hajj and Umrah ecosystem in alignment with Saudi Vision 2030.",
       //   video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
       //   images: [
       //     "/ouer_project/HajjConfex/1.jpg", "/ouer_project/HajjConfex/2.jpg",
@@ -171,7 +172,7 @@ en: {
 
       // },{
       //   title: 'Cityscape',
-      //   description: "In Khobar, the exhibition served as a marketing/sales opportunity for residential projects, with discounts, special offers, and multiple prizes, featuring NHC as the showcasing entity.",
+      //   description: "Savvy World took part in Cityscape, a global platform bringing together key stakeholders in real estate development and urban environments from around the world. Our presence was not merely a participation, but a live demonstration of smart-city innovation and digital solutions supporting more efficient and sustainable urban development in line with Saudi Vision 2030.",
       //   video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
       //   images: [
       //     "/ouer_project/HajjConfex/1.jpg", "/ouer_project/HajjConfex/2.jpg",
@@ -327,7 +328,7 @@ en: {
 //         ]
 //       },{
 //         title: 'الحج والعمرة ',
-//         description: "في الخبر، شكّل المعرض فرصة تسويقية وبيعية للمشاريع السكنية، حيث تضمن خصومات وعروضًا خاصة والعديد من الجوائز، مع شركة NHC كجهة عارضة رئيسية.",
+//         description: "شاركت Savvy World في HajjConfex، إحدى المنصات الدولية الرائدة المخصصة لمنظومة الحج والعمرة، بمشاركة من عشرات الدول حول العالم. ولم يكن حضورنا مجرد مشاركة، بل عرضًا حيًا لكيفية توظيف الابتكار والبنية التحتية الذكية والحلول الرقمية لدعم منظومة الحج والعمرة بما يتماشى مع رؤية السعودية 2030.",
 //         video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", 
 //         images: [
 //           "/ouer_project/HajjConfex/1.jpg", "/ouer_project/HajjConfex/2.jpg",
@@ -360,7 +361,7 @@ en: {
 
 //       },{
 //         title: 'سيتي سكيب',
-//         description: "في الخبر، شكّل المعرض فرصة تسويقية وبيعية للمشاريع السكنية، حيث قدّم خصومات وعروضًا خاصة والعديد من الجوائز، مع شركة NHC كجهة عارضة رئيسية.",
+//         description: "شاركت Savvy World في Cityscape، وهي منصة عالمية تجمع صُنّاع القرار والجهات الفاعلة في قطاع التطوير العقاري والبيئات الحضرية من مختلف دول العالم. ولم يكن حضورنا مجرد مشاركة، بل عرضًا حيًا لابتكارات المدن الذكية والحلول الرقمية التي تسهم في بناء مدن أكثر كفاءة واستدامة، انسجامًا مع رؤية السعودية 2030.",
 //         video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
 //         images: [
 //           "/ouer_project/city-scape/1.jpg", "/ouer_project/city-scape/2.jpg", "/ouer_project/city-scape/7.jpg", "/ouer_project/city-scape/8.jpg",

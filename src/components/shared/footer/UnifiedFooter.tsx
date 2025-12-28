@@ -59,7 +59,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       title: isRTL ? "صفحات اخرى" : "Other Pages",
       titleHref: null,
       links: [
-        // { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
+        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
         { label: isRTL ? "تواصل معنا" : "Contact Us", href: `/${lang}/contact` },
         // { label: isRTL ? "سياسة الخصوصية" : "Privacy", href: `/${lang}/privacy` },
         // { label: isRTL ? "شروط الاستخدام" : "Terms", href: `/${lang}/terms` },
