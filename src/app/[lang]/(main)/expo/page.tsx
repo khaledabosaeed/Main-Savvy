@@ -5,7 +5,7 @@ import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
 import ExpoPartners from "@/components/expo-page/sections/ExpoPartners/ExpoPartners"
-import ImageSlider from "@/components/media-page/sections/ImageSlider/PartnersSlider"
+import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSlider/PartnersSlider"
 
 interface ExpoPageProps {
   params: Promise<{
@@ -33,6 +33,12 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
   const currentLang = lang as "en" | "ar"
   const texts = currentLang === "ar" ? headerTextsAr : headerTextsEn
 
+  // Example images array - customize as needed
+  const sliderImages: ImageItem[] = Array.from({ length: 29 }, (_, i) => ({
+    name: `Image ${i + 1}`,
+    logo: `/media/slider/${i + 1}.png`,
+  }))
+
   return (
     <>
       <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/expo/expo.svg" logoAlt="Savvy" logoHref="#hero" />
@@ -49,7 +55,7 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
         </section>
                    {/* Latest News Section */}
         <section id="news">
-          <ImageSlider />
+          <ImageSlider images={sliderImages} />
         </section>
 
         {/* Partners Section */}

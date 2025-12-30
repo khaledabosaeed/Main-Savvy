@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, memo, useCallback } from "react"
+import { useState, memo, useCallback, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
@@ -22,6 +22,8 @@ function LatestProjects() {
 
   const [activeProject, setActiveProject] = useState(0)
   const [photoIndex, setPhotoIndex] = useState(0)
+  const [showArrows, setShowArrows] = useState({ left: false, right: false })
+  const tabsContainerRef = useRef<HTMLDivElement>(null)
 
   const projects = getProjects(lang)
   const title = getLatestProjectsTitle(lang)
@@ -59,7 +61,66 @@ function LatestProjects() {
         return prev + 4
       })
     }
-  }, [currentProject?.images])  
+  }, [currentProject?.images])
+
+  // Check if tabs overflow and show/hide arrows
+  useEffect(() => {
+    const checkOverflow = () => {
+      const container = tabsContainerRef.current
+      if (!container) return
+
+      const hasOverflow = container.scrollWidth > container.clientWidth
+      const scrollLeft = container.scrollLeft
+      const maxScroll = container.scrollWidth - container.clientWidth
+
+      setShowArrows({
+        left: hasOverflow && scrollLeft > 0,
+        right: hasOverflow && scrollLeft < maxScroll - 1, // -1 for floating point precision
+      })
+    }
+
+    // Check overflow after a short delay to ensure DOM is ready
+    const timeoutId = setTimeout(checkOverflow, 100)
+    window.addEventListener('resize', checkOverflow)
+    const container = tabsContainerRef.current
+    container?.addEventListener('scroll', checkOverflow)
+
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('resize', checkOverflow)
+      container?.removeEventListener('scroll', checkOverflow)
+    }
+  }, [projects, activeProject])
+
+  // Scroll active tab into view when it changes
+  useEffect(() => {
+    const container = tabsContainerRef.current
+    if (!container) return
+
+    const activeButton = container.querySelector(`[data-tab-index="${activeProject}"]`) as HTMLElement
+    if (activeButton) {
+      activeButton.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+    }
+  }, [activeProject])
+
+  // Scroll tabs handlers
+  const scrollTabs = useCallback((direction: 'left' | 'right') => {
+    const container = tabsContainerRef.current
+    if (!container) return
+
+    const scrollAmount = 200 // pixels to scroll
+    const scrollDirection = direction === 'left' ? -scrollAmount : scrollAmount
+    const isRTLScroll = isRTL ? -scrollDirection : scrollDirection
+
+    container.scrollBy({
+      left: isRTLScroll,
+      behavior: 'smooth',
+    })
+  }, [isRTL])  
 
   // Helper function to convert YouTube URL to embed URL
   const getYouTubeEmbedUrl = (url: string): string => {
@@ -107,30 +168,65 @@ function LatestProjects() {
           viewport={viewportConfig}
           variants={fadeInUp}
           transition={{ delay: 0.2 }}
-          className={`flex gap-8 mb-12 justify-center border-b border-gray-200 pb-4`}
+          className="relative mb-12 border-b border-gray-200 pb-4"
         >
-          {projects.map((project, index) => (
-            <motion.button
-              key={index}
-              onClick={() => handleTabClick(index)}
-              className={`relative px-5 py-2 text-xs md:text-sm font-medium transition-colors ${activeProject === index
-                  ? "text-gray-900"
-                  : "text-gray-400 hover:text-gray-600"
-                }`}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.95 }}
+          {/* Left Arrow */}
+          {showArrows.left && (
+            <button
+              onClick={() => scrollTabs('left')}
+              className={`absolute ${isRTL ? 'right-0' : 'left-0'} top-0 h-full px-2 md:px-4 flex items-center justify-center bg-white/80 hover:bg-white z-20 transition-colors border-r ${isRTL ? 'border-l border-r-0' : 'border-r'} border-gray-200`}
+              aria-label="Scroll tabs left"
             >
-              {project.title}
-              {activeProject === index && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute bottom-0 left-2 right-2 h-0.5 bg-gray-900"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 400, damping: 35 }}
-                />
-              )}
-            </motion.button>
-          ))}
+              <ChevronLeft className={`w-5 h-5 text-gray-600 ${isRTL ? 'rotate-180' : ''}`} />
+            </button>
+          )}
+
+          {/* Scrollable Tabs Container */}
+          <div
+            ref={tabsContainerRef}
+            className={`flex gap-8 overflow-x-auto scrollbar-hide ${showArrows.left ? (isRTL ? 'pr-12' : 'pl-12') : ''} ${showArrows.right ? (isRTL ? 'pl-12' : 'pr-12') : ''}`}
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+          >
+            <div className="flex gap-8 justify-center min-w-max">
+              {projects.map((project, index) => (
+                <motion.button
+                  key={index}
+                  data-tab-index={index}
+                  onClick={() => handleTabClick(index)}
+                  className={`relative px-5 py-2 text-xs md:text-sm font-medium transition-colors whitespace-nowrap ${activeProject === index
+                      ? "text-gray-900"
+                      : "text-gray-400 hover:text-gray-600"
+                    }`}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {project.title}
+                  {activeProject === index && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-gray-900"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                    />
+                  )}
+                </motion.button>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Arrow */}
+          {showArrows.right && (
+            <button
+              onClick={() => scrollTabs('right')}
+              className={`absolute ${isRTL ? 'left-0' : 'right-0'} top-0 h-full px-2 md:px-4 flex items-center justify-center bg-white/80 hover:bg-white z-20 transition-colors border-l ${isRTL ? 'border-r border-l-0' : 'border-l'} border-gray-200`}
+              aria-label="Scroll tabs right"
+            >
+              <ChevronRight className={`w-5 h-5 text-gray-600 ${isRTL ? 'rotate-180' : ''}`} />
+            </button>
+          )}
         </motion.div>
 
         {/* Main Content - Image and Text Side by Side */}
@@ -146,7 +242,7 @@ function LatestProjects() {
             {/* Media Section - 1 Video + Photo Gallery with Arrows */}
             <div className={`space-y-4 ${isRTL ? 'md:order-2 rtl' : 'md:order-1'}`}>
               {/* Video Row */}
-              {currentProject.video && (
+              {currentProject.video ? (
                 <div className="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-xl">
                   <iframe
                     src={getYouTubeEmbedUrl(currentProject.video)}
@@ -154,6 +250,15 @@ function LatestProjects() {
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                  />
+                </div>
+              ) : (
+                <div className="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-xl">
+                  <Image
+                    src={currentProject.images[0]}
+                    alt={`${currentProject.title} - Photo ${1}`}
+                    fill
+                    className="object-cover"
                   />
                 </div>
               )}

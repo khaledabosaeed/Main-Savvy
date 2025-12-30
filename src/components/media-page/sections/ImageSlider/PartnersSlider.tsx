@@ -6,45 +6,23 @@ import { motion, useAnimationFrame, useMotionValue, useTransform } from 'framer-
 import { useLanguage } from '@/contexts/LanguageContext';
 import { partnersContent } from './content';
 
-const ImageSlider = () => {
+export interface ImageItem {
+  name: string;
+  logo: string;
+}
+
+interface ImageSliderProps {
+  images: ImageItem[];
+  heading?: string;
+}
+
+const ImageSlider = ({ images, heading }: ImageSliderProps) => {
     const { language } = useLanguage()
     const content = partnersContent[language as keyof typeof partnersContent] || partnersContent.en
-
-    const partners = [
-        { name: "Al Awaly", logo: "/media/slider/1.png" },
-        { name: "Al Awaly", logo: "/media/slider/2.png" },
-        { name: "Al Awaly", logo: "/media/slider/3.png" },
-        { name: "Al Awaly", logo: "/media/slider/4.png" },
-        { name: "Al Awaly", logo: "/media/slider/5.png" },
-        { name: "Al Awaly", logo: "/media/slider/6.png" },
-        { name: "Al Awaly", logo: "/media/slider/7.png" },
-        { name: "Al Awaly", logo: "/media/slider/8.png" },
-        { name: "Al Awaly", logo: "/media/slider/9.png" },
-        { name: "Al Awaly", logo: "/media/slider/10.png" },
-        { name: "Al Awaly", logo: "/media/slider/11.png" },
-        { name: "Al Awaly", logo: "/media/slider/12.png" },
-        { name: "Al Awaly", logo: "/media/slider/13.png" },
-        { name: "Al Awaly", logo: "/media/slider/14.png" },
-        { name: "Al Awaly", logo: "/media/slider/15.png" },
-        { name: "Al Awaly", logo: "/media/slider/16.png" },
-        { name: "Al Awaly", logo: "/media/slider/17.png" },
-        { name: "Al Awaly", logo: "/media/slider/18.png" },
-        { name: "Al Awaly", logo: "/media/slider/19.png" },
-        { name: "Al Awaly", logo: "/media/slider/20.png" },
-        { name: "Al Awaly", logo: "/media/slider/21.png" },
-        { name: "Al Awaly", logo: "/media/slider/22.png" },
-        { name: "Al Awaly", logo: "/media/slider/23.png" },
-        { name: "Al Awaly", logo: "/media/slider/24.png" },
-        { name: "Al Awaly", logo: "/media/slider/25.png" },
-        { name: "Al Awaly", logo: "/media/slider/26.png" },
-        { name: "Al Awaly", logo: "/media/slider/27.png" },
-        { name: "Al Awaly", logo: "/media/slider/28.png" },
-        { name: "Al Awaly", logo: "/media/slider/29.png" },
-    
-    ]
+    const displayHeading = heading || content.heading;
 
    // Double the array for seamless loop
-  const duplicatedPartners = [...partners, ...partners];
+  const duplicatedPartners = [...images, ...images];
 
   // Animation with continuous scrolling
   const baseX = useMotionValue(0);
@@ -58,7 +36,7 @@ const ImageSlider = () => {
   // Get container width dynamically
   const containerRef = useRef<HTMLDivElement>(null);
   const itemWidth = 200; // Approximate width including gap
-  const totalWidth = partners.length * itemWidth;
+  const totalWidth = images.length * itemWidth;
 
   // Create seamless loop by resetting position
   useEffect(() => {
@@ -84,7 +62,7 @@ const ImageSlider = () => {
           className="text-center mb-8 sm:mb-10 md:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-foreground">
-            {content.heading}
+            {displayHeading}
           </h2>
         </motion.div>
 

@@ -10,6 +10,7 @@ import TopBanner from "@/components/shared/TopBanner/TopBanner"
 import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
 import { useLanguage } from "@/contexts/LanguageContext"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
+import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSlider/PartnersSlider"
 
 // نصوص الهيدر بالإنجليزية
 const headerTextsEn = {
@@ -34,6 +35,13 @@ export default function Home() {
   const lang = language as "en" | "ar"
   const texts = lang === "ar" ? headerTextsAr : headerTextsEn
   const [showBadge, setShowBadge] = useState(true)
+
+  // Example images array - customize as needed
+  const sliderImages: ImageItem[] = Array.from({ length: 12 }, (_, i) => ({
+    name: `Image ${i + 1}`,
+    logo: `/home-page/gallery/image-${i + 1}.jpg`,
+  }))
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,9 +73,12 @@ export default function Home() {
         <SavvySections />
       </section>
 
-      <section id="services">
+      <section id="news">
+          <ImageSlider images={sliderImages} heading={ lang === "ar" ? "معرض الصور" : "Our Gallery"} />
+        </section>
+      {/* <section id="services">
         <GallerySection />
-      </section>
+      </section> */}
 
         <section id="projects">
           <LatestProjects />

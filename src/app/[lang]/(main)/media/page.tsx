@@ -28,7 +28,7 @@ const headerTextsAr = {
   "why-savvy": "لماذا ساڤي",
   content: "الخدمات",
   contactUs: "تواصل معنا",
-}
+} 
 
 export default async function MediaPage({ params }: MediaPageProps) {
   const { lang } = await params
