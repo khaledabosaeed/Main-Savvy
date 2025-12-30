@@ -173,11 +173,10 @@ en: {
       },{
         title: 'Cityscape',
         description: "Savvy World took part in Cityscape, a global platform bringing together key stakeholders in real estate development and urban environments from around the world. Our presence was not merely a participation, but a live demonstration of smart-city innovation and digital solutions supporting more efficient and sustainable urban development in line with Saudi Vision 2030.",
-        video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
-        images: [
-          "/ouer_project/HajjConfex/1.jpg", "/ouer_project/HajjConfex/2.jpg",
-          "/ouer_project/HajjConfex/3.jpg", "/ouer_project/HajjConfex/4.jpg",
-          "/ouer_project/HajjConfex/5.jpg", "/ouer_project/HajjConfex/6.jpg"
+            images: [
+          "/ouer_project/city-scape/1.jpg", "/ouer_project/city-scape/2.jpg", "/ouer_project/city-scape/7.jpg", "/ouer_project/city-scape/8.jpg",
+          "/ouer_project/city-scape/3.jpg", "/ouer_project/city-scape/4.jpg", "/ouer_project/city-scape/9.jpg", "/ouer_project/city-scape/10.jpg",
+          "/ouer_project/city-scape/5.jpg", "/ouer_project/city-scape/6.jpg", "/ouer_project/city-scape/11.jpg", "/ouer_project/city-scape/12.jpg"
         ],
           ctaButton: 'HajjConfex',
              statistics: [
