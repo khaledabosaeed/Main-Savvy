@@ -42,6 +42,48 @@ export default function Home() {
     logo: `/home-page/gallery/image-${i + 1}.jpg`,
   }))
 
+  const images: ImageItem[] =[
+          {
+             name: `Image 1`,
+             logo:   '/home-page/gallery/image-1.jpg'
+            },
+
+          {
+             name: `Image 2`,
+          logo:   '/home-page/gallery/image-2.jpg'}  
+      ,   
+          {
+             name: `Image 3`,
+    logo:   '/home-page/gallery/image-3.jpg'}    ,  
+          {
+             name: `Image 4`,
+    logo:   '/home-page/gallery/image-4.jpg'}    ,    
+          {
+             name: `Image 5`,
+    logo:   '/home-page/gallery/image-5.jpg'}    ,    
+          {
+             name: `Image 6`,
+    logo:   '/home-page/gallery/image-6.jpg'}    ,   
+          {
+             name: `Image 7`,
+    logo:   '/home-page/gallery/image-7.jpg'}
+    ,       {
+             name: `Image 7`,
+    logo:   '/home-page/gallery/image-8.jpg'}
+    ,       {
+             name: `Image 7`,
+    logo:   '/home-page/gallery/image-9.jpg'},
+           {
+             name: `Image 7`,
+    logo:   '/home-page/gallery/image-10.jpg'}, 
+           {
+             name: `Image 7`,
+    logo:   '/home-page/gallery/image-11.png'}, 
+           {
+             name: `Image 7`,
+    logo:   '/home-page/gallery/image-12.png'}
+
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +116,7 @@ export default function Home() {
       </section>
 
       <section id="news">
-          <ImageSlider images={sliderImages} heading={ lang === "ar" ? "معرض الصور" : "Our Gallery"} />
+          <ImageSlider images={images} heading={ lang === "ar" ? "معرض الصور" : "Our Gallery"} />
         </section>
       {/* <section id="services">
         <GallerySection />

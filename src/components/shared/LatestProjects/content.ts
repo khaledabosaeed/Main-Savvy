@@ -23,6 +23,74 @@ en: {
 
     projects: [
       {
+        title: 'Hajj confex',
+        description: "Savvy World participated in HajjConfex, one of the leading international platforms dedicated to the Hajj and Umrah ecosystem, with participation from countries around the world. Our presence was not merely a participation, but a live demonstration of how innovation, smart infrastructure, and digital solutions can support the Hajj and Umrah ecosystem in alignment with Saudi Vision 2030.",
+        // video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", 
+        images: [
+          "/ouer_project/haje/1.jpg", "/ouer_project/haje/2.jpg",
+          "/ouer_project/haje/3.jpg", "/ouer_project/haje/4.jpg",
+          "/ouer_project/haje/5.jpg", "/ouer_project/haje/6.jpg"
+        ],
+          ctaButton: 'HajjConfex',
+             statistics: [
+          {
+            value: 420000,
+            description: "Visitors",
+            formatter: "+"
+          },
+          {
+            value: 750,
+            description: "Exhibitors",
+            formatter: "+"
+          },
+           {
+            value: 450,
+            description: "Speakers",
+            formatter: "+"
+          },
+           {
+            value: 137,
+            description: "Countries",
+            formatter: "+"
+          },
+        ]
+
+      },{
+        title: 'Cityscape',
+        description: "Savvy World took part in Cityscape, a global platform bringing together key stakeholders in real estate development and urban environments from around the world. Our presence was not merely a participation, but a live demonstration of smart-city innovation and digital solutions supporting more efficient and sustainable urban development in line with Saudi Vision 2030.",
+             video: "https://www.youtube.com/watch?v=wiMQFHMIUy8", // Replace with actual YouTube URL
+
+        images: [
+          "/ouer_project/city-scape/1.jpg", "/ouer_project/city-scape/2.jpg", "/ouer_project/city-scape/7.jpg", "/ouer_project/city-scape/8.jpg",
+          "/ouer_project/city-scape/3.jpg", "/ouer_project/city-scape/4.jpg", "/ouer_project/city-scape/9.jpg", "/ouer_project/city-scape/10.jpg",
+          "/ouer_project/city-scape/5.jpg", "/ouer_project/city-scape/6.jpg", "/ouer_project/city-scape/11.jpg", "/ouer_project/city-scape/12.jpg"
+        ],
+          ctaButton: 'Cityscape',
+             statistics: [
+          {
+            value: 550,
+            description: "Exhibitors",
+            formatter: "+"
+          },
+           {
+            value: 470,
+            description: "Speakers",
+            formatter: "+"
+          },
+           {
+            value: 120,
+            description: "Countries Represented",
+            formatter: "+"
+          },
+              {
+            value: 10,
+            description: "Country Pavilions",
+            formatter: ""
+          },
+        ]
+
+      },
+      {
         title: "Global PropTech Summit",
         description: "Savvy World participated in the Global PropTech Summit as one of the leading entities driving technological transformation in the real estate sector in Saudi Arabia. Our presence was not just participation, but a live showcase of the future of smart cities, demonstrating how sustainability, AI, and robotics can come together in a single system supporting Saudi Vision 2030.",
         video: "https://www.youtube.com/watch?v=8l047bfZsW8", // Replace with actual YouTube URL
@@ -113,7 +181,7 @@ en: {
       {
         title: "Al-Khozama Exhibition",
         description: "The Al-Khozama event witnessed wide attendance and significant engagement, with valuable prizes awarded in a distinctive atmosphere. The event also launched a dedicated employee loyalty program in collaboration with Samsung.",
-        video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
+        // video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
         images: [
           "/ouer_project/khouzma/1.jpg", "/ouer_project/khouzma/2.jpg", "/ouer_project/khouzma/3.jpg", "/ouer_project/khouzma/10.jpg",
           "/ouer_project/khouzma/4.jpg", "/ouer_project/khouzma/5.jpg", "/ouer_project/khouzma/6.jpg", "/ouer_project/khouzma/11.jpg",
@@ -137,72 +205,7 @@ en: {
             formatter: ""
           }
         ]
-      },{
-        title: 'Hajj confex',
-        description: "Savvy World participated in HajjConfex, one of the leading international platforms dedicated to the Hajj and Umrah ecosystem, with participation from countries around the world. Our presence was not merely a participation, but a live demonstration of how innovation, smart infrastructure, and digital solutions can support the Hajj and Umrah ecosystem in alignment with Saudi Vision 2030.",
-        video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
-        images: [
-          "/ouer_project/HajjConfex/1.jpg", "/ouer_project/HajjConfex/2.jpg",
-          "/ouer_project/HajjConfex/3.jpg", "/ouer_project/HajjConfex/4.jpg",
-          "/ouer_project/HajjConfex/5.jpg", "/ouer_project/HajjConfex/6.jpg"
-        ],
-          ctaButton: 'HajjConfex',
-             statistics: [
-          {
-            value: 420000,
-            description: "Visitors",
-            formatter: "+"
-          },
-          {
-            value: 750,
-            description: "Exhibitors",
-            formatter: "+"
-          },
-           {
-            value: 450,
-            description: "Speakers",
-            formatter: "+"
-          },
-           {
-            value: 137,
-            description: "Countries",
-            formatter: "+"
-          },
-        ]
-
-      },{
-        title: 'Cityscape',
-        description: "Savvy World took part in Cityscape, a global platform bringing together key stakeholders in real estate development and urban environments from around the world. Our presence was not merely a participation, but a live demonstration of smart-city innovation and digital solutions supporting more efficient and sustainable urban development in line with Saudi Vision 2030.",
-            images: [
-          "/ouer_project/city-scape/1.jpg", "/ouer_project/city-scape/2.jpg", "/ouer_project/city-scape/7.jpg", "/ouer_project/city-scape/8.jpg",
-          "/ouer_project/city-scape/3.jpg", "/ouer_project/city-scape/4.jpg", "/ouer_project/city-scape/9.jpg", "/ouer_project/city-scape/10.jpg",
-          "/ouer_project/city-scape/5.jpg", "/ouer_project/city-scape/6.jpg", "/ouer_project/city-scape/11.jpg", "/ouer_project/city-scape/12.jpg"
-        ],
-          ctaButton: 'HajjConfex',
-             statistics: [
-          {
-            value: 550,
-            description: "Exhibitors",
-            formatter: "+"
-          },
-           {
-            value: 470,
-            description: "Speakers",
-            formatter: "+"
-          },
-           {
-            value: 120,
-            description: "Countries Represented",
-            formatter: "+"
-          },
-              {
-            value: 10,
-            description: "Country Pavilions",
-            formatter: ""
-          },
-        ]
-
-      }
+      },
     ] as ProjectData[]
   },
   
@@ -211,6 +214,72 @@ en: {
     subtitle: "خبرة من أرض المعارض .. وليست مجرد تصميم.",
     
     projects: [
+      {
+        title: 'الحج والعمرة ',
+        description: "شاركت Savvy World في HajjConfex، إحدى المنصات الدولية الرائدة المخصصة لمنظومة الحج والعمرة، بمشاركة من عشرات الدول حول العالم. ولم يكن حضورنا مجرد مشاركة، بل عرضًا حيًا لكيفية توظيف الابتكار والبنية التحتية الذكية والحلول الرقمية لدعم منظومة الحج والعمرة بما يتماشى مع رؤية السعودية 2030.",
+        // video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", 
+        images: [
+          "/ouer_project/haje/1.jpg", "/ouer_project/haje/2.jpg",
+          "/ouer_project/haje/3.jpg", "/ouer_project/haje/4.jpg",
+          "/ouer_project/haje/5.jpg", "/ouer_project/haje/6.jpg"
+        ],
+ctaButton: 'الحج والعمرة ',
+statistics: [
+  {
+    value: 420000,
+    description: "زائر",
+    formatter: "+"
+  },
+  {
+    value: 750,
+    description: "عارض",
+    formatter: "+"
+  },
+  {
+    value: 450,
+    description: "متحدث",
+    formatter: "+"
+  },
+  {
+    value: 137,
+    description: "دولة",
+    formatter: "+"
+  },
+]
+
+      },{
+        title: 'سيتي سكيب',
+        description: "شاركت Savvy World في Cityscape، وهي منصة عالمية تجمع صُنّاع القرار والجهات الفاعلة في قطاع التطوير العقاري والبيئات الحضرية من مختلف دول العالم. ولم يكن حضورنا مجرد مشاركة، بل عرضًا حيًا لابتكارات المدن الذكية والحلول الرقمية التي تسهم في بناء مدن أكثر كفاءة واستدامة، انسجامًا مع رؤية السعودية 2030.",
+             video: "https://www.youtube.com/watch?v=wiMQFHMIUy8", // Replace with actual YouTube URL
+        images: [
+          "/ouer_project/city-scape/1.jpg", "/ouer_project/city-scape/2.jpg", "/ouer_project/city-scape/7.jpg", "/ouer_project/city-scape/8.jpg",
+          "/ouer_project/city-scape/3.jpg", "/ouer_project/city-scape/4.jpg", "/ouer_project/city-scape/9.jpg", "/ouer_project/city-scape/10.jpg",
+          "/ouer_project/city-scape/5.jpg", "/ouer_project/city-scape/6.jpg", "/ouer_project/city-scape/11.jpg", "/ouer_project/city-scape/12.jpg"
+        ],
+  ctaButton: 'سيتي سكيب',
+  statistics: [
+    {
+      value: 550,
+      description: "عارض",
+      formatter: "+"
+    },
+    {
+      value: 470,
+      description: "متحدث",
+      formatter: "+"
+    },
+    {
+      value: 120,
+      description: "دولة ممثَّلة",
+      formatter: "+"
+    },
+    {
+      value: 10,
+      description: "أجنحة دول",
+      formatter: ""
+    },
+  ]
+},
       {
         title: "القمة العالمية للبروبتيك",
         description: "ساڤي وورلد شاركت في القمة العالمية للبروبتك أحد أبرز الجهات التي تقود التحول التقني في قطاع العقار داخل المملكة.وجودنا في القمة لم يكن مجرد مشاركة .. بل كان عرضًا حيًا لمستقبل المدن الذكية، وكيف يمكن الجمع بين الاستدامة، الذكاء الاصطناعي، والروبوتات في منظومة واحدة تخدم رؤية السعودية 2030.",
@@ -325,72 +394,7 @@ en: {
             formatter: ""
           }
         ]
-      },{
-        title: 'الحج والعمرة ',
-        description: "شاركت Savvy World في HajjConfex، إحدى المنصات الدولية الرائدة المخصصة لمنظومة الحج والعمرة، بمشاركة من عشرات الدول حول العالم. ولم يكن حضورنا مجرد مشاركة، بل عرضًا حيًا لكيفية توظيف الابتكار والبنية التحتية الذكية والحلول الرقمية لدعم منظومة الحج والعمرة بما يتماشى مع رؤية السعودية 2030.",
-        // video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", 
-        images: [
-          "/ouer_project/haje/1.jpg", "/ouer_project/haje/2.jpg",
-          "/ouer_project/haje/3.jpg", "/ouer_project/haje/4.jpg",
-          "/ouer_project/haje/5.jpg", "/ouer_project/haje/6.jpg"
-        ],
-ctaButton: 'HajjConfex',
-statistics: [
-  {
-    value: 420000,
-    description: "زائر",
-    formatter: "+"
-  },
-  {
-    value: 750,
-    description: "عارض",
-    formatter: "+"
-  },
-  {
-    value: 450,
-    description: "متحدث",
-    formatter: "+"
-  },
-  {
-    value: 137,
-    description: "دولة",
-    formatter: "+"
-  },
-]
-
-      },{
-        title: 'سيتي سكيب',
-        description: "شاركت Savvy World في Cityscape، وهي منصة عالمية تجمع صُنّاع القرار والجهات الفاعلة في قطاع التطوير العقاري والبيئات الحضرية من مختلف دول العالم. ولم يكن حضورنا مجرد مشاركة، بل عرضًا حيًا لابتكارات المدن الذكية والحلول الرقمية التي تسهم في بناء مدن أكثر كفاءة واستدامة، انسجامًا مع رؤية السعودية 2030.",
-        // video: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", // Replace with actual YouTube URL
-        images: [
-          "/ouer_project/city-scape/1.jpg", "/ouer_project/city-scape/2.jpg", "/ouer_project/city-scape/7.jpg", "/ouer_project/city-scape/8.jpg",
-          "/ouer_project/city-scape/3.jpg", "/ouer_project/city-scape/4.jpg", "/ouer_project/city-scape/9.jpg", "/ouer_project/city-scape/10.jpg",
-          "/ouer_project/city-scape/5.jpg", "/ouer_project/city-scape/6.jpg", "/ouer_project/city-scape/11.jpg", "/ouer_project/city-scape/12.jpg"
-        ],
-  ctaButton: 'سيتي سكيب',
-  statistics: [
-    {
-      value: 550,
-      description: "عارض",
-      formatter: "+"
-    },
-    {
-      value: 470,
-      description: "متحدث",
-      formatter: "+"
-    },
-    {
-      value: 120,
-      description: "دولة ممثَّلة",
-      formatter: "+"
-    },
-    {
-      value: 10,
-      description: "أجنحة دول",
-      formatter: ""
-    },
-  ]
-}
+      },
 
       
     ] as ProjectData[]
