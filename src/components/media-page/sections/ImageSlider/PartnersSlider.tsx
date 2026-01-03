@@ -362,7 +362,7 @@ const ImageSlider = ({ images, heading }: ImageSliderProps) => {
                 </motion.div>
                 
                 {/* Image Name - Subtle overlay */}
-                {selectedImage.name && (
+                {/* {selectedImage.name && (
                   <motion.div
                     key={`name-${selectedIndex}`}
                     initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -381,7 +381,7 @@ const ImageSlider = ({ images, heading }: ImageSliderProps) => {
                       </h3>
                     </div>
                   </motion.div>
-                )}
+                )} */}
               </motion.div>
             </motion.div>
           )}
