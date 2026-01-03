@@ -175,7 +175,7 @@ video: "/videos/Activ_Lenticular Facade_Static redo.mp4",
         title: "Kinetic Lenticular Facade",
         description:
           "Dynamic lenticular LED screens change designs in real time, adapting animations and video to event themes and architectural needs. This revolutionary facade transforms kinetic engineering into living art.",
-          video: "/videos/",
+         video: "/videos/SE_TECH_Lenticular Facade_kinetic.mp4",
       },
       {
         title: "Kinect Sensor Motion Activated LED Wall",
@@ -223,19 +223,19 @@ video: "/videos/Activ_Lenticular Facade_Static redo.mp4",
         title: "Kinetic Hoist Platform",
         description:
           "Visitors step onto a floating racing platform and secure themselves for an adrenaline-filled VR racing experience paired with a massive LED screen—ideal for events and brand activations.",
-          video: "/videos/",
+          video: "/videos/Activ_Kinetic Hoist Platform.mp4",
       },
       {
         title: "Isolation Pod",
         description:
           "An isolation pod offers a personal, immersive brand experience featuring a transparent touch screen to explore products and services interactively, boosting brand awareness and understanding.",
-          video: "/videos/",
+          video: "/videos/Activ_Isolation Pod.mp4",
       },
       {
         title: "Quantum LED Sculpture",
         description:
           "A fully customized Quantum LED sculpture designed to captivate audiences with dynamic LED visuals. Perfect for exhibitions, events, and brand activations, it creates immersive experiences with lasting impact.",
-              video: "/videos/",
+              video: "/videos/Activ_Quantum LED Sculpture.mp4",
       }]as ProjectData[]
   },
   
@@ -402,7 +402,7 @@ video: "/videos/Activ_Lenticular Facade_Static redo.mp4",
       {
         title: "Kinetic Lenticular Facade",
         description: "تجذب الشاشات العدسية LED الزوار بتغيير تصاميمها في الوقت الحقيقي، مما يعزز التفاعل والمشاركة.توفر الشاشات قدرات ديناميكية لعرض الرسوم المتحركة والفيديوهات، وتتكيف مع موضوعات الفعاليات واحتياجات المباني.تحوّل الواجهة الثورية الهندسة الحركية إلى فن حي، لتخلق تجربة بصرية جذابة وتترك انطباعًا لا يُنسى للزوار.",
-        video: "/videos/",
+        video: "/videos/Activ_Lenticular Facade_Static redo.mp4",
       }
 
       ,
@@ -445,17 +445,17 @@ video: "/videos/Activ_Lenticular Facade_Static redo.mp4",
       {
         title: "Kinetic Hoist Platform",
         description: "يخطو الزوار إلى منطقة Race Elevate ويثبتون بأمان على منصة السباق الطافية لتجربة مثيرة.يمكنهم استخدام نظارات الواقع الافتراضي للانغماس الكامل في سباق عالي السرعة مع شاشة LED ضخمة.توفر التقنية تجربة سباق غامرة وممتعة، مناسبة للفعاليات والمعارض وحملات العلامات التجارية لإشراك الجمهور.",
-        video: "/videos/",
+        video: "/videos/Activ_Kinetic Hoist Platform.mp4",
       }  ,
       {
         title: "Isolation Pod",
         description: "وفر الكبسولة العازلة للزوار تجربة شخصية وغامرة مع العلامة التجارية.تحتوي داخليًا على شاشة شفافة وتحكم باللمس لاستكشاف المنتجات والخدمات بشكل تفاعلي.تقدم طريقة جذابة مدفوعة بالتقنية لزيادة الوعي وفهم العلامة التجارية.",
-        video: "/videos/",
+        video: "/videos/Activ_Isolation Pod.mp4",
       }  ,
       {
         title: "Quantum LED Sculpture",
         description: "تم تصميم تمثال كونتم LED لجذب الانتباه وتعزيز تجربة العلامة التجارية من خلال تصاميم LED ديناميكية قابلة للتخصيص يتيح دمج الشعارات والرسائل والعناصر الإبداعية، مما يجعله مثالياً للفعاليات والمعارض وتفعيل العلامات التجارية.مُصمم بالكامل وفق احتياجات العميل ليخلق تجارب غامرة ويترك انطباعاً دائماً.",
-        video: "/videos/",
+        video: "/videos/Activ_Quantum LED Sculpture.mp4",
       }
 
 
