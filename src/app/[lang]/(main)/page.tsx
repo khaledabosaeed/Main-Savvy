@@ -117,20 +117,15 @@ export default function Home() {
         <SavvySections />
       </section>
 
-      <section id="news">
+      <section id="services">
           <ImageSlider images={images} heading={ lang === "ar" ? "معرض الصور" : "Our Gallery"} />
         </section>
-      {/* <section id="services">
-        <GallerySection />
-      </section> */}
+
 
         <section id="projects">
           <LatestProjects />
         </section>
-      {/* Latest News Section */}
-      {/* <sectiwn id="news">
-        <LatestNews />
-      </sectiwn> */}
+
 
       
 
