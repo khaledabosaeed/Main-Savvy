@@ -125,16 +125,20 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
               <nav className={`hidden md:flex items-center gap-8 flex-1 justify-center ${isRTL ? 'flex-row-reverse' : ''}`}>
                 {Object.entries(texts)
                   .filter(([key]) => key !== "ourServices" && key !== "contactUs")
-                  .map(([key, value]) => (
-                    <Link
-                      key={key}
-                      href={`#${key}`}
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium whitespace-nowrap flex items-center"
-                    >
-                      {value}
-                      {key === "whySavvy" && showBadge && <Badge text="1512 × 69" />}
-                    </Link>
-                  ))}
+                  .map(([key, value]) => {
+                    // Handle "main" and "news" as page links, others as section links
+                    const href = key === "main" ? `/${lang}` : key === "news" ? `/${lang}/news` : `#${key}`
+                    return (
+                      <Link
+                        key={key}
+                        href={href}
+                        className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium whitespace-nowrap flex items-center"
+                      >
+                        {value}
+                        {key === "whySavvy" && showBadge && <Badge text="1512 × 69" />}
+                      </Link>
+                    )
+                  })}
 
                 {/* Services Dropdown */}
                 {texts["ourServices"] && (
@@ -222,16 +226,20 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                 <nav className="py-4">
                   {Object.entries(texts)
                     .filter(([key]) => key !== "ourServices" && key !== "contactUs")
-                    .map(([key, value]) => (
-                      <Link
-                        key={key}
-                        href={`#${key}`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-6 py-3 text-white hover:bg-white/10 transition-colors text-sm font-medium"
-                      >
-                        {value}
-                      </Link>
-                    ))}
+                    .map(([key, value]) => {
+                      // Handle "main" and "news" as page links, others as section links
+                      const href = key === "main" ? `/${lang}` : key === "news" ? `/${lang}/news` : `#${key}`
+                      return (
+                        <Link
+                          key={key}
+                          href={href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block px-6 py-3 text-white hover:bg-white/10 transition-colors text-sm font-medium"
+                        >
+                          {value}
+                        </Link>
+                      )
+                    })}
 
                   {/* Services في القائمة الموبايل */}
                   {texts["ourServices"] && (

@@ -15,17 +15,23 @@ interface ExpoPageProps {
 
 // نصوص الهيدر الخاصة بصفحة Expo
 const headerTextsEn = {
+  main: "Home",
+  news: "News",
   services: "Services",
   projects: "Latest Projects",
   partners: "Partners",
   contactUs: "Contact Us",
+
 }
 
 const headerTextsAr = {
+  main: "الرئيسية",
+  news: "الأخبار",
   partners: "الشركاء",
   projects: "معارضنا السابقة ",
   services: "الخدمات",
   contactUs: "تواصل معنا",
+
 }
 
 export default async function ExpoPage({ params }: ExpoPageProps) {

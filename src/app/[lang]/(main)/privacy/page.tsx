@@ -10,13 +10,18 @@ interface PrivacyPageProps {
 
 // نصوص الهيدر الخاصة بصفحة الخصوصية
 const headerTextsEn = {
+  main: "Home",
+  news: "News",
   ourServices: "Our Services",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
+  main: "الرئيسية",
+  news: "الأخبار",
   ourServices: "خدماتنا",
   contactUs: "تواصل معنا",
+
 }
 
 export default async function Privacy({ params }: PrivacyPageProps) {

@@ -12,11 +12,15 @@ interface ContactPageProps {
 const headerTextsEn = {
   ourServices: "Our Services",
   contactUs: "Contact Us",
+  main: "Home",
+  news: "News",
 }
 
 const headerTextsAr = {
   ourServices: "خدماتنا",
   contactUs: "تواصل معنا",
+  main: "الرئيسية",
+  news: "الأخبار",
 }
 
 export default async function Contact({ params }: ContactPageProps) {

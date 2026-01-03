@@ -13,17 +13,21 @@ interface InnovationPageProps {
 
 // نصوص الهيدر الخاصة بهذه الصفحة
 const headerTextsEn = {
+  main: "Home",
+  news: "News",
   solutions: "Solutions",
   partners: "Partners",
-  // news: "News",
   contactUs: "Contact Us",
+
 }
 
 const headerTextsAr = {
-  // news: "الأخبار",
+  main: "الرئيسية",
+  news: "الأخبار",
   partners: "الشركاء",
   solutions: "الحلول",
   contactUs: "تواصل معنا",
+
 }
 
 export default async function InnovationPage({ params }: InnovationPageProps) {

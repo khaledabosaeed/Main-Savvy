@@ -11,13 +11,19 @@ interface ArticlePageProps {
 
 // نصوص الهيدر
 const headerTextsEn = {
+  main: "Home",
+  news: "News",
   ourServices: "Our Services",
   contactUs: "Contact Us",
+
 }
 
 const headerTextsAr = {
+  main: "الرئيسية",
+  news: "الأخبار",
   ourServices: "خدماتنا",
   contactUs: "تواصل معنا",
+
 }
 
 export default async function Article({ params }: ArticlePageProps) {

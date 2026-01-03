@@ -10,11 +10,15 @@ interface TermsPageProps {
 
 // نصوص الهيدر الخاصة بصفحة شروط الاستخدام
 const headerTextsEn = {
+  main: "Home",
+  news: "News",
   ourServices: "Our Services",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
+  main: "الرئيسية",
+  news: "الأخبار",
   ourServices: "خدماتنا",
   contactUs: "تواصل معنا",
 }

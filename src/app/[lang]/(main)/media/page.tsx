@@ -16,16 +16,22 @@ interface MediaPageProps {
 // نصوص الهيدر الخاصة بصفحة Media
 const headerTextsEn = {
   // content: "Content",
+  main: "Home",
+  news: "News",
   gallery: "Our Gallery",
   "why-savvy": "Why Savvy",
   contactUs: "Contact Us",
+
 }
 
 const headerTextsAr = {
   // gallery: "معرض الصور",
+  main: "الرئيسية",
+  news: "الأخبار",
   "why-savvy": "لماذا ساڤي",
   content: "المحتوى",
   contactUs: "تواصل معنا",
+
 } 
 
 export default async function MediaPage({ params }: MediaPageProps) {

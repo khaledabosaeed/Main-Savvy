@@ -14,20 +14,22 @@ import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSl
 
 // نصوص الهيدر بالإنجليزية
 const headerTextsEn = {
+  main: "Home",
+  news: "News",
   projects: "Latest Projects",
-  about: "Our Sections",
   services: "Gallery",
+  about: "Our Sections",
   contactUs: "Contact Us",
 }
 
 // نصوص الهيدر بالعربية
 const headerTextsAr = {
-  // news: "آخر الأخبار",
+  main: "الرئيسية",
+  news: "الأخبار",
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",
   contactUs: "تواصل معنا",
-
 }
 
 export default function Home() {
