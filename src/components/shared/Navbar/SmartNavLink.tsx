@@ -12,6 +12,8 @@ interface SmartNavLinkProps {
   onClick?: () => void;
 }
 
+
+
 /**
  * Smart Navigation Link Component
  *

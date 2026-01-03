@@ -111,6 +111,8 @@ export default function Home() {
       {/* Partners Slider - outside hero section */}
       <PartnersSlider />
 
+
+
       <section id="about">
         <SavvySections />
       </section>
@@ -126,9 +128,9 @@ export default function Home() {
           <LatestProjects />
         </section>
       {/* Latest News Section */}
-      {/* <section id="news">
+      {/* <sectiwn id="news">
         <LatestNews />
-      </section> */}
+      </sectiwn> */}
 
       
 

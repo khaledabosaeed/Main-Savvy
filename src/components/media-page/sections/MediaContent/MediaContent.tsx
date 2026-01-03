@@ -26,9 +26,9 @@ export default function MediaContent({ lang }: MediaContentProps) {
     <section className="py-20 md:py-32 bg-white">
       <div className="container px-6">
         {/* القسم العلوي - صناعة محتوى */}
-        <div className={`flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch mb-32`}>
+        {/* <div className={`flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch mb-32`}> */}
           {/* الصورة - على اليمين */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -43,10 +43,10 @@ export default function MediaContent({ lang }: MediaContentProps) {
                 className="object-cover"
               />
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* النص - على اليسار */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -57,10 +57,10 @@ export default function MediaContent({ lang }: MediaContentProps) {
               {t("topTitle")}
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              {t("topDescription")}
-            </p>
-          </motion.div>
-        </div>
+          //     {t("topDescription")}
+          //   </p>
+          // </motion.div> */}
+        {/* </div> */}
 
         {/* القسم السفلي - الشاشات الرقمية */}
         <div className={`flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch`}>
