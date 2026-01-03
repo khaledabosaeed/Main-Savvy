@@ -99,10 +99,10 @@ logo:   '/home-page/gallery/image-12.png'}
           <WhySavvy lang={currentLang} />
         </section>
 
-
+{/* 
       <section id="news">
           <ImageSlider images={images} heading={ lang === "ar" ? "معرض الصور" : "Our Gallery"} />
-        </section>
+        </section> */}
 
 
       </PageTransition>
