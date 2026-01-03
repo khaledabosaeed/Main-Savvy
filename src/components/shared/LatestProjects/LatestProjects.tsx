@@ -375,7 +375,7 @@ function LatestProjects() {
               </motion.p>
 
               {/* CTA Button */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -387,7 +387,7 @@ function LatestProjects() {
                 >
                   {currentProject.ctaButton}
                 </motion.button>
-              </motion.div>
+              </motion.div> */}
 
               {/* Statistics - Horizontal Layout */}
               <motion.div
