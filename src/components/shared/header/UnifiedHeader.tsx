@@ -3,9 +3,11 @@
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
+import { useSmoothScroll } from "@/contexts/SmoothScrollContext"
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
 import Badge from "../Badge/Badge"
 import { motion, AnimatePresence } from "framer-motion"
@@ -22,6 +24,8 @@ interface UnifiedHeaderProps {
 export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner = true, logoHref, logoAlt = "Savvy", logoSrc = "/Savvy 2 1.svg" }: UnifiedHeaderProps) {
   const { language } = useLanguage()
   const isMobile = useIsMobile()
+  const pathname = usePathname()
+  const { scrollTo } = useSmoothScroll()
   const lang = language as "en" | "ar"
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -128,10 +132,27 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                   .map(([key, value]) => {
                     // Handle "main" and "news" as page links, others as section links
                     const href = key === "main" ? `/${lang}` : key === "news" ? `/${lang}/news` : `#${key}`
+                    
+                    // Handle "main" link: if already on home page, scroll to top instead of navigating
+                    const handleMainClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                      if (key === "main") {
+                        const homePath = `/${lang}`
+                        const homePathWithSlash = `/${lang}/`
+                        // If already on home page (with or without trailing slash), scroll to top
+                        if (pathname === homePath || pathname === homePathWithSlash) {
+                          e.preventDefault()
+                          scrollTo(0, { duration: 1.5 })
+                        }
+                        // Otherwise, let the Link handle navigation normally
+                        // PageTransition will scroll to top on navigation
+                      }
+                    }
+                    
                     return (
                       <Link
                         key={key}
                         href={href}
+                        onClick={handleMainClick}
                         className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium whitespace-nowrap flex items-center"
                       >
                         {value}
@@ -229,11 +250,28 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                     .map(([key, value]) => {
                       // Handle "main" and "news" as page links, others as section links
                       const href = key === "main" ? `/${lang}` : key === "news" ? `/${lang}/news` : `#${key}`
+                      
+                      // Handle "main" link: if already on home page, scroll to top instead of navigating
+                      const handleMainClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                        if (key === "main") {
+                          const homePath = `/${lang}`
+                          const homePathWithSlash = `/${lang}/`
+                          // If already on home page (with or without trailing slash), scroll to top
+                          if (pathname === homePath || pathname === homePathWithSlash) {
+                            e.preventDefault()
+                            scrollTo(0, { duration: 1.5 })
+                          }
+                          // Otherwise, let the Link handle navigation normally
+                          // PageTransition will scroll to top on navigation
+                        }
+                        setIsMobileMenuOpen(false)
+                      }
+                      
                       return (
                         <Link
                           key={key}
                           href={href}
-                          onClick={() => setIsMobileMenuOpen(false)}
+                          onClick={handleMainClick}
                           className="block px-6 py-3 text-white hover:bg-white/10 transition-colors text-sm font-medium"
                         >
                           {value}

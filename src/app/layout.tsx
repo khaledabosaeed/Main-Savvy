@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter_Tight, Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/contexts/SmoothScrollContext";
+import ScrollRestorationHandler from "@/components/shared/ScrollRestorationHandler";
 
 const inter = Inter_Tight({
   subsets: ["latin"],
@@ -130,9 +132,29 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${interArabic.variable} font-sans antialiased overflow-x-hidden`}
       >
+        <Script
+          id="disable-scroll-restoration"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+                window.history.scrollRestoration = 'manual';
+              }
+              // Ensure scroll to top on page load
+              if (typeof window !== 'undefined') {
+                window.addEventListener('load', function() {
+                  window.scrollTo(0, 0);
+                });
+                // Also try immediately
+                window.scrollTo(0, 0);
+              }
+            `,
+          }}
+        />
         <GoogleAnalytics gaId="G-W5W59KEFQX" />
 
         <SmoothScrollProvider>
+          <ScrollRestorationHandler />
           {children}
         </SmoothScrollProvider>
       </body>

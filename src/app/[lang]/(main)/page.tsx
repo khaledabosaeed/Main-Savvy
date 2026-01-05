@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react"
 import NewHero from "@/components/main-page/sections/NewHero/NewHero"
 import SavvySections from "@/components/main-page/sections/SavvySections/SavvySections"
-import GallerySection from "@/components/main-page/sections/GallerySection/GallerySection"
-import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
+
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import TopBanner from "@/components/shared/TopBanner/TopBanner"
 import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
@@ -88,6 +87,22 @@ export default function Home() {
   ]
 
   useEffect(() => {
+    // Ensure page starts at top on initial load/refresh
+    if (typeof window !== 'undefined') {
+      // Disable browser scroll restoration
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual'
+      }
+      
+      // Scroll to top immediately on mount/refresh
+      window.scrollTo({ top: 0, behavior: 'instant' })
+      
+      // Also use Lenis if available (after a small delay to ensure it's initialized)
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' })
+      }, 0)
+    }
+
     const handleScroll = () => {
       // Hide badge when scrolled past hero section (approximately)
       setShowBadge(window.scrollY < 600)
