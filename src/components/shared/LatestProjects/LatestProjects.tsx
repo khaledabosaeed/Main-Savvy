@@ -411,12 +411,12 @@ function LatestProjects() {
                         </span>
                       )}
                       {stat.label && (
-                        <span className="text-xs md:text-2xl font-bold text-gray-900">
+                        <span className="text-1xl md:text-2xl font-bold text-gray-900">
                           {stat.label}
                         </span>
                       )}
                       {stat.formatter && (
-                        <span className="text-xs md:text-2xl font-bold text-gray-900">
+                        <span className="text-2xl md:text-2xl font-bold text-gray-900">
                           {stat.formatter}
                         </span>
                       )}
