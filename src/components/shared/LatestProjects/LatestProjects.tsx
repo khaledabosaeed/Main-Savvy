@@ -402,7 +402,7 @@ function LatestProjects() {
                       {stat.value ? (
                         <Counter
                           to={stat.value}
-                          className="text-3xl md:text-4xl font-bold text-gray-900"
+                          className="text-2xl md:text-4xl font-bold text-gray-900"
                           formatter={(n) => `${Math.floor(n)}`}
                         />
                       ) : (
