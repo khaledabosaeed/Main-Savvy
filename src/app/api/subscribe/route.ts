@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import path from 'path'
+import fs from 'fs'
 
 export async function POST(request: NextRequest) {
   try {
@@ -50,6 +52,11 @@ if (!fullName) {
       })
     // Email contentn
     const isArabic = lang === 'ar'
+
+    const assignedTeam = isArabic
+      ? 'فريق Savvy للتواصل'
+      : 'Savvy Contact Team'
+    
     const subject = isArabic
       ? 'طلب جديد من صفحة Main - Savvy'
       : 'New Subscription Main- Savvy'
@@ -99,6 +106,8 @@ const htmlContent = isArabic
   </div>
 `
 
+
+
     // قائمة المستقبلين
     const recipients = [
       process.env.RECIPIENT_EMAIL || '',
@@ -121,10 +130,109 @@ const htmlContent = isArabic
       text: `New subscription: ${email} (Language: ${lang})`,
     })
 
+
+// =====================
+// 6️⃣ Client Notification
+// =====================
+const imagePath = path.join(process.cwd(), 'public', 'Email response.png')
+
+// Verify image file exists before attaching
+const imageExists = fs.existsSync(imagePath)
+if (!imageExists) {
+  console.warn(`⚠️ Image file not found at: ${imagePath}. Email will be sent without image attachment.`)
+}
+
+
+
+const clientSubject = isArabic
+  ? 'تم استلام طلبك – Savvy'
+  : 'Your Request Has Been Assigned – Savvy'
+
+  const clientHtml = isArabic
+  ? `
+  <div dir="rtl" style="font-family: Arial; max-width:600px; margin:auto; text-align:center">
+
+    <img
+      src="cid:responseImage"
+      alt="Request received"
+      style="width:100%; max-width:420px; display:block; margin:20px auto;"
+    />
+
+    <h2 style="color:#16a34a">تم استلام طلبك بنجاح يا ${fullName} ✅</h2>
+
+    <p>
+      شكرًا لتواصلك معنا.  
+      تم استلام طلبك وإسناده إلى <strong>${assignedTeam}</strong>.
+    </p>
+
+    <p>سيقوم أحد أعضاء فريقنا بالتواصل معك قريبًا.</p>
+
+    <hr />
+
+    <p style="font-size:13px;color:#666">
+      Savvy Team<br/>
+      رسالة تلقائية – يرجى عدم الرد
+    </p>
+
+  </div>
+  `
+  : `
+  <div style="font-family: Arial; max-width:600px; margin:auto; text-align:center">
+
+    <img
+      src="cid:responseImage"
+      alt="Request received"
+      style="width:100%; max-width:420px; display:block; margin:20px auto;"
+    />
+
+    <h2 style="color:#16a34a">Your request has been received, ${fullName} ✅</h2>
+
+    <p>
+      Thank you for contacting us.  
+      Your request has been received and assigned to <strong>${assignedTeam}</strong>.
+    </p>
+
+    <p>Our team will contact you shortly.</p>
+
+    <hr />
+
+    <p style="font-size:13px;color:#666">
+      Savvy Team<br/>
+      This is an automated message – please do not reply
+    </p>
+
+  </div>
+  `
+
+
+
+  await transporter.sendMail({
+    from: `"Savvy Team" <${process.env.SMTP_USER}>`,
+    to: email,
+    subject: clientSubject,
+    html: clientHtml,
+    attachments: imageExists
+      ? [
+          {
+            filename: 'Email response.png', // اسم الصورة
+            path: imagePath,                // المسار الكامل
+            cid: 'responseImage',           // يجب أن يطابق src="cid:responseImage"
+          },
+        ]
+      : [], // Send without attachment if image file doesn't exist
+  })
+  
+
+    // =====================
+    // 7️⃣ Response
+    // =====================
     return NextResponse.json(
-      { message: 'Email sent successfully' },
+      { message: 'Emails sent successfully' },
       { status: 200 }
     )
+
+
+
   } catch (error) {
     console.error('Error sending email:', error)
     return NextResponse.json(
