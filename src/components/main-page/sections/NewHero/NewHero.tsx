@@ -73,6 +73,23 @@ export default function NewHero() {
 
   return (
     <section className="relative  flex flex-col pt-[100px] md:pt-[120px] overflow-visible md:overflow-hidden">
+      {/* Linktree Badge */}
+      {/* <div className="container relative z-20 pt-4 pb-2 flex justify-center">
+        <motion.a
+          href="https://linktr.ee/mr.savvy.saudi"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-gradient-to-r from-[#3960F9] to-[#0066FF] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-sm md:text-base font-semibold text-white border-2 border-white/20 backdrop-blur-sm"
+        >
+          <span className="text-lg md:text-xl">🤖</span>
+          <span>Mr. Savvy</span>
+          <span className="text-white/90 text-base">→</span>
+        </motion.a>
+      </div> */}
+
       {/* Enhanced gradient background */}
       <div className="absolute inset-0  bg-white" />
 

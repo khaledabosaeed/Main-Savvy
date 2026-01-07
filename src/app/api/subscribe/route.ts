@@ -114,7 +114,7 @@ const htmlContent = isArabic
 
     // Send email
     await transporter.sendMail({
-      from: `"Savvy Coming Soon" <${process.env.SMTP_USER}>`,
+      from: `"Savvy main page" <${process.env.SMTP_USER}>`,
       to: recipients,
       subject: subject,
       html: htmlContent,
