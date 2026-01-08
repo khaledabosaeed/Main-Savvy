@@ -134,7 +134,7 @@ const htmlContent = isArabic
 // =====================
 // 6️⃣ Client Notification
 // =====================
-const imagePath = path.join(process.cwd(), 'public', 'Email response.png')
+const imagePath = path.join(process.cwd(), 'public', 'INdb.png')
 
 // Verify image file exists before attaching
 const imageExists = fs.existsSync(imagePath)
