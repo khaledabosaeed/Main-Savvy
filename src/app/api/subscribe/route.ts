@@ -130,7 +130,6 @@ const htmlContent = isArabic
       text: `New subscription: ${email} (Language: ${lang})`,
     })
 
-
 // =====================
 // 6️⃣ Client Notification
 // =====================
@@ -226,12 +225,47 @@ const clientSubject = isArabic
     // =====================
     // 7️⃣ Response
     // =====================
-    return NextResponse.json(
+    // إرجاع الرد فوراً للعميل
+    const response = NextResponse.json(
       { message: 'Emails sent successfully' },
       { status: 200 }
     )
 
+    // =====================
+    // External API - Save Contact Data (Background)
+    // =====================
+    // إرسال البيانات في الخلفية بدون انتظار
+    ;(async () => {
+      try {
+        const payload = {
+          pfullname: fullName || "",
+          pjob_title: jobTitle || "",
+          pcomapny_name: companyName || "",
+          paddress: "",
+          pemail: email || "",
+          ptel: phone || ""
+        }
 
+        const apiResponse = await fetch('https://sakani.incube-events.com/newsavvy/ContactUs.asmx/AddNewContcat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
+
+        if (!apiResponse.ok) {
+          console.error('External API failed:', apiResponse.status, apiResponse.statusText)
+        } else {
+          console.log('✅ Contact data saved to external API successfully')
+        }
+      } catch (apiError) {
+        console.error('Error calling external API:', apiError)
+        // لا نرمي خطأ هنا حتى لا يؤثر على إرسال البريد
+      }
+    })()
+
+    return response
 
   } catch (error) {
     console.error('Error sending email:', error)
