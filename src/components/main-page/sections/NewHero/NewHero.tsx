@@ -9,6 +9,9 @@ import { useIsMobile } from "@/hooks/useIsMobile"
 import type { Language } from "./content"
 import { getHeroContent } from "./content"
 
+import { FaFacebookF, FaInstagram, FaSnapchatGhost, FaTiktok, FaWhatsapp, FaYoutube } from "react-icons/fa"
+import { FaXTwitter } from "react-icons/fa6"
+
 export default function NewHero() {
   const [animate, setAnimate] = useState(false)
   const { language } = useLanguage()
@@ -71,24 +74,38 @@ export default function NewHero() {
     },
   }
 
+  const socialContainerVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 0.61, 0.36, 1] as any,
+        delay: 0.5,
+        delayChildren: 0.2,
+        staggerChildren: 0.08
+      }
+    }
+  }
+
+  const socialIconVariants = {
+    hidden: { opacity: 0, scale: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 15
+      } as any
+    }
+  }
+
   return (
     <section className="relative  flex flex-col pt-[100px] md:pt-[120px] overflow-visible md:overflow-hidden">
-      {/* Linktree Badge */}
-      {/* <div className="container relative z-20 pt-4 pb-2 flex justify-center">
-        <motion.a
-          href="https://linktr.ee/mr.savvy.saudi"
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-gradient-to-r from-[#3960F9] to-[#0066FF] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-sm md:text-base font-semibold text-white border-2 border-white/20 backdrop-blur-sm"
-        >
-          <span className="text-lg md:text-xl">🤖</span>
-          <span>Mr. Savvy</span>
-          <span className="text-white/90 text-base">→</span>
-        </motion.a>
-      </div> */}
 
       {/* Enhanced gradient background */}
       <div className="absolute inset-0  bg-white" />
@@ -105,7 +122,7 @@ export default function NewHero() {
       )}
 
       {/* Content */}
-      <div className="container relative z-10 py-12 md:py-20 lg:py-32 flex-1" suppressHydrationWarning>
+      <div className="container relative z-10 py-8 md:py-16 lg:py-24 flex-1" suppressHydrationWarning>
         <div className={`max-w-5xl mx-auto text-center ${isRTL ? 'rtl' : 'ltr'}`}>
           {/* Main Heading - Responsive sizing */}
           <motion.h1
@@ -140,6 +157,41 @@ export default function NewHero() {
             {t("subDescription")}
           </motion.p>
 
+          {/* Linktree Social Block - Repositioned for better flow */}
+          <div className="relative z-20 pt-2 pb-4 md:pb-6 flex justify-center">
+            <motion.a
+              href="https://linktr.ee/mr.savvy.saudi"
+              target="_blank"
+              rel="noopener noreferrer"
+              variants={socialContainerVariants}
+              initial="hidden"
+              animate={animate ? "visible" : "hidden"}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative flex items-center justify-center p-[2px] rounded-full bg-gradient-to-r from-gray-200 to-gray-100 hover:from-[#3960F9] hover:to-[#0066FF] transition-all duration-300 shadow-lg hover:shadow-2xl"
+            >
+              <div className="flex items-center gap-4 md:gap-6 px-6 md:px-8 py-3 bg-[#F3F4F1] rounded-full relative z-10 transition-colors duration-300">
+                {[
+                  { Icon: FaInstagram, color: "text-[#E1306C]" },
+                  { Icon: FaTiktok, color: "text-black" },
+                  { Icon: FaXTwitter, color: "text-black" },
+                  { Icon: FaSnapchatGhost, color: "text-[#FFFC00] drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]" },
+                  { Icon: FaWhatsapp, color: "text-[#25D366]" },
+                  { Icon: FaFacebookF, color: "text-[#1877F2]" },
+                  { Icon: FaYoutube, color: "text-[#FF0000]" }
+                ].map(({ Icon, color }, index) => (
+                  <motion.span
+                    key={index}
+                    variants={socialIconVariants}
+                    className={`${color} text-xl md:text-2xl transform transition-transform duration-300 group-hover:scale-110`}
+                  >
+                    <Icon />
+                  </motion.span>
+                ))}
+              </div>
+            </motion.a>
+          </div>
+
           {/* Robot Image with enhanced blending - Optimized for mobile */}
           <motion.div
             variants={imageVariants}
@@ -158,23 +210,23 @@ export default function NewHero() {
               <div className="relative z-10">
 
                 {/* Main Image with enhanced styling - Optimized sizes for mobile */}
-              <Image
-  src="/home-page/hero/new.png"
-  alt="Robot hand with coffee"
-  width={isMobile ? 800 : 1200}
-  height={isMobile ? 800 : 1200}
-  className="object-contain w-full h-auto relative z-10"
-  priority
-  sizes="(max-width: 768px) 100vw, 1200px"
-  quality={isMobile ? 85 : 90}
-  style={{
-    filter: isMobile ? "brightness(1.02) contrast(1.01)" : "brightness(1.05) contrast(1.02) saturate(0.95)",
-    WebkitMaskImage: 
-      "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
-    maskImage: 
-      "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
-  }}
-/>
+                <Image
+                  src="/home-page/hero/new.png"
+                  alt="Robot hand with coffee"
+                  width={isMobile ? 800 : 1200}
+                  height={isMobile ? 800 : 1200}
+                  className="object-contain w-full h-auto relative z-10"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                  quality={isMobile ? 85 : 90}
+                  style={{
+                    filter: isMobile ? "brightness(1.02) contrast(1.01)" : "brightness(1.05) contrast(1.02) saturate(0.95)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
+                    maskImage:
+                      "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
+                  }}
+                />
 
                 {/* Cloud overlay image */}
                 <motion.div
@@ -189,13 +241,13 @@ export default function NewHero() {
                     width={isMobile ? 800 : 1200}
                     height={isMobile ? 800 : 1200}
                     className="object-contain w-full h-auto"
-               
+
                   />
                 </motion.div>
- 
+
               </div>
 
-  
+
             </div>
 
           </motion.div>
