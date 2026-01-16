@@ -9,8 +9,8 @@ import { useIsMobile } from "@/hooks/useIsMobile"
 import type { Language } from "./content"
 import { getHeroContent } from "./content"
 
-import { FaFacebookF, FaInstagram, FaSnapchatGhost, FaTiktok, FaWhatsapp, FaYoutube } from "react-icons/fa"
-import { FaXTwitter } from "react-icons/fa6"
+import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa"
+import { FaLinkedinIn } from "react-icons/fa6"
 
 export default function NewHero() {
   const [animate, setAnimate] = useState(false)
@@ -157,39 +157,55 @@ export default function NewHero() {
             {t("subDescription")}
           </motion.p>
 
-          {/* Linktree Social Block - Repositioned for better flow */}
+          {/* Social Media Icons - Separate links for each platform */}
           <div className="relative z-20 pt-2 pb-4 md:pb-6 flex justify-center">
-            <motion.a
-              href="https://linktr.ee/mr.savvy.saudi"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.div
               variants={socialContainerVariants}
               initial="hidden"
               animate={animate ? "visible" : "hidden"}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative flex items-center justify-center p-[2px] rounded-full bg-gradient-to-r from-gray-200 to-gray-100 hover:from-[#3960F9] hover:to-[#0066FF] transition-all duration-300 shadow-lg hover:shadow-2xl"
+              className="flex items-center gap-3 md:gap-4"
             >
-              <div className="flex items-center gap-4 md:gap-6 px-6 md:px-8 py-3 bg-[#F3F4F1] rounded-full relative z-10 transition-colors duration-300">
-                {[
-                  { Icon: FaInstagram, color: "text-[#E1306C]" },
-                  { Icon: FaTiktok, color: "text-black" },
-                  { Icon: FaXTwitter, color: "text-black" },
-                  { Icon: FaSnapchatGhost, color: "text-[#FFFC00] drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]" },
-                  { Icon: FaWhatsapp, color: "text-[#25D366]" },
-                  { Icon: FaFacebookF, color: "text-[#1877F2]" },
-                  { Icon: FaYoutube, color: "text-[#FF0000]" }
-                ].map(({ Icon, color }, index) => (
-                  <motion.span
-                    key={index}
-                    variants={socialIconVariants}
-                    className={`${color} text-xl md:text-2xl transform transition-transform duration-300 group-hover:scale-110`}
-                  >
-                    <Icon />
-                  </motion.span>
-                ))}
-              </div>
-            </motion.a>
+              {[
+                { 
+                  Icon: FaTiktok, 
+                  color: "text-black",
+                  url: "https://www.tiktok.com/@mr.savvy_saudi",
+                  ariaLabel: isRTL ? "تابعنا على تيك توك" : "Follow us on TikTok"
+                },
+                { 
+                  Icon: FaLinkedinIn, 
+                  color: "text-[#0077B5]",
+                  url: "https://www.linkedin.com/company/savvy-world/",
+                  ariaLabel: isRTL ? "تابعنا على لينكد إن" : "Follow us on LinkedIn"
+                },
+                { 
+                  Icon: FaInstagram, 
+                  color: "text-[#E1306C]",
+                  url: "https://www.instagram.com/mr.savvy_saudi",
+                  ariaLabel: isRTL ? "تابعنا على إنستغرام" : "Follow us on Instagram"
+                },
+                { 
+                  Icon: FaSnapchatGhost, 
+                  color: "text-[#FFFC00] drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]",
+                  url: "https://www.snapchat.com/@mr.savvysaudi",
+                  ariaLabel: isRTL ? "تابعنا على سناب شات" : "Follow us on Snapchat"
+                }
+              ].map(({ Icon, color, url, ariaLabel }, index) => (
+                <motion.a
+                  key={index}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variants={socialIconVariants}
+                  whileHover={{ scale: 1.15, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`${color} text-2xl md:text-3xl transform transition-transform duration-300 hover:scale-110 rounded-full p-2 hover:bg-gray-100 transition-colors`}
+                  aria-label={ariaLabel}
+                >
+                  <Icon />
+                </motion.a>
+              ))}
+            </motion.div>
           </div>
 
           {/* Robot Image with enhanced blending - Optimized for mobile */}

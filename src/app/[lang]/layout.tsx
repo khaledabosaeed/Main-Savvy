@@ -2,6 +2,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { notFound } from "next/navigation";
 import { Inter } from "next/font/google"
 import localFont from "next/font/local"
+import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 type Language = 'en' | 'ar';
 
 
@@ -55,6 +56,9 @@ export default async function LangLayout({
     <LanguageProvider initialLanguage={lang}>
       <div dir={dir} className={lang === "ar" ? expoArabic.className : inter.className}>
         {children}
+        <WhatsAppButton 
+          phoneNumber="966580335989"
+        />
       </div>
     </LanguageProvider>
   );

@@ -60,14 +60,14 @@ export default function InnovationHero() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className={`flex flex-wrap gap-4 ${isRTL ? 'justify-end md:justify-start' : 'justify-start'}`}
             >
-              <motion.a
+              {/* <motion.a
               href={`https://mr.savvy.savvyworld.ai/`}
               className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               >
                 {isRTL ? "احجز مستر ساڤي الآن " : "Learn More"}
-              </motion.a>
+              </motion.a> */}
 
               <motion.a
                 href={`/${lang}/contact`}
