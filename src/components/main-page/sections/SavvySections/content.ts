@@ -4,6 +4,22 @@ export const savvySectionsContent = {
  en: {
   sectionTitle: "Savvy World Sections",
   cards: [
+        {
+      id: "innovation",
+      title: "Savvy Innovation",
+      description: "We connect innovation with reality — robotics, intelligence, and sustainability delivered in a simple, integrated experience",
+      features: [
+        "Smart targeting capabilities",
+        "Content monitoring",
+        "Audience-tailored content",
+        "mr.savvy robot",
+        "Developing innovative solutions for building sustainable cities"
+      ],
+      icon: "/home-page/icons/innovation-icon.svg",
+      image: "/sections/innovation-image.jpg",
+      link: "/innovation",
+      buttonText: "Learn more"
+    },
     {
       id: "expo",
       title: "Savvy Expo",
@@ -35,28 +51,29 @@ export const savvySectionsContent = {
       link: "/media",
       buttonText: "Learn more"
     },
-    {
-      id: "innovation",
-      title: "Savvy Innovation",
-      description: "We connect innovation with reality — robotics, intelligence, and sustainability delivered in a simple, integrated experience",
-      features: [
-        "Smart targeting capabilities",
-        "Content monitoring",
-        "Audience-tailored content",
-        "mr.savvy robot",
-        "Developing innovative solutions for building sustainable cities"
-      ],
-      icon: "/home-page/icons/innovation-icon.svg",
-      image: "/sections/innovation-image.jpg",
-      link: "/innovation",
-      buttonText: "Learn more"
-    }
+
   ]
 }
 ,
     ar: {
         sectionTitle: "أقسام ساڤي وورلد",
         cards: [
+                {
+                id: "innovation",
+                title: "ساڤي ابتكار",
+                description: "نربط الابتكار بالواقع. روبوت، ذكاء، واستدامة بشكل مبسّط لمنح تجربة متكاملة",
+                features: [
+                    "خاصية الاستهداف ذكـي",
+                    "مراقبـة محتوى",
+                    "محتوى مناسب للمتلقي",
+                    "روبوت مستر ساڤي",
+                    "تطوير حلول مبتكرة لبناء مدن مستدامة"
+                ],
+                icon: "/home-page/icons/innovation-icon.svg", // المستخدم سيضيف الأيقونة
+                image: "/sections/innovation-image.jpg", // المستخدم سيضيف الصورة
+                link: "/innovation",
+                buttonText: "تعلم المزيد"
+            },
             {
                 id: "expo",
                 title: "ساڤي اكسبو",
@@ -88,22 +105,7 @@ export const savvySectionsContent = {
                 link: "/media",
                 buttonText: "تعلم المزيد"
             },
-            {
-                id: "innovation",
-                title: "ساڤي ابتكار",
-                description: "نربط الابتكار بالواقع. روبوت، ذكاء، واستدامة بشكل مبسّط لمنح تجربة متكاملة",
-                features: [
-                    "خاصية الاستهداف ذكـي",
-                    "مراقبـة محتوى",
-                    "محتوى مناسب للمتلقي",
-                    "روبوت مستر ساڤي",
-                    "تطوير حلول مبتكرة لبناء مدن مستدامة"
-                ],
-                icon: "/home-page/icons/innovation-icon.svg", // المستخدم سيضيف الأيقونة
-                image: "/sections/innovation-image.jpg", // المستخدم سيضيف الصورة
-                link: "/innovation",
-                buttonText: "تعلم المزيد"
-            }
+      
         ]
     }
 }
