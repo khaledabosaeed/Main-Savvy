@@ -44,12 +44,10 @@ export default function InnovationHero() {
               {t("title")}
             </motion.h1>
 
-            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              /* تم تصغير الخط من xl إلى lg/base ليكون أكثر رزانة */
               className="text-base md:text-lg lg:text-lg text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto"
             >
               {t("subtitle")}

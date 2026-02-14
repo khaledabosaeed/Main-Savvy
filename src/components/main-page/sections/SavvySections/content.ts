@@ -9,11 +9,14 @@ export const savvySectionsContent = {
       title: "Savvy Innovation",
       description: "We transform local and global innovation into operational solutions aligned with the Saudi market.",
       features: [
+        " Industrial robots (firefighting, inspection, security)",
+        "Advisory services in Data Management",
+        "Advisory services in Responsible AI",
+        "Industrial robots",
         "Strategic partnerships",
         " Electric vehicle (EV) charging stations",
         "Eco-friendly cement",
         "Energy-efficient smart home solutions"
-        ," Industrial robots (firefighting, inspection, security)"
       ],
       icon: "/home-page/icons/innovation-icon.svg",
       image: "/sections/innovation-image.jpg",
@@ -63,11 +66,15 @@ export const savvySectionsContent = {
                 title: "ساڤي ابتكار",
                 description: "نحوّل الابتكار المحلي والعالمي إلى حلول تشغيلية متوافقة مع السوق السعودي",
                 features: [
+                  "الروبوتات الصناعية (أطفاء, فحص, حراسة)"
+,
+                  " خدمات استشارية في إدارة البيانات",
+                  " خدمات استشارية في إدارة البيانات",
+                  "الروبوتات الصناعية.",
                     "ألواح طاقة شمسية للمصانع",
                     "شواحن سيارات كهربائية ",
                     "الاسمنت صديق للبيئة",
                     "حلول المنزل الذكي الموفر للطاقة",
-                    "الروبوتات الصناعية (أطفاء, فحص, حراسة)"
                 ],
                 icon: "/home-page/icons/innovation-icon.svg", // المستخدم سيضيف الأيقونة
                 image: "/sections/innovation-image.jpg", // المستخدم سيضيف الصورة

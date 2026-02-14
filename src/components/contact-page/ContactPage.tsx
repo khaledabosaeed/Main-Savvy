@@ -226,7 +226,7 @@ export default function ContactPage({ lang }: ContactPageProps) {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder={isRTL ? "اكتب رسالتك" : "Write your message"}
+                  placeholder={isRTL ? "الرجاء كتابة شرح مبسَّط لمشروعك المستهدف وإضافة حلول ساڤي التي تهمك لتوجيه رسالتك للفريق المختص : مثال (ابتكار, إكسبو, ميديا)" : "Please put in a brief about your product of interest. Example (Innovation, Media, Expo)"}
                   rows={5}
                   className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all resize-none ${isRTL ? 'text-right' : 'text-left'}`}
                   dir={isRTL ? 'rtl' : 'ltr'}
