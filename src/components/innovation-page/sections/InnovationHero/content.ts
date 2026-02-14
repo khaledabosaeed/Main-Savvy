@@ -2,13 +2,13 @@ export type Language = "en" | "ar"
 
 export const innovationHeroContent = {
 en: {
-    title: "We Put Innovation in Your Hands… Without the Complexity",
-    subtitle: "Smart solutions combining modern technologies, interactive experiences, and immersive content… guiding you toward a more sustainable future, effortlessly.",
+    title: "22 years bringing global technologies to the Saudi market, positioned for real impact.",
+    subtitle: "We bridge global innovation with Saudi market needs by localizing advanced technologies and engineering tailored solutions across supply chain optimization, industrial automation, energy infrastructure, inspection, and security systems, ensuring compliance, reliability, and measurable operational impact.",
 },
 
   ar: {
-    title: "نضع الابتكار بين يديك.. بدون تعقيد",
-    subtitle: "حلول ذكية تجمع بين التقنيات الحديثة والتجارب التفاعلية والمحتوى الغامر.. لنضعك على طريق مستقبل أكثر استدامة، دون أي تعقيد",
+    title: "٢٢ عامًا من إدخال التقنيات العالمية إلى السوق السعودي، وتوطينها لتحقيق أثر حقيقي ومستدام",
+    subtitle: "نربط الابتكار المحلي و العالمي باحتياجات السوق السعودي من خلال توطين التقنيات المتقدمة وبناء وتصميم حلول متخصصة في الأتمتة الصناعية، والبنية التحتية للطاقة، وأنظمة الفحص والحماية، بما يضمن الوصول للأثر التشغيلي المستهدف",
   },
 }
 

@@ -2,10 +2,10 @@ export type Language = "en" | "ar"
 
 export const partnersContent = {
     en: {
-        heading: "Companies that trusted us to create different experiences.. You're next",
+        heading: "Our Valued Partners: ",
     },
     ar: {
-        heading: "شركاء وثقوا بنا لصناعة تجارب مختلفة.. أنت التالي",
+        heading: "شركاءنا في النجاح:",
         
     },
 

@@ -7,10 +7,11 @@ import { useEffect, useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import type { Language } from "./content"
-import { getHeroContent } from "./content"
+import { getHeroContent, heroContent } from "./content"
 
 import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa"
 import { FaLinkedinIn } from "react-icons/fa6"
+import { Leaf, Wind, Brain, Bot } from "lucide-react"
 
 export default function NewHero() {
   const [animate, setAnimate] = useState(false)
@@ -18,7 +19,8 @@ export default function NewHero() {
   const isMobile = useIsMobile()
   const lang = language as Language
   const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").heroContent.en) => getHeroContent(lang, key)
+  const t = (key: import("./content").HeroStringKey) => getHeroContent(lang, key)
+  const content = heroContent[lang]
 
   useEffect(() => {
     setAnimate(true)
@@ -104,6 +106,29 @@ export default function NewHero() {
     }
   }
 
+  const goalsContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: isMobile ? 0.2 : 0.4,
+        staggerChildren: isMobile ? 0.06 : 0.1,
+      },
+    },
+  }
+
+  const goalItemVariants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.22, 0.61, 0.36, 1] as any,
+      },
+    },
+  }
+
   return (
     <section className="relative  flex flex-col pt-[100px] md:pt-[120px] overflow-visible md:overflow-hidden">
 
@@ -122,8 +147,11 @@ export default function NewHero() {
       )}
 
       {/* Content */}
-      <div className="container relative z-10 py-8 md:py-16 lg:py-24 flex-1" suppressHydrationWarning>
-        <div className={`max-w-5xl mx-auto text-center ${isRTL ? 'rtl' : 'ltr'}`}>
+      <div className="container relative z-10 py-8 md:py-16 lg:py-24 flex-1 flex flex-col justify-center" suppressHydrationWarning>
+        <div
+          className="max-w-5xl mx-auto text-center flex flex-col items-center"
+          dir={isRTL ? "rtl" : "ltr"}
+        >
           {/* Main Heading - Responsive sizing */}
           <motion.h1
             variants={titleVariants}
@@ -137,24 +165,14 @@ export default function NewHero() {
             </span>
           </motion.h1>
 
-          {/* Description - Better mobile typography */}
+          {/* Description - Responsive typography for longer text */}
           <motion.p
             variants={descriptionVariants}
             initial="hidden"
             animate={animate ? "visible" : "hidden"}
-            className="text-sm md:text-base lg:text-lg text-gray-600 mb-3 md:mb-4 max-w-3xl mx-auto px-4"
+            className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 mb-3 md:mb-4 max-w-4xl mx-auto px-4 leading-relaxed"
           >
             {t("description")}
-          </motion.p>
-
-          <motion.p
-            variants={descriptionVariants}
-            initial="hidden"
-            animate={animate ? "visible" : "hidden"}
-            transition={{ delay: isMobile ? 0.2 : 0.4 }}
-            className="text-xs md:text-sm lg:text-base text-gray-600 mb-2 md:mb-3 max-w-3xl mx-auto px-4"
-          >
-            {t("subDescription")}
           </motion.p>
 
           {/* Social Media Icons - Separate links for each platform */}
@@ -207,6 +225,54 @@ export default function NewHero() {
               ))}
             </motion.div>
           </div>
+
+          {/* 2026 Goals Section */}
+          <motion.div
+            variants={descriptionVariants}
+            initial="hidden"
+            animate={animate ? "visible" : "hidden"}
+            transition={{ delay: isMobile ? 0.2 : 0.4 }}
+            className="mb-4 md:mb-6 w-full max-w-6xl mx-auto px-4 flex flex-col items-center"
+          >
+               <h3 className="text-sm md:text-base font-semibold text-primary mb-4 md:mb-5 text-center">
+              {t("goalsTitle")}
+            </h3>
+            <p className="text-xs md:text-sm lg:text-base text-gray-600 mb-2 md:mb-3 text-center">
+              {t("subDescription")}
+            </p>
+         
+            <motion.div
+              variants={goalsContainerVariants}
+              initial="hidden"
+              animate={animate ? "visible" : "hidden"}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full"
+            >
+              {[
+                { goal: content.goals[0], Icon: Leaf },
+                { goal: content.goals[1], Icon: Wind },
+                { goal: content.goals[2], Icon: Brain },
+                { goal: content.goals[3], Icon: Bot },
+              ].map(({ goal, Icon }, i) => (
+                <motion.div
+                  key={i}
+                  variants={goalItemVariants}
+                  whileHover={{
+                    scale: 1.03,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="flex flex-col items-start p-6 rounded-2xl border border-gray-200 bg-gray-50/80 shadow-sm hover:border-primary hover:shadow-md transition-shadow duration-200 cursor-default"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 mb-4 flex items-center justify-center shrink-0 text-primary">
+                    <Icon className="w-5 h-5" strokeWidth={2} />
+                  </div>
+                  <p className="text-sm md:text-base font-bold text-gray-800 leading-relaxed flex-1 text-start">
+                    {goal}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
 
           {/* Robot Image with enhanced blending - Optimized for mobile */}
           <motion.div

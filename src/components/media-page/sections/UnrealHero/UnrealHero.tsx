@@ -160,15 +160,13 @@ export default function UnrealHero() {
               </div>
 
               {/* Stats Badge - Overlapping bottom left */}
-              <motion.div
+              {/* <motion.div
                 variants={badgeVariants}
                 className={`absolute bottom-0 ${isRTL ? 'left-0' : 'left-0'} transform ${isRTL ? 'translate-x-6' : 'translate-x-6'} translate-y-12`}
               >
                 <div className={`bg-white rounded-3xl p-6 shadow-2xl border border-gray-100 flex gap-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  {/* Logo */}
 
 
-                  {/* Stats */}
                   <div className={`flex gap-20 ${isRTL ? 'flex-row-reverse' : ''}`}>
 
                   <div className={`flex flex-col justify-between   ${isRTL ? '' : ''}`}>
@@ -195,7 +193,7 @@ export default function UnrealHero() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </motion.div>
         </div>

@@ -33,12 +33,13 @@ export default function InnovationHero() {
             transition={{ duration: 0.8 }}
             className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}
           >
-            {/* Title */}
-            <motion.h1
+{/* Title */}
+<motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              /* تم تصغير الخط من 6xl إلى 4xl في الشاشات الكبيرة */
+              className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight max-w-4xl mx-auto"
             >
               {t("title")}
             </motion.h1>
@@ -48,7 +49,8 @@ export default function InnovationHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed"
+              /* تم تصغير الخط من xl إلى lg/base ليكون أكثر رزانة */
+              className="text-base md:text-lg lg:text-lg text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto"
             >
               {t("subtitle")}
             </motion.p>

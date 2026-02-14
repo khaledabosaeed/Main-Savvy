@@ -7,13 +7,13 @@ export const savvySectionsContent = {
         {
       id: "innovation",
       title: "Savvy Innovation",
-      description: "We connect innovation with reality — robotics, intelligence, and sustainability delivered in a simple, integrated experience",
+      description: "We transform local and global innovation into operational solutions aligned with the Saudi market.",
       features: [
-        "Smart targeting capabilities",
-        "Content monitoring",
-        "Audience-tailored content",
-        "mr.savvy robot",
-        "Developing innovative solutions for building sustainable cities"
+        "Strategic partnerships",
+        " Electric vehicle (EV) charging stations",
+        "Eco-friendly cement",
+        "Energy-efficient smart home solutions"
+        ," Industrial robots (firefighting, inspection, security)"
       ],
       icon: "/home-page/icons/innovation-icon.svg",
       image: "/sections/innovation-image.jpg",
@@ -61,13 +61,13 @@ export const savvySectionsContent = {
                 {
                 id: "innovation",
                 title: "ساڤي ابتكار",
-                description: "نربط الابتكار بالواقع. روبوت، ذكاء، واستدامة بشكل مبسّط لمنح تجربة متكاملة",
+                description: "نحوّل الابتكار المحلي والعالمي إلى حلول تشغيلية متوافقة مع السوق السعودي",
                 features: [
-                    "خاصية الاستهداف ذكـي",
-                    "مراقبـة محتوى",
-                    "محتوى مناسب للمتلقي",
-                    "روبوت مستر ساڤي",
-                    "تطوير حلول مبتكرة لبناء مدن مستدامة"
+                    "ألواح طاقة شمسية للمصانع",
+                    "شواحن سيارات كهربائية ",
+                    "الاسمنت صديق للبيئة",
+                    "حلول المنزل الذكي الموفر للطاقة",
+                    "الروبوتات الصناعية (أطفاء, فحص, حراسة)"
                 ],
                 icon: "/home-page/icons/innovation-icon.svg", // المستخدم سيضيف الأيقونة
                 image: "/sections/innovation-image.jpg", // المستخدم سيضيف الصورة

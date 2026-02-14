@@ -4,23 +4,44 @@ export const heroContent = {
 en: {
   welcomeText: "We introduce smart technologies in a simple, guided way led by…",
   savvyWorld: "Mr.savvy",
-  description: "An ecosystem that brings together media, exhibitions, and smart technologies to build sustainable, connected cities.",
-  subDescription: "We connect artificial intelligence, digital interaction, and clean energy solutions to transform urban spaces into smart, seamless experiences.",
+  description:
+    "An advisory boutique shop serving corporate and government sectors. Targeting to integrate advanced responsible AI technologies with strategic marketing to design scalable business models and profitable frameworks, enabling the localization of local and global innovations within the Saudi market through the most effective approaches.",
+  subDescription:
+    "Paving the way to onboard solutions focused on:",
+  goalsTitle: "2026 Goals",
+  goals: [
+    "Sustainability and green solutions",
+    "Net-zero carbon reduction and emissions",
+    "Responsible Artificial Intelligence (AI)",
+    "Governed and purpose-driven robotics",
+  ],
   ctaButton: "Contact Us",
   partners: "Partners who trusted us to create different experiences… you’re next",
 },
 
   ar: {
-    welcomeText: "نعرّفك على التقنيات الحسنة بطريقة بسيطة يقودها ..",
+    welcomeText: "نقدم حلول تقنية صناعية محوكمة  لعالم الغد بقيادة ..",
     savvyWorld: "  مستر ساڤي",
-    description: "منظومة تجمع بين الإعلام، والمعارض، والتقنيات الذكية لبناء مدن مستدامة ومتصلة.",
-    subDescription: "نربط بين الذكاء الاصطناعي، والتفاعل الرقمي، وحلول الطاقة النظيفة لتحويل المساحات الحضرية إلى تجارب ذكية ومريحة.",
+    description:
+      "منصة استشارية تقنية متخصصة في قطاع الشركات تجمع بين التقنيات الحديثة والتسويق. نبني من خلالها الخطط الاستراتيجية ونماذج العمل الربحية لتوطين التقنيات المحلية والعالمية بالسوق السعودي بالسبل الأنسب.",
+    subDescription:
+      "التمهيد لاستقطاب واعتماد حلول تركّز على:",
+    goalsTitle: "أهداف 2026",
+    goals: [
+      "الاستدامة والحلول الخضراء",
+      "الوصول إلى الحياد الصفري وخفض الانبعاثات الكربونية",
+      "الذكاء الاصطناعي المسؤول",
+      "الروبوتات المُحوكمة والهادفة ذات الأثر الإيجابي",
+    ],
     ctaButton: "تواصل معنا",
     partners: "شركاء وفقونا بصناعة تجارب مختلفة.. أنت التالي",
   },
 }
 
-export function getHeroContent(lang: Language, key: keyof typeof heroContent.en): string {
+export type HeroStringKey = Exclude<keyof typeof heroContent.en, "goals">
+
+export function getHeroContent(lang: Language, key: HeroStringKey): string {
   const content = heroContent[lang]
-  return (content[key as keyof typeof content] as string) || heroContent.en[key]
+  const value = content[key as keyof typeof content]
+  return (typeof value === "string" ? value : heroContent.en[key]) || ""
 }
