@@ -2,7 +2,7 @@ export type Language = "en" | "ar"
 
 export const heroContent = {
 en: {
-  welcomeText: "We introduce smart technologies in a simple, guided way led by…",
+  welcomeText: "We provide end-to-end, governed high-tech solutions designed for tomorrow’s world ..",
   savvyWorld: "Mr.savvy",
   description:
     "An advisory boutique shop serving corporate and government sectors. Targeting to integrate advanced responsible AI technologies with strategic marketing to design scalable business models and profitable frameworks, enabling the localization of local and global innovations within the Saudi market through the most effective approaches.",
@@ -20,7 +20,7 @@ en: {
 },
 
   ar: {
-    welcomeText: "نقدم حلول تقنية صناعية محوكمة  لعالم الغد بقيادة ..",
+    welcomeText: "نُقدم حلول إستشارّية تقنية مُحوكمةتلائِم عالَم الغَد ..",
     savvyWorld: "  مستر ساڤي",
     description:
       "منصة استشارية تقنية متخصصة في قطاع الشركات تجمع بين التقنيات الحديثة والتسويق. نبني من خلالها الخطط الاستراتيجية ونماذج العمل الربحية لتوطين التقنيات المحلية والعالمية بالسوق السعودي بالسبل الأنسب.",
