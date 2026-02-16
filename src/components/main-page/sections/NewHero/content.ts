@@ -11,7 +11,7 @@ en: {
   goalsTitle: "2026 Goals",
   goals: [
     "Sustainability and green solutions",
-    "Net-zero carbon reduction and emissions",
+    "Net-Zero Emissions Solutions",
     "Responsible Artificial Intelligence (AI)",
     "Governed and purpose-driven robotics",
   ],
