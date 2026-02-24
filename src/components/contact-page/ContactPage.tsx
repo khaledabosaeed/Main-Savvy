@@ -27,14 +27,61 @@ export default function ContactPage({ lang }: ContactPageProps) {
     jobTitle: "",
     message: "",
   })
+  const [selectedSolutions, setSelectedSolutions] = useState<string[]>([])
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
   const [isSubmitting, setIsSubmitting] = useState(false)
   
   // Refs for scroll animations
   const formRef = useRef(null)
   const faqRef = useRef(null)
+  const solutionsScrollRef = useRef<HTMLDivElement>(null)
   
   const isFormInView = useInView(formRef, { once: true, amount: isMobile ? 0.1 : 0.2 })
+
+  const solutionOptions = isRTL
+    ? [
+        " خدمات استشارية في إدارة البيانات",
+        "خدمات إستشارية في الذكاء الاصطناعي المسؤول",
+        "الروبوتات الصناعية (أطفاء, فحص, حراسة)",
+        "ألواح طاقة شمسية للمصانع",
+        "شواحن سيارات كهربائية ",
+        "الاسمنت صديق للبيئة",
+        "حلول المنزل الذكي الموفر للطاقة",
+        "شراكات استراتيجية",
+        "نشاطات ترفيهية وهادفة",
+        "روبوت مستر ساڤي",
+        "تجارب تفاعلية وابتكارية للزوار",
+        "بناء العلامات التجارية",
+        "تسويق الكتروني",
+        "صناعة محتوى مختِلف ",
+        "تسويق الكتروني",
+        "شاشات ضخمة على واجهات المباني تروّج علامتك التجارية",
+        "روبوتات ترفيهية بشرية(مع خدمة التدريب)",
+        "Alcrea (مساعدين اذكياء لتقليل ساعات عملك)",
+
+        "أخرى"
+      ]
+    : [
+        "Advisory services in Data Management",
+        "Advisory services in Responsible AI",
+        " Industrial robots (firefighting, inspection, security)",
+        "Strategic partnerships",
+        " Electric vehicle (EV) charging stations",
+        "Eco-friendly cement",
+        "Energy-efficient smart home solutions",
+        "Strategic partnerships",
+        "Engaging and purposeful activities",
+        "mr.savvy robot",
+        "Innovative and interactive visitor experiences",
+        "Brand building",
+        "Digital marketing",
+        "Creative content production",
+        "Digital marketing",
+        "Large-scale screens on building facades promoting your brand",
+        "Humanoid robots (with training services)",
+        "Alcrea Intelligent assistants designed to reduce your workload.",
+        "Other"
+      ]
   
   const tf = (key: keyof typeof import("./faq-content").faqContent.en) =>
     getFaqContent(lang, key)
@@ -55,13 +102,15 @@ export default function ContactPage({ lang }: ContactPageProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({   fullName: formData.fullName,
-  email: formData.email,
-  phone: formData.phone,
-  companyName: formData.companyName,
-  jobTitle: formData.jobTitle,
-  message: formData.message,
-   lang }),
+        body: JSON.stringify({   
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          companyName: formData.companyName,
+          jobTitle: formData.jobTitle,
+          message: [...selectedSolutions, formData.message].filter(Boolean).join("\n"),
+          lang,
+        }),
       })
 
       if (response.ok) {
@@ -72,8 +121,9 @@ export default function ContactPage({ lang }: ContactPageProps) {
           phone: "", 
           companyName: "",
           jobTitle: "",
-          message: "" 
+          message: "",
         })
+        setSelectedSolutions([])
         setTimeout(() => setStatus("idle"), 5000)
       } else {
         setStatus("error")
@@ -87,6 +137,13 @@ export default function ContactPage({ lang }: ContactPageProps) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    setStatus("idle")
+  }
+
+  const handleSolutionToggle = (option: string) => {
+    setSelectedSolutions(prev =>
+      prev.includes(option) ? prev.filter((s) => s !== option) : [...prev, option]
+    )
     setStatus("idle")
   }
 
@@ -109,7 +166,7 @@ export default function ContactPage({ lang }: ContactPageProps) {
         <div className="container relative z-10 px-6">
 
         {/* Content Grid */}
-        <div className="max-w-2xl mx-auto">
+        <div className={`max-w-2xl mx-auto ${isRTL ? 'text-right' : 'text-left'}`} dir={isRTL ? 'rtl' : 'ltr'}>
           {/* Contact Form */}
           <motion.div
             ref={formRef}
@@ -117,7 +174,7 @@ export default function ContactPage({ lang }: ContactPageProps) {
             animate={isFormInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className={`text-3xl mt-20  md:text-4xl font-bold text-gray-900 mb-12 text-center`}>
+            <h2 className={`text-3xl mt-20 md:text-4xl font-bold text-gray-900 mb-12 text-center`}>
               {isRTL ? "ارسل رسالة" : "Send a Message"}
             </h2>
 
@@ -127,6 +184,7 @@ export default function ContactPage({ lang }: ContactPageProps) {
               initial="hidden"
               animate={isFormInView ? "visible" : "hidden"}
               className="space-y-5 bg-white"
+              dir={isRTL ? 'rtl' : 'ltr'}
             >
               {/* Full Name */}
               <div className={`${isRTL ? 'rtl' : 'ltr'}`}>
@@ -216,6 +274,44 @@ export default function ContactPage({ lang }: ContactPageProps) {
                   />
                 </motion.div>
               </div>
+
+              {/* Savvy solutions – multi-select checkboxes */}
+              <motion.div variants={fadeInUp} className={`${isRTL ? 'rtl' : 'ltr'}`}>
+                <label className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  {isRTL ? "حلول ساڤي (اختياري)" : "Savvy solutions (optional)"}
+                </label>
+                <div
+                  ref={solutionsScrollRef}
+                  className="mb-4 p-4 rounded-md border border-gray-200 bg-gray-50 space-y-2 max-h-48 overflow-y-auto overflow-x-hidden overscroll-contain"
+                  onWheel={(e) => {
+                    const el = solutionsScrollRef.current
+                    if (!el) return
+                    const { scrollTop, scrollHeight, clientHeight } = el
+                    const canScrollUp = scrollTop > 0
+                    const canScrollDown = scrollTop < scrollHeight - clientHeight
+                    if ((e.deltaY < 0 && canScrollUp) || (e.deltaY > 0 && canScrollDown)) {
+                      e.preventDefault()
+                    }
+                  }}
+                >
+                  {solutionOptions.map((option, index) => (
+                    <label
+                      key={index}
+                      className={`flex items-center gap-3 cursor-pointer hover:bg-gray-100/80 rounded px-2 py-1.5 -mx-2 ${isRTL ? '' : ''}`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedSolutions.includes(option)}
+                        onChange={() => handleSolutionToggle(option)}
+                        className="w-4 h-4 rounded border-gray-300 text-[#4361EE] focus:ring-[#4361EE]"
+                      />
+                      <span className={`text-sm text-gray-700 ${isRTL ? 'text-right' : 'text-left'}`} dir={isRTL ? 'rtl' : 'ltr'}>
+                        {option}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </motion.div>
 
               {/* Message Textarea */}
               <motion.div variants={fadeInUp} className={`${isRTL ? 'rtl' : 'ltr'}`}>
