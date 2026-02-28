@@ -1,12 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
-import { Calendar } from "lucide-react"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import type { Language } from "./content"
-import { newsContent, type NewsArticle } from "./content"
 
 interface NewsPageProps {
   lang: Language
@@ -15,114 +12,100 @@ interface NewsPageProps {
 export default function NewsPage({ lang }: NewsPageProps) {
   const isRTL = lang === "ar"
   const isMobile = useIsMobile()
-  const content = newsContent[lang]
-  const articles = content.articles as NewsArticle[]
+  const isArabic = lang === "ar"
+  const baseText = isArabic
+    ? "ترقبوا الإطلاق الرسمي في "
+    : "Stay tuned for the official launch on "
+  const dateText = isArabic ? "٢١ - ٣" : "March 21"
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col justify-center bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-[-10%] -top-40 h-72 " />
         <div className="container px-4 md:px-6">
           <motion.div
-            initial={{ opacity: 0, y: isMobile ? 20 : 30 }}
+            initial={{ opacity: 0, y: isMobile ? 24 : 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: isMobile ? 0.4 : 0.6 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className={`text-center max-w-3xl mx-auto ${isRTL ? 'rtl' : 'ltr'}`}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
-              {content.title}
-            </h1>
-            <p className="text-base md:text-lg lg:text-xl text-gray-600">
-              {content.subtitle}
-            </p>
+            <div className="relative inline-block">
+              <div className="pointer-events-none absolute -inset-x-10 -inset-y-6 rounded-full bg-[radial-gradient(circle,_rgba(57,96,249,0.16),_transparent_65%)] blur-2xl opacity-80" />
+              <h1 className="relative text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
+                {baseText}
+                <span className="mt-5 md:mt-20 relative inline-flex items-center px-4 py-1 rounded-full
+bg-gradient-to-r from-[#3960F9] to-[#2746C7]
+text-white shadow-[0_10px_30px_rgba(57,96,249,0.25)]
+ring-1 ring-[#3960F9]/20
+animate-[pulse_5s_ease-in-out_infinite]">
+  <span className="relative z-10 ">{dateText}</span>
+  <span className="pointer-events-none absolute inset-0 rounded-full bg-white/10" />
+</span>
+              </h1>
+            </div>
           </motion.div>
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0">
+          <svg
+            viewBox="0 0 1440 120"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-16 md:h-20"
+          >
+            <path
+              fill="#3960F9"
+              fillOpacity="0.03"
+              d="M0,80 C240,120 480,40 720,70 C960,100 1200,60 1440,90 L1440,120 L0,120 Z"
+            />
+          </svg>
         </div>
       </section>
 
-      {/* News Articles */}
+      {/* Launch Links Section */}
       <section className="py-12 md:py-20">
         <div className="container px-4 md:px-6">
-          <div className="max-w-6xl mx-auto space-y-6 md:space-y-8">
-            {articles.map((article, index) => (
-              <Link 
-                key={article.id} 
-                href={article.slug ? `/${lang}/news/${article.slug}` : `/${lang}/news`}
+          <motion.div
+            initial={{ opacity: 0, y: isMobile ? 20 : 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: isMobile ? 0.1 : 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className={`max-w-3xl mx-auto text-center ${isRTL ? 'rtl' : 'ltr'}`}
+          >
+            <p className="text-lg md:text-xl  text-gray-700 mb-4">
+            </p>
+              <p className="text-sm md:text-base text-gray-600 mb-8 whitespace-pre-line">
+            {isArabic && (
+                "تابعونا على قنواتنا الإعلامية ..\nلتعرفوا أكثر عن خطة الإطلاق الرسمي\nفي ٢١ - مارس - ٢٠٢٦"
+              ) || (
+                "To learn more about Savvy World\n official launch plan Follow us on our media channels on\n March 21, 2026."
+              )
+              }
+              </p>
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <Link
+                href="https://linktr.ee/mr.savvy.saudi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#3960F9] text-white font-semibold shadow-md hover:bg-[#2746c7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3960F9] focus-visible:ring-offset-white transform transition-all duration-200 hover:-translate-y-[3px] hover:shadow-lg active:translate-y-0 w-full sm:w-auto"
               >
-                <motion.article
-                  initial={{ opacity: 0, y: isMobile ? 20 : 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: isMobile ? 0.1 : 0.2 }}
-                  transition={{ duration: isMobile ? 0.4 : 0.6, delay: index * (isMobile ? 0.05 : 0.1) }}
-                  className={`group cursor-pointer ${isRTL ? 'rtl' : 'ltr'}`}
-                >
-                  <div className={`flex flex-col md:flex-row gap-4 md:gap-8 p-4 md:p-6 rounded-xl md:rounded-2xl hover:bg-gray-50 transition-all duration-300 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
-                  {/* Image */}
-                  <motion.div
-                    whileHover={!isMobile ? { scale: 1.05 } : undefined}
-                    transition={{ duration: 0.3 }}
-                    className="md:w-1/3 flex-shrink-0"
-                  >
-                    <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
-                      <Image
-                        src={article.image}
-                        alt={article.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className={`flex-1 flex flex-col justify-center ${isRTL ? 'text-right' : 'text-left'}`}>
-                    {/* Category & Date */}
-                    <div className={`flex items-center gap-4 mb-4 text-sm ${isRTL ? 'flex-row-reverse' : ''}`}>
-                      {article.category && (
-                        <span className="px-3 py-1 bg-[#3960F9]/10 text-[#3960F9] rounded-full font-medium">
-                          {article.category}
-                        </span>
-                      )}
-                      <div className={`flex items-center gap-2 text-gray-500 ${isRTL ? 'flex-row-reverse' : ''}`}>
-                        <Calendar className="w-4 h-4" />
-                        <span>{article.date}</span>
-                      </div>
-                    </div>
-
-                    {/* Title */}
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-[#3960F9] transition-colors">
-                      {article.title}
-                    </h2>
-
-                    {/* Read More */}
-                    <motion.button
-                      whileHover={{ x: isRTL ? -5 : 5 }}
-                      className={`text-[#3960F9] font-semibold flex items-center gap-2 ${isRTL ? 'flex-row-reverse self-end' : 'self-start'}`}
-                    >
-                      <span>{isRTL ? "اقرأ المزيد" : "Read More"}</span>
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d={isRTL ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"}
-                        />
-                      </svg>
-                    </motion.button>
-                  </div>
-                  </div>
-
-                  {/* Divider */}
-                  {index < articles.length - 1 && (
-                    <div className="mt-8 border-b border-gray-200" />
-                  )}
-                </motion.article>
+                Mr. Savvy Saudi
               </Link>
-            ))}
-          </div>
+              <Link
+                href="https://linktr.ee/7oksha_saudi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-[#3960F9] text-[#3960F9] font-semibold hover:bg-[#3960F9]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3960F9] focus-visible:ring-offset-white transform transition-all duration-200 hover:-translate-y-[3px] hover:shadow-md active:translate-y-0 w-full sm:w-auto"
+              >
+                7oksha Saudi
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
