@@ -25,7 +25,7 @@ export const savvySectionsContent = {
     {
       id: "expo",
       title: "Savvy Expo",
-      description: "We transform any exhibition into an interactive experience visitors will never forget",
+      description: "We turn brands into experiences people feel, remember, and share!",
       features: [
         "Strategic partnerships",
         "Engaging and purposeful activities",
@@ -40,7 +40,7 @@ export const savvySectionsContent = {
     {
       id: "media",
       title: "Savvy Media",
-      description: "We turn facades into attraction points and a continuous, effective revenue source",
+      description: "We build the most suitable content for your brand and target market",
       features: [
         "Brand building",
         "Digital marketing",
@@ -74,30 +74,30 @@ export const savvySectionsContent = {
                     "الاسمنت صديق للبيئة",
                     "حلول المنزل الذكي الموفر للطاقة",
                 ],
-                icon: "/home-page/icons/innovation-icon.svg", // المستخدم سيضيف الأيقونة
-                image: "/sections/innovation-image.jpg", // المستخدم سيضيف الصورة
+                icon: "/home-page/icons/innovation-icon.svg", 
+                image: "/sections/innovation-image.jpg", 
                 link: "/innovation",
                 buttonText: "تعلم المزيد"
             },
             {
                 id: "expo",
                 title: "ساڤي اكسبو",
-                description: "نحوّل أي معرض إلى تجربة تفاعلية يعيشها الزوار بشكل لا يُنسى",
+                description: "نحوّل   علامتَك التجارية إلى تجارب يشعر بها الناس ويتذكّرونها ويشاركونها!",
                 features: [
                     "شراكات استراتيجية",
                     "نشاطات ترفيهية وهادفة",
                     "روبوت مستر ساڤي",
                     "تجارب تفاعلية وابتكارية للزوار"
                 ],
-                icon: "/home-page/icons/expo-icon.svg", // المستخدم سيضيف الأيقونة
-                image: "/sections/expo-image.jpg", // المستخدم سيضيف الصورة
+                icon: "/home-page/icons/expo-icon.svg",
+                image: "/sections/expo-image.jpg",
                 link: "/expo",
                 buttonText: "تعلم المزيد"
             },
             {
                 id: "media",
                 title: "ساڤي ميديا",
-                description: "نحوّل الواجهة إلى نقطة جذب. ومصدر دخل مستمر وفعّال",
+                description: "نبني المحتوى الأنسب لعلامتك التجارية ولسوقك المستهدف",
                 features: [
                     "بناء العلامات التجارية",
                     "تسويق الكتروني",
