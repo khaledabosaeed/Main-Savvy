@@ -175,54 +175,106 @@ export default function NewHero() {
             {t("description")}
           </motion.p>
 
-          {/* Social Media Icons - Separate links for each platform */}
-          <div className="relative z-20 pt-2 pb-4 md:pb-6 flex justify-center">
+   
+
+          {/* Robot Image with enhanced blending - Optimized for mobile */}
+          <motion.div
+  variants={imageVariants}
+  initial="hidden"
+  animate={animate ? "visible" : "hidden"}
+  whileHover={!isMobile ? {
+    scale: 1.03,
+    transition: { duration: 0.4, ease: [0.22, 0.61, 0.36, 1] as any }
+  } : undefined}
+  className="relative w-full max-w-5xl mx-auto mb-2 md:mb-4 flex items-center justify-center"
+  style={{ perspective: isMobile ? 'none' : '1000px' }}
+>
+  <div className="relative w-full flex items-center justify-center min-h-[320px] md:min-h-[420px] lg:min-h-[520px]">
+    <div className="relative z-10 w-full flex items-center justify-center">
+      <Image
+        src="/home-page/hero/new.png"
+        alt="Robot hand with coffee"
+        width={isMobile ? 800 : 1200}
+        height={isMobile ? 800 : 1200}
+        className="object-contain h-auto max-w-full"
+        priority
+        sizes="(max-width: 768px) 100vw, 1200px"
+        quality={isMobile ? 85 : 90}
+        style={{
+          filter: isMobile ? "brightness(1.02) contrast(1.01)" : "brightness(1.05) contrast(1.02) saturate(0.95)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
+          maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
+        }}
+      />
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.8 }}
+        className="absolute inset-0 z-20 pointer-events-none"
+      >
+        <Image
+          src="/home-page/hero/ghyom.png"
+          alt="Cloud effect"
+          width={isMobile ? 800 : 1200}
+          height={isMobile ? 800 : 1200}
+          className="object-contain w-full h-auto"
+        />
+      </motion.div>
+    </div>
+  </div>
+</motion.div>
+
+                 {/* Social Media Icons - Separate links for each platform */}
+                 <div className="relative z-20  pb-4 md:pb-6 flex justify-center">
             <motion.div
               variants={socialContainerVariants}
               initial="hidden"
               animate={animate ? "visible" : "hidden"}
               className="flex items-center gap-3 md:gap-4"
             >
-              {[
-                { 
-                  Icon: FaTiktok, 
-                  color: "text-black",
-                  url: "https://www.tiktok.com/@mr.savvy_saudi",
-                  ariaLabel: isRTL ? "تابعنا على تيك توك" : "Follow us on TikTok"
-                },
-                { 
-                  Icon: FaLinkedinIn, 
-                  color: "text-[#0077B5]",
-                  url: "https://www.linkedin.com/company/savvy-world/",
-                  ariaLabel: isRTL ? "تابعنا على لينكد إن" : "Follow us on LinkedIn"
-                },
-                { 
-                  Icon: FaInstagram, 
-                  color: "text-[#E1306C]",
-                  url: "https://www.instagram.com/mr.savvy_saudi",
-                  ariaLabel: isRTL ? "تابعنا على إنستغرام" : "Follow us on Instagram"
-                },
-                { 
-                  Icon: FaSnapchatGhost, 
-                  color: "text-[#FFFC00] drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]",
-                  url: "https://www.snapchat.com/@mr.savvysaudi",
-                  ariaLabel: isRTL ? "تابعنا على سناب شات" : "Follow us on Snapchat"
-                }
-              ].map(({ Icon, color, url, ariaLabel }, index) => (
-                <motion.a
-                  key={index}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variants={socialIconVariants}
-                  whileHover={{ scale: 1.15, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`${color} text-2xl md:text-3xl transform transition-transform duration-300 hover:scale-110 rounded-full p-2 hover:bg-gray-100 transition-colors`}
-                  aria-label={ariaLabel}
-                >
-                  <Icon />
-                </motion.a>
-              ))}
+     {[
+  { 
+    Icon: FaTiktok, 
+    color: "text-black",
+    url: "https://www.tiktok.com/@mr.savvy_saudi",
+    ariaLabel: isRTL ? "تابعنا على تيك توك" : "Follow us on TikTok"
+  },
+  { 
+    Icon: FaLinkedinIn, 
+    color: "text-[#0077B5]",
+    url: "https://www.linkedin.com/company/savvy-world/",
+    ariaLabel: isRTL ? "تابعنا على لينكد إن" : "Follow us on LinkedIn"
+  },
+  { 
+    Icon: FaInstagram, 
+    color: "text-[#E1306C]",
+    url: "https://www.instagram.com/mr.savvy_saudi",
+    ariaLabel: isRTL ? "تابعنا على إنستغرام" : "Follow us on Instagram"
+  },
+  { 
+    Icon: FaSnapchatGhost, 
+    color: "text-[#FFFC00] drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]",
+    url: "https://www.snapchat.com/@mr.savvysaudi",
+    ariaLabel: isRTL ? "تابعنا على سناب شات" : "Follow us on Snapchat"
+  }
+].map(({ Icon, color, url, ariaLabel }, index) => (
+  <motion.a
+    key={index}
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    variants={socialIconVariants}
+    whileHover={{ scale: 1.15, y: -3 }}
+    whileTap={{ scale: 0.95 }}
+    className={`${color} text-4xl md:text-3xl lg:text-4xl xl:text-5xl transform transition-transform duration-300 hover:scale-110 rounded-full p-2 hover:bg-gray-100 transition-colors`}
+    aria-label={ariaLabel}
+  >
+    <Icon />
+  </motion.a>
+))}
             </motion.div>
           </div>
 
@@ -273,66 +325,6 @@ export default function NewHero() {
             </motion.div>
           </motion.div>
 
-
-          {/* Robot Image with enhanced blending - Optimized for mobile */}
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate={animate ? "visible" : "hidden"}
-            whileHover={!isMobile ? {
-              scale: 1.03,
-              transition: { duration: 0.4, ease: [0.22, 0.61, 0.36, 1] as any }
-            } : undefined}
-            className="relative w-full max-w-5xl mx-auto mb-2 md:mb-4"
-            style={{ perspective: isMobile ? 'none' : '1000px' }}
-          >
-            <div className="relative">
-
-              {/* Main Image wrapper */}
-              <div className="relative z-10">
-
-                {/* Main Image with enhanced styling - Optimized sizes for mobile */}
-                <Image
-                  src="/home-page/hero/new.png"
-                  alt="Robot hand with coffee"
-                  width={isMobile ? 800 : 1200}
-                  height={isMobile ? 800 : 1200}
-                  className="object-contain w-full h-auto relative z-10"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 1200px"
-                  quality={isMobile ? 85 : 90}
-                  style={{
-                    filter: isMobile ? "brightness(1.02) contrast(1.01)" : "brightness(1.05) contrast(1.02) saturate(0.95)",
-                    WebkitMaskImage:
-                      "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
-                    maskImage:
-                      "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 5%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0.7) 95%, rgba(0,0,0,0) 100%)",
-                  }}
-                />
-
-                {/* Cloud overlay image */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 2, delay: 0.8 }}
-                  className="absolute top-5 left-5 right-0 inset-0 z-20 pointer-events-none"
-                >
-                  <Image
-                    src="/home-page/hero/ghyom.png"
-                    alt="Cloud effect"
-                    width={isMobile ? 800 : 1200}
-                    height={isMobile ? 800 : 1200}
-                    className="object-contain w-full h-auto"
-
-                  />
-                </motion.div>
-
-              </div>
-
-
-            </div>
-
-          </motion.div>
         </div>
       </div>
 
