@@ -18,6 +18,9 @@ const PartnersSlider: React.FC = () => {
         { name: "Mohammed Al Habib", logo: "/home-page/partners/mohammed-al-habib.svg" },
         { name: "Manzil Alarabia", logo: "/home-page/partners/manzil-alarabia.svg" },
         { name: "Samsung", logo: "/home-page/partners/samsung.svg" },
+        { name: "UniTree", logo: "/home-page/partners/1.svg" },
+        { name: "SGBF", logo: "/home-page/partners/2.svg" },
+        { name: "SOTI One", logo: "/home-page/partners/3.svg" },
     ]
 
    // Double the array for seamless loop
@@ -78,6 +81,9 @@ const PartnersSlider: React.FC = () => {
                   if (name === 'Hisense') return 'h-4 sm:h-6 md:h-7 lg:h-8'; // Smaller
                   if (name === 'Company 3') return 'h-10 sm:h-12 md:h-14 lg:h-18'; // Larger for sakani
                   if (name === 'Samsung') return 'h-4 sm:h-6 md:h-7 lg:h-8'; // Larger for Samsung
+                  if (name === 'UniTree') return 'h-10 sm:h-12 md:h-14 lg:h-50'; // Larger for UniTree
+                  if (name === 'SGBF') return 'h-10 sm:h-12 md:h-14 lg:h-40 '; // Larger for SGBF
+                  if (name === 'SOTI One') return 'h-10 sm:h-12 md:h-14 lg:h-40'; // Larger for SOTI One
                   return 'h-8 sm:h-10 md:h-12 lg:h-12'; // Default - reduced size
                 };
 

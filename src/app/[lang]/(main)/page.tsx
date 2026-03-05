@@ -24,7 +24,7 @@ const headerTextsEn = {
 // نصوص الهيدر بالعربية
 const headerTextsAr = {
   main: "الرئيسية",
-  news: "الأخبار",
+  news: "الأخبار",  
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",

@@ -55,8 +55,7 @@ export const savvySectionsContent = {
     },
 
   ]
-}
-,
+},
     ar: {
         sectionTitle: "أقسام ساڤي وورلد",
         cards: [
