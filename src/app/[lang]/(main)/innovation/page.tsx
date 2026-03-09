@@ -17,6 +17,7 @@ const headerTextsEn = {
   news: "News",
   solutions: "Solutions",
   partners: "Partners",
+  ourRobots: "Robots",
   contactUs: "Contact Us",
 
 }
@@ -26,6 +27,7 @@ const headerTextsAr = {
   news: "الأخبار",
   partners: "الشركاء",
   solutions: "الحلول",
+  ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",
 
 }

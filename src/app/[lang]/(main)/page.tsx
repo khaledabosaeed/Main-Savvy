@@ -10,6 +10,7 @@ import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
 import { useLanguage } from "@/contexts/LanguageContext"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSlider/PartnersSlider"
+import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsSection"
 
 // نصوص الهيدر بالإنجليزية
 const headerTextsEn = {
@@ -18,6 +19,7 @@ const headerTextsEn = {
   projects: "Latest Projects",
   services: "Gallery",
   about: "Our Sections",
+  ourRobots: "Robots",
   contactUs: "Contact Us",
 }
 
@@ -28,6 +30,7 @@ const headerTextsAr = {
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",
+  ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",
 }
 
@@ -134,12 +137,16 @@ export default function Home() {
         <SavvySections />
       </section>
 
+      <section id="robots">
+        <RobotsSection />
+      </section>
+
       <section id="services">
           <ImageSlider images={images} heading={ lang === "ar" ? "معرض الصور" : "Our Gallery"} />
         </section>
 
 
-        <section id="projects">
+        <section id="projects">``
           <LatestProjects />
         </section>
 

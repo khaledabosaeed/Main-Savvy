@@ -11,6 +11,7 @@ interface ContactPageProps {
 // نصوص الهيدر الخاصة بصفحة Contact
 const headerTextsEn = {
   ourServices: "Our Services",
+  ourRobots: "Robots",
   contactUs: "Contact Us",
   main: "Home",
   news: "News",
@@ -18,6 +19,7 @@ const headerTextsEn = {
 
 const headerTextsAr = {
   ourServices: "خدماتنا",
+  ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",
   main: "الرئيسية",
   news: "الأخبار",

@@ -13,6 +13,7 @@ const headerTextsEn = {
   main: "Home",
   news: "News",
   ourServices: "Our Services",
+  ourRobots: "Robots",
   contactUs: "Contact Us",
 }
 
@@ -20,6 +21,7 @@ const headerTextsAr = {
   main: "الرئيسية",
   news: "الأخبار",
   ourServices: "خدماتنا",
+  ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",
 }
 

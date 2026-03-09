@@ -352,9 +352,110 @@
     "heading": "روبوتاتنا",
     "subheading": "روبوتات مُحوكمة وهادفة لعالم الغد",
     "viewDetails": "عرض التفاصيل",
+    "viewProduct": "عرض المنتج",
     "viewAll": "عرض جميع الروبوتات",
     "notFound": "الروبوت غير موجود",
-    "moreRobots": "المزيد من الروبوتات"
+    "moreRobots": "المزيد من الروبوتات",
+    "sliderDescriptionSuffix": " يمكنك التواصل معنا مباشرة للحصول على السعر.",
+    "version": "الإصدار",
+    "quantity": "الكمية",
+    "cards": [
+      {
+        "id": "g1",
+        "name": "G1 EDU Savvy",
+        "description": "أطلق إمكانات رياضية غير محدودة. التحكم بالقوة في الأيدي الماهرة، والتلاعب بكل الأشياء. مدفوع بالتقليد والتعلم المعزز.",
+        "image": "/robot/g1/cardg1.webp",
+        "link": "/robots/g1",
+        "buttonText": "تعلم المزيد"
+      },
+      {
+        "id": "h1",
+        "name": "H1 EDU Savvy",
+        "description": "روبوت بشري عالي الأداء للتطبيقات الصناعية والخدمية. تنقل رشيق للتكيف مع السيناريوهات المعقدة.",
+        "image": "/robot/h1/h1.jpg",
+        "link": "/robots/h1",
+        "buttonText": "تعلم المزيد"
+      },
+      {
+        "id": "go2",
+        "name": "Go2",
+        "description": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة. هيكل خفيف الوزن، جاهز للاستخدام.",
+        "image": "/robot/go2/go2.webp",
+        "link": "/robots/go2",
+        "buttonText": "تواصل معنا"
+      }
+    ],
+    "hero": {
+      "g1": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "G1 EDU Savvy",
+        "subtitle": "روبوت بشري الشكل مصمم للتفاعل المتقدم والأتمتة.",
+        "priceStartsFrom": "السعر يبدأ من 250,000 ريال سعودي",
+        "buttonText": "عرض المنتج",
+        "textPlacement": "center"
+      },
+      "h1": {
+        "videoSrc": "/robot/h1/hero.mp4",
+        "title": "H1 EDU Savvy",
+        "subtitle": "روبوت بشري عالي الأداء للتطبيقات الصناعية والخدمية.",
+        "priceStartsFrom": "السعر يبدأ من 350,000 ريال سعودي",
+        "buttonText": "عرض المنتج",
+        "textPlacement": "center"
+      },
+      "go2": {
+        "videoSrc": "/robot/go2/hero.mp4",
+        "title": "Go2",
+        "subtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
+        "priceStartsFrom": "السعر يبدأ من 2,800 دولار أمريكي",
+        "buttonText": "عرض المنتج",
+        "textPlacement": "center"
+      }
+    },
+    "product": {
+      "g1": {
+        "name": "G1 EDU Savvy",
+        "price": "250,000 ريال سعودي",
+        "images": ["/robot/g1/catlouge/g1c1.webp", "/robot/g1/catlouge/g1c2.webp"],
+        "versions": [{"id": "g1-edu", "name": "G1 EDU Savvy"}],
+        "bulletPoints": [
+          "اطلب الآن والشحن خلال شهر",
+          "تواصل مع المبيعات للحصول على سعر G1 EDU"
+        ],
+        "addToCartText": "أضف إلى السلة",
+        "contactSalesText": "تواصل معنا"
+      },
+      "h1": {
+        "name": "H1 EDU Savvy",
+        "price": "350,000 ريال سعودي",
+        "images": ["/robot/h1/catlouge/h1c.webp", "/robot/h1/catlouge/h1c1.jpg", "/robot/h1/catlouge/h1c2.webp" ,"/robot/h1/catlouge/h1c3.webp"],
+        "versions": [{"id": "h1-edu", "name": "H1 EDU Savvy"}],
+        "bulletPoints": [
+          "اطلب الآن والشحن خلال شهر",
+          "تواصل مع المبيعات للحصول على سعر H1 EDU"
+        ],
+        "addToCartText": "أضف إلى السلة",
+        "contactSalesText": "تواصل معنا"
+      },
+      "go2": {
+        "name": "Go2",
+        "price": "2,800 دولار أمريكي",
+        "images": ["/robot/go2/catlouge/Go2c.webp", "/robot/go2/catlouge/go2c2.webp", "/robot/go2/catlouge/go2c3.webp" ,"/robot/go2/catlouge/go2c4.webp" ,"/robot/go2/catlouge/go2c5.webp"],
+        "versions": [
+          {"id": "go2-pro", "name": "Go2 Pro (بدون وحدة تحكم)"},
+          {"id": "go2-pro-ctrl", "name": "Go2 Pro (مع وحدة تحكم)"},
+          {"id": "go2-air", "name": "Go2 Air (بدون وحدة تحكم)"},
+          {"id": "go2-air-ctrl", "name": "Go2 Air (مع وحدة تحكم)"}
+        ],
+        "bulletPoints": [
+          "اطلب الآن والشحن خلال شهر",
+          "تكلفة الشحن بين 399 و 1000 دولار",
+          "العميل مسؤول عن الرسوم الجمركية والضرائب",
+          "تواصل مع المبيعات للحصول على سعر Go2 Edu"
+        ],
+        "addToCartText": "أضف إلى السلة",
+        "contactSalesText": "تواصل معنا"
+      }
+    }
   },
   "common": {
     "main": "الرئيسية",

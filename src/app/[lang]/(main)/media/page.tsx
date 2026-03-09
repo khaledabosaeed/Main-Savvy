@@ -20,6 +20,7 @@ const headerTextsEn = {
   news: "News",
   gallery: "Our Gallery",
   "why-savvy": "Why Savvy",
+  ourRobots: "Robots",
   contactUs: "Contact Us",
 
 }
@@ -30,6 +31,7 @@ const headerTextsAr = {
   news: "الأخبار",
   "why-savvy": "لماذا ساڤي",
   content: "المحتوى",
+  ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",
 
 } 
