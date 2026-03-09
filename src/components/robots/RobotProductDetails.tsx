@@ -7,6 +7,9 @@ import { Package, Truck, DollarSign, MessageCircle, Minus, Plus } from "lucide-r
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getRobotProductContent, getRobotLabel } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
+import SpecsTable from "./SpecsTable/SpecsTable"
+import en from "@/../public/locales/en.json"
+import ar from "@/../public/locales/ar.json"
 
 const bulletIcons = [Package, Truck, DollarSign, MessageCircle]
 
@@ -190,6 +193,25 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
             </div>
           </div>
         </div>
+
+        {/* Specifications table - G1 only for now */}
+        {slug === "g1" && (
+          <div className="mt-16 md:mt-24">
+            <h2
+              className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${
+                isRTL ? "text-right" : "text-left"
+              }`}
+            >
+              {(currentLang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
+            </h2>
+            <SpecsTable
+              slug={slug}
+              lang={currentLang}
+              singleColumn={true}
+              valueColumnIndex={1}
+            />
+          </div>
+        )}
       </div>
     </section>
   )

@@ -2,6 +2,10 @@
 
 import { createContext, useContext, useEffect, useRef, ReactNode } from 'react';
 import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface SmoothScrollContextType {
   lenis: Lenis | null;
@@ -40,6 +44,27 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
 
     lenisRef.current = lenis;
 
+    // Sync GSAP ScrollTrigger with Lenis
+    lenis.on('scroll', ScrollTrigger.update);
+
+    // Tell ScrollTrigger to use Lenis scroll position
+    ScrollTrigger.scrollerProxy(document.body, {
+      scrollTop(value) {
+        if (arguments.length && typeof value === 'number') {
+          lenis.scrollTo(value);
+        }
+        return lenis.scroll;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+    });
+
     // Animation frame loop
     function raf(time: number) {
       lenis.raf(time);
@@ -47,11 +72,6 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     }
 
     requestAnimationFrame(raf);
-
-    // Sync with framer-motion scroll animations
-    lenis.on('scroll', () => {
-      // This ensures framer-motion's scroll animations work with Lenis
-    });
 
     return () => {
       lenis.destroy();

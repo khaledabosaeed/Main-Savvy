@@ -1,6 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import RobotPageContent from "@/components/robots/RobotPageContent"
+import H1PageContent from "@/components/robots/H1PageContent/H1PageContent"
 
 interface H1PageProps {
   params: Promise<{ lang: string }>
@@ -35,7 +35,7 @@ export default async function H1Page({ params }: H1PageProps) {
     <>
       <UnifiedHeader texts={texts} hasBanner={false} transparentHeader />
       <PageTransition>
-        <RobotPageContent slug="h1" lang={currentLang} />
+        <H1PageContent lang={currentLang} />
       </PageTransition>
     </>
   )

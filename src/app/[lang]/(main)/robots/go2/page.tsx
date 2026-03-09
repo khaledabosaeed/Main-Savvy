@@ -1,6 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import RobotPageContent from "@/components/robots/RobotPageContent"
+import Go2PageContent from "@/components/robots/Go2PageContent/Go2PageContent"
 
 interface Go2PageProps {
   params: Promise<{ lang: string }>
@@ -35,7 +35,7 @@ export default async function Go2Page({ params }: Go2PageProps) {
     <>
       <UnifiedHeader texts={texts} hasBanner={false} transparentHeader />
       <PageTransition>
-        <RobotPageContent slug="go2" lang={currentLang} />
+        <Go2PageContent lang={currentLang} />
       </PageTransition>
     </>
   )

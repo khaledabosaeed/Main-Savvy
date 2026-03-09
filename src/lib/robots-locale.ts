@@ -44,6 +44,50 @@ export interface RobotSlide extends RobotCard {
   backgroundVideo?: string
 }
 
+export interface G1ScrollSectionConfig {
+  scrollVideoSrc: string
+  scrollTitle: string
+  scrollSubtitle: string
+}
+
+export interface G1ParameterSectionConfig {
+  header: string
+  image: string
+}
+
+export interface G1ImageSectionConfig {
+  title?: string
+  images: string[]
+}
+
+export interface RobotSingleImageConfig {
+  title?: string
+  image: string
+}
+
+export interface G1FlexibleSectionConfig {
+  title: string
+  images: string[]
+}
+
+export interface SpecsRow {
+  name: string
+  values: string[]
+  highlight?: boolean
+}
+
+export interface SpecsSection {
+  label: string
+  rows: SpecsRow[]
+}
+
+export interface RobotSpecsConfig {
+  specLabel: string
+  valueLabel: string
+  columnHeaders?: string[]
+  sections: SpecsSection[]
+}
+
 export function getRobotCards(lang: Language): RobotCard[] {
   const robots = locales[lang]?.robots
   return (robots?.cards ?? locales.en.robots.cards) as RobotCard[]
@@ -89,6 +133,75 @@ export function getRobotProductContent(
   const product = (locales[lang]?.robots as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
   const fallback = (locales.en.robots as { product: Record<RobotSlug, RobotProductConfig> }).product[slug]
   return (product ?? fallback) as RobotProductConfig
+}
+
+export function getG1ScrollSectionContent(lang: Language): G1ScrollSectionConfig {
+  const scrollSection = (locales[lang]?.robots as { scrollSection?: { g1?: G1ScrollSectionConfig } })?.scrollSection?.g1
+  const fallback = (locales.en.robots as { scrollSection: { g1: G1ScrollSectionConfig } }).scrollSection.g1
+  return (scrollSection ?? fallback) as G1ScrollSectionConfig
+}
+
+export function getRobotScrollSectionContent(
+  slug: RobotSlug,
+  lang: Language
+): G1ScrollSectionConfig | null {
+  const scrollSection = (locales[lang]?.robots as unknown as { scrollSection?: Record<RobotSlug, G1ScrollSectionConfig> })?.scrollSection?.[slug]
+  const fallback = (locales.en.robots as unknown as { scrollSection?: Record<RobotSlug, G1ScrollSectionConfig> })?.scrollSection?.[slug]
+  return (scrollSection ?? fallback) ?? null
+}
+
+export function getG1ParameterSectionContent(lang: Language): G1ParameterSectionConfig | null {
+  const specs = (locales[lang]?.robots as { specs?: { g1?: { header?: string; image?: string } } })?.specs?.g1
+  const fallback = (locales.en.robots as { specs?: { g1?: { header?: string; image?: string } } })?.specs?.g1
+  const data = specs ?? fallback
+  if (!data?.header || !data?.image) return null
+  return { header: data.header, image: data.image }
+}
+
+export function getG1ImageSectionContent(
+  lang: Language,
+  section: "section1" | "section2"
+): G1ImageSectionConfig | null {
+  const imageSection = (locales[lang]?.robots as { imageSection?: { g1?: { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig } } })?.imageSection?.g1?.[section]
+  const fallback = (locales.en.robots as { imageSection?: { g1?: { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig } } })?.imageSection?.g1?.[section]
+  return (imageSection ?? fallback) ?? null
+}
+
+export function getH1ImageSectionsBeforeVideo(lang: Language): RobotSingleImageConfig[] {
+  const sections = (locales[lang]?.robots as { imageSection?: { h1?: { beforeVideo?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeVideo
+  const fallback = (locales.en.robots as { imageSection?: { h1?: { beforeVideo?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeVideo
+  return sections ?? fallback ?? []
+}
+
+export function getH1ImageSectionsBeforeTable(lang: Language): RobotSingleImageConfig[] {
+  const sections = (locales[lang]?.robots as { imageSection?: { h1?: { beforeTable?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeTable
+  const fallback = (locales.en.robots as { imageSection?: { h1?: { beforeTable?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeTable
+  return sections ?? fallback ?? []
+}
+
+export function getRobotImageSectionContent(
+  slug: RobotSlug,
+  lang: Language,
+  section: "section1" | "section2"
+): G1ImageSectionConfig | null {
+  const imageSection = (locales[lang]?.robots as unknown as { imageSection?: Record<RobotSlug, { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig }> })?.imageSection?.[slug]?.[section]
+  const fallback = (locales.en.robots as unknown as { imageSection?: Record<RobotSlug, { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig }> })?.imageSection?.[slug]?.[section]
+  return (imageSection ?? fallback) ?? null
+}
+
+export function getG1FlexibleSectionContent(lang: Language): G1FlexibleSectionConfig {
+  const flexibleSection = (locales[lang]?.robots as { flexibleSection?: { g1?: G1FlexibleSectionConfig } })?.flexibleSection?.g1
+  const fallback = (locales.en.robots as { flexibleSection: { g1: G1FlexibleSectionConfig } }).flexibleSection.g1
+  return (flexibleSection ?? fallback) as G1FlexibleSectionConfig
+}
+
+export function getRobotSpecsContent(
+  slug: RobotSlug,
+  lang: Language
+): RobotSpecsConfig | null {
+  const specs = (locales[lang]?.robots as unknown as { specs?: Record<RobotSlug, RobotSpecsConfig> })?.specs?.[slug]
+  const fallback = (locales.en.robots as unknown as { specs?: Record<RobotSlug, RobotSpecsConfig> })?.specs?.[slug]
+  return (specs ?? fallback) ?? null
 }
 
 export function getRobotLabel(
