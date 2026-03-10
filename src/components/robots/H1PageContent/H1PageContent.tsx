@@ -27,6 +27,8 @@ export default function H1PageContent({ lang }: H1PageContentProps) {
         productLink={`/${lang}/robots/h1/product`}
         textPlacement={heroContent.textPlacement}
       />
+            <RobotVideoSection slug="h1" lang={lang} />
+
       {getH1ImageSectionsBeforeVideo(lang).map((item) => (
         <section key={item.image} className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-6 md:px-10">
@@ -38,7 +40,6 @@ export default function H1PageContent({ lang }: H1PageContentProps) {
           </div>
         </section>
       ))}
-      <RobotVideoSection slug="h1" lang={lang} />
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10 space-y-12">
           {getH1ImageSectionsBeforeTable(lang).map((item) => (

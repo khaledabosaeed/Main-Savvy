@@ -44,10 +44,35 @@ export interface RobotSlide extends RobotCard {
   backgroundVideo?: string
 }
 
-export interface G1ScrollSectionConfig {
+export interface ScrollSectionItem {
   scrollVideoSrc: string
   scrollTitle: string
   scrollSubtitle: string
+}
+
+/** @deprecated Use ScrollSectionItem - kept for type compatibility */
+export type G1ScrollSectionConfig = ScrollSectionItem
+
+/** Normalizes scroll section config (single object or items array) to ScrollSectionItem[] */
+function normalizeScrollSection(raw: unknown): ScrollSectionItem[] {
+  if (!raw || typeof raw !== "object") return []
+  const obj = raw as Record<string, unknown>
+  if (Array.isArray(obj.items) && obj.items.length > 0) {
+    return obj.items as ScrollSectionItem[]
+  }
+  if (typeof obj.scrollVideoSrc === "string" && obj.scrollTitle !== undefined) {
+    return [{
+      scrollVideoSrc: obj.scrollVideoSrc,
+      scrollTitle: String(obj.scrollTitle),
+      scrollSubtitle: String(obj.scrollSubtitle ?? "")
+    }]
+  }
+  return []
+}
+
+export interface RobotFeatureItem {
+  title: string
+  description: string
 }
 
 export interface G1ParameterSectionConfig {
@@ -135,19 +160,28 @@ export function getRobotProductContent(
   return (product ?? fallback) as RobotProductConfig
 }
 
-export function getG1ScrollSectionContent(lang: Language): G1ScrollSectionConfig {
-  const scrollSection = (locales[lang]?.robots as { scrollSection?: { g1?: G1ScrollSectionConfig } })?.scrollSection?.g1
-  const fallback = (locales.en.robots as { scrollSection: { g1: G1ScrollSectionConfig } }).scrollSection.g1
-  return (scrollSection ?? fallback) as G1ScrollSectionConfig
+export function getG1ScrollSectionContent(lang: Language): ScrollSectionItem[] {
+  const raw = (locales[lang]?.robots as { scrollSection?: { g1?: unknown } })?.scrollSection?.g1
+  const fallback = (locales.en.robots as { scrollSection: { g1: unknown } }).scrollSection.g1
+  return normalizeScrollSection(raw ?? fallback)
 }
 
 export function getRobotScrollSectionContent(
   slug: RobotSlug,
   lang: Language
-): G1ScrollSectionConfig | null {
-  const scrollSection = (locales[lang]?.robots as unknown as { scrollSection?: Record<RobotSlug, G1ScrollSectionConfig> })?.scrollSection?.[slug]
-  const fallback = (locales.en.robots as unknown as { scrollSection?: Record<RobotSlug, G1ScrollSectionConfig> })?.scrollSection?.[slug]
-  return (scrollSection ?? fallback) ?? null
+): ScrollSectionItem[] {
+  const raw = (locales[lang]?.robots as unknown as { scrollSection?: Record<RobotSlug, unknown> })?.scrollSection?.[slug]
+  const fallback = (locales.en.robots as unknown as { scrollSection?: Record<RobotSlug, unknown> })?.scrollSection?.[slug]
+  return normalizeScrollSection(raw ?? fallback)
+}
+
+export function getRobotFeatureSectionContent(
+  slug: RobotSlug,
+  lang: Language
+): RobotFeatureItem[] {
+  const featureSection = (locales[lang]?.robots as unknown as { featureSection?: Record<RobotSlug, RobotFeatureItem[]> })?.featureSection?.[slug]
+  const fallback = (locales.en.robots as unknown as { featureSection?: Record<RobotSlug, RobotFeatureItem[]> })?.featureSection?.[slug]
+  return featureSection ?? fallback ?? []
 }
 
 export function getG1ParameterSectionContent(lang: Language): G1ParameterSectionConfig | null {

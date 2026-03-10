@@ -413,14 +413,58 @@
     },
     "scrollSection": {
       "g1": {
-        "scrollVideoSrc": "/robot/g1/second.mp4",
-        "scrollTitle": "Imitation & reinforcement learning driven",
-        "scrollSubtitle": "Robotics technology accelerated by AI is upgrading and evolving every day"
+
+        "items": [  
+          {
+            "scrollVideoSrc": "/robot/g1/four.mp4",
+            "scrollTitle": "Force control dexterous hand, manipulation of all things",
+            "scrollSubtitle": "Combined with force-position hybrid control, it is sensitive and reliable, and can simulate human hands to achieve precise operation of objects."
+          },
+        {
+              "scrollVideoSrc": "/robot/g1/five.mp4",
+              "scrollTitle": "Multi-mode operation",
+              "scrollSubtitle": "The Go2 robot can operate in various modes, including manual control, autonomous navigation, and obstacle avoidance."
+          },
+          {
+            "scrollVideoSrc": "/robot/g1/six.mp4",
+            "scrollTitle": "Robot world model, let’s create it together",
+            "scrollSubtitle": "UnifoLM (Unified Robot Large Model), create a new era of intelligence together"
+          }
+        ]
       },
       "h1": {
+      "items": [
+      {
         "scrollVideoSrc": "/robot/h1/sceondvioe.mp4",
         "scrollTitle": "The first full-size general-purpose humanoid robot that can run in China",
         "scrollSubtitle": "Possessing a stable gait and highly flexible movement capabilities, it is able to walk and run autonomously in complex terrains and environments."
+      }
+      ,{
+        "scrollVideoSrc": "/robot/h1/third.mp4",
+        "scrollTitle": "360° depth perception",
+        "scrollSubtitle": "Equipped with 3D LiDAR + depth camera, real-time acquisition of high-precision spatial data to achieve panoramic scanning."
+      }
+    ]
+  },
+      "go2": {
+        "items": [
+          {
+            "scrollVideoSrc": "/robot/go2/first.mp4",
+            "scrollTitle": "Advanced AI Mode",
+            "scrollSubtitle": "Through large-scale AI simulation training, the Go2 robot has learned advanced gaits such as upside-down walking, adaptive roll-over, and climbing over obstacles, with excellent flexibility and stability at the same time."
+          }
+          ,
+          {
+            "scrollVideoSrc": "/robot/go2/second.mp4",
+            "scrollTitle": "3D LiDAR Mapping",
+            "scrollSubtitle": "With L2 LiDAR and a dedicated App, you can construct point cloud map within a certain area, and specify a path for Go2 to move autonomously."
+          },
+          {
+            "scrollVideoSrc": "/robot/go2/third.mp4",
+            "scrollTitle": "ISS2.0",
+            "scrollSubtitle": "Intelligent Side-follow System. By adopting the new wireless vector positioning and control technology, the positioning accuracy is technically upgraded by 50%, the remote control distance is over 30m[2], and combined with the optimised obstacle avoidance strategy, it can make the robot better traverse complex terrain."
+          }
+        ]
       }
     },
     "imageSection": {

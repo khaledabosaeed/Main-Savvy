@@ -28,8 +28,8 @@ export default function G1PageContent({ lang }: G1PageContentProps) {
         productLink={`/${lang}/robots/g1/product`}
         textPlacement={heroContent.textPlacement}
       />
-      <G1FlexibleCarousel lang={lang} />
       <G1ScrollVideoSection lang={lang} />
+      <G1FlexibleCarousel lang={lang} />
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10">
           <G1ParameterSection lang={lang} />
