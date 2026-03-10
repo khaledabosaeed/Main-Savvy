@@ -279,6 +279,13 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                           className={`absolute top-full mt-2 w-48 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? 'right-0' : 'left-0'}`}
                         >
                           <Link
+                            href={`/${lang}/robots`}
+                            onClick={() => setIsRobotsOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors font-medium"
+                          >
+                            {lang === "ar" ? "عرض الكل" : "View all"}
+                          </Link>
+                          <Link
                             href={`/${lang}/robots/g1`}
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"

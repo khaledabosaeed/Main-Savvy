@@ -12,43 +12,53 @@ interface G1FlexibleCarouselProps {
 
 export default function G1FlexibleCarousel({ lang }: G1FlexibleCarouselProps) {
   const content = getG1FlexibleSectionContent(lang)
+  const images = content.images ?? []
+  const items = content.items
   const [currentIndex, setCurrentIndex] = useState(0)
   const isRTL = lang === "ar"
+  const currentItem = items?.[currentIndex]
 
   const goToPrev = useCallback(() => {
     setCurrentIndex((prev) =>
-      prev === 0 ? content.images.length - 1 : prev - 1
+      prev === 0 ? images.length - 1 : prev - 1
     )
-  }, [content.images.length])
+  }, [images.length])
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) =>
-      prev === content.images.length - 1 ? 0 : prev + 1
+      prev === images.length - 1 ? 0 : prev + 1
     )
-  }, [content.images.length])
+  }, [images.length])
 
   return (
     <section className="relative w-full bg-white py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6 flex flex-col items-center gap-10 md:gap-12">
-        <h2
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-center"
-          dir={isRTL ? "rtl" : "ltr"}
-        >
-          {content.title}
-        </h2>
+        {content.title != null && (
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-center"
+            dir={isRTL ? "rtl" : "ltr"}
+          >
+            {content.title}
+          </h2>
+        )}
+        {content.subtitle != null && content.subtitle !== "" && (
+          <p className="text-lg md:text-xl text-neutral-600 text-center" dir={isRTL ? "rtl" : "ltr"}>
+            {content.subtitle}
+          </p>
+        )}
 
         <div className="w-full max-w-5xl mx-auto relative">
           {/* Carousel: dir="ltr" forces consistent layout in both en/ar */}
           <div className="relative overflow-hidden rounded-2xl" dir="ltr">
             <div className="flex gap-4 md:gap-6 items-stretch justify-center px-2 md:px-4 h-48 sm:h-56 md:h-64 lg:h-72">
               {(() => {
-                const n = content.images.length
+                const n = images.length
                 const prevIdx = (currentIndex - 1 + n) % n
                 const nextIdx = (currentIndex + 1) % n
                 const displayOrder = [prevIdx, currentIndex, nextIdx]
                 return displayOrder.map((i) => {
                   const isActive = i === currentIndex
-                  const src = content.images[i]
+                  const src = images[i]
                   return (
                     <button
                       key={`slide-${i}`}
@@ -92,9 +102,19 @@ export default function G1FlexibleCarousel({ lang }: G1FlexibleCarouselProps) {
             </button>
           </div>
 
+          {(currentItem?.header != null || currentItem?.subtext != null) && (
+            <div className="mt-6 text-center space-y-2" dir={isRTL ? "rtl" : "ltr"}>
+              {currentItem?.header != null && currentItem.header !== "" && (
+                <h3 className="text-xl font-semibold text-black">{currentItem.header}</h3>
+              )}
+              {currentItem?.subtext != null && currentItem.subtext !== "" && (
+                <p className="text-neutral-600 max-w-2xl mx-auto">{currentItem.subtext}</p>
+              )}
+            </div>
+          )}
           <div className="flex items-center justify-center gap-4 mt-6">
             <div className="flex items-center gap-1.5">
-              {content.images.map((_, i) => (
+              {images.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrentIndex(i)}

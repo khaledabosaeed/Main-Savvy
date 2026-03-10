@@ -359,6 +359,7 @@
     "sliderDescriptionSuffix": " Contact us directly to obtain price.",
     "version": "Version",
     "quantity": "Quantity",
+    "viewPricingText": "View pricing",
     "cards": [
       {
         "id": "g1",
@@ -366,7 +367,8 @@
         "description": "Unlock unlimited sports potential. Force control of dexterous hands, manipulation of all things. Imitation & reinforcement learning driven.",
         "image": "/robot/g1/cardg1.webp",
         "link": "/robots/g1",
-        "buttonText": "Learn more"
+        "buttonText": "Learn more",
+        "productLink": "/robots/g1/product"
       },
       {
         "id": "h1",
@@ -374,7 +376,8 @@
         "description": "High-performance humanoid robot for industrial and service applications. Agile mobility for adaptation to complex scenarios.",
         "image": "/robot/h1/h1.jpg",
         "link": "/robots/h1",
-        "buttonText": "Learn more"
+        "buttonText": "Learn more",
+        "productLink": "/robots/h1/product"
       },
       {
         "id": "go2",
@@ -382,7 +385,8 @@
         "description": "Quadruped robot built for mobility and exploration in diverse environments. Lightweight structure, ready out-of-the-box to empower.",
         "image": "/robot/go2/go2.webp",
         "link": "/robots/go2",
-        "buttonText": "Contact Us"
+        "buttonText": "Learn more",
+        "productLink": "/robots/go2/product"
       }
     ],
     "hero": {
@@ -475,19 +479,50 @@
         "beforeTable": [
           { "image": "/robot/h1/h1.webp" }
         ]
+      },
+      "go2": {
+
+        "beforeTable": [
+
+          {  "title": "Discover Hidden Highlights", "image": "/robot/go2/imagesection.webp" }
+        ]
       }
     },
     "flexibleSection": {
       "g1": {
         "title": "More flexible and more comfortable!",
-        "images": [
-          "/robot/g1/slider/sliderg.jpg",
-          "/robot/g1/slider/sliderg2.jpg",
-          "/robot/g1/slider/sliderg4.jpg",
-          "/robot/g1/slider/sliderg6.jpg",
-          "/robot/g1/slider/sliderg7.jpg",
-          "/robot/g1/slider/sliderg8.jpg",
-          "/robot/g1/slider/sliderg9.jpg"
+        "subtitle": null,
+        "items": [
+          { "image": "/robot/g1/slider/sliderg.jpg" },
+          { "image": "/robot/g1/slider/sliderg2.jpg" },
+          { "image": "/robot/g1/slider/sliderg4.jpg" },
+          { "image": "/robot/g1/slider/sliderg6.jpg" },
+          { "image": "/robot/g1/slider/sliderg7.jpg" },
+          { "image": "/robot/g1/slider/sliderg8.jpg" },
+          { "image": "/robot/g1/slider/sliderg9.jpg" }
+        ]
+      },
+      "go2": {
+        "header": "Intelligent Interaction",
+        "subtext": "Have great fun with the APP",
+        "cards": [
+          {
+            "image": "/robot/go2/slider/slider1.webp",
+
+            "title": "Graphical programming, simple yet smarter.",
+            "description": "Optimise the graphical programming function, make it easy to complete the program design by simple drag, drop and connection. Make programming beginners easy to start and innovate."
+          },
+          {
+            "image": "/robot/go2/slider/slider2.webp",
+
+            "title": "Intelligent obstacle avoidance, precise and sensitive",
+            "description": "Keen detection, equipped with 4D LiDAR L2, for the owner to explore forward, intelligent obstacle avoidance, accurately capture and draw the 3D real world"
+          },
+          {
+            "image": "/robot/go2/slider/slider5.webp",
+            "title": "HD picture quality, real-time and stable[3].",
+            "description": "A new App realizes HD image transmission and real-time remote monitor. Built-in 4G and eSIM enables more stable connection and remote control."
+          }
         ]
       }
     },

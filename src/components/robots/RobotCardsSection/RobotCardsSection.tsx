@@ -54,15 +54,23 @@ export default function RobotCardsSection() {
                 {card.description}
               </p>
 
-              {/* Button */}
-              <Link
-                href={`/${lang}${card.link}`}
-                className={`inline-block w-fit px-8 py-3 bg-white border-2 border-gray-900 text-gray-900 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors ${
-                  isRTL ? "self-end" : "self-start"
-                }`}
-              >
-                {card.buttonText}
-              </Link>
+              {/* Buttons */}
+              <div className={`flex flex-wrap gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
+                <Link
+                  href={`/${lang}${card.link}`}
+                  className={`inline-block w-fit px-8 py-3 bg-white border-2 border-gray-900 text-gray-900 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors`}
+                >
+                  {card.buttonText}
+                </Link>
+                {card.productLink && (
+                  <Link
+                    href={`/${lang}${card.productLink}`}
+                    className="inline-block w-fit px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                  >
+                    {content.viewPricingText}
+                  </Link>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>

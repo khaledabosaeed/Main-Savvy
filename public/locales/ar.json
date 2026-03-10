@@ -359,6 +359,7 @@
     "sliderDescriptionSuffix": " يمكنك التواصل معنا مباشرة للحصول على السعر.",
     "version": "الإصدار",
     "quantity": "الكمية",
+    "viewPricingText": "عرض السعر",
     "cards": [
       {
         "id": "g1",
@@ -366,7 +367,8 @@
         "description": "أطلق إمكانات رياضية غير محدودة. التحكم بالقوة في الأيدي الماهرة، والتلاعب بكل الأشياء. مدفوع بالتقليد والتعلم المعزز.",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
-        "buttonText": "تعلم المزيد"
+        "buttonText": "تعلم المزيد",
+        "productLink": "/robots/g1/product"
       },
       {
         "id": "h1",
@@ -374,7 +376,8 @@
         "description": "روبوت بشري عالي الأداء للتطبيقات الصناعية والخدمية. تنقل رشيق للتكيف مع السيناريوهات المعقدة.",
         "image": "/robot/h1/h1.jpg",
         "link": "/robots/h1",
-        "buttonText": "تعلم المزيد"
+        "buttonText": "تعلم المزيد",
+        "productLink": "/robots/h1/product"
       },
       {
         "id": "go2",
@@ -382,7 +385,8 @@
         "description": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة. هيكل خفيف الوزن، جاهز للاستخدام.",
         "image": "/robot/go2/go2.webp",
         "link": "/robots/go2",
-        "buttonText": "تواصل معنا"
+        "buttonText": "تعلم المزيد",
+        "productLink": "/robots/go2/product"
       }
     ],
     "hero": {
@@ -473,21 +477,50 @@
         ],
         "beforeTable": [
           { "image": "/robot/h1/h1.webp" }
-
+        ]
+      },
+      "go2": {
+        "beforeVideo": [
+          { "title": "اكتشف المميزات الخفية", "image": "/robot/go2/go2.png" }
+        ],
+        "beforeTable": [
+          { "image": "/robot/go2/imagesection.webp" }
         ]
       }
     },
     "flexibleSection": {
       "g1": {
         "title": "أكثر مرونة وراحة!",
-        "images": [
-          "/robot/g1/slider/sliderg6.jpg",
-          "/robot/g1/slider/sliderg.jpg",
-          "/robot/g1/slider/sliderg4.jpg",
-          "/robot/g1/slider/sliderg2.jpg",
-          "/robot/g1/slider/sliderg7.jpg",
-          "/robot/g1/slider/sliderg8.jpg",
-          "/robot/g1/slider/sliderg9.jpg"
+        "subtitle": null,
+        "items": [
+          { "image": "/robot/g1/slider/sliderg.jpg" },
+          { "image": "/robot/g1/slider/sliderg2.jpg" },
+          { "image": "/robot/g1/slider/sliderg4.jpg" },
+          { "image": "/robot/g1/slider/sliderg6.jpg" },
+          { "image": "/robot/g1/slider/sliderg7.jpg" },
+          { "image": "/robot/g1/slider/sliderg8.jpg" },
+          { "image": "/robot/g1/slider/sliderg9.jpg" }
+        ]
+      },
+      "go2": {
+        "header": "التفاعل الذكي",
+        "subtext": "استمتع بتجربة رائعة مع التطبيق",
+        "cards": [
+          {
+            "image": "/robot/go2/slider/slider1.webp",
+            "title": "برمجة رسومية، بسيطة وأذكى.",
+            "description": "تحسين وظيفة البرمجة الرسومية، وتسهيل إكمال تصميم البرنامج بالسحب والإفلات والربط البسيط. وتمكين المبتدئين في البرمجة من البدء والابتكار بسهولة."
+          },
+          {
+            "image": "/robot/go2/slider/slider2.webp",
+            "title": "تفادي ذكي للعقبات، دقيق وحساس",
+            "description": "كشف حاد، مجهز بـ 4D LiDAR L2، لاستكشاف المالك للأمام، تفادي ذكي للعقبات، التقاط ورسم دقيق للعالم الحقيقي ثلاثي الأبعاد."
+          },
+          {
+            "image": "/robot/go2/slider/slider5.webp",
+            "title": "جودة صورة عالية الدقة، ووقت حقيقي ومستقرة[3].",
+            "description": "تطبيق جديد يحقق نقل HD للصور والمراقبة عن بُعد في الوقت الفعلي. 4G وeSIM مدمجان يوفران اتصالاً وتحكماً عن بُعد أكثر استقراراً."
+          }
         ]
       }
     },
