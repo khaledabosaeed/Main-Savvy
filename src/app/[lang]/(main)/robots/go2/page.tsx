@@ -1,6 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import Go2PageContent from "@/components/robots/Go2PageContent/Go2PageContent"
+import Go2PageContent from "@/components/robots/Go2PageContent"
 
 interface Go2PageProps {
   params: Promise<{ lang: string }>

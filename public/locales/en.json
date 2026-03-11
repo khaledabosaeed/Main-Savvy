@@ -363,16 +363,16 @@
     "cards": [
       {
         "id": "g1",
-        "name": "G1 EDU Savvy",
+        "name": "G1 EDU ",
         "description": "Unlock unlimited sports potential. Force control of dexterous hands, manipulation of all things. Imitation & reinforcement learning driven.",
-        "image": "/robot/g1/cardg1.webp",
+        "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
         "buttonText": "Learn more",
         "productLink": "/robots/g1/product"
       },
       {
         "id": "h1",
-        "name": "H1 EDU Savvy",
+        "name": "H1 EDU ",
         "description": "High-performance humanoid robot for industrial and service applications. Agile mobility for adaptation to complex scenarios.",
         "image": "/robot/h1/h1.jpg",
         "link": "/robots/h1",
@@ -392,7 +392,7 @@
     "hero": {
       "g1": {
         "videoSrc": "/robot/g1/hero.mp4",
-        "title": "G1 EDU Savvy",
+        "title": "G1 EDU ",
         "subtitle": "Humanoid robot designed for advanced interaction and automation.",
         "priceStartsFrom": "Price starts from $250,000 SAR",
         "buttonText": "View Product",
@@ -400,7 +400,7 @@
       },
       "h1": {
         "videoSrc": "/robot/h1/hero.mp4",
-        "title": "H1 EDU Savvy",
+        "title": "H1 EDU ",
         "subtitle": "High-performance humanoid robot for industrial and service applications.",
         "priceStartsFrom": "Price starts from $350,000 SAR",
         "buttonText": "View Product",
@@ -622,10 +622,10 @@
     },
     "product": {
       "g1": {
-        "name": "G1 EDU Savvy",
+        "name": "G1 EDU ",
         "price": "250,000 SAR",
         "images": ["/robot/g1/catlouge/g1c1.webp", "/robot/g1/catlouge/g1c2.webp"],
-        "versions": [{"id": "g1-edu", "name": "G1 EDU Savvy"}],
+        "versions": [{"id": "g1-edu", "name": "G1 EDU "}],
         "bulletPoints": [
           "Order now and ship within 1 month",
           "Contact sales to get G1 EDU price"
@@ -634,10 +634,10 @@
         "contactSalesText": "Contact Us"
       },
       "h1": {
-        "name": "H1 EDU Savvy",
+        "name": "H1 EDU ",
         "price": "350,000 SAR",
         "images": ["/robot/h1/catlouge/h1c.webp", "/robot/h1/catlouge/h1c1.jpg", "/robot/h1/catlouge/h1c2.webp" ,"/robot/h1/catlouge/h1c3.webp"],
-        "versions": [{"id": "h1-edu", "name": "H1 EDU Savvy"}],
+        "versions": [{"id": "h1-edu", "name": "H1 EDU"}],
         "bulletPoints": [
           "Order now and ship within 1 month",
           "Contact sales to get H1 EDU price"

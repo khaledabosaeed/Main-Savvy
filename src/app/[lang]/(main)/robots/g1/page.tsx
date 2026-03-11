@@ -1,6 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import G1PageContent from "@/components/robots/G1PageContent/G1PageContent"
+import G1PageContent from "@/components/robots/G1PageContent"
 
 interface G1PageProps {
   params: Promise<{ lang: string }>

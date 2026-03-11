@@ -1,9 +1,9 @@
 "use client"
 
-import RobotHero from "../RobotHero"
-import RobotVideoSection from "../RobotVideoSection/RobotVideoSection"
-import RobotSingleImageSection from "../RobotSingleImageSection/RobotSingleImageSection"
-import Go2FlexibleSection from "../Go2FlexibleSection/Go2FlexibleSection"
+import RobotHero from "./RobotHero"
+import RobotVideoSection from "./RobotVideoSection"
+import RobotSingleImageSection from "./RobotSingleImageSection"
+import Go2FlexibleSection from "./Go2FlexibleSection"
 import { getRobotHeroContent, getRobotImageSectionsBeforeVideo, getRobotImageSectionsBeforeTable } from "@/lib/robots-locale"
 import type { Language } from "@/lib/robots-locale"
 

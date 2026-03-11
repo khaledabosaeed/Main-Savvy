@@ -7,7 +7,7 @@ import { Package, Truck, DollarSign, MessageCircle, Minus, Plus } from "lucide-r
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getRobotProductContent, getRobotLabel } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
-import SpecsTable from "./SpecsTable/SpecsTable"
+import SpecsTable from "./SpecsTable"
 import en from "@/../public/locales/en.json"
 import ar from "@/../public/locales/ar.json"
 
