@@ -306,6 +306,13 @@ Uniatree Humanoid G1
                           >
 Unitree Robo- Dog Go2
                           </Link>
+                          <Link
+                            href={`/${lang}/robots/r1`}
+                            onClick={() => setIsRobotsOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+Uniatree Humanoid R1
+                          </Link>
                         </motion.div>
                       )}
                     </AnimatePresence>

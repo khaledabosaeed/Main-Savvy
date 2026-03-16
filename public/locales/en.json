@@ -491,18 +491,18 @@
         "items": [
           {
             "scrollVideoSrc": "/robot/R1/R1b3.mp4",
-            "scrollTitle": "Quadruped robot built for mobility and exploration in diverse environments.",
-            "scrollSubtitle": "Quadruped robot built for mobility and exploration in diverse environments."
+            "scrollTitle": "Lightweight structure, easy maintenance",
+            "scrollSubtitle": "≤123cm agile form, ultra-lightweight at about 29kg, and ready out-of-the-box to empower"
           },
           {
             "scrollVideoSrc": "/robot/R1/56e81e1c28a64c83a429a85e5ff3b870.mp4",
-            "scrollTitle": "Quadruped robot built for mobility and exploration in diverse environments.",
-            "scrollSubtitle": "Quadruped robot built for mobility and exploration in diverse environments."
+            "scrollTitle": "Integrated with a Large Multimodal Model for voice and images",
+            "scrollSubtitle": "Fully open control interfaces for joints and sensors, with support for mainstream simulation platforms, allowing algorithms to seamlessly enter the physical world."
           },
           {
             "scrollVideoSrc": "/robot/R1/c90b50849fa349e084a942b5d14f2c4e.mp4",
-            "scrollTitle": "Quadruped robot built for mobility and exploration in diverse environments.",
-            "scrollSubtitle": "Quadruped robot built for mobility and exploration in diverse environments."
+            "scrollTitle": "Movement first, tasks as well",
+            "scrollSubtitle": "A diversity of movement is the foundation for completing tasks"
           }
         ]
       }
@@ -525,10 +525,10 @@
       },
       "r1": {
         "beforeVideo": [
-          { "title": "Discover Hidden Highlights", "image": "/robot/R1/R1.webp" }
+          { "title": "Intelligent pioneer, fully customizable", "image": "/robot/R1/R1b2.webp" }
         ],
         "beforeTable": [
-          { "image": "/robot/R1/R1b.webp" }
+          { "image": "/robot/R1/befor.png" }
         ]
       }
     },
