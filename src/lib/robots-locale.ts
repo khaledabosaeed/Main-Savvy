@@ -2,7 +2,7 @@ import en from "../../public/locales/en.json"
 import ar from "../../public/locales/ar.json"
 
 export type Language = "en" | "ar"
-export type RobotSlug = "g1" | "h1" | "go2"
+export type RobotSlug = "g1" | "h1" | "go2" | "r1"
 
 const locales = { en, ar } as const
 

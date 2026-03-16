@@ -2,6 +2,7 @@ import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import RobotHeroSlider from "@/components/robots/RobotHeroSlider"
 import RobotCardsSection from "@/components/robots/RobotCardsSection"
+import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsSection"
 
 interface RobotsPageProps {
   params: Promise<{ lang: string }>
@@ -37,7 +38,10 @@ export default async function RobotsPage({ params }: RobotsPageProps) {
       <UnifiedHeader texts={texts} hasBanner={false} transparentHeader />
       <PageTransition>
         <RobotHeroSlider />
-        <RobotCardsSection />
+        <section id="robots">
+        <RobotsSection />
+      </section>
+
       </PageTransition>
     </>
   )

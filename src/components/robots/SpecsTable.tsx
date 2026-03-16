@@ -4,7 +4,7 @@ import type { Language } from "@/lib/robots-locale"
 import { getRobotSpecsContent } from "@/lib/robots-locale"
 
 export interface SpecsTableProps {
-  slug: "g1" | "h1" | "go2"
+  slug: "g1" | "h1" | "go2" | "r1"
   lang: Language
   /** When true, show only one value column (single product). When false, show comparison columns. */
   singleColumn?: boolean

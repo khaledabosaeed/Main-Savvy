@@ -40,11 +40,6 @@ export default function Home() {
   const texts = lang === "ar" ? headerTextsAr : headerTextsEn
   const [showBadge, setShowBadge] = useState(true)
 
-  // Example images array - customize as needed
-  const sliderImages: ImageItem[] = Array.from({ length: 12 }, (_, i) => ({
-    name: `Image ${i + 1}`,
-    logo: `/home-page/gallery/image-${i + 1}.jpg`,
-  }))
 
   const images: ImageItem[] =[
           {

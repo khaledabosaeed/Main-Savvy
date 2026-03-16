@@ -2,8 +2,8 @@ import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import InnovationHero from "@/components/innovation-page/sections/InnovationHero/InnovationHero"
 import InnovationSolutions from "@/components/innovation-page/sections/InnovationSolutions/InnovationSolutions"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import LatestNews from "@/components/main-page/sections/LatestNews/LatestNews"
 import ExpoPartners from "@/components/expo-page/sections/ExpoPartners/ExpoPartners"
+import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsSection"
 
 interface InnovationPageProps {
   params: Promise<{
@@ -52,15 +52,17 @@ export default async function InnovationPage({ params }: InnovationPageProps) {
           <InnovationSolutions />
         </section>
 
+
         {/* Partners Section */}
         <section id="partners">
           <ExpoPartners />
         </section>
 
-        {/* Latest News Section */}
-        {/* <section id="news">
-          <LatestNews />
-        </section> */}
+        <section id="robots">
+        <RobotsSection />
+      </section>
+
+
     
   
       </PageTransition>

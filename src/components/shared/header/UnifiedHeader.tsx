@@ -290,21 +290,21 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-                            g1
+Uniatree Humanoid G1
                           </Link>
                           <Link
                             href={`/${lang}/robots/h1`}
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-                            h1
+                            Uniatree Humanoid H1
                           </Link>
                           <Link
                             href={`/${lang}/robots/go2`}
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-                            go2
+Unitree Robo- Dog Go2
                           </Link>
                         </motion.div>
                       )}

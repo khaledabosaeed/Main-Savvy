@@ -349,7 +349,7 @@
     "answer6": "Savvy Innovation links AI, digital interaction, and green solutions to develop more sustainable urban spaces, providing solutions geared toward the future of cities and experiences."
   },
   "robots": {
-    "heading": "Our Robots",
+    "heading": "Savvy Store",
     "subheading": "Governed and purpose-driven robotics for tomorrow's world",
     "viewDetails": "View details",
     "viewProduct": "View Product",
@@ -363,7 +363,7 @@
     "cards": [
       {
         "id": "g1",
-        "name": "G1 EDU ",
+        "name": "Uniatree Humanoid G1 ",
         "description": "Unlock unlimited sports potential. Force control of dexterous hands, manipulation of all things. Imitation & reinforcement learning driven.",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
@@ -372,7 +372,7 @@
       },
       {
         "id": "h1",
-        "name": "H1 EDU ",
+        "name": "Uniatree Humanoid H1 ",
         "description": "High-performance humanoid robot for industrial and service applications. Agile mobility for adaptation to complex scenarios.",
         "image": "/robot/h1/h1.jpg",
         "link": "/robots/h1",
@@ -381,12 +381,21 @@
       },
       {
         "id": "go2",
-        "name": "Go2",
+        "name": "Unitree Robo- Dog Go2",  
         "description": "Quadruped robot built for mobility and exploration in diverse environments. Lightweight structure, ready out-of-the-box to empower.",
         "image": "/robot/go2/go2.webp",
         "link": "/robots/go2",
         "buttonText": "Learn more",
         "productLink": "/robots/go2/product"
+      },
+      {
+        "id": "r1",
+        "name": "Unitree Robo-Dog R1",
+        "description": "Quadruped robot built for mobility and exploration in diverse environments. Lightweight structure, ready out-of-the-box.",
+        "image": "/robot/R1/R!.webp",
+        "link": "/robots/r1",
+        "buttonText": "Learn more",
+        "productLink": "/robots/r1/product"
       }
     ],
     "hero": {
@@ -409,6 +418,14 @@
       "go2": {
         "videoSrc": "/robot/go2/hero.mp4",
         "title": "Go2",
+        "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
+        "priceStartsFrom": "Price starts from $2,800 USD",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "r1": {
+        "videoSrc": "/robot/R1/hero.mp4",
+        "title": "R1",
         "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
         "priceStartsFrom": "Price starts from $2,800 USD",
         "buttonText": "View Product",
@@ -469,6 +486,25 @@
             "scrollSubtitle": "Intelligent Side-follow System. By adopting the new wireless vector positioning and control technology, the positioning accuracy is technically upgraded by 50%, the remote control distance is over 30m[2], and combined with the optimised obstacle avoidance strategy, it can make the robot better traverse complex terrain."
           }
         ]
+      },
+      "r1": {
+        "items": [
+          {
+            "scrollVideoSrc": "/robot/R1/R1b3.mp4",
+            "scrollTitle": "Quadruped robot built for mobility and exploration in diverse environments.",
+            "scrollSubtitle": "Quadruped robot built for mobility and exploration in diverse environments."
+          },
+          {
+            "scrollVideoSrc": "/robot/R1/56e81e1c28a64c83a429a85e5ff3b870.mp4",
+            "scrollTitle": "Quadruped robot built for mobility and exploration in diverse environments.",
+            "scrollSubtitle": "Quadruped robot built for mobility and exploration in diverse environments."
+          },
+          {
+            "scrollVideoSrc": "/robot/R1/c90b50849fa349e084a942b5d14f2c4e.mp4",
+            "scrollTitle": "Quadruped robot built for mobility and exploration in diverse environments.",
+            "scrollSubtitle": "Quadruped robot built for mobility and exploration in diverse environments."
+          }
+        ]
       }
     },
     "imageSection": {
@@ -485,6 +521,14 @@
         "beforeTable": [
 
           {  "title": "Discover Hidden Highlights", "image": "/robot/go2/imagesection.webp" }
+        ]
+      },
+      "r1": {
+        "beforeVideo": [
+          { "title": "Discover Hidden Highlights", "image": "/robot/R1/R1.webp" }
+        ],
+        "beforeTable": [
+          { "image": "/robot/R1/R1b.webp" }
         ]
       }
     },
@@ -660,6 +704,23 @@
           "Shipping costs between $399 and $1000",
           "Customer is responsible for customs duties and taxes",
           "Contact sales to get Go2 Edu price"
+        ],
+        "addToCartText": "Add to Cart",
+        "contactSalesText": "Contact Us"
+      },
+      "r1": {
+        "name": "Unitree Robo-Dog R1",
+        "price": "$2,800 USD",
+        "images": ["/robot/R1/catlouge/R1c.webp", "/robot/R1/catlouge/R1c1.webp", "/robot/R1/catlouge/R1c2.webp", "/robot/R1/catlouge/R1c3.webp"],
+        "versions": [
+          {"id": "r1-pro", "name": "Unitree Robo-Dog R1 Pro (without controller)"},
+          {"id": "r1-pro-ctrl", "name": "Unitree Robo-Dog R1 Pro (with controller)"}
+        ],
+        "bulletPoints": [
+          "Order now and ship within 1 month",
+          "Shipping costs between $399 and $1000",
+          "Customer is responsible for customs duties and taxes",
+          "Contact sales to get Unitree Robo-Dog R1 price"
         ],
         "addToCartText": "Add to Cart",
         "contactSalesText": "Contact Us"

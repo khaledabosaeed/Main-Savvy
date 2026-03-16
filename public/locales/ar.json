@@ -349,7 +349,7 @@
     "answer6": "ساڤي ابتكار يربط بين الذكاء الاصطناعي، التفاعل الرقمي، والحلول الخضراء لتطوير مساحات حضرية أكثر استدامة، ويوفر حلولاً موجهة لمستقبل المدن والتجارب."
   },
   "robots": {
-    "heading": "روبوتاتنا",
+    "heading": "متجر ساڤي",
     "subheading": "روبوتات مُحوكمة وهادفة لعالم الغد",
     "viewDetails": "عرض التفاصيل",
     "viewProduct": "عرض المنتج",
@@ -363,7 +363,7 @@
     "cards": [
       {
         "id": "g1",
-        "name": "G1 EDU ",
+        "name": "Uniatree Humanoid G1 ",
         "description": "أطلق إمكانات رياضية غير محدودة. التحكم بالقوة في الأيدي الماهرة، والتلاعب بكل الأشياء. مدفوع بالتقليد والتعلم المعزز.",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
@@ -372,7 +372,7 @@
       },
       {
         "id": "h1",
-        "name": "H1 EDU ",
+          "name": "Uniatree Humanoid H1 ",
         "description": "روبوت بشري عالي الأداء للتطبيقات الصناعية والخدمية. تنقل رشيق للتكيف مع السيناريوهات المعقدة.",
         "image": "/robot/h1/h1.jpg",
         "link": "/robots/h1",
@@ -381,12 +381,21 @@
       },
       {
         "id": "go2",
-        "name": "Go2",
+        "name": "Unitree Robo-Dog Go2",
         "description": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة. هيكل خفيف الوزن، جاهز للاستخدام.",
         "image": "/robot/go2/go2.webp",
         "link": "/robots/go2",
         "buttonText": "تعلم المزيد",
         "productLink": "/robots/go2/product"
+      },
+      {
+        "id": "r1",
+        "name": "Unitree Robo-Dog R1",
+        "description": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة. هيكل خفيف الوزن، جاهز للاستخدام.",
+        "image": "/robot/R1/R!.webp",
+        "link": "/robots/r1",
+        "buttonText": "تعلم المزيد",
+        "productLink": "/robots/r1/product"
       }
     ],
     "hero": {
@@ -409,6 +418,14 @@
       "go2": {
         "videoSrc": "/robot/go2/hero.mp4",
         "title": "Go2",
+        "subtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
+        "priceStartsFrom": "السعر يبدأ من 2,800 دولار أمريكي",
+        "buttonText": "عرض المنتج",
+        "textPlacement": "center"
+      },
+      "r1": {
+        "videoSrc": "/robot/R1/hero.mp4",
+        "title": "R1",
         "subtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
         "priceStartsFrom": "السعر يبدأ من 2,800 دولار أمريكي",
         "buttonText": "عرض المنتج",
@@ -467,9 +484,27 @@
             "scrollSubtitle": "نظام التتبع الجانبي الذكي. باعتماد تقنية التموضع والتحكم اللاسلكية المتجهة الجديدة، تم ترقية دقة التموضع تقنياً بنسبة 50٪، وتبلغ مسافة التحكم عن بُعد أكثر من 30 م[2]، ومقترنةً باستراتيجية تفادي العقبات المحسّنة، يمكن للروبوت التنقل بشكل أفضل في التضاريس المعقدة."
           }
         ]
+      },
+      "r1": {
+        "items": [
+          {
+            "scrollVideoSrc": "/robot/R1/R1b3.mp4",
+            "scrollTitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
+            "scrollSubtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة."
+          },
+          {
+            "scrollVideoSrc": "/robot/R1/56e81e1c28a64c83a429a85e5ff3b870.mp4",
+            "scrollTitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
+            "scrollSubtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة."
+          },
+          {
+            "scrollVideoSrc": "/robot/R1/c90b50849fa349e084a942b5d14f2c4e.mp4",
+            "scrollTitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
+            "scrollSubtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة."
+          }
+        ]
       }
     },
-
     "imageSection": {
       "h1": {
         "beforeVideo": [
@@ -485,6 +520,14 @@
         ],
         "beforeTable": [
           { "image": "/robot/go2/imagesection.webp" }
+        ]
+      },
+      "r1": {
+        "beforeVideo": [
+          { "title": "اكتشف المميزات الخفية", "image": "/robot/R1/R1.webp" }
+        ],
+        "beforeTable": [
+          { "image": "/robot/R1/R1b.webp" }
         ]
       }
     },
@@ -658,6 +701,20 @@
           "تكلفة الشحن بين 399 و 1000 دولار",
           "العميل مسؤول عن الرسوم الجمركية والضرائب",
           "تواصل مع المبيعات للحصول على سعر Go2 Edu"
+        ],
+        "addToCartText": "أضف إلى السلة",
+        "contactSalesText": "تواصل معنا"
+      },
+      "r1": {
+        "name": "Unitree Robo-Dog R1",
+          "price": "2,800 دولار أمريكي",
+        "images": ["/robot/R1/catlouge/R1c.webp", "/robot/R1/catlouge/R1c1.webp", "/robot/R1/catlouge/R1c2.webp" ,"/robot/R1/catlouge/R1c3.webp"],
+        "versions": [{"id": "r1-pro", "name": "Unitree Robo-Dog R1 Pro (بدون وحدة تحكم)"}, {"id": "r1-pro-ctrl", "name": "Unitree Robo-Dog R1 Pro (مع وحدة تحكم)"}],
+        "bulletPoints": [
+          "اطلب الآن والشحن خلال شهر",
+          "تكلفة الشحن بين 399 و 1000 دولار",
+          "العميل مسؤول عن الرسوم الجمركية والضرائب",
+          "تواصل مع المبيعات للحصول على سعر Unitree Robo-Dog R1"
         ],
         "addToCartText": "أضف إلى السلة",
         "contactSalesText": "تواصل معنا"
