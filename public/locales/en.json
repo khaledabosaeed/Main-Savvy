@@ -662,6 +662,156 @@
             ]
           }
         ]
+      },
+      "r1": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": ["R1 AIR", "R1", "R1 EDU"],
+        "headerImage": "/robot/R1/tabel.webp",
+        "columnPrices": ["$4,900", "$5,900", "Contact Sales"],
+        "modelLabel": "Model",
+        "priceLabel": "Price (Tax and Shipping cost excluded)",
+        "sections": [
+          {
+            "label": "Mechanical Dimensions",
+            "rows": [
+              { "name": "Height, Width and Thickness (Stand)", "values": ["1230x357x190mm", "1230x357x190mm", "1230x357x190mm"] },
+              { "name": "Weight (With Battery)", "values": ["About 27kg", "About 29kg", "About 29kg"] },
+              { "name": "Degree of Freedom(Total Joints)", "values": ["20", "26", "26-40"] },
+              { "name": "Single Leg Degrees of Freedom", "values": ["6", "6", "6"] },
+              { "name": "Single Arm Degrees of Freedom", "values": ["4", "5", "5"] },
+              { "name": "Waist Degrees of Freedom", "values": ["/", "2", "2"] },
+              { "name": "Head Degrees of Freedom", "values": ["/", "2", "2"] },
+              { "name": "Dexterous Hand", "values": ["/", "/", "Optional"] },
+              { "name": "Joint output bearing", "values": ["Crossed roller bearings, Double Hook Ball Bearings", "Crossed roller bearings, Double Hook Ball Bearings", "Crossed roller bearings, Double Hook Ball Bearings"] },
+              { "name": "Joint motor", "values": ["Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)", "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)", "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"] }
+            ]
+          },
+          {
+            "label": "Electrical Characteristics",
+            "rows": [
+              { "name": "Maximum Torque of Arm Joint [1]", "values": ["About 2kg", "About 2kg", "About 2kg"] },
+              { "name": "Calf + Thigh Length", "values": ["600", "600", "600"] },
+              { "name": "Forearm + Upper Arm Length", "values": ["420", "420", "420"] },
+              { "name": "Joint Movement Space", "values": ["Knee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°", "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°", "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°"] },
+              { "name": "Electrical Routing", "values": ["Hollow + Internal Routing", "Hollow + Internal Routing", "Hollow + Internal Routing"] },
+              { "name": "Joint Encoder", "values": ["Dual + single encoder", "Dual + single encoder", "Dual + single encoder"] },
+              { "name": "Cooling System", "values": ["Local air cooling", "Local air cooling", "Local air cooling"] },
+              { "name": "Power Supply", "values": ["Lithium battery", "Lithium battery", "Lithium battery"] },
+              { "name": "Basic Computing Power", "values": ["8-core high-performance CPU", "8-core high-performance CPU", "8-core high-performance CPU"] },
+              { "name": "Microphone Array", "values": ["4-Mic Array", "4-Mic Array", "4-Mic Array"] },
+              { "name": "Speaker", "values": ["YES", "YES", "YES"] },
+              { "name": "WiFi 6 Bluetooth 5.2", "values": ["YES", "YES", "YES"] },
+              { "name": "Camera", "values": ["Monocular camera", "Binocular camera", "Binocular camera"] }
+            ]
+          },
+          {
+            "label": "Accessories",
+            "rows": [
+              { "name": "High-Power Computing Module", "values": ["/", "/", "NVIDIA Jetson Orin Optional (40-100 TOPS)"] },
+              { "name": "Smart Battery (Quick Release)", "values": ["YES", "YES", "YES"] },
+              { "name": "Charger", "values": ["YES", "YES", "YES"] },
+              { "name": "Manual Controller", "values": ["YES", "YES", "YES"] }
+            ]
+          },
+          {
+            "label": "Other",
+            "rows": [
+              { "name": "Battery Life", "values": ["About 1h", "About 1h", "About 1h"] },
+              { "name": "Upgraded Intelligent OTA", "values": ["YES", "YES", "YES"] },
+              { "name": "Secondary Development [2]", "values": ["/", "/", "YES"] },
+              { "name": "Warranty Period [3]", "values": ["6 Months", "8 Months", "12 Months"] }
+            ]
+          }
+        ]
+      },
+      "go2": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": ["AIR", "PRO", "X", "EDU"],
+        "headerImage": "/robot/go2/table.png",
+        "columnPrices": ["$1,600", "$2,800", "$4,500", "Contact Sales"],
+        "modelLabel": "Model",
+        "priceLabel": "Price (Tax and freight excluded)",
+        "sections": [
+          {
+            "label": "Mechanical Specifications",
+            "rows": [
+              { "name": "Dimension of standing", "values": ["70cm x 31cm x 40cm", "70cm x 31cm x 40cm", "70cm x 31cm x 40cm", "70cm x 31cm x 40cm"] },
+              { "name": "Dimension of crouching", "values": ["76cm x 31cm x 20cm", "76cm x 31cm x 20cm", "76cm x 31cm x 20cm", "76cm x 31cm x 20cm"] },
+              { "name": "Weight (with battery)", "values": ["About 15kg", "About 15kg", "About 15kg", "About 15kg"] },
+              { "name": "Material", "values": ["Aluminium alloy + High strength engineering plastic", "Aluminium alloy + High strength engineering plastic", "Aluminium alloy + High strength engineering plastic", "Aluminium alloy + High strength engineering plastic"] }
+            ]
+          },
+          {
+            "label": "Electronic Parameter",
+            "rows": [
+              { "name": "Voltage", "values": ["28V-33.6V", "28V-33.6V", "28V-33.6V", "28V-33.6V"] },
+              { "name": "Working maximum power", "values": ["About 3000W", "About 3000W", "About 3000W", "About 3000W"] }
+            ]
+          },
+          {
+            "label": "Performance Parameters",
+            "rows": [
+              { "name": "Payload", "values": ["=7kg (MAX ~ 10kg)", "=8kg (MAX ~ 10kg)", "=8kg (MAX ~ 12kg)", "=8kg (MAX ~ 12kg)"] },
+              { "name": "Speed", "values": ["0 ~ 2.5m/s", "0 ~ 3.5m/s", "0 ~ 3.7m/s (MAX ~ 5m/s)", "0 ~ 3.7m/s (MAX ~ 5m/s)"] },
+              { "name": "Max Climb Drop Height", "values": ["About 15cm", "About 16cm", "About 16cm", "About 16cm"] },
+              { "name": "Max Climb Angle", "values": ["30°", "40°", "40°", "40°"] },
+              { "name": "Basic Computing Power", "values": ["Standard", "8-core High-performance CPU", "8-core High-performance CPU", "8-core High-performance CPU"] }
+            ]
+          },
+          {
+            "label": "Knee Joint Parameters",
+            "rows": [
+              { "name": "Max Joint Torque [1]", "values": ["—", "About 45N.m", "About 45N.m", "About 45N.m"] },
+              { "name": "Aluminum knee joint motor", "values": ["12 set", "12 set", "12 set", "12 set"] },
+              { "name": "Range of Motion", "values": ["body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°", "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°", "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°", "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°"] },
+              { "name": "Intra-joint circuit (knee)", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "Joint Heat Pipe Cooler", "values": ["✓", "✓", "✓", "✓"] }
+            ]
+          },
+          {
+            "label": "Force Sensor Parameters",
+            "rows": [
+              { "name": "Super-wide-angle 4D LIDAR", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "Wireless Vector Positioning Tracking Module", "values": ["—", "✓", "✓", "✓"] },
+              { "name": "HD Wide-angle Camera", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "Foot-end force sensor", "values": ["—", "—", "✓", "✓"] }
+            ]
+          },
+          {
+            "label": "Feature List",
+            "rows": [
+              { "name": "Basic Action", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "Auto-scaling strap", "values": ["—", "✓", "✓", "—"] },
+              { "name": "Upgraded Intelligent OTA", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "RTT 2.0 Pictures Transaction", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "Graphical programme", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "Front lamp", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "WiFi6 with Dual-band", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "Bluetooth 5.2/4.2/2.1", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "4G module (with GPS)", "values": ["—", "✓", "✓", "✓"] },
+              { "name": "Voice Function [5]", "values": ["—", "✓", "✓", "✓"] },
+              { "name": "ISS 2.0 Intelligent side-follow system", "values": ["—", "✓", "✓", "✓"] },
+              { "name": "Intelligent detection and avoidance", "values": ["✓", "✓", "✓", "✓"] },
+              { "name": "Charging Pile Compatibility", "values": ["—", "—", "✓", "—"] },
+              { "name": "Secondary development [6]", "values": ["—", "✓", "—", "—"] }
+            ]
+          },
+          {
+            "label": "Accessories",
+            "rows": [
+              { "name": "Manual controller", "values": ["Optional", "Optional", "Included", "Included"] },
+              { "name": "High computing power module", "values": ["—", "—", "—", "NVIDIA Jetson Orin (optional) (40-100Tops computing power)"] },
+              { "name": "Depth Camera", "values": ["—", "—", "—", "Included"] },
+              { "name": "Smart battery", "values": ["Standard (8000mAh)", "Standard (8000mAh)", "Standard (8000mAh)", "Long endurance (15000mAh)"] },
+              { "name": "Battery life", "values": ["About 1-2h", "About 1-2h", "About 1-2h", "About 2-4h"] },
+              { "name": "Charger", "values": ["Standard (33.6V 3.5A)", "Standard (33.6V 3.5A)", "Standard (33.6V 3.5A)", "Fast charge (33.6V 9A)"] },
+              { "name": "Warranty period [7]", "values": ["6 months", "12 months", "12 months", "12 months"] },
+              { "name": "Price (Tax and freight excluded)", "values": ["$1,600", "$2,800", "$4,500", "Contact your sales expert"], "highlight": true }
+            ]
+          }
+        ]
       }
     },
     "product": {

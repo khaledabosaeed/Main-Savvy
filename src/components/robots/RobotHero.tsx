@@ -63,7 +63,7 @@ export default function RobotHero({
         >
           {poster ? (
             <Image
-              src={poster}
+              src={poster}  
               alt=""
               fill
               className="object-cover"

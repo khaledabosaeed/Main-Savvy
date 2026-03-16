@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import type { Language } from "@/lib/robots-locale"
 import { getRobotSpecsContent } from "@/lib/robots-locale"
 
@@ -24,6 +25,11 @@ export default function SpecsTable({
   const isRTL = lang === "ar"
 
   const firstColLabel = content.specLabel
+  const headerImage = content.headerImage
+  const columnPrices = content.columnPrices
+  const priceLabel = content.priceLabel
+  const modelLabel = content.modelLabel
+  const hasHeaderImage = !!headerImage
 
   return (
     <div dir={isRTL ? "rtl" : "ltr"} className="space-y-6">
@@ -44,35 +50,91 @@ export default function SpecsTable({
           <div className="overflow-x-auto">
             <table className="w-full min-w-[500px] border-collapse">
               <thead>
-                <tr className="border-b border-neutral-700">
-                  <th
-                    className={`h-12 px-5 py-3 text-sm font-semibold text-white ${
-                      isRTL ? "text-right" : "text-left"
-                    }`}
-                  >
-                    {singleColumn ? content.specLabel : firstColLabel}
-                  </th>
-                  {singleColumn ? (
+                {hasHeaderImage && sIdx === 0 && content.columnHeaders && content.columnHeaders.length > 0 && (
+                  <>
+                    <tr className="border-b border-neutral-700">
+                      <th
+                        rowSpan={2}
+                        className={`w-[200px] px-5 py-3 text-sm font-semibold text-white align-top ${
+                          isRTL ? "text-right" : "text-left"
+                        }`}
+                      >
+                        <span className="block">{modelLabel ?? firstColLabel}</span>
+                        {priceLabel && (
+                          <span className="block text-xs font-normal text-neutral-400 mt-1">{priceLabel}</span>
+                        )}
+                      </th>
+                      {content.columnHeaders.map((h, i) => (
+                        <th
+                          key={i}
+                          className={`px-5 py-3 text-center border-r border-neutral-700 last:border-r-0 ${
+                            i < content.columnHeaders!.length - 1 ? "border-r border-neutral-700" : ""
+                          }`}
+                        >
+                          <div className="flex flex-col items-center gap-4">
+                            <div className="relative w-24 h-16 md:w-32 md:h-20 flex-shrink-0">
+                              <Image
+                                src={headerImage!}
+                                alt={h}
+                                fill
+                                className="object-contain"
+                                sizes="128px"
+                              />
+                            </div>
+                            <span className="text-sm font-semibold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">
+                              {h}
+                            </span>
+                          </div>
+                        </th>
+                      ))}
+                    </tr>
+                    {columnPrices && columnPrices.length > 0 && (
+                      <tr className="border-b border-neutral-700">
+                        {columnPrices.map((price, i) => (
+                          <th
+                            key={i}
+                            className={`px-5 py-3 text-sm font-semibold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent text-center ${
+                              i < columnPrices.length - 1 ? "border-r border-neutral-700" : ""
+                            }`}
+                          >
+                            {price}
+                          </th>
+                        ))}
+                      </tr>
+                    )}
+                  </>
+                )}
+                {(!hasHeaderImage || sIdx > 0 || !content.columnHeaders?.length) && (
+                  <tr className="border-b border-neutral-700">
                     <th
-                      className={`h-12 px-5 py-3 text-sm font-semibold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent ${
+                      className={`h-12 px-5 py-3 text-sm font-semibold text-white ${
                         isRTL ? "text-right" : "text-left"
                       }`}
                     >
-                      {content.columnHeaders?.[valueColumnIndex] ?? content.valueLabel}
+                      {singleColumn ? content.specLabel : firstColLabel}
                     </th>
-                  ) : (
-                    content.columnHeaders?.map((h, i) => (
+                    {singleColumn ? (
                       <th
-                        key={i}
                         className={`h-12 px-5 py-3 text-sm font-semibold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent ${
-                          i < (content.columnHeaders?.length ?? 0) - 1 ? "border-r border-neutral-700" : ""
-                        } ${isRTL ? "text-right" : "text-left"}`}
+                          isRTL ? "text-right" : "text-left"
+                        }`}
                       >
-                        {h}
+                        {content.columnHeaders?.[valueColumnIndex] ?? content.valueLabel}
                       </th>
-                    ))
-                  )}
-                </tr>
+                    ) : (
+                      content.columnHeaders?.map((h, i) => (
+                        <th
+                          key={i}
+                          className={`h-12 px-5 py-3 text-sm font-semibold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent ${
+                            i < (content.columnHeaders?.length ?? 0) - 1 ? "border-r border-neutral-700" : ""
+                          } ${isRTL ? "text-right" : "text-left"}`}
+                        >
+                          {h}
+                        </th>
+                      ))
+                    )}
+                  </tr>
+                )}
               </thead>
               <tbody>
                 {section.rows.map((row, rIdx) => (

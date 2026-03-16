@@ -66,7 +66,7 @@ export default function R1PageContent({ lang }: R1PageContentProps) {
               >
                 {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
               </h2>
-              <SpecsTable slug="r1" lang={lang} singleColumn />
+              <SpecsTable slug="r1" lang={lang} />
             </div>
           )}
         </div>

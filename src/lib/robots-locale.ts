@@ -132,6 +132,14 @@ export interface RobotSpecsConfig {
   valueLabel: string
   columnHeaders?: string[]
   sections: SpecsSection[]
+  /** Header image shown above each model column (e.g. robot product image) */
+  headerImage?: string
+  /** Price or CTA for each model column (e.g. "$4,900", "Contact Sales") */
+  columnPrices?: string[]
+  /** Label for the price row in header (e.g. "Price (Tax and Shipping cost excluded)") */
+  priceLabel?: string
+  /** Label for model column header when using header image (e.g. "Model") */
+  modelLabel?: string
 }
 
 export function getRobotCards(lang: Language): RobotCard[] {
