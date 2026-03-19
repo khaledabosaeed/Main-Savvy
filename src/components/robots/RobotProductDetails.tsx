@@ -1,13 +1,13 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { Package, Truck, DollarSign, MessageCircle, Minus, Plus } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getRobotProductContent, getRobotLabel } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
 import SpecsTable from "./SpecsTable"
+import ProductImageGallery from "./ProductImageGallery"
 import en from "@/../public/locales/en.json"
 import ar from "@/../public/locales/ar.json"
 
@@ -24,11 +24,14 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
   const content = getRobotProductContent(slug, currentLang)
   const isRTL = currentLang === "ar"
 
-  const [selectedImage, setSelectedImage] = useState(0)
   const [selectedVersion, setSelectedVersion] = useState(0)
   const [quantity, setQuantity] = useState(1)
 
   const images = content.images.length > 0 ? content.images : ["/robot/go2/go2.webp"]
+  const locale = currentLang === "ar" ? ar : en
+  const common = (locale as {
+    common?: { close?: string; previousImage?: string; nextImage?: string; viewFullscreen?: string }
+  }).common
 
   return (
     <section className="py-25 md:py-25 bg-white">
@@ -40,39 +43,17 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
         >
           {/* Left - Images */}
           <div className={isRTL ? "" : ""}>
-            <div className="relative aspect-square rounded-xl overflow-hidden mb-4">
-              <Image
-                src={images[selectedImage] || images[0]}
-                alt={content.name}
-                fill
-                className={"object-contain p-8 "}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
-            {images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto justify-center">
-                {images.map((img, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setSelectedImage(i)}
-                    className={`relative w-20 h-20 shrink-0 rounded-lg overflow-hidden border-2 transition-colors ${
-                      selectedImage === i
-                        ? "border-gray-900"
-                        : "border-gray-200 hover:border-gray-400"
-                    }`}
-                  >
-                    <Image
-                      src={img}
-                      alt=""
-                      fill
-                      className="object-contain p-4"
-                      sizes="80px"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
+            <ProductImageGallery
+              images={images}
+              alt={content.name}
+              isRTL={isRTL}
+              ariaLabels={{
+              close: common?.close,
+              previousImage: common?.previousImage,
+              nextImage: common?.nextImage,
+              viewFullscreen: common?.viewFullscreen,
+            }}
+            />
           </div>
 
           {/* Right - Product details */}
