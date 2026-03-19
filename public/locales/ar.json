@@ -364,7 +364,7 @@
       {
         "id": "g1",
         "name": "Uniatree Humanoid G1 ",
-        "description": "أطلق إمكانات رياضية غير محدودة. التحكم بالقوة في الأيدي الماهرة، والتلاعب بكل الأشياء. مدفوع بالتقليد والتعلم المعزز.",
+        "description": "جسم افتراضي للوكيل البشري من الذكاء الاصطناعي",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
         "buttonText": "تعلم المزيد",
@@ -372,8 +372,8 @@
       },
       {
         "id": "h1",
-          "name": "Uniatree Humanoid H1 ",
-        "description": "روبوت بشري عالي الأداء للتطبيقات الصناعية والخدمية. تنقل رشيق للتكيف مع السيناريوهات المعقدة.",
+        "name": "Uniatree Humanoid H1 ",
+        "description": "الذكاء الاصطناعي المتجسد، السعر أقل من 90 ألف دولار",
         "image": "/robot/h1/h1.jpg",
         "link": "/robots/h1",
         "buttonText": "تعلم المزيد",
@@ -382,8 +382,8 @@
       {
         "id": "go2",
         "name": "Unitree Robo-Dog Go2",
-        "description": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة. هيكل خفيف الوزن، جاهز للاستخدام.",
-        "image": "/robot/go2/go2.webp",
+        "description": "مخلوق جديد للذكاء الاصطناعي المتجسد",
+        "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
         "buttonText": "تعلم المزيد",
         "productLink": "/robots/go2/product"
@@ -391,7 +391,7 @@
       {
         "id": "r1",
         "name": "Unitree Robo-Dog R1",
-        "description": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة. هيكل خفيف الوزن، جاهز للاستخدام.",
+        "description": "خفيف الوزن للغاية، قابل للتخصيص بالكامل",
         "image": "/robot/R1/R!.webp",
         "link": "/robots/r1",
         "buttonText": "تعلم المزيد",
@@ -856,7 +856,7 @@
       "r1": {
         "name": "Unitree Robo-Dog R1",
           "price": "2,800 دولار أمريكي",
-        "images": ["/robot/R1/catlouge/R1c.webp", "/robot/R1/catlouge/R1c1.webp", "/robot/R1/catlouge/R1c2.webp" ,"/robot/R1/catlouge/R1c3.webp"],
+        "images": ["/robot/R1/catlouge/p2.webp", "/robot/R1/catlouge/p1.webp"],
         "versions": [{"id": "r1-pro", "name": "Unitree Robo-Dog R1 Pro (بدون وحدة تحكم)"}, {"id": "r1-pro-ctrl", "name": "Unitree Robo-Dog R1 Pro (مع وحدة تحكم)"}],
         "bulletPoints": [
           "اطلب الآن والشحن خلال شهر",

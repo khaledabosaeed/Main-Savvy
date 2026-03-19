@@ -364,7 +364,7 @@
       {
         "id": "g1",
         "name": "Uniatree Humanoid G1 ",
-        "description": "Unlock unlimited sports potential. Force control of dexterous hands, manipulation of all things. Imitation & reinforcement learning driven.",
+        "description": "Humanoid agent AI avatar",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
         "buttonText": "Learn more",
@@ -373,7 +373,7 @@
       {
         "id": "h1",
         "name": "Uniatree Humanoid H1 ",
-        "description": "High-performance humanoid robot for industrial and service applications. Agile mobility for adaptation to complex scenarios.",
+        "description": "Embodied AI, Price below $90k",
         "image": "/robot/h1/h1.jpg",
         "link": "/robots/h1",
         "buttonText": "Learn more",
@@ -382,8 +382,8 @@
       {
         "id": "go2",
         "name": "Unitree Robo- Dog Go2",  
-        "description": "Quadruped robot built for mobility and exploration in diverse environments. Lightweight structure, ready out-of-the-box to empower.",
-        "image": "/robot/go2/go2.webp",
+        "description": "New Creature of Embodied AI",
+        "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
         "buttonText": "Learn more",
         "productLink": "/robots/go2/product"
@@ -391,7 +391,7 @@
       {
         "id": "r1",
         "name": "Unitree Robo-Dog R1",
-        "description": "Quadruped robot built for mobility and exploration in diverse environments. Lightweight structure, ready out-of-the-box.",
+        "description": "Ultra-lightweight, fully customizable",
         "image": "/robot/R1/R!.webp",
         "link": "/robots/r1",
         "buttonText": "Learn more",
@@ -861,7 +861,7 @@
       "r1": {
         "name": "Unitree Robo-Dog R1",
         "price": "$2,800 USD",
-        "images": ["/robot/R1/catlouge/R1c.webp", "/robot/R1/catlouge/R1c1.webp", "/robot/R1/catlouge/R1c2.webp", "/robot/R1/catlouge/R1c3.webp"],
+        "images": ["/robot/R1/catlouge/p2.webp", "/robot/R1/catlouge/p1.webp"],
         "versions": [
           {"id": "r1-pro", "name": "Unitree Robo-Dog R1 Pro (without controller)"},
           {"id": "r1-pro-ctrl", "name": "Unitree Robo-Dog R1 Pro (with controller)"}

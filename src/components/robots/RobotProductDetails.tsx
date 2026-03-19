@@ -194,8 +194,8 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
           </div>
         </div>
 
-        {/* Specifications table - G1 and H1 */}
-        {(slug === "g1" || slug === "h1") && (
+        {/* Specifications table - G1, H1, R1 */}
+        {(slug === "g1" || slug === "h1" || slug === "r1") && (
           <div className="mt-16 md:mt-24">
             <h2
               className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${
@@ -207,7 +207,7 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
             <SpecsTable
               slug={slug}
               lang={currentLang}
-              singleColumn={true}
+              singleColumn={slug !== "r1"}
               valueColumnIndex={slug === "g1" ? 1 : 0}
             />
           </div>
