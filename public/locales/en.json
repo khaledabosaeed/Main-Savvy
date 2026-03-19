@@ -381,7 +381,7 @@
       },
       {
         "id": "go2",
-        "name": "Unitree Robo- Dog Go2",  
+        "name": "Unitree Robo-Dog Go2",  
         "description": "New Creature of Embodied AI",
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
@@ -390,7 +390,7 @@
       },
       {
         "id": "r1",
-        "name": "Unitree Robo-Dog R1",
+        "name": "Unitree Humanoid R1",
         "description": "Ultra-lightweight, fully customizable",
         "image": "/robot/R1/R!.webp",
         "link": "/robots/r1",

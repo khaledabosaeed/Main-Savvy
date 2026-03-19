@@ -390,7 +390,7 @@
       },
       {
         "id": "r1",
-        "name": "Unitree Robo-Dog R1",
+        "name": "Unitree Humanoid R1",
         "description": "خفيف الوزن للغاية، قابل للتخصيص بالكامل",
         "image": "/robot/R1/R!.webp",
         "link": "/robots/r1",
@@ -710,7 +710,7 @@
             ]
           },
           {
-            "label": "أخرى",
+            "label": "أخRobo-Dogرى",
             "rows": [
               { "name": "عمر البطارية", "values": ["حوالي ساعة", "حوالي ساعة", "حوالي ساعة"] },
               { "name": "ترقية OTA الذكية", "values": ["نعم", "نعم", "نعم"] },
