@@ -20,6 +20,7 @@ const headerTextsEn = {
   services: "Services",
   projects: "Latest Projects",
   partners: "Partners",
+  ourRobots: "Robots",
   contactUs: "Contact Us",
 
 }
@@ -30,6 +31,7 @@ const headerTextsAr = {
   partners: "الشركاء",
   projects: "معارضنا السابقة ",
   services: "الخدمات",
+  ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",
 
 }

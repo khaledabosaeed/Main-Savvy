@@ -131,6 +131,7 @@ export default function RootLayout({
     <html suppressHydrationWarning className="overflow-x-hidden">
       <body
         className={`${inter.variable} ${interArabic.variable} font-sans antialiased overflow-x-hidden`}
+        suppressHydrationWarning
       >
         <Script
           id="disable-scroll-restoration"

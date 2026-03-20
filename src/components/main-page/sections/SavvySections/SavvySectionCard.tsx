@@ -80,9 +80,8 @@ export default function SavvySectionCard({
                         ))}
                     </ul>
 
-                    {/* Learn More Button */}
-                    <Link
-                        href={`/${language}${link}`}
+                    {/* Learn More Button - span only; parent Link handles navigation */}
+                    <span
                         className={`inline-flex items-center gap-2 text-gray-900 text-sm md:text-base font-medium hover:text-blue-600 transition-colors group ${isRTL ? 'flex-row-reverse' : ''}`}
                     >
                         <span>{buttonText}</span>
@@ -94,7 +93,7 @@ export default function SavvySectionCard({
                         >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                    </Link>
+                    </span>
                 </div>
 
                 {/* Image - Smaller height on mobile */}

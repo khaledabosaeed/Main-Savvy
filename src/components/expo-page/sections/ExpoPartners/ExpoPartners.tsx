@@ -9,14 +9,16 @@ import { fadeInUp, viewportConfig, sectionSlideUp } from "@/lib/animations"
 
 // Partner logos data - you can add your logo paths here
 const partners = [
-    { id: 1, name: "سكني", logo: "/expo/partners/skani.svg" },
-    { id: 2, name: "NHC", logo: "/expo/partners/nhc.svg" },
-    { id: 3, name: "Hisense", logo: "/expo/partners/hisense.svg" },
-    { id: 4, name: "PropTech", logo: "/expo/partners/proptech.svg" },
-    { id: 5, name: "الأولى", logo: "/expo/partners/mohammed-al-habib.svg" },
-    { id: 6, name: "شؤون البلديات", logo: "/expo/partners/manzil-alarabia.svg" },
-    { id: 7, name: "Samsung", logo: "/expo/partners/samsung.svg" },
-    { id: 8, name: "المنتدى السعودي للمباني الخضراء", logo: "/expo/partners/mnadf.svg" },
+    { name: "Al Awaly", logo: "/home-page/partners/al-awaly.svg" },
+    { name: "Sakani", logo: "/home-page/partners/sakani.svg" },
+    { name: "NHC", logo: "/home-page/partners/nhc.svg" },
+    { name: "Hisense", logo: "/home-page/partners/hisense.svg" },
+    { name: "Mohammed Al Habib", logo: "/home-page/partners/mohammed-al-habib.svg" },
+    { name: "Manzil Alarabia", logo: "/home-page/partners/manzil-alarabia.svg" },
+    { name: "Samsung", logo: "/home-page/partners/samsung.svg" },
+    { name: "UniTree", logo: "/home-page/partners/1.svg" },
+    { name: "SGBF", logo: "/home-page/partners/2.svg" },
+    { name: "SOTI One", logo: "/home-page/partners/3.svg" },
 ]
 
 export default function ExpoPartners() {
@@ -57,7 +59,7 @@ export default function ExpoPartners() {
                     >
                         {partners.map((partner, index) => (
                             <motion.div
-                                key={partner.id}
+                                key={partner.name}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

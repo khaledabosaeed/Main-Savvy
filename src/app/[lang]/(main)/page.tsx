@@ -10,6 +10,7 @@ import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
 import { useLanguage } from "@/contexts/LanguageContext"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSlider/PartnersSlider"
+import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsSection"
 
 // نصوص الهيدر بالإنجليزية
 const headerTextsEn = {
@@ -18,6 +19,7 @@ const headerTextsEn = {
   projects: "Latest Projects",
   services: "Gallery",
   about: "Our Sections",
+  ourRobots: "Robots",
   contactUs: "Contact Us",
 }
 
@@ -28,6 +30,7 @@ const headerTextsAr = {
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",
+  ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",
 }
 
@@ -37,11 +40,6 @@ export default function Home() {
   const texts = lang === "ar" ? headerTextsAr : headerTextsEn
   const [showBadge, setShowBadge] = useState(true)
 
-  // Example images array - customize as needed
-  const sliderImages: ImageItem[] = Array.from({ length: 12 }, (_, i) => ({
-    name: `Image ${i + 1}`,
-    logo: `/home-page/gallery/image-${i + 1}.jpg`,
-  }))
 
   const images: ImageItem[] =[
           {
@@ -132,6 +130,10 @@ export default function Home() {
 
       <section id="about">
         <SavvySections />
+      </section>
+
+      <section id="robots">
+        <RobotsSection />
       </section>
 
       <section id="services">

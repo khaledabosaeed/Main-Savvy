@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, Fragment } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -19,45 +19,62 @@ interface UnifiedHeaderProps {
   logoHref?: string
   logoAlt?: string
   logoSrc?: string
+  transparentHeader?: boolean
 }
 
-export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner = true, logoHref, logoAlt = "Savvy", logoSrc = "/Savvy 2 1.svg" }: UnifiedHeaderProps) {
+export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner = true, logoHref, logoAlt = "Savvy", logoSrc = "/Savvy 2 1.svg", transparentHeader = false }: UnifiedHeaderProps) {
   const { language } = useLanguage()
   const isMobile = useIsMobile()
   const pathname = usePathname()
   const { scrollTo } = useSmoothScroll()
   const lang = language as "en" | "ar"
   const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [isRobotsOpen, setIsRobotsOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const isRTL = lang === "ar"
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const robotsDropdownRef = useRef<HTMLDivElement>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const robotsTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // serviceSections ثابتة ومترجمة حرفيًا
   const serviceSections = lang === "ar"
     ? ["ساڤي وورلد", "ساڤي إكسبو", "ساڤي ميديا", "ساڤي انوفيشن"]
     : ["Savvy World", "Savvy Expo", "Savvy Media", "Savvy Innovation"]
 
+  /** Sub-links under "Our Sections" (about) — mobile menu only; matches expo / innovation / media pages */
+  const aboutSectionLinks = [
+    { href: `/${lang}/expo`, label: lang === "ar" ? "إكسبو" : "Expo" },
+    { href: `/${lang}/innovation`, label: lang === "ar" ? "إنوفيشن" : "Innovation" },
+    { href: `/${lang}/media`, label: lang === "ar" ? "ميديا" : "Media" },
+  ] as const
+
   // إغلاق القائمة عند النقر خارجها
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      const target = event.target as Node
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setIsServicesOpen(false)
+      }
+      if (robotsDropdownRef.current && !robotsDropdownRef.current.contains(target)) {
+        setIsRobotsOpen(false)
       }
     }
 
-    if (isServicesOpen) {
+    if (isServicesOpen || isRobotsOpen) {
       document.addEventListener("mousedown", handleClickOutside)
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [isServicesOpen])
+  }, [isServicesOpen, isRobotsOpen])
 
-  // Scroll detection to move navbar to top
+  // Scroll detection - set initial state and listen for scroll
   useEffect(() => {
+    setIsScrolled(window.scrollY > 100)
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100)
     }
@@ -71,6 +88,9 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current)
+      }
+      if (robotsTimeoutRef.current) {
+        clearTimeout(robotsTimeoutRef.current)
       }
     }
   }, [])
@@ -88,6 +108,22 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
     }, 200)
   }
 
+  const handleRobotsMouseEnter = () => {
+    if (robotsTimeoutRef.current) {
+      clearTimeout(robotsTimeoutRef.current)
+    }
+    setIsRobotsOpen(true)
+  }
+
+  const handleRobotsMouseLeave = () => {
+    robotsTimeoutRef.current = setTimeout(() => {
+      setIsRobotsOpen(false)
+    }, 200)
+  }
+
+  const isTransparent = transparentHeader && !isScrolled
+  const navTextClass = isTransparent ? "text-white hover:text-white/90" : "text-gray-700 hover:text-gray-900"
+
   return (
     <>
       <motion.header
@@ -98,12 +134,16 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
           duration: isMobile ? 0.2 : 0.3,
           ease: [0.16, 1, 0.3, 1]
         }}
-        className="fixed left-0 right-0 z-40 bg-white/95 backdrop-blur-md shadow-md mb-10 md:mb-0"
+        className={`fixed left-0 right-0 z-40 mb-10 md:mb-0 transition-colors duration-300 ${
+          transparentHeader && !isScrolled
+            ? "bg-transparent shadow-none"
+            : "bg-white/95 backdrop-blur-md shadow-md"
+        }`}
       >
         <div className="w-full">
           <div className="container mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5">
             <div className={`flex items-center justify-between gap-3 md:gap-4 lg:gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              {/* Logo - Smaller on mobile */}
+              {/* Logo - Smaller on mobile, white when transparent */}
               <div className="shrink-0">
                 <Link href={logoHref || `/${lang}`}>
                   <Image
@@ -111,7 +151,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                     alt={logoAlt}
                     width={100}
                     height={70}
-                    className="h-10 md:h-13 w-auto"
+                    className={`h-10 md:h-13 w-auto transition-all duration-300 ${isTransparent ? "brightness-0 invert" : ""}`}
                   />
                 </Link>
               </div>
@@ -119,7 +159,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden text-gray-900 p-2"
+                className={`md:hidden p-2 transition-colors ${isTransparent ? "text-white" : "text-gray-900"}`}
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -128,7 +168,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
               {/* Navigation */}
               <nav className={`hidden md:flex items-center gap-8 flex-1 justify-center ${isRTL ? 'flex-row-reverse' : ''}`}>
                 {Object.entries(texts)
-                  .filter(([key]) => key !== "ourServices" && key !== "contactUs")
+                  .filter(([key]) => key !== "ourServices" && key !== "ourRobots" && key !== "contactUs")
                   .map(([key, value]) => {
                     // Handle "main" and "news" as page links, others as section links
                     const href = key === "main" ? `/${lang}` : key === "news" ? `/${lang}/news` : `#${key}`
@@ -153,7 +193,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                         key={key}
                         href={href}
                         onClick={handleMainClick}
-                        className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium whitespace-nowrap flex items-center"
+                        className={`${navTextClass} transition-colors text-sm font-medium whitespace-nowrap flex items-center`}
                       >
                         {value}
                         {key === "whySavvy" && showBadge && <Badge text="1512 × 69" />}
@@ -171,7 +211,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                   >
                     <button
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
-                      className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap"
+                      className={`${navTextClass} transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap`}
                     >
                       {texts["ourServices"]}
                       <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
@@ -219,6 +259,72 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                     </AnimatePresence>
                   </div>
                 )}
+
+                {/* Robots Dropdown */}
+                {texts["ourRobots"] && (
+                  <div
+                    ref={robotsDropdownRef}
+                    className="relative"
+                    onMouseEnter={handleRobotsMouseEnter}
+                    onMouseLeave={handleRobotsMouseLeave}
+                  >
+                    <button
+                      onClick={() => setIsRobotsOpen(!isRobotsOpen)}
+                      className={`${navTextClass} transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap`}
+                    >
+                      {texts["ourRobots"]}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isRobotsOpen ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    <AnimatePresence>
+                      {isRobotsOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                          className={`absolute top-full mt-2 w-48 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? 'right-0' : 'left-0'}`}
+                        >
+                          <Link
+                            href={`/${lang}/robots`}
+                            onClick={() => setIsRobotsOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors font-medium"
+                          >
+                            {lang === "ar" ? "عرض الكل" : "View all"}
+                          </Link>
+                          <Link
+                            href={`/${lang}/robots/g1`}
+                            onClick={() => setIsRobotsOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+Uniatree Humanoid G1
+                          </Link>
+                          <Link
+                            href={`/${lang}/robots/h2`}
+                            onClick={() => setIsRobotsOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+                            Uniatree Humanoid H2
+                          </Link>
+                          <Link
+                            href={`/${lang}/robots/go2`}
+                            onClick={() => setIsRobotsOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+Unitree Robo- Dog Go2
+                          </Link>
+                          <Link
+                            href={`/${lang}/robots/r1`}
+                            onClick={() => setIsRobotsOpen(false)}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
+                          >
+Uniatree Humanoid R1
+                          </Link>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )}
               </nav>
 
               {/* Language Switcher & Contact Button */}
@@ -246,7 +352,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
               >
                 <nav className="py-4">
                   {Object.entries(texts)
-                    .filter(([key]) => key !== "ourServices" && key !== "contactUs")
+                    .filter(([key]) => key !== "ourServices" && key !== "ourRobots" && key !== "contactUs")
                     .map(([key, value]) => {
                       // Handle "main" and "news" as page links, others as section links
                       const href = key === "main" ? `/${lang}` : key === "news" ? `/${lang}/news` : `#${key}`
@@ -267,6 +373,30 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                         setIsMobileMenuOpen(false)
                       }
                       
+                      if (key === "about") {
+                        return (
+                          <Fragment key={key}>
+                            <Link
+                              href={href}
+                              onClick={handleMainClick}
+                              className="block px-6 py-3 text-white hover:bg-white/10 transition-colors text-sm font-medium"
+                            >
+                              {value}
+                            </Link>
+                            {aboutSectionLinks.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block px-10 py-2 text-white/90 hover:bg-white/10 transition-colors text-sm"
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </Fragment>
+                        )
+                      }
+
                       return (
                         <Link
                           key={key}
@@ -312,6 +442,43 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
                         {serviceSections[3]}
+                      </Link>
+                    </>
+                  )}
+
+                  {/* Robots in mobile menu */}
+                  {texts["ourRobots"] && (
+                    <>
+                      <div className="px-6 py-3 text-white/60 text-xs font-semibold uppercase">
+                        {texts["ourRobots"]}
+                      </div>
+                      <Link
+                        href={`/${lang}/robots`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        {lang === "ar" ? "عرض الكل" : "View all"}
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/g1`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        g1
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/h2`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        h2
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/go2`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        go2
                       </Link>
                     </>
                   )}
