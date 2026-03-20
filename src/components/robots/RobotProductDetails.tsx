@@ -120,13 +120,21 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
               </div>
             )}
 
-            {/* CTA — contact page (replaces add-to-cart) */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* CTA — contact page (replaces add-to-cart); dir=ltr keeps button position same as EN in both languages */}
+            <div className="flex flex-col gap-4" >
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href={`/${lang}/contact`}
+                  className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center shadow-sm"
+                >
+                  {contactUsLabel}
+                </Link>
+              </div>
               <Link
-                href={`/${lang}/contact`}
-                className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center shadow-sm"
+                href={`/${lang}/robots/responsible-use`}
+                className="text-sm text-gray-500 hover:text-primary transition-colors underline underline-offset-2 w-fit"
               >
-                {contactUsLabel}
+                {getRobotLabel(currentLang, "responsibleUseLabel")}
               </Link>
             </div>
           </div>

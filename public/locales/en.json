@@ -359,6 +359,33 @@
     "sliderDescriptionSuffix": " Contact us directly to obtain price.",
     "version": "Version",
     "viewPricingText": "View pricing",
+    "responsibleUseLabel": "Responsible use notice",
+    "responsibleUse": {
+      "title": "Intellectual Property & Responsible Robot Operation Notice",
+      "lastUpdated": "Last updated: March 2025",
+      "ipTitle": "Intellectual Property",
+      "ipContent": "All intellectual property related to the robots, including mechanical design, software, control systems, and media materials, remains the property of their respective manufacturers and technology partners.",
+      "operationTitle": "Robot Operation",
+      "operationContent": "Robots such as Unitree R1 and Unitree H2 are advanced robotic systems that operate through a remote controller or dedicated software interface. All movements, behaviors, or actions performed by the robot are the result of commands issued by the user or operator.\n\nTherefore, the user or operator assumes full responsibility for the operation of the robot and for any movement or action performed during its use.",
+      "requirementsTitle": "User Requirements",
+      "requirementsList": [
+        "Understand how to properly control the robot before operating it.",
+        "Operate the robot only in safe and suitable environments.",
+        "Avoid any use that may cause harm to people or property.",
+        "Refrain from performing dangerous or unauthorized modifications."
+      ],
+      "safetyTitle": "Safety & Feedback",
+      "safetyContent": "We place strong emphasis on product safety and information security, and we welcome feedback and suggestions that help us continuously improve.",
+      "notesTitle": "Important Notes",
+      "notesList": [
+        "The robots have undergone extensive testing procedures.",
+        "Features and specifications may vary depending on model or version.",
+        "The humanoid robotics industry is still in an early stage of global development.",
+        "Individual users are encouraged to fully understand the capabilities and limitations of humanoid robots before purchasing or operating them.",
+        "Please visit the official Unitree Robotics website for detailed policies and terms.",
+        "Users must comply with local laws and regulations, including those applicable in the Kingdom of Saudi Arabia."
+      ]
+    },
     "cards": [
       {
         "id": "g1",

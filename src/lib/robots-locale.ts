@@ -312,14 +312,47 @@ export function getRobotSpecsContent(
 
 export function getRobotLabel(
   lang: Language,
-  key: "version" | "viewProduct"
+  key: "version" | "viewProduct" | "responsibleUseLabel"
 ): string {
   const robots = locales[lang]?.robots as {
     version?: string
     viewProduct?: string
+    responsibleUseLabel?: string
   }
   return (
     robots?.[key] ??
-    (locales.en.robots as { version: string; viewProduct: string })[key]
+    (locales.en.robots as {
+      version: string
+      viewProduct: string
+      responsibleUseLabel: string
+    })[key]
   )
+}
+
+export interface ResponsibleUseContent {
+  title: string
+  lastUpdated: string
+  ipTitle: string
+  ipContent: string
+  operationTitle: string
+  operationContent: string
+  requirementsTitle: string
+  requirementsList: string[]
+  safetyTitle: string
+  safetyContent: string
+  notesTitle: string
+  notesList: string[]
+}
+
+export type ResponsibleUseKey = keyof ResponsibleUseContent
+
+export function getResponsibleUseContent<K extends ResponsibleUseKey>(
+  lang: Language,
+  key: K
+): ResponsibleUseContent[K] {
+  const content = (locales[lang]?.robots as { responsibleUse?: ResponsibleUseContent })
+    ?.responsibleUse
+  const fallback = (locales.en.robots as { responsibleUse: ResponsibleUseContent })
+    .responsibleUse
+  return (content ?? fallback)[key]
 }
