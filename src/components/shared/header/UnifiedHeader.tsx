@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, Fragment } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -42,6 +42,13 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
   const serviceSections = lang === "ar"
     ? ["ساڤي وورلد", "ساڤي إكسبو", "ساڤي ميديا", "ساڤي انوفيشن"]
     : ["Savvy World", "Savvy Expo", "Savvy Media", "Savvy Innovation"]
+
+  /** Sub-links under "Our Sections" (about) — mobile menu only; matches expo / innovation / media pages */
+  const aboutSectionLinks = [
+    { href: `/${lang}/expo`, label: lang === "ar" ? "إكسبو" : "Expo" },
+    { href: `/${lang}/innovation`, label: lang === "ar" ? "إنوفيشن" : "Innovation" },
+    { href: `/${lang}/media`, label: lang === "ar" ? "ميديا" : "Media" },
+  ] as const
 
   // إغلاق القائمة عند النقر خارجها
   useEffect(() => {
@@ -366,6 +373,30 @@ Uniatree Humanoid R1
                         setIsMobileMenuOpen(false)
                       }
                       
+                      if (key === "about") {
+                        return (
+                          <Fragment key={key}>
+                            <Link
+                              href={href}
+                              onClick={handleMainClick}
+                              className="block px-6 py-3 text-white hover:bg-white/10 transition-colors text-sm font-medium"
+                            >
+                              {value}
+                            </Link>
+                            {aboutSectionLinks.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block px-10 py-2 text-white/90 hover:bg-white/10 transition-colors text-sm"
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
+                          </Fragment>
+                        )
+                      }
+
                       return (
                         <Link
                           key={key}

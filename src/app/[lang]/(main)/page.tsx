@@ -141,7 +141,7 @@ export default function Home() {
         </section>
 
 
-        <section id="projects">``
+        <section id="projects">
           <LatestProjects />
         </section>
 

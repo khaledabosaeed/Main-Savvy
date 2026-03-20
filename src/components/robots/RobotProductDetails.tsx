@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Package, Truck, DollarSign, MessageCircle, Minus, Plus } from "lucide-react"
+import { Package, Truck, DollarSign, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getRobotProductContent, getRobotLabel } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
@@ -25,13 +25,14 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
   const isRTL = currentLang === "ar"
 
   const [selectedVersion, setSelectedVersion] = useState(0)
-  const [quantity, setQuantity] = useState(1)
 
   const images = content.images.length > 0 ? content.images : ["/robot/go2/go2.webp"]
   const locale = currentLang === "ar" ? ar : en
   const common = (locale as {
     common?: { close?: string; previousImage?: string; nextImage?: string; viewFullscreen?: string }
   }).common
+  const contactUsLabel =
+    (locale as { header?: { contactUs?: string } }).header?.contactUs ?? "Contact Us"
 
   return (
     <section className="py-25 md:py-25 bg-white">
@@ -119,57 +120,13 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
               </div>
             )}
 
-            {/* Quantity */}
-            <div className="mb-8">
-              <p
-                className={`font-semibold text-gray-900 mb-3 ${
-                  isRTL ? "text-right" : "text-left"
-                }`}
-              >
-                {getRobotLabel(currentLang, "quantity")}
-              </p>
-              <div
-                className={`flex items-center gap-2 w-fit ${
-                  isRTL ? "flex-row-reverse ml-auto" : ""
-                }`}
-              >
-                <button
-                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  className="w-10 h-10 rounded-lg border-2 border-gray-300 flex items-center justify-center hover:border-gray-400"
-                >
-                  <Minus className="w-4 h-4" />
-                </button>
-                <input
-                  type="number"
-                  value={quantity}
-                  min={1}
-                  onChange={(e) =>
-                    setQuantity(Math.max(1, parseInt(e.target.value) || 1))
-                  }
-                  className="w-16 h-10 text-center border-2 border-gray-300 rounded-lg font-medium"
-                />
-                <button
-                  onClick={() => setQuantity((q) => q + 1)}
-                  className="w-10 h-10 rounded-lg border-2 border-gray-300 flex items-center justify-center hover:border-gray-400"
-                >
-                  <Plus className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            {/* Buttons */}
+            {/* CTA — contact page (replaces add-to-cart) */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href={`/${lang}/contact`}
-                className="px-8 py-4 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors text-center"
+                className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center shadow-sm"
               >
-                {content.addToCartText}
-              </Link>
-              <Link
-                href={`/${lang}/contact`}
-                className="px-8 py-4 bg-amber-400 text-gray-900 rounded-lg font-semibold hover:bg-amber-500 transition-colors text-center"
-              >
-                {content.contactSalesText}
+                {contactUsLabel}
               </Link>
             </div>
           </div>

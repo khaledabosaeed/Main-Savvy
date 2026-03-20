@@ -358,7 +358,6 @@
     "moreRobots": "More Robots",
     "sliderDescriptionSuffix": " Contact us directly to obtain price.",
     "version": "Version",
-    "quantity": "Quantity",
     "viewPricingText": "View pricing",
     "cards": [
       {
@@ -855,9 +854,7 @@
         "bulletPoints": [
           "Order now and ship within 1 month",
           "Contact sales to get G1 EDU price"
-        ],
-        "addToCartText": "Add to Cart",
-        "contactSalesText": "Contact Us"
+        ]
       },
       "h2": {
         "name": "H2 EDU ",
@@ -871,9 +868,7 @@
         "bulletPoints": [
           "Order now and ship within 1 month",
           "Contact sales to get H2 EDU price"
-        ],
-        "addToCartText": "Add to Cart",
-        "contactSalesText": "Contact Us"
+        ]
       },
       "go2": {
         "name": "Go2",
@@ -890,9 +885,7 @@
           "Shipping costs between $399 and $1000",
           "Customer is responsible for customs duties and taxes",
           "Contact sales to get Go2 Edu price"
-        ],
-        "addToCartText": "Add to Cart",
-        "contactSalesText": "Contact Us"
+        ]
       },
       "r1": {
         "name": "Unitree Robo-Dog R1",
@@ -907,9 +900,7 @@
           "Shipping costs between $399 and $1000",
           "Customer is responsible for customs duties and taxes",
           "Contact sales to get Unitree Robo-Dog R1 price"
-        ],
-        "addToCartText": "Add to Cart",
-        "contactSalesText": "Contact Us"
+        ]
       }
     }
   },

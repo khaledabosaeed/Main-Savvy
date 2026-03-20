@@ -11,6 +11,29 @@ import { getRobotSliderSlides, getRobotLabel } from "@/lib/robots-locale"
 /** Shared container: matches navbar (max-w-7xl, px-4 md:px-6 lg:px-8) */
 const HERO_CONTAINER = "max-w-7xl mx-auto px-4 md:px-6 lg:px-8"
 
+/** Hero CTA — brand tokens only; motion-safe micro-interactions */
+const heroCtaBase =
+  "inline-flex w-full sm:w-auto min-w-0 items-center justify-center gap-2 rounded-full font-semibold text-center " +
+  "text-sm sm:text-base leading-tight px-5 md:px-6 lg:px-7 " +
+  "min-h-[44px] md:min-h-[48px] lg:min-h-[52px] " +
+  "transition-all duration-300 ease-out " +
+  "motion-safe:hover:-translate-y-px motion-safe:hover:scale-[1.02] active:scale-[0.98] " +
+  "motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100 motion-reduce:active:scale-100 " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
+
+const heroCtaPrimary =
+  `${heroCtaBase} ` +
+  "bg-primary text-white shadow-md shadow-black/25 " +
+  "hover:bg-primary/95 hover:shadow-lg hover:shadow-primary/35 " +
+  "focus-visible:ring-primary focus-visible:ring-offset-black/40"
+
+const heroCtaSecondary =
+  `${heroCtaBase} ` +
+  "bg-primary/15 backdrop-blur-md text-white border border-primary/45 " +
+  "shadow-md shadow-black/20 [text-shadow:0_1px_4px_rgba(0,0,0,0.45)] " +
+  "hover:bg-primary/25 hover:border-primary/65 hover:shadow-lg hover:shadow-black/30 " +
+  "focus-visible:ring-white/90 focus-visible:ring-offset-black/50"
+
 export default function RobotHeroSlider() {
   const { language } = useLanguage()
   const lang = language as "en" | "ar"
@@ -140,17 +163,19 @@ export default function RobotHeroSlider() {
                 </div>
 
                 <div
-                  className={`flex flex-wrap gap-3 md:gap-4 ${isRTL ? "flex-row-reverse justify-end" : "justify-start"}`}
+                  className={`flex w-full max-w-xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 ${
+                    isRTL ? "sm:flex-row-reverse sm:justify-end" : "sm:justify-start"
+                  }`}
                 >
                   <Link
                     href={`/${lang}${currentSlide.link}`}
-                    className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary/90 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 active:scale-[0.98]"
+                    className={heroCtaPrimary}
                   >
                     {currentSlide.buttonText}
                   </Link>
                   <Link
                     href={`/${lang}${currentSlide.link}/product`}
-                    className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white rounded-xl font-semibold border-2 border-white/80 hover:bg-white/10 hover:border-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] [text-shadow:0_1px_2px_rgba(0,0,0,0.5)]"
+                    className={heroCtaSecondary}
                   >
                     {getRobotLabel(lang, "viewProduct")}
                   </Link>

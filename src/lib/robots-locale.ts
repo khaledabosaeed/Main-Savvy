@@ -36,8 +36,6 @@ export interface RobotProductConfig {
   images: string[]
   versions: ProductVersion[]
   bulletPoints: string[]
-  addToCartText: string
-  contactSalesText: string
 }
 
 export interface RobotSlide extends RobotCard {
@@ -314,15 +312,14 @@ export function getRobotSpecsContent(
 
 export function getRobotLabel(
   lang: Language,
-  key: "version" | "quantity" | "viewProduct"
+  key: "version" | "viewProduct"
 ): string {
   const robots = locales[lang]?.robots as {
     version?: string
-    quantity?: string
     viewProduct?: string
   }
   return (
     robots?.[key] ??
-    (locales.en.robots as { version: string; quantity: string; viewProduct: string })[key]
+    (locales.en.robots as { version: string; viewProduct: string })[key]
   )
 }
