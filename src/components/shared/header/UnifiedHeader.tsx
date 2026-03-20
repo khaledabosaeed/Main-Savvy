@@ -134,7 +134,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
           duration: isMobile ? 0.2 : 0.3,
           ease: [0.16, 1, 0.3, 1]
         }}
-        className={`fixed left-0 right-0 z-40 mb-10 md:mb-0 transition-colors duration-300 ${
+        className={`fixed left-0 right-0 ${isMobileMenuOpen ? "z-[1000]" : "z-40"} mb-10 md:mb-0 transition-colors duration-300 ${
           transparentHeader && !isScrolled
             ? "bg-transparent shadow-none"
             : "bg-white/95 backdrop-blur-md shadow-md"
@@ -348,10 +348,10 @@ Uniatree Humanoid R1
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -20, scale: 0.95 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="md:hidden absolute top-full left-4 right-4 mt-2 bg-black/90 backdrop-blur-md rounded-2xl overflow-hidden"
+                className="md:hidden overflow-y-auto overflow-x-hidden overscroll-y-contain max-h-[calc(100dvh-120px)] absolute top-full left-4 right-4 mt-2 bg-black/90 backdrop-blur-md rounded-2xl"
               >
                 <nav className="py-4">
-                  {Object.entries(texts)
+                  {Object.entries(texts)  
                     .filter(([key]) => key !== "ourServices" && key !== "ourRobots" && key !== "contactUs")
                     .map(([key, value]) => {
                       // Handle "main" and "news" as page links, others as section links
@@ -397,7 +397,7 @@ Uniatree Humanoid R1
                         )
                       }
 
-                      return (
+                      return (  
                         <Link
                           key={key}
                           href={href}
@@ -453,7 +453,8 @@ Uniatree Humanoid R1
                         {texts["ourRobots"]}
                       </div>
                       <Link
-                        href={`/${lang}/robots`}
+                        href={`/${lang}/robots`}                        
+
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
@@ -464,21 +465,28 @@ Uniatree Humanoid R1
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
-                        g1
+                        Uniatree Humanoid G1
                       </Link>
                       <Link
                         href={`/${lang}/robots/h2`}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
-                        h2
+                        Uniatree Humanoid H2
                       </Link>
                       <Link
                         href={`/${lang}/robots/go2`}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
-                        go2
+                        Unitree Robo-Dog Go2
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/r1`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        Unitree Humanoid R1
                       </Link>
                     </>
                   )}
