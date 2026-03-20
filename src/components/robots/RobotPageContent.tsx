@@ -51,9 +51,9 @@ export default function RobotPageContent({ slug, lang }: RobotPageContentProps) 
           </section>
         </>
       )}
-      {slug === "h1" && (
-        <>
-          <RobotVideoSection slug="h1" lang={lang} />
+      {slug === "h2" && (
+        <>  
+          <RobotVideoSection slug="h2" lang={lang} />
           <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-6 md:px-10">
             <h2
@@ -63,7 +63,7 @@ export default function RobotPageContent({ slug, lang }: RobotPageContentProps) 
             >
               {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
             </h2>
-            <SpecsTable slug="h1" lang={lang} singleColumn />
+            <SpecsTable slug="h2" lang={lang} singleColumn />
           </div>
         </section>
         </>
