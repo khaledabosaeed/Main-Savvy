@@ -293,11 +293,11 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
 Uniatree Humanoid G1
                           </Link>
                           <Link
-                            href={`/${lang}/robots/h1`}
+                            href={`/${lang}/robots/h2`}
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-                            Uniatree Humanoid H1
+                            Uniatree Humanoid H2
                           </Link>
                           <Link
                             href={`/${lang}/robots/go2`}
@@ -436,11 +436,11 @@ Uniatree Humanoid R1
                         g1
                       </Link>
                       <Link
-                        href={`/${lang}/robots/h1`}
+                        href={`/${lang}/robots/h2`}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
-                        h1
+                        h2
                       </Link>
                       <Link
                         href={`/${lang}/robots/go2`}

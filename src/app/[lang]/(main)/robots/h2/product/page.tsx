@@ -26,7 +26,7 @@ const headerTextsAr = {
   contactUs: "تواصل معنا",
 }
 
-export default async function H1ProductPage({ params }: ProductPageProps) {
+export default async function H2ProductPage({ params }: ProductPageProps) {
   const { lang } = await params
   const currentLang = lang as "en" | "ar"
   const texts = currentLang === "ar" ? headerTextsAr : headerTextsEn
@@ -35,7 +35,7 @@ export default async function H1ProductPage({ params }: ProductPageProps) {
     <>
       <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
-        <RobotProductDetails slug="h1" lang={currentLang} />
+        <RobotProductDetails slug="h2" lang={currentLang} />
       </PageTransition>
     </>
   )

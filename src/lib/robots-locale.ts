@@ -2,7 +2,7 @@ import en from "../../public/locales/en.json"
 import ar from "../../public/locales/ar.json"
 
 export type Language = "en" | "ar"
-export type RobotSlug = "g1" | "h1" | "go2" | "r1"
+export type RobotSlug = "g1" | "h2" | "go2" | "r1"
 
 const locales = { en, ar } as const
 
@@ -187,7 +187,7 @@ export function getRobotProductContent(
   lang: Language
 ): RobotProductConfig {
   const product = (locales[lang]?.robots as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
-  const fallback = (locales.en.robots as { product: Record<RobotSlug, RobotProductConfig> }).product[slug]
+  const fallback = (locales.en.robots as unknown as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
   return (product ?? fallback) as RobotProductConfig
 }
 

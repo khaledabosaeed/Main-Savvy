@@ -371,13 +371,13 @@
         "productLink": "/robots/g1/product"
       },
       {
-        "id": "h1",
-        "name": "Uniatree Humanoid H1 ",
-        "description": "Embodied AI, Price below $90k",
-        "image": "/robot/h1/h1.jpg",
-        "link": "/robots/h1",
+        "id": "h2",
+        "name": "Uniatree Humanoid H2 ",
+        "description": "Destiny Awakening",
+        "image": "/robot/h2/H2 Ring.jpg",
+        "link": "/robots/h2",
         "buttonText": "Learn more",
-        "productLink": "/robots/h1/product"
+        "productLink": "/robots/h2/product"
       },
       {
         "id": "go2",
@@ -407,9 +407,9 @@
         "buttonText": "View Product",
         "textPlacement": "center"
       },
-      "h1": {
-        "videoSrc": "/robot/h1/hero.mp4",
-        "title": "H1 EDU ",
+      "h2": {
+        "videoSrc": "/robot/h2/hero.mp4",
+        "title": "H2 EDU ",
         "subtitle": "High-performance humanoid robot for industrial and service applications.",
         "priceStartsFrom": "Price starts from $350,000 SAR",
         "buttonText": "View Product",
@@ -453,18 +453,20 @@
           }
         ]
       },
-      "h1": {
+      "h2": {
       "items": [
+        {
+          "scrollVideoSrc": "/robot/h2/sec.mp4",
+          "scrollTitle": "Motion Control Algorithms Breathing Life into Form",
+          "scrollSubtitle": "31 degrees of freedom, 360N·m joint torque, and precise dynamic movement replication. Algorithms evolve continuously via OTA."
+        }
+      ,
       {
-        "scrollVideoSrc": "/robot/h1/sceondvioe.mp4",
-        "scrollTitle": "The first full-size general-purpose humanoid robot that can run in China",
-        "scrollSubtitle": "Possessing a stable gait and highly flexible movement capabilities, it is able to walk and run autonomously in complex terrains and environments."
+        "scrollVideoSrc": "/robot/h2/first.mp4",
+        "scrollTitle": "Embodied Models   Global Co-Creation",
+        "scrollSubtitle": "Powered by a 2070 TOPS chip, it supports diverse intelligent models, enabling multiple work scenarios and pushing humanoid robot boundaries."
       }
-      ,{
-        "scrollVideoSrc": "/robot/h1/third.mp4",
-        "scrollTitle": "360° depth perception",
-        "scrollSubtitle": "Equipped with 3D LiDAR + depth camera, real-time acquisition of high-precision spatial data to achieve panoramic scanning."
-      }
+ 
     ]
   },
       "go2": {
@@ -508,12 +510,9 @@
       }
     },
     "imageSection": {
-      "h1": {
+      "h2": {
         "beforeVideo": [
-          { "title": "Discover Hidden Highlights", "image": "/robot/h1/h1.png" }
-        ],
-        "beforeTable": [
-          { "image": "/robot/h1/h1.webp" }
+          { "title": "Unitree H2 Parameter", "image": "/robot/h2/H2.png" }
         ]
       },
       "go2": {
@@ -631,34 +630,67 @@
           }
         ]
       },
-      "h1": {
+      "h2": {
         "specLabel": "Specification",
+        "modelLabel": "Model",
+        "image": "/robot/h2/detalisimage.webp",
         "valueLabel": "Value",
+        "columnHeaders": ["H2", "H2 EDU"],
+        "headerImage": "/robot/h2/detalisimage.webp",
+        "columnPrices": ["$29,900", "Contact Sales"],
+        "priceLabel": "Price (Tax and Shipping cost excluded)",
         "sections": [
           {
             "label": "Mechanical Dimensions",
             "rows": [
-              { "name": "Key Dimensions", "values": ["(1520+285)mm × 570mm × 220mm"] },
-              { "name": "Thigh and Calf Length", "values": ["400mm × 2"] },
-              { "name": "Total Arm Length", "values": ["338mm × 2"] },
-              { "name": "DOF of Each Leg", "values": ["5 (Hip × 3 + Knee × 1 + Ankle × 1)"] },
-              { "name": "DOF of Each Arm", "values": ["4 (Expandable)"] },
-              { "name": "Total Weight", "values": ["About 47kg"] },
-              { "name": "Joint output bearing", "values": ["Industrial grade crossed roller bearings (high precision, high load capacity)"] },
-              { "name": "Core Joint motor", "values": ["Low inertia high-speed internal rotor PMSM (permanent magnet synchronous motor, better response speed and heat dissipation)"] }
+              { "name": "Height, Width and Thickness (Stand)", "values": ["1820 x 456 x 218mm", "1820 x 456 x 218mm"] },
+              { "name": "Weight (With Battery)", "values": ["About 70kg", "About 70kg"] },
+              { "name": "Degree of Freedom (Total Joints)", "values": ["31", "31"] },
+              { "name": "Single Leg Degrees of Freedom", "values": ["6", "6"] },
+              { "name": "Single Arm Degrees of Freedom", "values": ["7", "7"] },
+              { "name": "Waist Degrees of Freedom", "values": ["3", "3"] },
+              { "name": "Head Degrees of Freedom", "values": ["2", "2"] },
+              { "name": "Dexterous Hand", "values": ["/", "Dexterous Hand (Multiple Model Options)"] },
+              { "name": "Bionic Head with Facial Features", "values": ["YES", "YES"] },
+              { "name": "Joint output bearing", "values": ["Industrial grade crossed roller bearings (high precision, high load capacity)", "Industrial grade crossed roller bearings (high precision, high load capacity)"] },
+              { "name": "Joint motor", "values": ["Low inertia high-speed internal rotor PMSM (permanent magnet synchronous motor, better response speed and heat dissipation)", "Low inertia high-speed internal rotor PMSM (permanent magnet synchronous motor, better response speed and heat dissipation)"] }
             ]
           },
           {
             "label": "Electrical Characteristics",
             "rows": [
-              { "name": "Ultimate Torque of Joint Unit", "values": ["Knee Torque About 360N.m, Hip Joint Torque About 220N.m, Ankle Torque About 59N.m, Arm Joint Torque About 75N.m"] },
-              { "name": "Mobility", "values": ["Moving speed of 3.3m/s (world record), Potential mobility > 5m/s"] },
-              { "name": "Battery", "values": ["Battery capacity 15Ah (0.864KWh), Max Voltage 67.2V"] },
-              { "name": "Control and Perception Computing Power", "values": ["Standard configuration: Intel Core i5 (Platform Function), Intel Core i7 (User Development); Optional Configuration: Intel Core i7 or Nvidia Jetson Orin NX"] },
-              { "name": "Sensor Configuration", "values": ["3D LIDAR + Depth Camera"] },
-              { "name": "Dexterous Hand", "values": ["Optional"] },
-              { "name": "Arm joint performance (peak torque)", "values": ["/"] },
-              { "name": "Arm normal load", "values": ["/"] }
+              { "name": "Maximum Torque of Arm Joint [1]", "values": ["120N.m", "120N.m"] },
+              { "name": "Maximum Torque of Leg Joint [1]", "values": ["360N.m", "360N.m"] },
+              { "name": "Arm Maximum Payload [1]", "values": ["Peak: ~15 kg; Rated: ~7 kg", "Peak: ~15 kg; Rated: ~7 kg"] },
+              { "name": "Calf + Thigh Length", "values": ["1045mm", "1045mm"] },
+              { "name": "Forearm + Upper Arm Length", "values": ["690mm", "690mm"] },
+              { "name": "Materials Used in Construction", "values": ["Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics", "Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics"] },
+              { "name": "Cooling System", "values": ["Local air cooling", "Local air cooling"] },
+              { "name": "Power Supply", "values": ["Premium Lithium Battery with Low Internal Resistance", "Premium Lithium Battery with Low Internal Resistance"] },
+              { "name": "Battery Capacity", "values": ["15Ah(0.972KWh)", "15Ah(0.972KWh)"] },
+              { "name": "Battery Voltage", "values": ["Maximum Voltage: 75.6 V", "Maximum Voltage: 75.6 V"] },
+              { "name": "Basic Computing Power", "values": ["PC1 : Intel Core i5 (Platform Capabilities)", "PC1 : Intel Core i5 (Platform Capabilities)\nPC2 : Intel Core i7 (Custom Development)"] },
+              { "name": "Sensing Sensor", "values": ["Humanoid Binocular Camera with Wide Field of View", "Humanoid Binocular Camera with Wide Field of View"] },
+              { "name": "Voice Interaction", "values": ["Array Microphone and High-Power Speaker for Voice Interaction", "Array Microphone and High-Power Speaker for Voice Interaction"] },
+              { "name": "WiFi 6 · Bluetooth 5.2", "values": ["YES", "YES"] }
+            ]
+          },
+          {
+            "label": "Accessories",
+            "rows": [
+              { "name": "High-Power Computing Module", "values": ["/", "Compute Module Up to Jetson AGX Thor (2070 TOPS)"] },
+              { "name": "Smart Battery (Quick Release)", "values": ["YES", "YES"] },
+              { "name": "Charger", "values": ["YES", "YES"] },
+              { "name": "Manual Controller", "values": ["YES", "YES"] }
+            ]
+          },
+          {
+            "label": "Other",
+            "rows": [
+              { "name": "Battery Life", "values": ["About 3h", "About 3h"] },
+              { "name": "Upgraded Intelligent OTA", "values": ["YES", "YES"] },
+              { "name": "Secondary Development [2]", "values": ["/", "YES"] },
+              { "name": "Warranty Period [3]", "values": ["8 Months", "12 Months"] }
             ]
           }
         ]
@@ -827,14 +859,18 @@
         "addToCartText": "Add to Cart",
         "contactSalesText": "Contact Us"
       },
-      "h1": {
-        "name": "H1 EDU ",
+      "h2": {
+        "name": "H2 EDU ",
         "price": "350,000 SAR",
-        "images": ["/robot/h1/catlouge/h1c.webp", "/robot/h1/catlouge/h1c1.jpg", "/robot/h1/catlouge/h1c2.webp" ,"/robot/h1/catlouge/h1c3.webp"],
-        "versions": [{"id": "h1-edu", "name": "H1 EDU"}],
+        "images": [
+          "/robot/h2/catlouge/1.png",
+          "/robot/h2/catlouge/2.png",
+          "/robot/h2/catlouge/3.png"
+        ],
+        "versions": [{ "id": "h2-edu", "name": "H2 EDU " }],
         "bulletPoints": [
           "Order now and ship within 1 month",
-          "Contact sales to get H1 EDU price"
+          "Contact sales to get H2 EDU price"
         ],
         "addToCartText": "Add to Cart",
         "contactSalesText": "Contact Us"
