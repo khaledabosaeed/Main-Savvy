@@ -88,7 +88,7 @@ export default function RobotHeroSlider() {
       <div className="relative z-10 h-full flex items-center">
         <div className={`w-full ${HERO_CONTAINER}`}>
           <div
-            className={`flex flex-col max-w-2xl gap-4 md:gap-6 py-24 md:py-32 ${
+            className={`flex flex-col max-w-2xl gap-2.5 md:gap-6 py-24 md:py-32 ${
               isRTL ? "items-end text-right ms-auto me-0" : "items-start text-left me-auto ms-0"
             }`}
           >
@@ -99,7 +99,7 @@ export default function RobotHeroSlider() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="flex flex-col gap-4 md:gap-6"
+                className="flex flex-col gap-2.5 md:gap-6"
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight [text-shadow:0_2px_8px_rgba(0,0,0,0.6),0_4px_16px_rgba(0,0,0,0.4)]">
                   {currentSlide.name}
@@ -107,8 +107,40 @@ export default function RobotHeroSlider() {
                 <p className="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed line-clamp-2 [text-shadow:0_1px_4px_rgba(0,0,0,0.7),0_2px_12px_rgba(0,0,0,0.5)]">
                   {currentSlide.description}
                 </p>
+      
+                {/* Mobile: arrows at end of block; desktop uses edge arrows */}
                 <div
-                  className={`flex flex-wrap gap-4 pt-1 ${isRTL ? "flex-row-reverse justify-end" : "justify-start"}`}
+                  dir={isRTL ? "rtl" : "ltr"}
+                  className="flex md:hidden w-full items-center justify-between"
+                >
+                  <button
+                    type="button"
+                    onClick={goToPrev}
+                    className="p-2 flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                    aria-label={isRTL ? "الشريحة السابقة" : "Previous slide"}
+                  >
+                    {isRTL ? (
+                      <ChevronRight className="w-7 h-7" strokeWidth={1.5} />
+                    ) : (
+                      <ChevronLeft className="w-7 h-7" strokeWidth={1.5} />
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={goToNext}
+                    className="p-2 flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                    aria-label={isRTL ? "الشريحة التالية" : "Next slide"}
+                  >
+                    {isRTL ? (
+                      <ChevronLeft className="w-7 h-7" strokeWidth={1.5} />
+                    ) : (
+                      <ChevronRight className="w-7 h-7" strokeWidth={1.5} />
+                    )}
+                  </button>
+                </div>
+
+                <div
+                  className={`flex flex-wrap gap-3 md:gap-4 ${isRTL ? "flex-row-reverse justify-end" : "justify-start"}`}
                 >
                   <Link
                     href={`/${lang}${currentSlide.link}`}
@@ -127,11 +159,10 @@ export default function RobotHeroSlider() {
             </AnimatePresence>
           </div>
         </div>
-
         {/* Navigation arrows */}
         <button
           onClick={goToPrev}
-          className={`absolute top-1/2 -translate-y-1/2 z-20 p-3 flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all ${
+          className={`hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 p-3 items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all ${
             isRTL ? "right-4 md:right-8" : "left-4 md:left-8"
           }`}
           aria-label={isRTL ? "الشريحة السابقة" : "Previous slide"}
@@ -144,7 +175,7 @@ export default function RobotHeroSlider() {
         </button>
         <button
           onClick={goToNext}
-          className={`absolute top-1/2 -translate-y-1/2 z-20 p-3 flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all ${
+          className={`hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 p-3 items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all ${
             isRTL ? "left-4 md:left-8" : "right-4 md:right-8"
           }`}
           aria-label={isRTL ? "الشريحة التالية" : "Next slide"}
