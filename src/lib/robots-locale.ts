@@ -175,8 +175,8 @@ export function getRobotHeroContent(
   slug: RobotSlug,
   lang: Language
 ): RobotHeroConfig {
-  const hero = (locales[lang]?.robots as { hero?: Record<RobotSlug, RobotHeroConfig> })?.hero?.[slug]
-  const fallback = (locales.en.robots as { hero: Record<RobotSlug, RobotHeroConfig> }).hero[slug]
+  const hero = (locales[lang]?.robots as unknown as { hero?: Record<RobotSlug, RobotHeroConfig> })?.hero?.[slug]
+  const fallback = (locales.en.robots as unknown as { hero: Record<RobotSlug, RobotHeroConfig> }).hero[slug]
   return (hero ?? fallback) as RobotHeroConfig
 }
 
