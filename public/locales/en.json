@@ -429,7 +429,6 @@
         "videoSrc": "/robot/g1/hero.mp4",
         "title": "G1 EDU ",
         "subtitle": "Humanoid robot designed for advanced interaction and automation.",
-        "priceStartsFrom": "Price starts from $250,000 SAR",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
@@ -437,7 +436,6 @@
         "videoSrc": "/robot/h2/hero.mp4",
         "title": "H2 EDU ",
         "subtitle": "High-performance humanoid robot for industrial and service applications.",
-        "priceStartsFrom": "Price starts from $350,000 SAR",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
@@ -445,7 +443,6 @@
         "videoSrc": "/robot/go2/hero.mp4",
         "title": "Go2",
         "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
-        "priceStartsFrom": "Price starts from $2,800 USD",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
@@ -453,7 +450,6 @@
         "videoSrc": "/robot/R1/hero.mp4",
         "title": "R1",
         "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
-        "priceStartsFrom": "Price starts from $2,800 USD",
         "buttonText": "View Product",
         "textPlacement": "center"
       }
@@ -646,11 +642,8 @@
           {
             "label": "Other",
             "rows": [
-              { "name": "Battery Life", "values": ["About 2h", "About 2h"] },
-              { "name": "Upgraded Intelligent OTA", "values": ["YES", "YES"] },
-              { "name": "Secondary Development [3]", "values": ["/", "YES"] },
-              { "name": "Warranty Period [4]", "values": ["8 months", "18 months"] },
-              { "name": "Price (Tax and Shipping cost excluded)", "values": ["US $13.5K", "Contact sales"], "highlight": true }
+              { "name": "Battery Life", "values": ["About 2h", "About 2h"] }
+
             ]
           }
         ]

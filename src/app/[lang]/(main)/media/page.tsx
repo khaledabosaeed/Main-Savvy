@@ -47,26 +47,24 @@ export default async function MediaPage({ params }: MediaPageProps) {
     <>
       <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/media/media.svg" logoHref="#hero"/>
       <PageTransition>
+
+      <MadiaProjects  />
+
+      <section id="content" className="bg-white">
+          <MediaContent lang={currentLang} />
+        </section>
         <section id="hero">
           <UnrealHero  />
         </section>
- 
-        <section id="gallery" className="bg-white">
-        </section>
 
-        <section id="content" className="bg-white">
-          <MadiaProjects  />
-          <MediaContent lang={currentLang} />
-        </section>
+
+
 
      <section id="why-savvy">
           <WhySavvy lang={currentLang} />
         </section>
 
-{/* 
-      <section id="news">
-          <ImageSlider images={images} heading={ lang === "ar" ? "معرض الصور" : "Our Gallery"} />
-        </section> */}
+
 
 
       </PageTransition>
