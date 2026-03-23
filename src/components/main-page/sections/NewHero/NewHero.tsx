@@ -300,10 +300,10 @@ export default function NewHero() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full"
             >
               {[
+                { goal: content.goals[3], Icon: Bot },
                 { goal: content.goals[0], Icon: Leaf },
                 { goal: content.goals[1], Icon: Wind },
                 { goal: content.goals[2], Icon: Brain },
-                { goal: content.goals[3], Icon: Bot },
               ].map(({ goal, Icon }, i) => (
                 <motion.div
                   key={i}

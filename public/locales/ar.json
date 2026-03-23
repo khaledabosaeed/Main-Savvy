@@ -463,8 +463,8 @@
         "items": [
           {
             "scrollVideoSrc": "/robot/g1/four.mp4",
-            "scrollTitle": "يد ذكية للتحكم بالقوة، وتلاعب بجميع الأشياء",
-            "scrollSubtitle": "بالاشتراك مع التحكم الهجين القوة-الموضع، فهي حساسة وموثوقة، ويمكنها محاكاة الأيدي البشرية لتحقيق التلاعب الدقيق بالأشياء."
+            "scrollTitle": "يد قوية للتحكم بقوة باستخدام برامج محاكاة",
+            "scrollSubtitle": "بالاشتراك مع التحكم الهجين القوة-الموضع، فهي حساسة وموثوقة، ويمكنها محاكاة الأيدي البشرية لتحقيق التحكم الدقيق بالأشياء."
           },
           {
             "scrollVideoSrc": "/robot/g1/five.mp4",
@@ -554,16 +554,15 @@
     },
     "flexibleSection": {
       "g1": {
-        "title": "أكثر مرونة وراحة!",
+        "title": "أكثر مرونة !",
         "subtitle": null,
         "items": [
-          { "image": "/robot/g1/slider/sliderg.jpg" },
           { "image": "/robot/g1/slider/sliderg2.jpg" },
           { "image": "/robot/g1/slider/sliderg4.jpg" },
+          { "image": "/robot/g1/slider/sliderg.jpg" },
           { "image": "/robot/g1/slider/sliderg6.jpg" },
           { "image": "/robot/g1/slider/sliderg7.jpg" },
-          { "image": "/robot/g1/slider/sliderg8.jpg" },
-          { "image": "/robot/g1/slider/sliderg9.jpg" }
+          { "image": "/robot/g1/slider/sliderg8.jpg" }
         ]
       },
       "go2": {
@@ -590,7 +589,7 @@
     },
     "specs": {
       "g1": {
-        "header": "معلمات Unitree G1",
+        "header": "معلومات باللغة الإنجليزية ",
         "image": "/robot/g1/detalisimage.png",
         "specLabel": "المواصفة",
         "modelLabel": "الموديل",

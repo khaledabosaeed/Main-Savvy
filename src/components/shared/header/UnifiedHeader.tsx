@@ -43,14 +43,12 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
     ? ["ساڤي وورلد", "ساڤي إكسبو", "ساڤي ميديا", "ساڤي انوفيشن"]
     : ["Savvy World", "Savvy Expo", "Savvy Media", "Savvy Innovation"]
 
-  /** Sub-links under "Our Sections" (about) — mobile menu only; matches expo / innovation / media pages */
   const aboutSectionLinks = [
     { href: `/${lang}/expo`, label: lang === "ar" ? "إكسبو" : "Expo" },
     { href: `/${lang}/innovation`, label: lang === "ar" ? "إنوفيشن" : "Innovation" },
     { href: `/${lang}/media`, label: lang === "ar" ? "ميديا" : "Media" },
   ] as const
 
-  // إغلاق القائمة عند النقر خارجها
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node
@@ -83,7 +81,6 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // تنظيف timeout عند unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
@@ -351,6 +348,51 @@ Unitree Humanoid R1
                 className="md:hidden overflow-y-auto overflow-x-hidden overscroll-y-contain max-h-[calc(100dvh-120px)] absolute top-full left-4 right-4 mt-2 bg-black/90 backdrop-blur-md rounded-2xl"
               >
                 <nav className="py-4">
+                  {/* Robots in mobile menu */}
+                  {texts["ourRobots"] && (
+                    <>
+                      <div className="px-6 py-3 text-white/60 text-xs font-semibold uppercase">
+                        {texts["ourRobots"]}
+                      </div>
+                      <Link
+                        href={`/${lang}/robots`}                        
+
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        {lang === "ar" ? "عرض الكل" : "View all"}
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/g1`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        Unitree Humanoid G1
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/h2`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        Unitree Humanoid H2
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/go2`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        Unitree Robo-Dog Go2
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/r1`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        Unitree Humanoid R1
+                      </Link>
+                    </>
+                  )}
+
                   {Object.entries(texts)  
                     .filter(([key]) => key !== "ourServices" && key !== "ourRobots" && key !== "contactUs")
                     .map(([key, value]) => {
@@ -442,51 +484,6 @@ Unitree Humanoid R1
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
                         {serviceSections[3]}
-                      </Link>
-                    </>
-                  )}
-
-                  {/* Robots in mobile menu */}
-                  {texts["ourRobots"] && (
-                    <>
-                      <div className="px-6 py-3 text-white/60 text-xs font-semibold uppercase">
-                        {texts["ourRobots"]}
-                      </div>
-                      <Link
-                        href={`/${lang}/robots`}                        
-
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        {lang === "ar" ? "عرض الكل" : "View all"}
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/g1`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        Unitree Humanoid G1
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/h2`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        Unitree Humanoid H2
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/go2`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        Unitree Robo-Dog Go2
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/r1`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        Unitree Humanoid R1
                       </Link>
                     </>
                   )}

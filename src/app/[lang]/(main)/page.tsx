@@ -19,7 +19,7 @@ const headerTextsEn = {
   projects: "Latest Projects",
   services: "Gallery",
   about: "Our Sections",
-  ourRobots: "Robots",
+  ourRobots: "Savvy eStore",
   contactUs: "Contact Us",
 }
 
@@ -30,7 +30,7 @@ const headerTextsAr = {
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",
-  ourRobots: "الروبوتات",
+  ourRobots: "متجر ساڤي",
   contactUs: "تواصل معنا",
 }
 

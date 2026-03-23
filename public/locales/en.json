@@ -562,13 +562,12 @@
         "title": "More flexible and more comfortable!",
         "subtitle": null,
         "items": [
-          { "image": "/robot/g1/slider/sliderg.jpg" },
           { "image": "/robot/g1/slider/sliderg2.jpg" },
           { "image": "/robot/g1/slider/sliderg4.jpg" },
+          { "image": "/robot/g1/slider/sliderg.jpg" },
           { "image": "/robot/g1/slider/sliderg6.jpg" },
           { "image": "/robot/g1/slider/sliderg7.jpg" },
-          { "image": "/robot/g1/slider/sliderg8.jpg" },
-          { "image": "/robot/g1/slider/sliderg9.jpg" }
+          { "image": "/robot/g1/slider/sliderg8.jpg" }
         ]
       },
       "go2": {
