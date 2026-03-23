@@ -297,14 +297,14 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-Uniatree Humanoid G1
+Unitree Humanoid G1
                           </Link>
                           <Link
                             href={`/${lang}/robots/h2`}
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-                            Uniatree Humanoid H2
+                            Unitree Humanoid H2
                           </Link>
                           <Link
                             href={`/${lang}/robots/go2`}
@@ -318,7 +318,7 @@ Unitree Robo- Dog Go2
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-Uniatree Humanoid R1
+Unitree Humanoid R1
                           </Link>
                         </motion.div>
                       )}
@@ -465,14 +465,14 @@ Uniatree Humanoid R1
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
-                        Uniatree Humanoid G1
+                        Unitree Humanoid G1
                       </Link>
                       <Link
                         href={`/${lang}/robots/h2`}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
-                        Uniatree Humanoid H2
+                        Unitree Humanoid H2
                       </Link>
                       <Link
                         href={`/${lang}/robots/go2`}

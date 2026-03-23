@@ -389,7 +389,7 @@
     "cards": [
       {
         "id": "g1",
-        "name": "Uniatree Humanoid G1 ",
+        "name": "Unitree Humanoid G1 ",
         "description": "جسم افتراضي للوكيل البشري من الذكاء الاصطناعي",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
@@ -398,7 +398,7 @@
       },
       {
         "id": "h2",
-        "name": "Uniatree Humanoid H2 ",
+        "name": "Unitree Humanoid H2 ",
         "description": "إيقاظ المصير",
         "image": "/robot/h2/H2 Ring.jpg",
         "link": "/robots/h2",
