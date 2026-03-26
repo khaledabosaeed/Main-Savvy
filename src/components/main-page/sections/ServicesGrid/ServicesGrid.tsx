@@ -3,8 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { useLanguage } from "@/contexts/LanguageContext"
-import type { Language } from "./content"
-import { getServicesGridContent } from "./content"
+import { useTranslation } from "react-i18next"
 import {
   sectionSlideUp,
 
@@ -14,29 +13,29 @@ import {
 
 export default function ServicesGrid() {
   const { language } = useLanguage()
-  const lang = language as Language
+  const { t } = useTranslation()
+  const lang = language as "en" | "ar"
   const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").servicesGridContent.en) => getServicesGridContent(lang, key)
 
   const services = [
     {
-      title: t("innovationTitle"),
-      description: t("innovationDescription"),
-      button: t("innovationButton"),
+      title: t("servicesGrid.innovationTitle"),
+      description: t("servicesGrid.innovationDescription"),
+      button: t("servicesGrid.innovationButton"),
       image: "/home-page/services/1.jpg",
       align: "right" as const,
     },
     {
-      title: t("expoTitle"),
-      description: t("expoDescription"),
-      button: t("expoButton"),
+      title: t("servicesGrid.expoTitle"),
+      description: t("servicesGrid.expoDescription"),
+      button: t("servicesGrid.expoButton"),
       image: "/home-page/services/2.png",
       align: "left" as const,
     },
     {
-      title: t("mediaTitle"),
-      description: t("mediaDescription"),
-      button: t("mediaButton"),
+      title: t("servicesGrid.mediaTitle"),
+      description: t("servicesGrid.mediaDescription"),
+      button: t("servicesGrid.mediaButton"),
       image: "/home-page/services/3.jpg",
       align: "right" as const,
     },
@@ -59,10 +58,10 @@ export default function ServicesGrid() {
           className={`text-center mb-16 ${isRTL ? 'rtl' : 'ltr'}`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            {t("title")}
+            {t("servicesGrid.title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {t("subtitle")}
+            {t("servicesGrid.subtitle")}
           </p>
         </motion.div>
 

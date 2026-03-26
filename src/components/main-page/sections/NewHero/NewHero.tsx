@@ -6,8 +6,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
-import type { Language } from "./content"
-import { getHeroContent, heroContent } from "./content"
+import { useTranslation } from "react-i18next"
 
 import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa"
 import { FaLinkedinIn } from "react-icons/fa6"
@@ -16,11 +15,11 @@ import { Leaf, Wind, Brain, Bot } from "lucide-react"
 export default function NewHero() {
   const [animate, setAnimate] = useState(false)
   const { language } = useLanguage()
+  const { t } = useTranslation()
   const isMobile = useIsMobile()
-  const lang = language as Language
+  const lang = language as "en" | "ar"
   const isRTL = lang === "ar"
-  const t = (key: import("./content").HeroStringKey) => getHeroContent(lang, key)
-  const content = heroContent[lang]
+  const goalTexts = [0, 1, 2, 3].map((i) => t(`hero.goals.${i}`))
 
   useEffect(() => {
     setAnimate(true)
@@ -159,9 +158,9 @@ export default function NewHero() {
             animate={animate ? "visible" : "hidden"}
             className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight px-2"
           >
-            {t("welcomeText")}{" "}
+            {t("hero.welcomeText")}{" "}
             <span className="text-primary">
-              {t("savvyWorld")}
+              {t("hero.savvyWorld")}
             </span>
           </motion.h1>
 
@@ -172,7 +171,7 @@ export default function NewHero() {
             animate={animate ? "visible" : "hidden"}
             className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 mb-3 md:mb-4 max-w-4xl mx-auto px-4 leading-relaxed"
           >
-            {t("description")}
+            {t("hero.description")}
           </motion.p>
 
    
@@ -240,25 +239,25 @@ export default function NewHero() {
     Icon: FaTiktok, 
     color: "text-black",
     url: "https://www.tiktok.com/@mr.savvy_saudi",
-    ariaLabel: isRTL ? "تابعنا على تيك توك" : "Follow us on TikTok"
+    ariaLabel: t("hero.socialTiktok")
   },
   { 
     Icon: FaLinkedinIn, 
     color: "text-[#0077B5]",
     url: "https://www.linkedin.com/company/savvy-world/",
-    ariaLabel: isRTL ? "تابعنا على لينكد إن" : "Follow us on LinkedIn"
+    ariaLabel: t("hero.socialLinkedin")
   },
   { 
     Icon: FaInstagram, 
     color: "text-[#E1306C]",
     url: "https://www.instagram.com/mr.savvy_saudi",
-    ariaLabel: isRTL ? "تابعنا على إنستغرام" : "Follow us on Instagram"
+    ariaLabel: t("hero.socialInstagram")
   },
   { 
     Icon: FaSnapchatGhost, 
     color: "text-[#FFFC00] drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]",
     url: "https://www.snapchat.com/@mr.savvysaudi",
-    ariaLabel: isRTL ? "تابعنا على سناب شات" : "Follow us on Snapchat"
+    ariaLabel: t("hero.socialSnapchat")
   }
 ].map(({ Icon, color, url, ariaLabel }, index) => (
   <motion.a
@@ -287,10 +286,10 @@ export default function NewHero() {
             className="mb-4 md:mb-6 w-full max-w-6xl mx-auto px-4 flex flex-col items-center"
           >
                <h3 className="text-sm md:text-base font-semibold text-primary mb-4 md:mb-5 text-center">
-              {t("goalsTitle")}
+              {t("hero.goalsTitle")}
             </h3>
             <p className="text-xs md:text-sm lg:text-base text-gray-600 mb-2 md:mb-3 text-center">
-              {t("subDescription")}
+              {t("hero.subDescription")}
             </p>
          
             <motion.div
@@ -300,10 +299,10 @@ export default function NewHero() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full"
             >
               {[
-                { goal: content.goals[0], Icon: Leaf },
-                { goal: content.goals[1], Icon: Wind },
-                { goal: content.goals[2], Icon: Brain },
-                { goal: content.goals[3], Icon: Bot },
+                { goal: goalTexts[0], Icon: Leaf },
+                { goal: goalTexts[1], Icon: Wind },
+                { goal: goalTexts[2], Icon: Brain },
+                { goal: goalTexts[3], Icon: Bot },
               ].map(({ goal, Icon }, i) => (
                 <motion.div
                   key={i}

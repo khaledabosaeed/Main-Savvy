@@ -6,6 +6,7 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslation } from "react-i18next"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { useSmoothScroll } from "@/contexts/SmoothScrollContext"
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
@@ -24,6 +25,7 @@ interface UnifiedHeaderProps {
 
 export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner = true, logoHref, logoAlt = "Savvy", logoSrc = "/Savvy 2 1.svg", transparentHeader = false }: UnifiedHeaderProps) {
   const { language } = useLanguage()
+  const { t } = useTranslation()
   const isMobile = useIsMobile()
   const pathname = usePathname()
   const { scrollTo } = useSmoothScroll()
@@ -38,16 +40,13 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const robotsTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  // serviceSections ثابتة ومترجمة حرفيًا
-  const serviceSections = lang === "ar"
-    ? ["ساڤي وورلد", "ساڤي إكسبو", "ساڤي ميديا", "ساڤي انوفيشن"]
-    : ["Savvy World", "Savvy Expo", "Savvy Media", "Savvy Innovation"]
+  const serviceSections = t("serviceBrandNames", { returnObjects: true }) as string[]
 
   /** Sub-links under "Our Sections" (about) — mobile menu only; matches expo / innovation / media pages */
   const aboutSectionLinks = [
-    { href: `/${lang}/expo`, label: lang === "ar" ? "إكسبو" : "Expo" },
-    { href: `/${lang}/innovation`, label: lang === "ar" ? "إنوفيشن" : "Innovation" },
-    { href: `/${lang}/media`, label: lang === "ar" ? "ميديا" : "Media" },
+    { href: `/${lang}/expo`, label: t("nav.expo") },
+    { href: `/${lang}/innovation`, label: t("nav.innovation") },
+    { href: `/${lang}/media`, label: t("nav.media") },
   ] as const
 
   // إغلاق القائمة عند النقر خارجها
@@ -160,7 +159,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className={`md:hidden p-2 transition-colors ${isTransparent ? "text-white" : "text-gray-900"}`}
-                aria-label="Toggle menu"
+                aria-label={t("common.toggleMenu")}
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -290,7 +289,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors font-medium"
                           >
-                            {lang === "ar" ? "عرض الكل" : "View all"}
+                            {t("common.robotsViewAll")}
                           </Link>
                           <Link
                             href={`/${lang}/robots/g1`}
@@ -334,7 +333,7 @@ Uniatree Humanoid R1
                   href={`/${lang}/contact`}
                   className="px-5 py-2 bg-[#0066FF] text-white rounded-full hover:bg-[#0052CC] transition-colors text-sm font-medium whitespace-nowrap"
                 >
-                  {texts["contactUs"] || (lang === "ar" ? "اتصل بنا" : "Contact Us")}
+                  {texts["contactUs"] || t("common.contactUs")}
                 </Link>
               </div>
             </div>
@@ -491,7 +490,7 @@ Uniatree Humanoid R1
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="block w-full px-5 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-colors text-sm font-medium text-center"
                     >
-                      {texts["contactUs"] || (lang === "ar" ? "اتصل بنا" : "Contact Us")}
+                      {texts["contactUs"] || t("common.contactUs")}
                     </Link>
                   </div>
                 </nav>

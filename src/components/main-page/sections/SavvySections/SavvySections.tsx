@@ -1,13 +1,28 @@
 "use client"
 
 import { useLanguage } from "@/contexts/LanguageContext"
-import { getSavvySectionsContent } from "./content"
+import { useTranslation } from "react-i18next"
 import SavvySectionCard from "./SavvySectionCard"
+
+type SavvySectionCardData = {
+  id: string
+  title: string
+  description: string
+  features: string[]
+  icon: string
+  image: string
+  link: string
+  buttonText: string
+}
 
 export default function SavvySections() {
     const { language } = useLanguage()
+    const { t } = useTranslation()
     const isRTL = language === "ar"
-    const content = getSavvySectionsContent(language)
+    const content = t("savvySections", { returnObjects: true }) as {
+      sectionTitle: string
+      cards: SavvySectionCardData[]
+    }
 
     return (
         <section className="py-12 md:py-16 lg:py-20 bg-white">

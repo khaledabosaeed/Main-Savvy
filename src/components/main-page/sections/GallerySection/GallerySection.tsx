@@ -2,16 +2,31 @@
 
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
-import { getGalleryContent, type GalleryImage } from "./content"
+import { useTranslation } from "react-i18next"
+
+export interface GalleryImage {
+  id: string
+  src: string
+  alt: string
+  gridSpan?: {
+    cols?: 1 | 2
+    rows?: 1 | 2
+  }
+}
 import Image from "next/image"
 import { motion } from "framer-motion"
 import styles from "./GallerySection.module.css"
 
 export default function GallerySection() {
     const { language } = useLanguage()
+    const { t } = useTranslation()
     const isMobile = useIsMobile()
     const lang = language as "en" | "ar"
-    const content = getGalleryContent(lang)
+    const content = t("gallerySection", { returnObjects: true }) as {
+      title: string
+      images: GalleryImage[]
+      emptyState: string
+    }
 
     // Animation variants - Optimized for mobile
     const containerVariants = {
@@ -135,9 +150,7 @@ export default function GallerySection() {
 ) : (
   <div className={styles.emptyState}>
     <p className={styles.emptyText}>
-      {lang === "ar"
-        ? "لم يتم إضافة صور بعد. يرجى إضافة الصور في ملف content.ts"
-        : "No images added yet. Please add images in content.ts"}
+      {content.emptyState}
     </p>
   </div>
 )}

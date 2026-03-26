@@ -6,6 +6,23 @@
     "latestProjects": "Latest Projects",
     "contactUs": "Contact Us"
   },
+  "nav": {
+    "expo": "Expo",
+    "innovation": "Innovation",
+    "media": "Media",
+    "contact": "Contact",
+    "languageToArabic": "العربية",
+    "languageToEnglish": "English",
+    "about": "About",
+    "pricing": "Pricing",
+    "steps": "Steps"
+  },
+  "serviceBrandNames": [
+    "Savvy World",
+    "Savvy Expo",
+    "Savvy Media",
+    "Savvy Innovation"
+  ],
   "footer": {
     "savvyWorld": "Smart World",
     "aboutSavvy": "About Savvy",
@@ -407,7 +424,7 @@
       },
       {
         "id": "go2",
-        "name": "Unitree Robo-Dog Go2",  
+        "name": "Unitree Robo-Dog Go2",
         "description": "New Creature of Embodied AI",
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
@@ -460,17 +477,16 @@
     },
     "scrollSection": {
       "g1": {
-
-        "items": [  
+        "items": [
           {
             "scrollVideoSrc": "/robot/g1/four.mp4",
             "scrollTitle": "Force control dexterous hand, manipulation of all things",
             "scrollSubtitle": "Combined with force-position hybrid control, it is sensitive and reliable, and can simulate human hands to achieve precise operation of objects."
           },
-        {
-              "scrollVideoSrc": "/robot/g1/five.mp4",
-              "scrollTitle": "Multi-mode operation",
-              "scrollSubtitle": "The Go2 robot can operate in various modes, including manual control, autonomous navigation, and obstacle avoidance."
+          {
+            "scrollVideoSrc": "/robot/g1/five.mp4",
+            "scrollTitle": "Multi-mode operation",
+            "scrollSubtitle": "The Go2 robot can operate in various modes, including manual control, autonomous navigation, and obstacle avoidance."
           },
           {
             "scrollVideoSrc": "/robot/g1/six.mp4",
@@ -480,29 +496,26 @@
         ]
       },
       "h2": {
-      "items": [
-        {
-          "scrollVideoSrc": "/robot/h2/sec.mp4",
-          "scrollTitle": "Motion Control Algorithms Breathing Life into Form",
-          "scrollSubtitle": "31 degrees of freedom, 360N·m joint torque, and precise dynamic movement replication. Algorithms evolve continuously via OTA."
-        }
-      ,
-      {
-        "scrollVideoSrc": "/robot/h2/first.mp4",
-        "scrollTitle": "Embodied Models   Global Co-Creation",
-        "scrollSubtitle": "Powered by a 2070 TOPS chip, it supports diverse intelligent models, enabling multiple work scenarios and pushing humanoid robot boundaries."
-      }
- 
-    ]
-  },
+        "items": [
+          {
+            "scrollVideoSrc": "/robot/h2/sec.mp4",
+            "scrollTitle": "Motion Control Algorithms Breathing Life into Form",
+            "scrollSubtitle": "31 degrees of freedom, 360N·m joint torque, and precise dynamic movement replication. Algorithms evolve continuously via OTA."
+          },
+          {
+            "scrollVideoSrc": "/robot/h2/first.mp4",
+            "scrollTitle": "Embodied Models   Global Co-Creation",
+            "scrollSubtitle": "Powered by a 2070 TOPS chip, it supports diverse intelligent models, enabling multiple work scenarios and pushing humanoid robot boundaries."
+          }
+        ]
+      },
       "go2": {
         "items": [
           {
             "scrollVideoSrc": "/robot/go2/first.mp4",
             "scrollTitle": "Advanced AI Mode",
             "scrollSubtitle": "Through large-scale AI simulation training, the Go2 robot has learned advanced gaits such as upside-down walking, adaptive roll-over, and climbing over obstacles, with excellent flexibility and stability at the same time."
-          }
-          ,
+          },
           {
             "scrollVideoSrc": "/robot/go2/second.mp4",
             "scrollTitle": "3D LiDAR Mapping",
@@ -538,22 +551,31 @@
     "imageSection": {
       "h2": {
         "beforeVideo": [
-          { "title": "Unitree H2 Parameter", "image": "/robot/h2/H2.png" }
+          {
+            "title": "Unitree H2 Parameter",
+            "image": "/robot/h2/H2.png"
+          }
         ]
       },
       "go2": {
-
         "beforeTable": [
-
-          {  "title": "Discover Hidden Highlights", "image": "/robot/go2/imagesection.webp" }
+          {
+            "title": "Discover Hidden Highlights",
+            "image": "/robot/go2/imagesection.webp"
+          }
         ]
       },
       "r1": {
         "beforeVideo": [
-          { "title": "Intelligent pioneer, fully customizable", "image": "/robot/R1/R1b2.webp" }
+          {
+            "title": "Intelligent pioneer, fully customizable",
+            "image": "/robot/R1/R1b2.webp"
+          }
         ],
         "beforeTable": [
-          { "image": "/robot/R1/befor.png" }
+          {
+            "image": "/robot/R1/befor.png"
+          }
         ]
       }
     },
@@ -562,13 +584,27 @@
         "title": "More flexible and more comfortable!",
         "subtitle": null,
         "items": [
-          { "image": "/robot/g1/slider/sliderg.jpg" },
-          { "image": "/robot/g1/slider/sliderg2.jpg" },
-          { "image": "/robot/g1/slider/sliderg4.jpg" },
-          { "image": "/robot/g1/slider/sliderg6.jpg" },
-          { "image": "/robot/g1/slider/sliderg7.jpg" },
-          { "image": "/robot/g1/slider/sliderg8.jpg" },
-          { "image": "/robot/g1/slider/sliderg9.jpg" }
+          {
+            "image": "/robot/g1/slider/sliderg.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg2.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg4.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg6.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg7.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg8.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg9.jpg"
+          }
         ]
       },
       "go2": {
@@ -577,13 +613,11 @@
         "cards": [
           {
             "image": "/robot/go2/slider/slider1.webp",
-
             "title": "Graphical programming, simple yet smarter.",
             "description": "Optimise the graphical programming function, make it easy to complete the program design by simple drag, drop and connection. Make programming beginners easy to start and innovate."
           },
           {
             "image": "/robot/go2/slider/slider2.webp",
-
             "title": "Intelligent obstacle avoidance, precise and sensitive",
             "description": "Keen detection, equipped with 4D LiDAR L2, for the owner to explore forward, intelligent obstacle avoidance, accurately capture and draw the 3D real world"
           },
@@ -602,56 +636,240 @@
         "specLabel": "Specification",
         "modelLabel": "Model",
         "valueLabel": "Value",
-        "columnHeaders": ["G1", "G1 EDU"],
+        "columnHeaders": [
+          "G1",
+          "G1 EDU"
+        ],
         "sections": [
           {
             "label": "Mechanical Dimensions",
             "rows": [
-              { "name": "Height, Width and Thickness (Stand)", "values": ["1320x450x200mm", "1320x450x200mm"] },
-              { "name": "Height, Width and Thickness (Fold)", "values": ["690x450x300mm", "690x450x300mm"] },
-              { "name": "Weight (With Battery)", "values": ["About 35kg", "About 35kg+"] },
-              { "name": "Total Degrees of Freedom (Joint Freedom)", "values": ["23", "23-43"] },
-              { "name": "Single Leg Degrees of Freedom", "values": ["6", "6"] },
-              { "name": "Waist Degrees of Freedom", "values": ["1", "1+(Optional 2 additional waist degrees of freedom)"] },
-              { "name": "Single Arm Degrees of Freedom", "values": ["5", "5"] },
-              { "name": "Single Hand Degrees of Freedom", "values": ["/", "7 (Optional Force control of three-fingered hand)\n+2(Optional 2 additional wrist degrees of freedom)\n*Three-fingered dexterous hand Dex3-1 Parameter: The thumb has 3 active degrees of freedom; the index finger has 2 active degrees of freedom; the middle finger has 2 active degrees of freedom.\n**Dex3-1 can optionally be installed with tactile sensor arrays"] },
-              { "name": "Joint output bearing", "values": ["Industrial grade crossed roller bearings (high precision, high load capacity)", "Industrial grade crossed roller bearings (high precision, high load capacity)"] },
-              { "name": "Joint motor", "values": ["Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)", "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"] }
+              {
+                "name": "Height, Width and Thickness (Stand)",
+                "values": [
+                  "1320x450x200mm",
+                  "1320x450x200mm"
+                ]
+              },
+              {
+                "name": "Height, Width and Thickness (Fold)",
+                "values": [
+                  "690x450x300mm",
+                  "690x450x300mm"
+                ]
+              },
+              {
+                "name": "Weight (With Battery)",
+                "values": [
+                  "About 35kg",
+                  "About 35kg+"
+                ]
+              },
+              {
+                "name": "Total Degrees of Freedom (Joint Freedom)",
+                "values": [
+                  "23",
+                  "23-43"
+                ]
+              },
+              {
+                "name": "Single Leg Degrees of Freedom",
+                "values": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "name": "Waist Degrees of Freedom",
+                "values": [
+                  "1",
+                  "1+(Optional 2 additional waist degrees of freedom)"
+                ]
+              },
+              {
+                "name": "Single Arm Degrees of Freedom",
+                "values": [
+                  "5",
+                  "5"
+                ]
+              },
+              {
+                "name": "Single Hand Degrees of Freedom",
+                "values": [
+                  "/",
+                  "7 (Optional Force control of three-fingered hand)\n+2(Optional 2 additional wrist degrees of freedom)\n*Three-fingered dexterous hand Dex3-1 Parameter: The thumb has 3 active degrees of freedom; the index finger has 2 active degrees of freedom; the middle finger has 2 active degrees of freedom.\n**Dex3-1 can optionally be installed with tactile sensor arrays"
+                ]
+              },
+              {
+                "name": "Joint output bearing",
+                "values": [
+                  "Industrial grade crossed roller bearings (high precision, high load capacity)",
+                  "Industrial grade crossed roller bearings (high precision, high load capacity)"
+                ]
+              },
+              {
+                "name": "Joint motor",
+                "values": [
+                  "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)",
+                  "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"
+                ]
+              }
             ]
           },
           {
             "label": "Electrical Characteristics",
             "rows": [
-              { "name": "Maximum Torque of Knee Joint [1]", "values": ["90N.m", "120N.m"] },
-              { "name": "Arm Maximum Load (2)", "values": ["About 2Kg", "About 3Kg"] },
-              { "name": "Calf + Thigh Length", "values": ["0.6M", "0.45M"] },
-              { "name": "Extra Large Joint Movement Space", "values": ["Waist, Knee, Hip joints", "Waist, Knee, Hip joints\nWrist joint"] },
-              { "name": "Full Joint Hollow Electrical Routing", "values": ["YES", "YES"] },
-              { "name": "Joint Encoder", "values": ["Dual encoder", "Dual encoder"] },
-              { "name": "4 Microphone Array", "values": ["YES", "YES"] },
-              { "name": "Heat Dissipation", "values": ["Local air cooling", "Local air cooling"] },
-              { "name": "Battery", "values": ["13 string lithium battery", "13 string lithium battery"] },
-              { "name": "Computing Platform", "values": ["8-core high-performance CPU", "8-core high-performance CPU"] },
-              { "name": "Perception", "values": ["Depth Camera+3D LIDAR", "Depth Camera+3D LIDAR"] }
+              {
+                "name": "Maximum Torque of Knee Joint [1]",
+                "values": [
+                  "90N.m",
+                  "120N.m"
+                ]
+              },
+              {
+                "name": "Arm Maximum Load (2)",
+                "values": [
+                  "About 2Kg",
+                  "About 3Kg"
+                ]
+              },
+              {
+                "name": "Calf + Thigh Length",
+                "values": [
+                  "0.6M",
+                  "0.45M"
+                ]
+              },
+              {
+                "name": "Extra Large Joint Movement Space",
+                "values": [
+                  "Waist, Knee, Hip joints",
+                  "Waist, Knee, Hip joints\nWrist joint"
+                ]
+              },
+              {
+                "name": "Full Joint Hollow Electrical Routing",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Joint Encoder",
+                "values": [
+                  "Dual encoder",
+                  "Dual encoder"
+                ]
+              },
+              {
+                "name": "4 Microphone Array",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Heat Dissipation",
+                "values": [
+                  "Local air cooling",
+                  "Local air cooling"
+                ]
+              },
+              {
+                "name": "Battery",
+                "values": [
+                  "13 string lithium battery",
+                  "13 string lithium battery"
+                ]
+              },
+              {
+                "name": "Computing Platform",
+                "values": [
+                  "8-core high-performance CPU",
+                  "8-core high-performance CPU"
+                ]
+              },
+              {
+                "name": "Perception",
+                "values": [
+                  "Depth Camera+3D LIDAR",
+                  "Depth Camera+3D LIDAR"
+                ]
+              }
             ]
           },
           {
             "label": "Accessories",
             "rows": [
-              { "name": "High Computing Power Module", "values": ["/", "NVIDIA Jetson Orin"] },
-              { "name": "Smart Battery (Quick Release)", "values": ["9000mAh", "9000mAh"] },
-              { "name": "Charger", "values": ["54V 5A", "54V 5A"] },
-              { "name": "Manual Controller", "values": ["YES", "YES"] }
+              {
+                "name": "High Computing Power Module",
+                "values": [
+                  "/",
+                  "NVIDIA Jetson Orin"
+                ]
+              },
+              {
+                "name": "Smart Battery (Quick Release)",
+                "values": [
+                  "9000mAh",
+                  "9000mAh"
+                ]
+              },
+              {
+                "name": "Charger",
+                "values": [
+                  "54V 5A",
+                  "54V 5A"
+                ]
+              },
+              {
+                "name": "Manual Controller",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              }
             ]
           },
           {
             "label": "Other",
             "rows": [
-              { "name": "Battery Life", "values": ["About 2h", "About 2h"] },
-              { "name": "Upgraded Intelligent OTA", "values": ["YES", "YES"] },
-              { "name": "Secondary Development [3]", "values": ["/", "YES"] },
-              { "name": "Warranty Period [4]", "values": ["8 months", "18 months"] },
-              { "name": "Price (Tax and Shipping cost excluded)", "values": ["US $13.5K", "Contact sales"], "highlight": true }
+              {
+                "name": "Battery Life",
+                "values": [
+                  "About 2h",
+                  "About 2h"
+                ]
+              },
+              {
+                "name": "Upgraded Intelligent OTA",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Secondary Development [3]",
+                "values": [
+                  "/",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Warranty Period [4]",
+                "values": [
+                  "8 months",
+                  "18 months"
+                ]
+              },
+              {
+                "name": "Price (Tax and Shipping cost excluded)",
+                "values": [
+                  "US $13.5K",
+                  "Contact sales"
+                ],
+                "highlight": true
+              }
             ]
           }
         ]
@@ -661,62 +879,266 @@
         "modelLabel": "Model",
         "image": "/robot/h2/detalisimage.webp",
         "valueLabel": "Value",
-        "columnHeaders": ["H2", "H2 EDU"],
+        "columnHeaders": [
+          "H2",
+          "H2 EDU"
+        ],
         "headerImage": "/robot/h2/detalisimage.webp",
-        "columnPrices": ["$29,900", "Contact Sales"],
+        "columnPrices": [
+          "$29,900",
+          "Contact Sales"
+        ],
         "priceLabel": "Price (Tax and Shipping cost excluded)",
         "sections": [
           {
             "label": "Mechanical Dimensions",
             "rows": [
-              { "name": "Height, Width and Thickness (Stand)", "values": ["1820 x 456 x 218mm", "1820 x 456 x 218mm"] },
-              { "name": "Weight (With Battery)", "values": ["About 70kg", "About 70kg"] },
-              { "name": "Degree of Freedom (Total Joints)", "values": ["31", "31"] },
-              { "name": "Single Leg Degrees of Freedom", "values": ["6", "6"] },
-              { "name": "Single Arm Degrees of Freedom", "values": ["7", "7"] },
-              { "name": "Waist Degrees of Freedom", "values": ["3", "3"] },
-              { "name": "Head Degrees of Freedom", "values": ["2", "2"] },
-              { "name": "Dexterous Hand", "values": ["/", "Dexterous Hand (Multiple Model Options)"] },
-              { "name": "Bionic Head with Facial Features", "values": ["YES", "YES"] },
-              { "name": "Joint output bearing", "values": ["Industrial grade crossed roller bearings (high precision, high load capacity)", "Industrial grade crossed roller bearings (high precision, high load capacity)"] },
-              { "name": "Joint motor", "values": ["Low inertia high-speed internal rotor PMSM (permanent magnet synchronous motor, better response speed and heat dissipation)", "Low inertia high-speed internal rotor PMSM (permanent magnet synchronous motor, better response speed and heat dissipation)"] }
+              {
+                "name": "Height, Width and Thickness (Stand)",
+                "values": [
+                  "1820 x 456 x 218mm",
+                  "1820 x 456 x 218mm"
+                ]
+              },
+              {
+                "name": "Weight (With Battery)",
+                "values": [
+                  "About 70kg",
+                  "About 70kg"
+                ]
+              },
+              {
+                "name": "Degree of Freedom (Total Joints)",
+                "values": [
+                  "31",
+                  "31"
+                ]
+              },
+              {
+                "name": "Single Leg Degrees of Freedom",
+                "values": [
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "name": "Single Arm Degrees of Freedom",
+                "values": [
+                  "7",
+                  "7"
+                ]
+              },
+              {
+                "name": "Waist Degrees of Freedom",
+                "values": [
+                  "3",
+                  "3"
+                ]
+              },
+              {
+                "name": "Head Degrees of Freedom",
+                "values": [
+                  "2",
+                  "2"
+                ]
+              },
+              {
+                "name": "Dexterous Hand",
+                "values": [
+                  "/",
+                  "Dexterous Hand (Multiple Model Options)"
+                ]
+              },
+              {
+                "name": "Bionic Head with Facial Features",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Joint output bearing",
+                "values": [
+                  "Industrial grade crossed roller bearings (high precision, high load capacity)",
+                  "Industrial grade crossed roller bearings (high precision, high load capacity)"
+                ]
+              },
+              {
+                "name": "Joint motor",
+                "values": [
+                  "Low inertia high-speed internal rotor PMSM (permanent magnet synchronous motor, better response speed and heat dissipation)",
+                  "Low inertia high-speed internal rotor PMSM (permanent magnet synchronous motor, better response speed and heat dissipation)"
+                ]
+              }
             ]
           },
           {
             "label": "Electrical Characteristics",
             "rows": [
-              { "name": "Maximum Torque of Arm Joint [1]", "values": ["120N.m", "120N.m"] },
-              { "name": "Maximum Torque of Leg Joint [1]", "values": ["360N.m", "360N.m"] },
-              { "name": "Arm Maximum Payload [1]", "values": ["Peak: ~15 kg; Rated: ~7 kg", "Peak: ~15 kg; Rated: ~7 kg"] },
-              { "name": "Calf + Thigh Length", "values": ["1045mm", "1045mm"] },
-              { "name": "Forearm + Upper Arm Length", "values": ["690mm", "690mm"] },
-              { "name": "Materials Used in Construction", "values": ["Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics", "Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics"] },
-              { "name": "Cooling System", "values": ["Local air cooling", "Local air cooling"] },
-              { "name": "Power Supply", "values": ["Premium Lithium Battery with Low Internal Resistance", "Premium Lithium Battery with Low Internal Resistance"] },
-              { "name": "Battery Capacity", "values": ["15Ah(0.972KWh)", "15Ah(0.972KWh)"] },
-              { "name": "Battery Voltage", "values": ["Maximum Voltage: 75.6 V", "Maximum Voltage: 75.6 V"] },
-              { "name": "Basic Computing Power", "values": ["PC1 : Intel Core i5 (Platform Capabilities)", "PC1 : Intel Core i5 (Platform Capabilities)\nPC2 : Intel Core i7 (Custom Development)"] },
-              { "name": "Sensing Sensor", "values": ["Humanoid Binocular Camera with Wide Field of View", "Humanoid Binocular Camera with Wide Field of View"] },
-              { "name": "Voice Interaction", "values": ["Array Microphone and High-Power Speaker for Voice Interaction", "Array Microphone and High-Power Speaker for Voice Interaction"] },
-              { "name": "WiFi 6 · Bluetooth 5.2", "values": ["YES", "YES"] }
+              {
+                "name": "Maximum Torque of Arm Joint [1]",
+                "values": [
+                  "120N.m",
+                  "120N.m"
+                ]
+              },
+              {
+                "name": "Maximum Torque of Leg Joint [1]",
+                "values": [
+                  "360N.m",
+                  "360N.m"
+                ]
+              },
+              {
+                "name": "Arm Maximum Payload [1]",
+                "values": [
+                  "Peak: ~15 kg; Rated: ~7 kg",
+                  "Peak: ~15 kg; Rated: ~7 kg"
+                ]
+              },
+              {
+                "name": "Calf + Thigh Length",
+                "values": [
+                  "1045mm",
+                  "1045mm"
+                ]
+              },
+              {
+                "name": "Forearm + Upper Arm Length",
+                "values": [
+                  "690mm",
+                  "690mm"
+                ]
+              },
+              {
+                "name": "Materials Used in Construction",
+                "values": [
+                  "Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics",
+                  "Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics"
+                ]
+              },
+              {
+                "name": "Cooling System",
+                "values": [
+                  "Local air cooling",
+                  "Local air cooling"
+                ]
+              },
+              {
+                "name": "Power Supply",
+                "values": [
+                  "Premium Lithium Battery with Low Internal Resistance",
+                  "Premium Lithium Battery with Low Internal Resistance"
+                ]
+              },
+              {
+                "name": "Battery Capacity",
+                "values": [
+                  "15Ah(0.972KWh)",
+                  "15Ah(0.972KWh)"
+                ]
+              },
+              {
+                "name": "Battery Voltage",
+                "values": [
+                  "Maximum Voltage: 75.6 V",
+                  "Maximum Voltage: 75.6 V"
+                ]
+              },
+              {
+                "name": "Basic Computing Power",
+                "values": [
+                  "PC1 : Intel Core i5 (Platform Capabilities)",
+                  "PC1 : Intel Core i5 (Platform Capabilities)\nPC2 : Intel Core i7 (Custom Development)"
+                ]
+              },
+              {
+                "name": "Sensing Sensor",
+                "values": [
+                  "Humanoid Binocular Camera with Wide Field of View",
+                  "Humanoid Binocular Camera with Wide Field of View"
+                ]
+              },
+              {
+                "name": "Voice Interaction",
+                "values": [
+                  "Array Microphone and High-Power Speaker for Voice Interaction",
+                  "Array Microphone and High-Power Speaker for Voice Interaction"
+                ]
+              },
+              {
+                "name": "WiFi 6 · Bluetooth 5.2",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              }
             ]
           },
           {
             "label": "Accessories",
             "rows": [
-              { "name": "High-Power Computing Module", "values": ["/", "Compute Module Up to Jetson AGX Thor (2070 TOPS)"] },
-              { "name": "Smart Battery (Quick Release)", "values": ["YES", "YES"] },
-              { "name": "Charger", "values": ["YES", "YES"] },
-              { "name": "Manual Controller", "values": ["YES", "YES"] }
+              {
+                "name": "High-Power Computing Module",
+                "values": [
+                  "/",
+                  "Compute Module Up to Jetson AGX Thor (2070 TOPS)"
+                ]
+              },
+              {
+                "name": "Smart Battery (Quick Release)",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Charger",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Manual Controller",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              }
             ]
           },
           {
             "label": "Other",
             "rows": [
-              { "name": "Battery Life", "values": ["About 3h", "About 3h"] },
-              { "name": "Upgraded Intelligent OTA", "values": ["YES", "YES"] },
-              { "name": "Secondary Development [2]", "values": ["/", "YES"] },
-              { "name": "Warranty Period [3]", "values": ["8 Months", "12 Months"] }
+              {
+                "name": "Battery Life",
+                "values": [
+                  "About 3h",
+                  "About 3h"
+                ]
+              },
+              {
+                "name": "Upgraded Intelligent OTA",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Secondary Development [2]",
+                "values": [
+                  "/",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Warranty Period [3]",
+                "values": [
+                  "8 Months",
+                  "12 Months"
+                ]
+              }
             ]
           }
         ]
@@ -724,61 +1146,286 @@
       "r1": {
         "specLabel": "Specification",
         "valueLabel": "Value",
-        "columnHeaders": ["R1 AIR", "R1", "R1 EDU"],
+        "columnHeaders": [
+          "R1 AIR",
+          "R1",
+          "R1 EDU"
+        ],
         "headerImage": "/robot/R1/tabel.webp",
-        "columnPrices": ["$4,900", "$5,900", "Contact Sales"],
+        "columnPrices": [
+          "$4,900",
+          "$5,900",
+          "Contact Sales"
+        ],
         "modelLabel": "Model",
         "priceLabel": "Price (Tax and Shipping cost excluded)",
         "sections": [
           {
             "label": "Mechanical Dimensions",
             "rows": [
-              { "name": "Height, Width and Thickness (Stand)", "values": ["1230x357x190mm", "1230x357x190mm", "1230x357x190mm"] },
-              { "name": "Weight (With Battery)", "values": ["About 27kg", "About 29kg", "About 29kg"] },
-              { "name": "Degree of Freedom(Total Joints)", "values": ["20", "26", "26-40"] },
-              { "name": "Single Leg Degrees of Freedom", "values": ["6", "6", "6"] },
-              { "name": "Single Arm Degrees of Freedom", "values": ["4", "5", "5"] },
-              { "name": "Waist Degrees of Freedom", "values": ["/", "2", "2"] },
-              { "name": "Head Degrees of Freedom", "values": ["/", "2", "2"] },
-              { "name": "Dexterous Hand", "values": ["/", "/", "Optional"] },
-              { "name": "Joint output bearing", "values": ["Crossed roller bearings, Double Hook Ball Bearings", "Crossed roller bearings, Double Hook Ball Bearings", "Crossed roller bearings, Double Hook Ball Bearings"] },
-              { "name": "Joint motor", "values": ["Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)", "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)", "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"] }
+              {
+                "name": "Height, Width and Thickness (Stand)",
+                "values": [
+                  "1230x357x190mm",
+                  "1230x357x190mm",
+                  "1230x357x190mm"
+                ]
+              },
+              {
+                "name": "Weight (With Battery)",
+                "values": [
+                  "About 27kg",
+                  "About 29kg",
+                  "About 29kg"
+                ]
+              },
+              {
+                "name": "Degree of Freedom(Total Joints)",
+                "values": [
+                  "20",
+                  "26",
+                  "26-40"
+                ]
+              },
+              {
+                "name": "Single Leg Degrees of Freedom",
+                "values": [
+                  "6",
+                  "6",
+                  "6"
+                ]
+              },
+              {
+                "name": "Single Arm Degrees of Freedom",
+                "values": [
+                  "4",
+                  "5",
+                  "5"
+                ]
+              },
+              {
+                "name": "Waist Degrees of Freedom",
+                "values": [
+                  "/",
+                  "2",
+                  "2"
+                ]
+              },
+              {
+                "name": "Head Degrees of Freedom",
+                "values": [
+                  "/",
+                  "2",
+                  "2"
+                ]
+              },
+              {
+                "name": "Dexterous Hand",
+                "values": [
+                  "/",
+                  "/",
+                  "Optional"
+                ]
+              },
+              {
+                "name": "Joint output bearing",
+                "values": [
+                  "Crossed roller bearings, Double Hook Ball Bearings",
+                  "Crossed roller bearings, Double Hook Ball Bearings",
+                  "Crossed roller bearings, Double Hook Ball Bearings"
+                ]
+              },
+              {
+                "name": "Joint motor",
+                "values": [
+                  "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)",
+                  "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)",
+                  "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"
+                ]
+              }
             ]
           },
           {
             "label": "Electrical Characteristics",
             "rows": [
-              { "name": "Maximum Torque of Arm Joint [1]", "values": ["About 2kg", "About 2kg", "About 2kg"] },
-              { "name": "Calf + Thigh Length", "values": ["600", "600", "600"] },
-              { "name": "Forearm + Upper Arm Length", "values": ["420", "420", "420"] },
-              { "name": "Joint Movement Space", "values": ["Knee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°", "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°", "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°"] },
-              { "name": "Electrical Routing", "values": ["Hollow + Internal Routing", "Hollow + Internal Routing", "Hollow + Internal Routing"] },
-              { "name": "Joint Encoder", "values": ["Dual + single encoder", "Dual + single encoder", "Dual + single encoder"] },
-              { "name": "Cooling System", "values": ["Local air cooling", "Local air cooling", "Local air cooling"] },
-              { "name": "Power Supply", "values": ["Lithium battery", "Lithium battery", "Lithium battery"] },
-              { "name": "Basic Computing Power", "values": ["8-core high-performance CPU", "8-core high-performance CPU", "8-core high-performance CPU"] },
-              { "name": "Microphone Array", "values": ["4-Mic Array", "4-Mic Array", "4-Mic Array"] },
-              { "name": "Speaker", "values": ["YES", "YES", "YES"] },
-              { "name": "WiFi 6 Bluetooth 5.2", "values": ["YES", "YES", "YES"] },
-              { "name": "Camera", "values": ["Monocular camera", "Binocular camera", "Binocular camera"] }
+              {
+                "name": "Maximum Torque of Arm Joint [1]",
+                "values": [
+                  "About 2kg",
+                  "About 2kg",
+                  "About 2kg"
+                ]
+              },
+              {
+                "name": "Calf + Thigh Length",
+                "values": [
+                  "600",
+                  "600",
+                  "600"
+                ]
+              },
+              {
+                "name": "Forearm + Upper Arm Length",
+                "values": [
+                  "420",
+                  "420",
+                  "420"
+                ]
+              },
+              {
+                "name": "Joint Movement Space",
+                "values": [
+                  "Knee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°",
+                  "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°",
+                  "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°"
+                ]
+              },
+              {
+                "name": "Electrical Routing",
+                "values": [
+                  "Hollow + Internal Routing",
+                  "Hollow + Internal Routing",
+                  "Hollow + Internal Routing"
+                ]
+              },
+              {
+                "name": "Joint Encoder",
+                "values": [
+                  "Dual + single encoder",
+                  "Dual + single encoder",
+                  "Dual + single encoder"
+                ]
+              },
+              {
+                "name": "Cooling System",
+                "values": [
+                  "Local air cooling",
+                  "Local air cooling",
+                  "Local air cooling"
+                ]
+              },
+              {
+                "name": "Power Supply",
+                "values": [
+                  "Lithium battery",
+                  "Lithium battery",
+                  "Lithium battery"
+                ]
+              },
+              {
+                "name": "Basic Computing Power",
+                "values": [
+                  "8-core high-performance CPU",
+                  "8-core high-performance CPU",
+                  "8-core high-performance CPU"
+                ]
+              },
+              {
+                "name": "Microphone Array",
+                "values": [
+                  "4-Mic Array",
+                  "4-Mic Array",
+                  "4-Mic Array"
+                ]
+              },
+              {
+                "name": "Speaker",
+                "values": [
+                  "YES",
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "WiFi 6 Bluetooth 5.2",
+                "values": [
+                  "YES",
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Camera",
+                "values": [
+                  "Monocular camera",
+                  "Binocular camera",
+                  "Binocular camera"
+                ]
+              }
             ]
           },
           {
             "label": "Accessories",
             "rows": [
-              { "name": "High-Power Computing Module", "values": ["/", "/", "NVIDIA Jetson Orin Optional (40-100 TOPS)"] },
-              { "name": "Smart Battery (Quick Release)", "values": ["YES", "YES", "YES"] },
-              { "name": "Charger", "values": ["YES", "YES", "YES"] },
-              { "name": "Manual Controller", "values": ["YES", "YES", "YES"] }
+              {
+                "name": "High-Power Computing Module",
+                "values": [
+                  "/",
+                  "/",
+                  "NVIDIA Jetson Orin Optional (40-100 TOPS)"
+                ]
+              },
+              {
+                "name": "Smart Battery (Quick Release)",
+                "values": [
+                  "YES",
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Charger",
+                "values": [
+                  "YES",
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Manual Controller",
+                "values": [
+                  "YES",
+                  "YES",
+                  "YES"
+                ]
+              }
             ]
           },
           {
             "label": "Other",
             "rows": [
-              { "name": "Battery Life", "values": ["About 1h", "About 1h", "About 1h"] },
-              { "name": "Upgraded Intelligent OTA", "values": ["YES", "YES", "YES"] },
-              { "name": "Secondary Development [2]", "values": ["/", "/", "YES"] },
-              { "name": "Warranty Period [3]", "values": ["6 Months", "8 Months", "12 Months"] }
+              {
+                "name": "Battery Life",
+                "values": [
+                  "About 1h",
+                  "About 1h",
+                  "About 1h"
+                ]
+              },
+              {
+                "name": "Upgraded Intelligent OTA",
+                "values": [
+                  "YES",
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Secondary Development [2]",
+                "values": [
+                  "/",
+                  "/",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Warranty Period [3]",
+                "values": [
+                  "6 Months",
+                  "8 Months",
+                  "12 Months"
+                ]
+              }
             ]
           }
         ]
@@ -786,87 +1433,434 @@
       "go2": {
         "specLabel": "Specification",
         "valueLabel": "Value",
-        "columnHeaders": ["AIR", "PRO", "X", "EDU"],
+        "columnHeaders": [
+          "AIR",
+          "PRO",
+          "X",
+          "EDU"
+        ],
         "headerImage": "/robot/go2/table.png",
-        "columnPrices": ["$1,600", "$2,800", "$4,500", "Contact Sales"],
+        "columnPrices": [
+          "$1,600",
+          "$2,800",
+          "$4,500",
+          "Contact Sales"
+        ],
         "modelLabel": "Model",
         "priceLabel": "Price (Tax and freight excluded)",
         "sections": [
           {
             "label": "Mechanical Specifications",
             "rows": [
-              { "name": "Dimension of standing", "values": ["70cm x 31cm x 40cm", "70cm x 31cm x 40cm", "70cm x 31cm x 40cm", "70cm x 31cm x 40cm"] },
-              { "name": "Dimension of crouching", "values": ["76cm x 31cm x 20cm", "76cm x 31cm x 20cm", "76cm x 31cm x 20cm", "76cm x 31cm x 20cm"] },
-              { "name": "Weight (with battery)", "values": ["About 15kg", "About 15kg", "About 15kg", "About 15kg"] },
-              { "name": "Material", "values": ["Aluminium alloy + High strength engineering plastic", "Aluminium alloy + High strength engineering plastic", "Aluminium alloy + High strength engineering plastic", "Aluminium alloy + High strength engineering plastic"] }
+              {
+                "name": "Dimension of standing",
+                "values": [
+                  "70cm x 31cm x 40cm",
+                  "70cm x 31cm x 40cm",
+                  "70cm x 31cm x 40cm",
+                  "70cm x 31cm x 40cm"
+                ]
+              },
+              {
+                "name": "Dimension of crouching",
+                "values": [
+                  "76cm x 31cm x 20cm",
+                  "76cm x 31cm x 20cm",
+                  "76cm x 31cm x 20cm",
+                  "76cm x 31cm x 20cm"
+                ]
+              },
+              {
+                "name": "Weight (with battery)",
+                "values": [
+                  "About 15kg",
+                  "About 15kg",
+                  "About 15kg",
+                  "About 15kg"
+                ]
+              },
+              {
+                "name": "Material",
+                "values": [
+                  "Aluminium alloy + High strength engineering plastic",
+                  "Aluminium alloy + High strength engineering plastic",
+                  "Aluminium alloy + High strength engineering plastic",
+                  "Aluminium alloy + High strength engineering plastic"
+                ]
+              }
             ]
           },
           {
             "label": "Electronic Parameter",
             "rows": [
-              { "name": "Voltage", "values": ["28V-33.6V", "28V-33.6V", "28V-33.6V", "28V-33.6V"] },
-              { "name": "Working maximum power", "values": ["About 3000W", "About 3000W", "About 3000W", "About 3000W"] }
+              {
+                "name": "Voltage",
+                "values": [
+                  "28V-33.6V",
+                  "28V-33.6V",
+                  "28V-33.6V",
+                  "28V-33.6V"
+                ]
+              },
+              {
+                "name": "Working maximum power",
+                "values": [
+                  "About 3000W",
+                  "About 3000W",
+                  "About 3000W",
+                  "About 3000W"
+                ]
+              }
             ]
           },
           {
             "label": "Performance Parameters",
             "rows": [
-              { "name": "Payload", "values": ["=7kg (MAX ~ 10kg)", "=8kg (MAX ~ 10kg)", "=8kg (MAX ~ 12kg)", "=8kg (MAX ~ 12kg)"] },
-              { "name": "Speed", "values": ["0 ~ 2.5m/s", "0 ~ 3.5m/s", "0 ~ 3.7m/s (MAX ~ 5m/s)", "0 ~ 3.7m/s (MAX ~ 5m/s)"] },
-              { "name": "Max Climb Drop Height", "values": ["About 15cm", "About 16cm", "About 16cm", "About 16cm"] },
-              { "name": "Max Climb Angle", "values": ["30°", "40°", "40°", "40°"] },
-              { "name": "Basic Computing Power", "values": ["Standard", "8-core High-performance CPU", "8-core High-performance CPU", "8-core High-performance CPU"] }
+              {
+                "name": "Payload",
+                "values": [
+                  "=7kg (MAX ~ 10kg)",
+                  "=8kg (MAX ~ 10kg)",
+                  "=8kg (MAX ~ 12kg)",
+                  "=8kg (MAX ~ 12kg)"
+                ]
+              },
+              {
+                "name": "Speed",
+                "values": [
+                  "0 ~ 2.5m/s",
+                  "0 ~ 3.5m/s",
+                  "0 ~ 3.7m/s (MAX ~ 5m/s)",
+                  "0 ~ 3.7m/s (MAX ~ 5m/s)"
+                ]
+              },
+              {
+                "name": "Max Climb Drop Height",
+                "values": [
+                  "About 15cm",
+                  "About 16cm",
+                  "About 16cm",
+                  "About 16cm"
+                ]
+              },
+              {
+                "name": "Max Climb Angle",
+                "values": [
+                  "30°",
+                  "40°",
+                  "40°",
+                  "40°"
+                ]
+              },
+              {
+                "name": "Basic Computing Power",
+                "values": [
+                  "Standard",
+                  "8-core High-performance CPU",
+                  "8-core High-performance CPU",
+                  "8-core High-performance CPU"
+                ]
+              }
             ]
           },
           {
             "label": "Knee Joint Parameters",
             "rows": [
-              { "name": "Max Joint Torque [1]", "values": ["—", "About 45N.m", "About 45N.m", "About 45N.m"] },
-              { "name": "Aluminum knee joint motor", "values": ["12 set", "12 set", "12 set", "12 set"] },
-              { "name": "Range of Motion", "values": ["body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°", "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°", "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°", "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°"] },
-              { "name": "Intra-joint circuit (knee)", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Joint Heat Pipe Cooler", "values": ["✓", "✓", "✓", "✓"] }
+              {
+                "name": "Max Joint Torque [1]",
+                "values": [
+                  "—",
+                  "About 45N.m",
+                  "About 45N.m",
+                  "About 45N.m"
+                ]
+              },
+              {
+                "name": "Aluminum knee joint motor",
+                "values": [
+                  "12 set",
+                  "12 set",
+                  "12 set",
+                  "12 set"
+                ]
+              },
+              {
+                "name": "Range of Motion",
+                "values": [
+                  "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°",
+                  "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°",
+                  "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°",
+                  "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°"
+                ]
+              },
+              {
+                "name": "Intra-joint circuit (knee)",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Joint Heat Pipe Cooler",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              }
             ]
           },
           {
             "label": "Force Sensor Parameters",
             "rows": [
-              { "name": "Super-wide-angle 4D LIDAR", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Wireless Vector Positioning Tracking Module", "values": ["—", "✓", "✓", "✓"] },
-              { "name": "HD Wide-angle Camera", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Foot-end force sensor", "values": ["—", "—", "✓", "✓"] }
+              {
+                "name": "Super-wide-angle 4D LIDAR",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Wireless Vector Positioning Tracking Module",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "HD Wide-angle Camera",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Foot-end force sensor",
+                "values": [
+                  "—",
+                  "—",
+                  "✓",
+                  "✓"
+                ]
+              }
             ]
           },
           {
             "label": "Feature List",
             "rows": [
-              { "name": "Basic Action", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Auto-scaling strap", "values": ["—", "✓", "✓", "—"] },
-              { "name": "Upgraded Intelligent OTA", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "RTT 2.0 Pictures Transaction", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Graphical programme", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Front lamp", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "WiFi6 with Dual-band", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Bluetooth 5.2/4.2/2.1", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "4G module (with GPS)", "values": ["—", "✓", "✓", "✓"] },
-              { "name": "Voice Function [5]", "values": ["—", "✓", "✓", "✓"] },
-              { "name": "ISS 2.0 Intelligent side-follow system", "values": ["—", "✓", "✓", "✓"] },
-              { "name": "Intelligent detection and avoidance", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Charging Pile Compatibility", "values": ["—", "—", "✓", "—"] },
-              { "name": "Secondary development [6]", "values": ["—", "✓", "—", "—"] }
+              {
+                "name": "Basic Action",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Auto-scaling strap",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "—"
+                ]
+              },
+              {
+                "name": "Upgraded Intelligent OTA",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "RTT 2.0 Pictures Transaction",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Graphical programme",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Front lamp",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "WiFi6 with Dual-band",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Bluetooth 5.2/4.2/2.1",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "4G module (with GPS)",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Voice Function [5]",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "ISS 2.0 Intelligent side-follow system",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Intelligent detection and avoidance",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Charging Pile Compatibility",
+                "values": [
+                  "—",
+                  "—",
+                  "✓",
+                  "—"
+                ]
+              },
+              {
+                "name": "Secondary development [6]",
+                "values": [
+                  "—",
+                  "✓",
+                  "—",
+                  "—"
+                ]
+              }
             ]
           },
           {
             "label": "Accessories",
             "rows": [
-              { "name": "Manual controller", "values": ["Optional", "Optional", "Included", "Included"] },
-              { "name": "High computing power module", "values": ["—", "—", "—", "NVIDIA Jetson Orin (optional) (40-100Tops computing power)"] },
-              { "name": "Depth Camera", "values": ["—", "—", "—", "Included"] },
-              { "name": "Smart battery", "values": ["Standard (8000mAh)", "Standard (8000mAh)", "Standard (8000mAh)", "Long endurance (15000mAh)"] },
-              { "name": "Battery life", "values": ["About 1-2h", "About 1-2h", "About 1-2h", "About 2-4h"] },
-              { "name": "Charger", "values": ["Standard (33.6V 3.5A)", "Standard (33.6V 3.5A)", "Standard (33.6V 3.5A)", "Fast charge (33.6V 9A)"] },
-              { "name": "Warranty period [7]", "values": ["6 months", "12 months", "12 months", "12 months"] },
-              { "name": "Price (Tax and freight excluded)", "values": ["$1,600", "$2,800", "$4,500", "Contact your sales expert"], "highlight": true }
+              {
+                "name": "Manual controller",
+                "values": [
+                  "Optional",
+                  "Optional",
+                  "Included",
+                  "Included"
+                ]
+              },
+              {
+                "name": "High computing power module",
+                "values": [
+                  "—",
+                  "—",
+                  "—",
+                  "NVIDIA Jetson Orin (optional) (40-100Tops computing power)"
+                ]
+              },
+              {
+                "name": "Depth Camera",
+                "values": [
+                  "—",
+                  "—",
+                  "—",
+                  "Included"
+                ]
+              },
+              {
+                "name": "Smart battery",
+                "values": [
+                  "Standard (8000mAh)",
+                  "Standard (8000mAh)",
+                  "Standard (8000mAh)",
+                  "Long endurance (15000mAh)"
+                ]
+              },
+              {
+                "name": "Battery life",
+                "values": [
+                  "About 1-2h",
+                  "About 1-2h",
+                  "About 1-2h",
+                  "About 2-4h"
+                ]
+              },
+              {
+                "name": "Charger",
+                "values": [
+                  "Standard (33.6V 3.5A)",
+                  "Standard (33.6V 3.5A)",
+                  "Standard (33.6V 3.5A)",
+                  "Fast charge (33.6V 9A)"
+                ]
+              },
+              {
+                "name": "Warranty period [7]",
+                "values": [
+                  "6 months",
+                  "12 months",
+                  "12 months",
+                  "12 months"
+                ]
+              },
+              {
+                "name": "Price (Tax and freight excluded)",
+                "values": [
+                  "$1,600",
+                  "$2,800",
+                  "$4,500",
+                  "Contact your sales expert"
+                ],
+                "highlight": true
+              }
             ]
           }
         ]
@@ -876,8 +1870,16 @@
       "g1": {
         "name": "G1 EDU ",
         "price": "250,000 SAR",
-        "images": ["/robot/g1/catlouge/g1c1.webp", "/robot/g1/catlouge/g1c2.webp"],
-        "versions": [{"id": "g1-edu", "name": "G1 EDU "}],
+        "images": [
+          "/robot/g1/catlouge/g1c1.webp",
+          "/robot/g1/catlouge/g1c2.webp"
+        ],
+        "versions": [
+          {
+            "id": "g1-edu",
+            "name": "G1 EDU "
+          }
+        ],
         "bulletPoints": [
           "Order now and ship within 1 month",
           "Contact sales to get G1 EDU price"
@@ -891,7 +1893,12 @@
           "/robot/h2/catlouge/2.png",
           "/robot/h2/catlouge/3.png"
         ],
-        "versions": [{ "id": "h2-edu", "name": "H2 EDU " }],
+        "versions": [
+          {
+            "id": "h2-edu",
+            "name": "H2 EDU "
+          }
+        ],
         "bulletPoints": [
           "Order now and ship within 1 month",
           "Contact sales to get H2 EDU price"
@@ -900,12 +1907,30 @@
       "go2": {
         "name": "Go2",
         "price": "$2,800 USD",
-        "images": ["/robot/go2/catlouge/Go2c.webp", "/robot/go2/catlouge/go2c2.webp", "/robot/go2/catlouge/go2c3.webp" ,"/robot/go2/catlouge/go2c4.webp" ,"/robot/go2/catlouge/go2c5.webp"],
+        "images": [
+          "/robot/go2/catlouge/Go2c.webp",
+          "/robot/go2/catlouge/go2c2.webp",
+          "/robot/go2/catlouge/go2c3.webp",
+          "/robot/go2/catlouge/go2c4.webp",
+          "/robot/go2/catlouge/go2c5.webp"
+        ],
         "versions": [
-          {"id": "go2-pro", "name": "Go2 Pro (without controller)"},
-          {"id": "go2-pro-ctrl", "name": "Go2 Pro (with controller)"},
-          {"id": "go2-air", "name": "Go2 Air (without controller)"},
-          {"id": "go2-air-ctrl", "name": "Go2 Air (with controller)"}
+          {
+            "id": "go2-pro",
+            "name": "Go2 Pro (without controller)"
+          },
+          {
+            "id": "go2-pro-ctrl",
+            "name": "Go2 Pro (with controller)"
+          },
+          {
+            "id": "go2-air",
+            "name": "Go2 Air (without controller)"
+          },
+          {
+            "id": "go2-air-ctrl",
+            "name": "Go2 Air (with controller)"
+          }
         ],
         "bulletPoints": [
           "Order now and ship within 1 month",
@@ -917,10 +1942,19 @@
       "r1": {
         "name": "Unitree Robo-Dog R1",
         "price": "$2,800 USD",
-        "images": ["/robot/R1/catlouge/p2.webp", "/robot/R1/catlouge/p1.webp"],
+        "images": [
+          "/robot/R1/catlouge/p2.webp",
+          "/robot/R1/catlouge/p1.webp"
+        ],
         "versions": [
-          {"id": "r1-pro", "name": "Unitree Robo-Dog R1 Pro (without controller)"},
-          {"id": "r1-pro-ctrl", "name": "Unitree Robo-Dog R1 Pro (with controller)"}
+          {
+            "id": "r1-pro",
+            "name": "Unitree Robo-Dog R1 Pro (without controller)"
+          },
+          {
+            "id": "r1-pro-ctrl",
+            "name": "Unitree Robo-Dog R1 Pro (with controller)"
+          }
         ],
         "bulletPoints": [
           "Order now and ship within 1 month",
@@ -954,6 +1988,8 @@
     "specifications": "Specifications",
     "stayTuned": "Stay tuned for the official launch on",
     "close": "Close",
+    "toggleMenu": "Toggle menu",
+    "robotsViewAll": "View all",
     "previousImage": "Previous image",
     "nextImage": "Next image",
     "viewFullscreen": "View fullscreen",
@@ -967,5 +2003,202 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
     "mediaGallery": "Gallery"
+  },
+  "savvySections": {
+    "sectionTitle": "Savvy World Sections",
+    "cards": [
+      {
+        "id": "innovation",
+        "title": "Savvy Innovation",
+        "description": "We transform local and global innovation into operational solutions aligned with the Saudi market.",
+        "features": [
+          "Advisory services in Data Management",
+          "Advisory services in Responsible AI",
+          " Industrial robots (firefighting, inspection, security)",
+          "Strategic partnerships",
+          " Electric vehicle (EV) charging stations",
+          "Eco-friendly cement",
+          "Energy-efficient smart home solutions"
+        ],
+        "icon": "/home-page/icons/innovation-icon.svg",
+        "image": "/sections/innovation-image.jpg",
+        "link": "/innovation",
+        "buttonText": "Learn more"
+      },
+      {
+        "id": "expo",
+        "title": "Savvy Expo",
+        "description": "We turn brands into experiences people feel, remember, and share!",
+        "features": [
+          "Strategic partnerships",
+          "Engaging and purposeful activities",
+          "mr.savvy robot",
+          "Innovative and interactive visitor experiences"
+        ],
+        "icon": "/home-page/icons/expo-icon.svg",
+        "image": "/sections/expo-image.jpg",
+        "link": "/expo",
+        "buttonText": "Learn more"
+      },
+      {
+        "id": "media",
+        "title": "Savvy Media",
+        "description": "We build the most suitable content for your brand and target market",
+        "features": [
+          "Brand building",
+          "Digital marketing",
+          "Creative content production",
+          "Digital marketing",
+          "Large-scale screens on building facades promoting your brand"
+        ],
+        "icon": "/home-page/icons/media-icon.svg",
+        "image": "/sections/media-image.jpg",
+        "link": "/media",
+        "buttonText": "Learn more"
+      }
+    ]
+  },
+  "gallerySection": {
+    "title": "Snapshots that tell our story.. Images that make the first impression",
+    "emptyState": "No images added yet. Please add images in locale JSON",
+    "images": [
+      {
+        "id": "img-1",
+        "src": "/home-page/gallery/image-1.jpg",
+        "alt": "Gallery Image 1",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-2",
+        "src": "/home-page/gallery/image-2.jpg",
+        "alt": "Gallery Image 2",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-3",
+        "src": "/home-page/gallery/image-3.jpg",
+        "alt": "Gallery Image 3",
+        "gridSpan": {
+          "cols": 2,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-4",
+        "src": "/home-page/gallery/image-4.jpg",
+        "alt": "Gallery Image 4",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-5",
+        "src": "/home-page/gallery/image-5.jpg",
+        "alt": "Gallery Image 5",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 2
+        }
+      },
+      {
+        "id": "img-6",
+        "src": "/home-page/gallery/image-6.jpg",
+        "alt": "Gallery Image 6",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-7",
+        "src": "/home-page/gallery/image-7.jpg",
+        "alt": "Gallery Image 7",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-8",
+        "src": "/home-page/gallery/image-8.jpg",
+        "alt": "Gallery Image 8",
+        "gridSpan": {
+          "cols": 2,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-9",
+        "src": "/home-page/gallery/image-9.jpg",
+        "alt": "Gallery Image 9",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-10",
+        "src": "/home-page/gallery/image-10.jpg",
+        "alt": "Gallery Image 10",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-11",
+        "src": "/home-page/gallery/image-11.png",
+        "alt": "Gallery Image 11",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-12",
+        "src": "/home-page/gallery/image-12.png",
+        "alt": "Gallery Image 12",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      }
+    ]
+  },
+  "latestNewsSection": {
+    "sectionTitle": "Latest News.. Step by step with us.",
+    "cards": [
+      {
+        "id": "news-1",
+        "title": "How to build interactive future activities?",
+        "date": "October 12",
+        "image": "/news/news-3.jpg",
+        "buttonText": "News",
+        "link": "/news/interactive-displays-future"
+      },
+      {
+        "id": "news-2",
+        "title": "How to design images and videos for the first impression?",
+        "date": "October 3",
+        "image": "/news/news-2.jpg",
+        "buttonText": "Media",
+        "link": "/news/2"
+      },
+      {
+        "id": "news-3",
+        "title": "How does technology change the future of events?",
+        "date": "October 5",
+        "image": "/news/news-1.jpg",
+        "buttonText": "News",
+        "link": "/news/3"
+      }
+    ]
   }
 }

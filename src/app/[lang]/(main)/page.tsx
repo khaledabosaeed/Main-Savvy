@@ -11,33 +11,21 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSlider/PartnersSlider"
 import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsSection"
-
-// نصوص الهيدر بالإنجليزية
-const headerTextsEn = {
-  main: "Home",
-  news: "News",
-  projects: "Latest Projects",
-  services: "Gallery",
-  about: "Our Sections",
-  ourRobots: "Robots",
-  contactUs: "Contact Us",
-}
-
-// نصوص الهيدر بالعربية
-const headerTextsAr = {
-  main: "الرئيسية",
-  news: "الأخبار",  
-  projects: "معارضنا السابقة",
-  services: "معرض الصور",
-  about: "أقسامنا",
-  ourRobots: "الروبوتات",
-  contactUs: "تواصل معنا",
-}
+import { useTranslation } from "react-i18next"
 
 export default function Home() {
   const { language } = useLanguage()
+  const { t } = useTranslation()
   const lang = language as "en" | "ar"
-  const texts = lang === "ar" ? headerTextsAr : headerTextsEn
+  const texts = {
+    main: t("common.main"),
+    news: t("common.news"),
+    projects: t("common.projects"),
+    services: t("common.services"),
+    about: t("common.about"),
+    ourRobots: t("common.robots"),
+    contactUs: t("common.contactUs"),
+  }
   const [showBadge, setShowBadge] = useState(true)
 
 
@@ -137,7 +125,7 @@ export default function Home() {
       </section>
 
       <section id="services">
-          <ImageSlider images={images} heading={ lang === "ar" ? "معرض الصور" : "Our Gallery"} />
+          <ImageSlider images={images} heading={t("common.gallery")} />
         </section>
 
 

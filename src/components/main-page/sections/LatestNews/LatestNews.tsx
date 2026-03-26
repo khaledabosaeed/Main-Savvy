@@ -1,15 +1,26 @@
 "use client"
 
 import { useLanguage } from "@/contexts/LanguageContext"
-import { getLatestNewsContent } from "./content"
+import { useTranslation } from "react-i18next"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
 export default function LatestNews() {
     const { language } = useLanguage()
+    const { t } = useTranslation()
     const lang = language as "en" | "ar"
-    const content = getLatestNewsContent(lang)
+    const content = t("latestNewsSection", { returnObjects: true }) as {
+      sectionTitle: string
+      cards: Array<{
+        id: string
+        title: string
+        date: string
+        image: string
+        buttonText: string
+        link: string
+      }>
+    }
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -57,7 +68,7 @@ export default function LatestNews() {
                 >
                     {content.cards.map((card) => (
                         <motion.a
-                            href={card.link}
+                            href={`/${lang}${card.link.startsWith("/") ? card.link : `/${card.link}`}`}
                             key={card.id}
                             className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
                             variants={cardVariants}
@@ -83,7 +94,7 @@ export default function LatestNews() {
                                 <div className="flex justify-between items-center pt-4 border-t border-gray-200">
                                     <span className="text-sm text-gray-500">{card.date}</span>
                                     <Link
-                                        href={card.link}
+                                        href={`/${lang}${card.link.startsWith("/") ? card.link : `/${card.link}`}`}
                                         className="px-6 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all duration-300 hover:-translate-y-0.5"
                                     >
                                         {card.buttonText}
