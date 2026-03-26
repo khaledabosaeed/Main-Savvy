@@ -1,15 +1,26 @@
 "use client"
 
-import { useLanguage } from "@/contexts/LanguageContext"
-import { getRobotsSectionContent } from "@/lib/robots-locale"
+import { useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslation } from "react-i18next"
+import type { RobotCard } from "@/lib/robots-locale"
 
 export default function RobotsSection() {
   const { language } = useLanguage()
+  const { t } = useTranslation()
   const lang = language as "en" | "ar"
-  const content = getRobotsSectionContent(lang)
+
+  const content = useMemo(() => {
+    const raw = t("robots.cards", { returnObjects: true })
+    const robots = (Array.isArray(raw) ? raw : []) as RobotCard[]
+    return {
+      sectionTitle: t("robots.heading"),
+      robots,
+    }
+  }, [t])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -73,12 +84,8 @@ export default function RobotsSection() {
               </div>
 
               <div className="p-6 flex flex-col gap-4">
-                <h3 className="text-xl font-semibold text-gray-900 leading-relaxed">
-                  {card.name}
-                </h3>
-                <p className="text-gray-600 text-sm line-clamp-2">
-                  {card.description}
-                </p>
+                <h3 className="text-xl font-semibold text-gray-900 leading-relaxed">{card.name}</h3>
+                <p className="text-gray-600 text-sm line-clamp-2">{card.description}</p>
                 <div className="pt-4 border-t border-gray-200">
                   <Link
                     href={`/${lang}${card.link}`}

@@ -4,35 +4,29 @@ import { useState } from "react"
 import Link from "next/link"
 import { Package, Truck, DollarSign, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
-import { getRobotProductContent, getRobotLabel } from "@/lib/robots-locale"
+import { useTranslation } from "react-i18next"
+import { getRobotProductContent } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
 import SpecsTable from "./SpecsTable"
 import ProductImageGallery from "./ProductImageGallery"
-import en from "@/../public/locales/en.json"
-import ar from "@/../public/locales/ar.json"
 
 const bulletIcons = [Package, Truck, DollarSign, MessageCircle]
 
 interface RobotProductDetailsProps {
   slug: RobotSlug
-  lang: Language
 }
 
-export default function RobotProductDetails({ slug, lang }: RobotProductDetailsProps) {
+export default function RobotProductDetails({ slug }: RobotProductDetailsProps) {
   const { language } = useLanguage()
-  const currentLang = (language || lang) as Language
+  const { t } = useTranslation()
+  const currentLang = language as Language
   const content = getRobotProductContent(slug, currentLang)
   const isRTL = currentLang === "ar"
+  const lang = currentLang
 
   const [selectedVersion, setSelectedVersion] = useState(0)
 
   const images = content.images.length > 0 ? content.images : ["/robot/go2/go2.webp"]
-  const locale = currentLang === "ar" ? ar : en
-  const common = (locale as {
-    common?: { close?: string; previousImage?: string; nextImage?: string; viewFullscreen?: string }
-  }).common
-  const contactUsLabel =
-    (locale as { header?: { contactUs?: string } }).header?.contactUs ?? "Contact Us"
 
   return (
     <section className="py-25 md:py-25 bg-white">
@@ -49,11 +43,11 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
               alt={content.name}
               isRTL={isRTL}
               ariaLabels={{
-              close: common?.close,
-              previousImage: common?.previousImage,
-              nextImage: common?.nextImage,
-              viewFullscreen: common?.viewFullscreen,
-            }}
+                close: t("common.close"),
+                previousImage: t("common.previousImage"),
+                nextImage: t("common.nextImage"),
+                viewFullscreen: t("common.viewFullscreen"),
+              }}
             />
           </div>
 
@@ -100,7 +94,7 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
                     isRTL ? "text-right" : "text-left"
                   }`}
                 >
-                  {getRobotLabel(currentLang, "version")}
+                  {t("robots.version")}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {content.versions.map((v, i) => (
@@ -127,14 +121,14 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
                   href={`/${lang}/contact`}
                   className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center shadow-sm"
                 >
-                  {contactUsLabel}
+                  {t("common.contactUs")}
                 </Link>
               </div>
               <Link
                 href={`/${lang}/robots/responsible-use`}
                 className="text-sm text-gray-500 hover:text-primary transition-colors underline underline-offset-2 w-fit"
               >
-                {getRobotLabel(currentLang, "responsibleUseLabel")}
+                {t("robots.responsibleUseLabel")}
               </Link>
             </div>
           </div>
@@ -148,7 +142,7 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
                 isRTL ? "text-right" : "text-left"
               }`}
             >
-              {(currentLang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
+              {t("common.specifications")}
             </h2>
             <SpecsTable
               slug={slug}

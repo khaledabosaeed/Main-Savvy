@@ -1,45 +1,50 @@
 "use client"
 
+import { useMemo } from "react"
 import { motion } from "framer-motion"
 import { Shield } from "lucide-react"
-import type { Language, ResponsibleUseKey } from "@/lib/robots-locale"
-import { getResponsibleUseContent } from "@/lib/robots-locale"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslation } from "react-i18next"
 
-interface RobotResponsibleUsePageProps {
-  lang: Language
-}
+export default function RobotResponsibleUsePage() {
+  const { language } = useLanguage()
+  const { t } = useTranslation()
+  const isRTL = language === "ar"
 
-export default function RobotResponsibleUsePage({ lang }: RobotResponsibleUsePageProps) {
-  const isRTL = lang === "ar"
-  const t = (key: ResponsibleUseKey) => getResponsibleUseContent(lang, key)
-
-  const sections = [
-    {
-      title: t("ipTitle"),
-      content: t("ipContent"),
-      list: [] as string[],
-    },
-    {
-      title: t("operationTitle"),
-      content: t("operationContent"),
-      list: [] as string[],
-    },
-    {
-      title: t("requirementsTitle"),
-      content: "",
-      list: t("requirementsList") as string[],
-    },
-    {
-      title: t("safetyTitle"),
-      content: t("safetyContent"),
-      list: [] as string[],
-    },
-    {
-      title: t("notesTitle"),
-      content: "",
-      list: t("notesList") as string[],
-    },
-  ]
+  const sections = useMemo(() => {
+    const list = (key: string): string[] => {
+      const v = t(key, { returnObjects: true })
+      return Array.isArray(v) ? (v as string[]) : []
+    }
+    const ru = "robots.responsibleUse"
+    return [
+      {
+        title: t(`${ru}.ipTitle`),
+        content: t(`${ru}.ipContent`),
+        list: [] as string[],
+      },
+      {
+        title: t(`${ru}.operationTitle`),
+        content: t(`${ru}.operationContent`),
+        list: [] as string[],
+      },
+      {
+        title: t(`${ru}.requirementsTitle`),
+        content: "",
+        list: list(`${ru}.requirementsList`),
+      },
+      {
+        title: t(`${ru}.safetyTitle`),
+        content: t(`${ru}.safetyContent`),
+        list: [] as string[],
+      },
+      {
+        title: t(`${ru}.notesTitle`),
+        content: "",
+        list: list(`${ru}.notesList`),
+      },
+    ]
+  }, [t])
 
   const dir = isRTL ? "rtl" : "ltr"
   const langAttr = isRTL ? "ar" : "en"
@@ -66,20 +71,16 @@ export default function RobotResponsibleUsePage({ lang }: RobotResponsibleUsePag
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-              {t("title")}
+              {t("robots.responsibleUse.title")}
             </h1>
-            <p className="text-gray-600 text-lg">{t("lastUpdated")}</p>
+            <p className="text-gray-600 text-lg">{t("robots.responsibleUse.lastUpdated")}</p>
           </motion.div>
         </div>
       </section>
 
       <section className="py-20">
         <div className="container px-6">
-          <div
-            className={`max-w-4xl mx-auto ${isRTL ? "rtl" : "ltr"}`}
-            dir={dir}
-            lang={langAttr}
-          >
+          <div className={`max-w-4xl mx-auto ${isRTL ? "rtl" : "ltr"}`} dir={dir} lang={langAttr}>
             {sections.map((section, index) => (
               <motion.div
                 key={index}
@@ -89,19 +90,17 @@ export default function RobotResponsibleUsePage({ lang }: RobotResponsibleUsePag
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="mb-12"
               >
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-start">
-                  {section.title}
-                </h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-start">{section.title}</h2>
 
-                {section.content && (
+                {section.content ? (
                   <p className="text-gray-700 leading-relaxed text-lg mb-6 whitespace-pre-line text-start">
                     {section.content}
                   </p>
-                )}
+                ) : null}
 
                 {section.list && section.list.length > 0 && (
                   <ul className="space-y-3 mb-6 text-start">
-                    {section.list.map((item: string, i: number) => (
+                    {section.list.map((item, i) => (
                       <li
                         key={i}
                         className={`text-gray-700 text-lg flex gap-2 items-start ${
@@ -115,9 +114,7 @@ export default function RobotResponsibleUsePage({ lang }: RobotResponsibleUsePag
                   </ul>
                 )}
 
-                {index < sections.length - 1 && (
-                  <div className="mt-12 border-b border-gray-200" />
-                )}
+                {index < sections.length - 1 && <div className="mt-12 border-b border-gray-200" />}
               </motion.div>
             ))}
           </div>
