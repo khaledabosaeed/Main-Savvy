@@ -406,7 +406,7 @@
     "cards": [
       {
         "id": "g1",
-        "name": "Uniatree Humanoid G1 ",
+        "name": "Unitree Humanoid G1 ",
         "description": "Humanoid agent AI avatar",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
@@ -415,7 +415,7 @@
       },
       {
         "id": "h2",
-        "name": "Uniatree Humanoid H2 ",
+        "name": "Unitree Humanoid H2 ",
         "description": "Destiny Awakening",
         "image": "/robot/h2/H2 Ring.jpg",
         "link": "/robots/h2",
@@ -445,8 +445,7 @@
       "g1": {
         "videoSrc": "/robot/g1/hero.mp4",
         "title": "G1 EDU ",
-        "subtitle": "Humanoid robot designed for advanced interaction and automation.",
-        "priceStartsFrom": "Price starts from $250,000 SAR",
+        "subtitle": "A robot powered by artificial intelligence, designed to learn human movement.",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
@@ -454,7 +453,6 @@
         "videoSrc": "/robot/h2/hero.mp4",
         "title": "H2 EDU ",
         "subtitle": "High-performance humanoid robot for industrial and service applications.",
-        "priceStartsFrom": "Price starts from $350,000 SAR",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
@@ -462,7 +460,6 @@
         "videoSrc": "/robot/go2/hero.mp4",
         "title": "Go2",
         "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
-        "priceStartsFrom": "Price starts from $2,800 USD",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
@@ -470,7 +467,6 @@
         "videoSrc": "/robot/R1/hero.mp4",
         "title": "R1",
         "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
-        "priceStartsFrom": "Price starts from $2,800 USD",
         "buttonText": "View Product",
         "textPlacement": "center"
       }
@@ -584,27 +580,13 @@
         "title": "More flexible and more comfortable!",
         "subtitle": null,
         "items": [
-          {
-            "image": "/robot/g1/slider/sliderg.jpg"
-          },
-          {
-            "image": "/robot/g1/slider/sliderg2.jpg"
-          },
-          {
-            "image": "/robot/g1/slider/sliderg4.jpg"
-          },
-          {
-            "image": "/robot/g1/slider/sliderg6.jpg"
-          },
-          {
-            "image": "/robot/g1/slider/sliderg7.jpg"
-          },
-          {
-            "image": "/robot/g1/slider/sliderg8.jpg"
-          },
-          {
-            "image": "/robot/g1/slider/sliderg9.jpg"
-          }
+
+          { "image": "/robot/g1/slider/sliderg2.jpg" },
+          { "image": "/robot/g1/slider/sliderg4.jpg" },
+          { "image": "/robot/g1/slider/sliderg.jpg" },
+          { "image": "/robot/g1/slider/sliderg6.jpg" },
+          { "image": "/robot/g1/slider/sliderg7.jpg" },
+          { "image": "/robot/g1/slider/sliderg8.jpg" }
         ]
       },
       "go2": {
@@ -636,240 +618,51 @@
         "specLabel": "Specification",
         "modelLabel": "Model",
         "valueLabel": "Value",
-        "columnHeaders": [
-          "G1",
-          "G1 EDU"
-        ],
+
+        "columnHeaders": [ "G1 EDU"],
         "sections": [
           {
             "label": "Mechanical Dimensions",
             "rows": [
-              {
-                "name": "Height, Width and Thickness (Stand)",
-                "values": [
-                  "1320x450x200mm",
-                  "1320x450x200mm"
-                ]
-              },
-              {
-                "name": "Height, Width and Thickness (Fold)",
-                "values": [
-                  "690x450x300mm",
-                  "690x450x300mm"
-                ]
-              },
-              {
-                "name": "Weight (With Battery)",
-                "values": [
-                  "About 35kg",
-                  "About 35kg+"
-                ]
-              },
-              {
-                "name": "Total Degrees of Freedom (Joint Freedom)",
-                "values": [
-                  "23",
-                  "23-43"
-                ]
-              },
-              {
-                "name": "Single Leg Degrees of Freedom",
-                "values": [
-                  "6",
-                  "6"
-                ]
-              },
-              {
-                "name": "Waist Degrees of Freedom",
-                "values": [
-                  "1",
-                  "1+(Optional 2 additional waist degrees of freedom)"
-                ]
-              },
-              {
-                "name": "Single Arm Degrees of Freedom",
-                "values": [
-                  "5",
-                  "5"
-                ]
-              },
-              {
-                "name": "Single Hand Degrees of Freedom",
-                "values": [
-                  "/",
-                  "7 (Optional Force control of three-fingered hand)\n+2(Optional 2 additional wrist degrees of freedom)\n*Three-fingered dexterous hand Dex3-1 Parameter: The thumb has 3 active degrees of freedom; the index finger has 2 active degrees of freedom; the middle finger has 2 active degrees of freedom.\n**Dex3-1 can optionally be installed with tactile sensor arrays"
-                ]
-              },
-              {
-                "name": "Joint output bearing",
-                "values": [
-                  "Industrial grade crossed roller bearings (high precision, high load capacity)",
-                  "Industrial grade crossed roller bearings (high precision, high load capacity)"
-                ]
-              },
-              {
-                "name": "Joint motor",
-                "values": [
-                  "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)",
-                  "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"
-                ]
-              }
+
+              { "name": "Height, Width and Thickness (Stand)", "values": [ "1320x450x200mm"] },
+              { "name": "Height, Width and Thickness (Fold)", "values": ["690x450x300mm"] },
+              { "name": "Weight (With Battery)", "values": [ "About 35kg+"] },
+              { "name": "Battery Life", "values": [ "About 2h"] },
+
+              { "name": "Total Degrees of Freedom (Joint Freedom)", "values": [ "23-43"] },
+              { "name": "Single Leg Degrees of Freedom", "values": [ "6"] },
+              { "name": "Waist Degrees of Freedom", "values": [ "1+(Optional 2 additional waist degrees of freedom)"] },
+              { "name": "Single Arm Degrees of Freedom", "values": [ "5"] },
+              { "name": "Single Hand Degrees of Freedom", "values": ["7 (Optional Force control of three-fingered hand)\n+2(Optional 2 additional wrist degrees of freedom)\n*Three-fingered dexterous hand Dex3-1 Parameter: The thumb has 3 active degrees of freedom; the index finger has 2 active degrees of freedom; the middle finger has 2 active degrees of freedom.\n**Dex3-1 can optionally be installed with tactile sensor arrays"] },
+              { "name": "Joint output bearing", "values": [ "Industrial grade crossed roller bearings (high precision, high load capacity)"] },
+              { "name": "Joint motor", "values": [ "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"] }
             ]
           },
           {
             "label": "Electrical Characteristics",
             "rows": [
-              {
-                "name": "Maximum Torque of Knee Joint [1]",
-                "values": [
-                  "90N.m",
-                  "120N.m"
-                ]
-              },
-              {
-                "name": "Arm Maximum Load (2)",
-                "values": [
-                  "About 2Kg",
-                  "About 3Kg"
-                ]
-              },
-              {
-                "name": "Calf + Thigh Length",
-                "values": [
-                  "0.6M",
-                  "0.45M"
-                ]
-              },
-              {
-                "name": "Extra Large Joint Movement Space",
-                "values": [
-                  "Waist, Knee, Hip joints",
-                  "Waist, Knee, Hip joints\nWrist joint"
-                ]
-              },
-              {
-                "name": "Full Joint Hollow Electrical Routing",
-                "values": [
-                  "YES",
-                  "YES"
-                ]
-              },
-              {
-                "name": "Joint Encoder",
-                "values": [
-                  "Dual encoder",
-                  "Dual encoder"
-                ]
-              },
-              {
-                "name": "4 Microphone Array",
-                "values": [
-                  "YES",
-                  "YES"
-                ]
-              },
-              {
-                "name": "Heat Dissipation",
-                "values": [
-                  "Local air cooling",
-                  "Local air cooling"
-                ]
-              },
-              {
-                "name": "Battery",
-                "values": [
-                  "13 string lithium battery",
-                  "13 string lithium battery"
-                ]
-              },
-              {
-                "name": "Computing Platform",
-                "values": [
-                  "8-core high-performance CPU",
-                  "8-core high-performance CPU"
-                ]
-              },
-              {
-                "name": "Perception",
-                "values": [
-                  "Depth Camera+3D LIDAR",
-                  "Depth Camera+3D LIDAR"
-                ]
-              }
+
+              { "name": "Maximum Torque of Knee Joint [1]", "values": ["120N.m"] },
+              { "name": "Arm Maximum Load (2)", "values": [ "About 3Kg"] },
+              { "name": "Calf + Thigh Length", "values": [ "0.45M"] },
+              { "name": "Extra Large Joint Movement Space", "values": ["Waist, Knee, Hip joints\nWrist joint"] },
+              { "name": "Full Joint Hollow Electrical Routing", "values": [ "YES"] },
+              { "name": "Joint Encoder", "values": [ "Dual encoder"] },
+              { "name": "4 Microphone Array", "values": [ "YES"] },
+              { "name": "Heat Dissipation", "values": ["Local air cooling"] },
+              { "name": "Battery", "values": [ "13 string lithium battery"] },
+              { "name": "Computing Platform", "values": [ "8-core high-performance CPU"] },
+              { "name": "Perception", "values": [ "Depth Camera+3D LIDAR"] }
             ]
           },
           {
             "label": "Accessories",
             "rows": [
-              {
-                "name": "High Computing Power Module",
-                "values": [
-                  "/",
-                  "NVIDIA Jetson Orin"
-                ]
-              },
-              {
-                "name": "Smart Battery (Quick Release)",
-                "values": [
-                  "9000mAh",
-                  "9000mAh"
-                ]
-              },
-              {
-                "name": "Charger",
-                "values": [
-                  "54V 5A",
-                  "54V 5A"
-                ]
-              },
-              {
-                "name": "Manual Controller",
-                "values": [
-                  "YES",
-                  "YES"
-                ]
-              }
-            ]
-          },
-          {
-            "label": "Other",
-            "rows": [
-              {
-                "name": "Battery Life",
-                "values": [
-                  "About 2h",
-                  "About 2h"
-                ]
-              },
-              {
-                "name": "Upgraded Intelligent OTA",
-                "values": [
-                  "YES",
-                  "YES"
-                ]
-              },
-              {
-                "name": "Secondary Development [3]",
-                "values": [
-                  "/",
-                  "YES"
-                ]
-              },
-              {
-                "name": "Warranty Period [4]",
-                "values": [
-                  "8 months",
-                  "18 months"
-                ]
-              },
-              {
-                "name": "Price (Tax and Shipping cost excluded)",
-                "values": [
-                  "US $13.5K",
-                  "Contact sales"
-                ],
-                "highlight": true
-              }
+              { "name": "High Computing Power Module", "values": [   "NVIDIA Jetson Orin"] },
+              { "name": "Smart Battery (Quick Release)", "values": [ "9000mAh"] },
+              { "name": "Charger", "values": [ "54V 5A"] },
+              { "name": "Manual Controller", "values": [ "YES"] }
             ]
           }
         ]

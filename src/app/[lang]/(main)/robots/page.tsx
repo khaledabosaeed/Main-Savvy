@@ -11,21 +11,21 @@ interface RobotsPageProps {
 
 const headerTextsEn = {
   main: "Home",
-  news: "News",
-  projects: "Latest Projects",
-  services: "Gallery",
-  about: "Our Sections",
-  ourRobots: "Robots",
+  // news: "News",
+  // projects: "Latest Projects",
+  // services: "Gallery",
+  // about: "Our Sections",
+  ourRobots: "Savvy eStore",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
   main: "الرئيسية",
-  news: "الأخبار",
-  projects: "معارضنا السابقة",
-  services: "معرض الصور",
-  about: "أقسامنا",
-  ourRobots: "الروبوتات",
+  // news: "الأخبار",
+  // projects: "معارضنا السابقة",
+  // services: "معرض الصور",
+  // about: "أقسامنا",
+  ourRobots: "متجر ساڤي",
   contactUs: "تواصل معنا",
 }
 

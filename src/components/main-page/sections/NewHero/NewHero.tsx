@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next"
 
 import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa"
 import { FaLinkedinIn } from "react-icons/fa6"
+import Link from "next/link"
 import { Leaf, Wind, Brain, Bot } from "lucide-react"
 
 export default function NewHero() {
@@ -29,7 +30,8 @@ export default function NewHero() {
   // Simplified animations on mobile for better performance
   const imageVariants = {
     hidden: {
-      opacity: 0,
+  // Enhanced animation variants with beautiful entrance effect
+  // Simplified animations on mobile for better performance      opacity: 0,
       scale: isMobile ? 0.95 : 0.85,
       y: isMobile ? 30 : 60,
       rotateX: isMobile ? 0 : 15,
@@ -178,16 +180,16 @@ export default function NewHero() {
 
           {/* Robot Image with enhanced blending - Optimized for mobile */}
           <motion.div
-  variants={imageVariants}
-  initial="hidden"
-  animate={animate ? "visible" : "hidden"}
-  whileHover={!isMobile ? {
-    scale: 1.03,
-    transition: { duration: 0.4, ease: [0.22, 0.61, 0.36, 1] as any }
-  } : undefined}
-  className="relative w-full max-w-5xl mx-auto mb-2 md:mb-4 flex items-center justify-center"
-  style={{ perspective: isMobile ? 'none' : '1000px' }}
->
+          variants={imageVariants}
+          initial="hidden"
+          animate={animate ? "visible" : "hidden"}
+          whileHover={!isMobile ? {
+            scale: 1.03,
+              transition: { duration: 0.4, ease: [0.22, 0.61, 0.36, 1] as any }
+            } : undefined}
+            className="relative w-full max-w-5xl mx-auto mb-2 md:mb-4 flex items-center justify-center"
+            style={{ perspective: isMobile ? 'none' : '1000px' }}
+          >
   <div className="relative w-full flex items-center justify-center min-h-[320px] md:min-h-[420px] lg:min-h-[520px]">
     <div className="relative z-10 w-full flex items-center justify-center">
       <Image
@@ -313,12 +315,14 @@ export default function NewHero() {
                   }}
                   className="flex flex-col items-start p-6 rounded-2xl border border-gray-200 bg-gray-50/80 shadow-sm hover:border-primary hover:shadow-md transition-shadow duration-200 cursor-default"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 mb-4 flex items-center justify-center shrink-0 text-primary">
-                    <Icon className="w-5 h-5" strokeWidth={2} />
-                  </div>
-                  <p className="text-sm md:text-base font-bold text-gray-800 leading-relaxed flex-1 text-start">
-                    {goal}
-                  </p>
+                  <>
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 mb-4 flex items-center justify-center shrink-0 text-primary">
+                        <Icon className="w-5 h-5" strokeWidth={2} />
+                      </div>
+                      <p className="text-sm md:text-base font-bold text-gray-800 leading-relaxed flex-1 text-start">
+                        {goal}
+                      </p>
+                    </>
                 </motion.div>
               ))}
             </motion.div>

@@ -36,7 +36,7 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       links: [
         { label: isRTL ? "المحتوى" : "Content", href: `/${lang}/media#content` },
         { label: isRTL ? "معرض الميديا" : "Gallery", href: `/${lang}/media#gallery` },
-        { label: isRTL ? "لماذا ساڤي" : "Why Savvy", href: `/${lang}/media#why-savvy` },
+        // { label: isRTL ? "لماذا ساڤي" : "Why Savvy", href: `/${lang}/media#why-savvy` },
         
       ]
     },
@@ -59,8 +59,9 @@ export default function UnifiedFooter({ lang }: UnifiedFooterProps) {
       title: isRTL ? "صفحات اخرى" : "Other Pages",
       titleHref: null,
       links: [
-        { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
+        // { label: isRTL ? "الأخبار" : "News", href: `/${lang}/news` },
         { label: isRTL ? "تواصل معنا" : "Contact Us", href: `/${lang}/contact` },
+        { label: isRTL ? "متجر ساڤي" : "Savvy eStore", href: `/${lang}/robots` },
         // { label: isRTL ? "سياسة الخصوصية" : "Privacy", href: `/${lang}/privacy` },
         // { label: isRTL ? "شروط الاستخدام" : "Terms", href: `/${lang}/terms` },
       ]

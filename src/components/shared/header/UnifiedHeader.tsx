@@ -42,14 +42,12 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
 
   const serviceSections = t("serviceBrandNames", { returnObjects: true }) as string[]
 
-  /** Sub-links under "Our Sections" (about) — mobile menu only; matches expo / innovation / media pages */
   const aboutSectionLinks = [
     { href: `/${lang}/expo`, label: t("nav.expo") },
     { href: `/${lang}/innovation`, label: t("nav.innovation") },
     { href: `/${lang}/media`, label: t("nav.media") },
   ] as const
 
-  // إغلاق القائمة عند النقر خارجها
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node
@@ -82,7 +80,6 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // تنظيف timeout عند unmount
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
@@ -133,7 +130,7 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
           duration: isMobile ? 0.2 : 0.3,
           ease: [0.16, 1, 0.3, 1]
         }}
-        className={`fixed left-0 right-0 z-40 mb-10 md:mb-0 transition-colors duration-300 ${
+        className={`fixed left-0 right-0 ${isMobileMenuOpen ? "z-[1000]" : "z-40"} mb-10 md:mb-0 transition-colors duration-300 ${
           transparentHeader && !isScrolled
             ? "bg-transparent shadow-none"
             : "bg-white/95 backdrop-blur-md shadow-md"
@@ -296,14 +293,14 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-Uniatree Humanoid G1
+Unitree Humanoid G1
                           </Link>
                           <Link
                             href={`/${lang}/robots/h2`}
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-                            Uniatree Humanoid H2
+                            Unitree Humanoid H2
                           </Link>
                           <Link
                             href={`/${lang}/robots/go2`}
@@ -317,7 +314,7 @@ Unitree Robo- Dog Go2
                             onClick={() => setIsRobotsOpen(false)}
                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                           >
-Uniatree Humanoid R1
+Unitree Humanoid R1
                           </Link>
                         </motion.div>
                       )}
@@ -347,10 +344,55 @@ Uniatree Humanoid R1
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -20, scale: 0.95 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="md:hidden absolute top-full left-4 right-4 mt-2 bg-black/90 backdrop-blur-md rounded-2xl overflow-hidden"
+                className="md:hidden overflow-y-auto overflow-x-hidden overscroll-y-contain max-h-[calc(100dvh-120px)] absolute top-full left-4 right-4 mt-2 bg-black/90 backdrop-blur-md rounded-2xl"
               >
                 <nav className="py-4">
-                  {Object.entries(texts)
+                  {/* Robots in mobile menu */}
+                  {texts["ourRobots"] && (
+                    <>
+                      <div className="px-6 py-3 text-white/60 text-xs font-semibold uppercase">
+                        {texts["ourRobots"]}
+                      </div>
+                      <Link
+                        href={`/${lang}/robots`}                        
+
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        {lang === "ar" ? "عرض الكل" : "View all"}
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/g1`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        Unitree Humanoid G1
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/h2`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        Unitree Humanoid H2
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/go2`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        Unitree Robo-Dog Go2
+                      </Link>
+                      <Link
+                        href={`/${lang}/robots/r1`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                      >
+                        Unitree Humanoid R1
+                      </Link>
+                    </>
+                  )}
+
+                  {Object.entries(texts)  
                     .filter(([key]) => key !== "ourServices" && key !== "ourRobots" && key !== "contactUs")
                     .map(([key, value]) => {
                       // Handle "main" and "news" as page links, others as section links
@@ -396,7 +438,7 @@ Uniatree Humanoid R1
                         )
                       }
 
-                      return (
+                      return (  
                         <Link
                           key={key}
                           href={href}
@@ -441,43 +483,6 @@ Uniatree Humanoid R1
                         className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
                       >
                         {serviceSections[3]}
-                      </Link>
-                    </>
-                  )}
-
-                  {/* Robots in mobile menu */}
-                  {texts["ourRobots"] && (
-                    <>
-                      <div className="px-6 py-3 text-white/60 text-xs font-semibold uppercase">
-                        {texts["ourRobots"]}
-                      </div>
-                      <Link
-                        href={`/${lang}/robots`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        {lang === "ar" ? "عرض الكل" : "View all"}
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/g1`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        g1
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/h2`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        h2
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/go2`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        go2
                       </Link>
                     </>
                   )}

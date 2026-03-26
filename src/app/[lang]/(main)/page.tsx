@@ -13,6 +13,7 @@ import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSl
 import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsSection"
 import { useTranslation } from "react-i18next"
 
+
 export default function Home() {
   const { language } = useLanguage()
   const { t } = useTranslation()
