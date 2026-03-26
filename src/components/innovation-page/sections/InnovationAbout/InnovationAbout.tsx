@@ -1,16 +1,10 @@
 "use client"
 
 import PageAbout from "@/components/shared/PageAbout/PageAbout"
-import type { Language } from "./content"
-import { getInnovationAboutContent } from "./content"
+import { useTranslation } from "react-i18next"
 
-interface InnovationAboutProps {
-  lang: Language
-}
-
-export default function InnovationAbout({ lang }: InnovationAboutProps) {
-  const t = (key: keyof typeof import("./content").innovationAboutContent.en) =>
-    getInnovationAboutContent(lang, key)
+export default function InnovationAbout() {
+  const { t } = useTranslation()
 
   const images = [
     { src: "/innovation/about/1.jpg", alt: "AI Innovation" },
@@ -21,8 +15,8 @@ export default function InnovationAbout({ lang }: InnovationAboutProps) {
 
   return (
     <PageAbout
-      title={t("title")}
-      description={t("description")}
+      title={t("innovation.about.title")}
+      description={t("innovation.about.description")}
       images={images}
     />
   )

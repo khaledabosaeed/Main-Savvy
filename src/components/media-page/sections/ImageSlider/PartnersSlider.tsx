@@ -4,8 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion, useMotionValue, useTransform, AnimatePresence, PanInfo, animate } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { partnersContent } from './content';
+import { useTranslation } from 'react-i18next';
 
 export interface ImageItem {
   name: string;
@@ -18,9 +17,8 @@ interface ImageSliderProps {
 }
 
 const ImageSlider = ({ images, heading }: ImageSliderProps) => {
-    const { language } = useLanguage()
-    const content = partnersContent[language as keyof typeof partnersContent] || partnersContent.en
-    const displayHeading = heading || content.heading;
+    const { t } = useTranslation()
+    const displayHeading = heading ?? t('imageSlider.heading');
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
     const [currentPosition, setCurrentPosition] = useState(0);
     const [direction, setDirection] = useState<'left' | 'right'>('right');

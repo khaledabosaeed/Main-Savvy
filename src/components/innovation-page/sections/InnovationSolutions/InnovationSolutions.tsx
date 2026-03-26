@@ -4,37 +4,35 @@ import { motion } from "framer-motion"
 import { Users, Leaf, Bot, Home } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
-import type { Language } from "./content"
-import { getInnovationSolutionsText } from "./content"
+import { useTranslation } from "react-i18next"
 
 export default function InnovationSolutions() {
   const { language } = useLanguage()
+  const { t } = useTranslation()
   const isMobile = useIsMobile()
-  const lang = language as Language
+  const lang = language as "en" | "ar"
   const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").innovationSolutionsContent.en) =>
-    getInnovationSolutionsText(lang, key)
 
   const solutions = [
     {
       icon: Users,
-      title: t("solution1Title"),
-      description: t("solution1Description"),
+      title: t("innovation.solutions.solution1Title"),
+      description: t("innovation.solutions.solution1Description"),
     },
     {
       icon: Leaf,
-      title: t("solution2Title"),
-      description: t("solution2Description"),
+      title: t("innovation.solutions.solution2Title"),
+      description: t("innovation.solutions.solution2Description"),
     },
     {
       icon: Bot,
-      title: t("solution3Title"),
-      description: t("solution3Description"),
+      title: t("innovation.solutions.solution3Title"),
+      description: t("innovation.solutions.solution3Description"),
     },
     {
       icon: Home,
-      title: t("solution4Title"),
-      description: t("solution4Description"),
+      title: t("innovation.solutions.solution4Title"),
+      description: t("innovation.solutions.solution4Description"),
     },
   ]
 
@@ -50,7 +48,7 @@ export default function InnovationSolutions() {
           className={`mb-3 md:mb-4 ${isRTL ? 'rtl text-right' : 'ltr text-left'}`}
         >
           <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900">
-            {t("title")}
+            {t("innovation.solutions.title")}
           </h2>
         </motion.div>
 
@@ -63,7 +61,7 @@ export default function InnovationSolutions() {
           className={`mb-10 md:mb-16 ${isRTL ? 'rtl text-right' : 'ltr text-left'}`}
         >
           <p className="text-gray-600 text-base md:text-lg max-w-2xl">
-            {t("subtitle")}
+            {t("innovation.solutions.subtitle")}
           </p>
         </motion.div>
 

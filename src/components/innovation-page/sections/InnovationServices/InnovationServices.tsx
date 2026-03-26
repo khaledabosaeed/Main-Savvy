@@ -2,53 +2,47 @@
 
 import PageServices, { type ServiceData } from "@/components/shared/PageServices/PageServices"
 import { Leaf, Bot, Car, Brain, Handshake } from "lucide-react"
-import type { Language } from "./content"
-import { getInnovationServicesContent } from "./content"
+import { useTranslation } from "react-i18next"
 
-interface InnovationServicesProps {
-  lang: Language
-}
-
-export default function InnovationServices({ lang }: InnovationServicesProps) {
-  const t = (key: keyof typeof import("./content").innovationServicesContent.en) =>
-    getInnovationServicesContent(lang, key)
+export default function InnovationServices() {
+  const { t } = useTranslation()
 
   const services: ServiceData[] = [
     {
       id: 1,
-      title: t("service1Title"),
-      description: t("service1Description"),
+      title: t("innovation.services.service1Title"),
+      description: t("innovation.services.service1Description"),
       icon: Leaf,
     },
     {
       id: 2,
-      title: t("service2Title"),
-      description: t("service2Description"),
+      title: t("innovation.services.service2Title"),
+      description: t("innovation.services.service2Description"),
       icon: Bot,
     },
     {
       id: 3,
-      title: t("service3Title"),
-      description: t("service3Description"),
+      title: t("innovation.services.service3Title"),
+      description: t("innovation.services.service3Description"),
       icon: Car,
     },
     {
       id: 4,
-      title: t("service4Title"),
-      description: t("service4Description"),
+      title: t("innovation.services.service4Title"),
+      description: t("innovation.services.service4Description"),
       icon: Brain,
     },
     {
       id: 5,
-      title: t("service5Title"),
-      description: t("service5Description"),
+      title: t("innovation.services.service5Title"),
+      description: t("innovation.services.service5Description"),
       icon: Handshake,
     },
   ]
 
   return (
     <PageServices
-      title={t("title")}
+      title={t("innovation.services.title")}
       services={services}
     />
   )

@@ -2,42 +2,36 @@
 
 import PageServices, { type ServiceData } from "@/components/shared/PageServices/PageServices"
 import { Monitor, Bot, Sparkles } from "lucide-react"
-import type { Language } from "./content"
-import { getExpoServicesContent } from "./content"
+import { useTranslation } from "react-i18next"
 
-interface ExpoServicesProps {
-  lang: Language
-}
-
-export default function ExpoServices({ lang }: ExpoServicesProps) {
-  const t = (key: keyof typeof import("./content").expoServicesContent.en) =>
-    getExpoServicesContent(lang, key)
+export default function ExpoServices() {
+  const { t } = useTranslation()
 
   const services: ServiceData[] = [
     {
       id: 1,
-      title: t("service1Title"),
-      description: t("service1Description"),
+      title: t("expo.services.service1Title"),
+      description: t("expo.services.service1Description"),
       icon: Monitor,
     },
     {
       id: 2,
-      title: t("service2Title"),
-      description: t("service2Description"),
+      title: t("expo.services.service2Title"),
+      description: t("expo.services.service2Description"),
       icon: Bot,
     },
     {
       id: 3,
-      title: t("service3Title"),
-      description: t("service3Description"),
+      title: t("expo.services.service3Title"),
+      description: t("expo.services.service3Description"),
       icon: Sparkles,
     },
   ]
 
   return (
     <PageServices
-      title={t("title")}
-      subtitle={lang === "ar" ? "نجهّز معرضك من أول فكرة لآخر زائر" : "We bring your exhibitions from first idea to last visitor"}
+      title={t("expo.services.title")}
+      subtitle={t("expo.services.subtitle")}
       services={services}
     />
   )

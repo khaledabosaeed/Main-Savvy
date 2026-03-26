@@ -4,6 +4,8 @@ import InnovationSolutions from "@/components/innovation-page/sections/Innovatio
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
 import ExpoPartners from "@/components/expo-page/sections/ExpoPartners/ExpoPartners"
 import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsSection"
+import en from "../../../../../public/locales/en.json"
+import ar from "../../../../../public/locales/ar.json"
 
 interface InnovationPageProps {
   params: Promise<{
@@ -11,37 +13,24 @@ interface InnovationPageProps {
   }>
 }
 
-// نصوص الهيدر الخاصة بهذه الصفحة
-const headerTextsEn = {
-  main: "Home",
-  news: "News",
-  solutions: "Solutions",
-  partners: "Partners",
-  ourRobots: "Robots",
-  contactUs: "Contact Us",
-
-}
-
-const headerTextsAr = {
-  main: "الرئيسية",
-  news: "الأخبار",
-  partners: "الشركاء",
-  solutions: "الحلول",
-  ourRobots: "الروبوتات",
-  contactUs: "تواصل معنا",
-
-}
-
 export default async function InnovationPage({ params }: InnovationPageProps) {
   const { lang } = await params
   const currentLang = lang as "en" | "ar"
+  const dict = currentLang === "ar" ? ar : en
+  const c = dict.common
 
-  const texts = currentLang === "ar" ? headerTextsAr : headerTextsEn
+  const texts = {
+    main: c.main,
+    news: c.news,
+    solutions: c.solutions,
+    partners: c.partnersLabel,
+    ourRobots: c.robots,
+    contactUs: c.contactUs,
+  }
 
   return (
     <>
-      {/* UnifiedHeader للدعم الديناميكي */}
-      <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/innovation/invo.svg" logoHref="#hero"/>
+      <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/innovation/invo.svg" logoHref="#hero" />
 
       <PageTransition>
         <section id="hero">
@@ -52,19 +41,13 @@ export default async function InnovationPage({ params }: InnovationPageProps) {
           <InnovationSolutions />
         </section>
 
-
-        {/* Partners Section */}
         <section id="partners">
           <ExpoPartners />
         </section>
 
         <section id="robots">
-        <RobotsSection />
-      </section>
-
-
-    
-  
+          <RobotsSection />
+        </section>
       </PageTransition>
     </>
   )

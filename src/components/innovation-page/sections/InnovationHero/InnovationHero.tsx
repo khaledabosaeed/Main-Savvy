@@ -3,15 +3,13 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
-import type { Language } from "./content"
-import { getInnovationHeroContent } from "./content"
+import { useTranslation } from "react-i18next"
 
 export default function InnovationHero() {
   const { language } = useLanguage()
-  const lang = language as Language
+  const { t } = useTranslation()
+  const lang = language as "en" | "ar"
   const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").innovationHeroContent.en) =>
-    getInnovationHeroContent(lang, key)
 
   const [key, setKey] = useState(0)
 
@@ -41,7 +39,7 @@ export default function InnovationHero() {
               /* تم تصغير الخط من 6xl إلى 4xl في الشاشات الكبيرة */
               className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight max-w-4xl mx-auto"
             >
-              {t("title")}
+              {t("innovation.hero.title")}
             </motion.h1>
 
             <motion.p
@@ -50,7 +48,7 @@ export default function InnovationHero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-base md:text-lg lg:text-lg text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto"
             >
-              {t("subtitle")}
+              {t("innovation.hero.subtitle")}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -75,7 +73,7 @@ export default function InnovationHero() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {isRTL ? "تواصل معنا" : "Contact Us"}
+                {t("common.contactUs")}
               </motion.a>
             </motion.div>
           </motion.div>

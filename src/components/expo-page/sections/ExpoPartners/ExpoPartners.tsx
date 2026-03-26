@@ -3,8 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { useLanguage } from "@/contexts/LanguageContext"
-import type { Language } from "./content"
-import { getExpoPartnersContent } from "./content"
+import { useTranslation } from "react-i18next"
 import { fadeInUp, viewportConfig, sectionSlideUp } from "@/lib/animations"
 
 // Partner logos data - you can add your logo paths here
@@ -23,10 +22,9 @@ const partners = [
 
 export default function ExpoPartners() {
     const { language } = useLanguage()
-    const lang = language as Language
+    const { t } = useTranslation()
+    const lang = language as "en" | "ar"
     const isRTL = lang === "ar"
-    const t = (key: keyof typeof import("./content").expoPartnersContent.en) =>
-        getExpoPartnersContent(lang, key)
 
     return (
         <section className="py-16 md:py-24 bg-white">
@@ -41,10 +39,10 @@ export default function ExpoPartners() {
                         className={`flex-shrink-0 lg:w-1/3 ${isRTL ? "text-right" : "text-left"}`}
                     >
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
-                            {t("title")}
+                            {t("expo.partners.title")}
                         </h2>
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
-                            {t("subtitle")}
+                            {t("expo.partners.subtitle")}
                         </h2>
                     </motion.div>
 
