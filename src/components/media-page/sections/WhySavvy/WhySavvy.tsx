@@ -1,57 +1,47 @@
 "use client"
 
 import { motion } from "framer-motion"
-import type { Language } from "./content"
-import { getWhySavvyText } from "./content"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslation } from "react-i18next"
 
-interface WhySavvyProps {
-  lang: Language
-}
-
-export default function WhySavvy({ lang }: WhySavvyProps) {
-  const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").whySavvyContent.en) =>
-    getWhySavvyText(lang, key)
+export default function WhySavvy() {
+  const { language } = useLanguage()
+  const { t } = useTranslation()
+  const isRTL = language === "ar"
 
   const features = [
     {
       number: "01",
-      title: t("feature1Title"),
-      description: t("feature1Description"),
+      title: t("media.whySavvy.feature1Title"),
+      description: t("media.whySavvy.feature1Description"),
     },
     {
       number: "02",
-      title: t("feature2Title"),
-      description: t("feature2Description"),
+      title: t("media.whySavvy.feature2Title"),
+      description: t("media.whySavvy.feature2Description"),
     },
     {
       number: "03",
-      title: t("feature3Title"),
-      description: t("feature3Description"),
+      title: t("media.whySavvy.feature3Title"),
+      description: t("media.whySavvy.feature3Description"),
     },
   ]
 
   return (
     <section className="py-20 md:py-32 bg-[#F2F2F2]">
       <div className="container px-6">
-        {/* العنوان */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`text-center mb-16 ${isRTL ? 'rtl' : 'ltr'}`}
+          className={`text-center mb-16 ${isRTL ? "rtl" : "ltr"}`}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            {t("title")}
-          </h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-            {t("subtitle")}
-          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">{t("media.whySavvy.title")}</h2>
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto">{t("media.whySavvy.subtitle")}</p>
         </motion.div>
 
-        {/* المميزات */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto ${isRTL ? 'rtl' : 'ltr'}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto ${isRTL ? "rtl" : "ltr"}`}>
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -59,27 +49,18 @@ export default function WhySavvy({ lang }: WhySavvyProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`text-center`}
+              className="text-center"
             >
-              {/* الرقم */}
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
               >
-                <span className="text-3xl font-bold text-[#3960F9]">
-                  {feature.number}
-                </span>
+                <span className="text-3xl font-bold text-[#3960F9]">{feature.number}</span>
               </motion.div>
 
-              {/* العنوان */}
-              <h3 className={`text-xl md:text-2xl font-bold text-gray-900 mb-4 ${isRTL ? 'text-center' : 'text-center'}`}>
-                {feature.title}
-              </h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 text-center">{feature.title}</h3>
 
-              {/* الوصف */}
-              <p className={`text-gray-600 leading-relaxed ${isRTL ? 'text-center' : 'text-center'}`}>
-                {feature.description}
-              </p>
+              <p className="text-gray-600 leading-relaxed text-center">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -87,4 +68,3 @@ export default function WhySavvy({ lang }: WhySavvyProps) {
     </section>
   )
 }
-

@@ -3,23 +3,19 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Clock, Users, Heart, UserCheck } from "lucide-react"
-import type { Language } from "./content"
-import { getMediaContentText } from "./content"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslation } from "react-i18next"
 
-interface MediaContentProps {
-  lang: Language
-}
-
-export default function MediaContent({ lang }: MediaContentProps) {
-  const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").mediaContentData.en) =>
-    getMediaContentText(lang, key)
+export default function MediaContent() {
+  const { language } = useLanguage()
+  const { t } = useTranslation()
+  const isRTL = language === "ar"
 
   const features = [
-    { icon: Clock, text: t("feature1"), link: "https://example.com/duration-analysis" },
-    { icon: Users, text: t("feature2"), link: "https://example.com/visitor-analytics" },
-    { icon: Heart, text: t("feature3"), link: "https://example.com/sentiment-analysis" },
-    { icon: UserCheck, text: t("feature4"), link: "https://example.com/demographic-analysis" },
+    { icon: Clock, text: t("media.content.feature1"), link: "https://example.com/duration-analysis" },
+    { icon: Users, text: t("media.content.feature2"), link: "https://example.com/visitor-analytics" },
+    { icon: Heart, text: t("media.content.feature3"), link: "https://example.com/sentiment-analysis" },
+    { icon: UserCheck, text: t("media.content.feature4"), link: "https://example.com/demographic-analysis" },
   ]
 
   return (
@@ -123,15 +119,15 @@ export default function MediaContent({ lang }: MediaContentProps) {
               whileTap={{ scale: 0.95 }}
               className={`mb-6 px-6 py-3 bg-[#3960F9] text-white rounded-full font-bold text-sm hover:bg-[#2848C7] transition-all shadow-lg ${isRTL ? 'self-start' : 'self-start'} w-fit`}
             >
-              {t("button")}
+              {t("media.content.button")}
             </motion.button>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              {t("bottomTitle")}
+              {t("media.content.bottomTitle")}
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              {t("bottomDescription")}
+              {t("media.content.bottomDescription")}
             </p>
 
 

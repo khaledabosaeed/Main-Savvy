@@ -1,63 +1,71 @@
 "use client"
 
+import { useMemo } from "react"
 import { motion } from "framer-motion"
 import { FileText } from "lucide-react"
-import type { Language } from "./content"
-import { getTermsContent } from "./content"
+import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslation } from "react-i18next"
 
-interface TermsPageProps {
-  lang: Language
+type Section = {
+  title: string
+  content: string
+  list?: string[]
+  footer?: string
 }
 
-export default function TermsPage({ lang }: TermsPageProps) {
-  const isRTL = lang === "ar"
-  const t = (key: keyof typeof import("./content").termsContent.en) =>
-    getTermsContent(lang, key)
+export default function TermsPage() {
+  const { language } = useLanguage()
+  const { t } = useTranslation()
+  const isRTL = language === "ar"
 
-  const sections = [
-    {
-      title: t("acceptanceTitle"),
-      content: t("acceptanceContent"),
-      list: [] as string[],
-    },
-    {
-      title: t("permittedUseTitle"),
-      content: t("permittedContent"),
-      list: t("permittedList") as string[],
-    },
-    {
-      title: t("intellectualPropertyTitle"),
-      content: t("intellectualPropertyContent"),
-      list: t("intellectualPropertyList") as string[],
-      footer: t("intellectualPropertyFooter"),
-    },
-    {
-      title: t("userTeamTitle"),
-      content: t("userTeamContent"),
-      list: t("userTeamList") as string[],
-    },
-    {
-      title: t("modificationsTitle"),
-      content: t("modificationsContent"),
-    },
-    {
-      title: t("terminationTitle"),
-      content: t("terminationContent"),
-    },
-  ].filter(section => section.title && section.content)
+  const sections: Section[] = useMemo(() => {
+    const arr = (key: string): string[] => {
+      const v = t(key, { returnObjects: true })
+      return Array.isArray(v) ? (v as string[]) : []
+    }
+    return [
+      {
+        title: t("terms.acceptanceTitle"),
+        content: t("terms.acceptanceContent"),
+        list: [],
+      },
+      {
+        title: t("terms.permittedUseTitle"),
+        content: t("terms.permittedContent"),
+        list: arr("terms.permittedList"),
+      },
+      {
+        title: t("terms.intellectualPropertyTitle"),
+        content: t("terms.intellectualPropertyContent"),
+        list: arr("terms.intellectualPropertyList"),
+        footer: t("terms.intellectualPropertyFooter"),
+      },
+      {
+        title: t("terms.userTeamTitle"),
+        content: t("terms.userTeamContent"),
+        list: arr("terms.userTeamList"),
+      },
+      {
+        title: t("terms.modificationsTitle"),
+        content: t("terms.modificationsContent"),
+      },
+      {
+        title: t("terms.terminationTitle"),
+        content: t("terms.terminationContent"),
+      },
+    ].filter((section) => section.title && section.content)
+  }, [t])
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className={`text-center max-w-4xl mx-auto ${isRTL ? 'rtl' : 'ltr'}`}
+            className={`text-center max-w-4xl mx-auto ${isRTL ? "rtl" : "ltr"}`}
           >
-            {/* Icon */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -69,20 +77,15 @@ export default function TermsPage({ lang }: TermsPageProps) {
               </div>
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-              {t("title")}
-            </h1>
-            <p className="text-gray-600 text-lg">
-              {t("lastUpdated")}
-            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">{t("terms.title")}</h1>
+            <p className="text-gray-600 text-lg">{t("terms.lastUpdated")}</p>
           </motion.div>
         </div>
       </section>
 
-      {/* Content Section */}
       <section className="py-20">
         <div className="container px-6">
-          <div className={`max-w-4xl mx-auto ${isRTL ? 'rtl' : 'ltr'}`}>
+          <div className={`max-w-4xl mx-auto ${isRTL ? "rtl" : "ltr"}`}>
             {sections.map((section, index) => (
               <motion.div
                 key={index}
@@ -92,41 +95,33 @@ export default function TermsPage({ lang }: TermsPageProps) {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="mb-12"
               >
-                {/* Section Title */}
-                <h2 className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${isRTL ? 'text-right' : 'text-left'}`}>
+                <h2 className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${isRTL ? "text-right" : "text-left"}`}>
                   {section.title}
                 </h2>
 
-                {/* Section Content */}
-                <p className={`text-gray-700 leading-relaxed text-lg mb-6 whitespace-pre-line ${isRTL ? 'text-right' : 'text-left'}`}>
+                <p
+                  className={`text-gray-700 leading-relaxed text-lg mb-6 whitespace-pre-line ${isRTL ? "text-right" : "text-left"}`}
+                >
                   {section.content}
                 </p>
 
-                {/* List if exists */}
                 {section.list && section.list.length > 0 && (
-                  <ul className={`space-y-3 mb-6 ${isRTL ? 'text-right' : 'text-left'}`}>
-                    {section.list.map((item: string, i: number) => (
-                      <li
-                        key={i}
-                        className={`text-gray-700 text-lg ${isRTL ? 'text-right' : 'text-left'}`}
-                      >
+                  <ul className={`space-y-3 mb-6 ${isRTL ? "text-right" : "text-left"}`}>
+                    {section.list.map((item, i) => (
+                      <li key={i} className={`text-gray-700 text-lg ${isRTL ? "text-right" : "text-left"}`}>
                         {item}
                       </li>
                     ))}
                   </ul>
                 )}
 
-                {/* Footer text if exists */}
-                {section.footer && (
-                  <p className={`text-gray-700 leading-relaxed text-lg ${isRTL ? 'text-right' : 'text-left'}`}>
+                {section.footer ? (
+                  <p className={`text-gray-700 leading-relaxed text-lg ${isRTL ? "text-right" : "text-left"}`}>
                     {section.footer}
                   </p>
-                )}
+                ) : null}
 
-                {/* Divider */}
-                {index < sections.length - 1 && (
-                  <div className="mt-12 border-b border-gray-200" />
-                )}
+                {index < sections.length - 1 && <div className="mt-12 border-b border-gray-200" />}
               </motion.div>
             ))}
           </div>
@@ -135,4 +130,3 @@ export default function TermsPage({ lang }: TermsPageProps) {
     </div>
   )
 }
-

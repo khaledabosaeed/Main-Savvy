@@ -31,12 +31,10 @@ export default function InnovationHero() {
             transition={{ duration: 0.8 }}
             className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}
           >
-{/* Title */}
-<motion.h1
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              /* تم تصغير الخط من 6xl إلى 4xl في الشاشات الكبيرة */
               className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight max-w-4xl mx-auto"
             >
               {t("innovation.hero.title")}

@@ -248,14 +248,18 @@
     "lastUpdated": "Last Updated: November 11, 2025",
     "introTitle": "Acceptance of Terms",
     "introContent": "We respect your privacy and are committed to protecting your personal data while you use Savvy World and its services. This policy explains the types of data we collect, how we use it, and your options for managing it.",
+    "introList": [],
+    "introFooter": "",
     "dataCollectionTitle": "Data We Collect",
     "dataCollectionContent": "When using any form on the site (Contact Us, Interest Registration, Newsletter Subscription):",
-    "dataCollectionList0": "1. Name",
-    "dataCollectionList1": "2. Email",
-    "dataCollectionList2": "3. Phone Number",
-    "dataCollectionList3": "4. ID or Company (Optional)",
-    "dataCollectionList4": "5. Message or Request",
-    "dataCollectionList5": "6. Any additional information provided by the user",
+    "dataCollectionList": [
+      "1. Name",
+      "2. Email",
+      "3. Phone Number",
+      "4. ID or Company (Optional)",
+      "5. Message or Request",
+      "6. Any additional information provided by the user"
+    ],
     "dataSharingTitle": "Sharing Data Within Savvy World",
     "dataSharingContent": "We may share your data across our different departments to provide better services.",
     "noSellingTitle": "No Selling of Data",
@@ -266,12 +270,14 @@
     "policyChangesContent": "We may update this policy from time to time. Continued use of the site constitutes acceptance of the updated version.",
     "yourRightsTitle": "Your Rights",
     "yourRightsContent": "Users have the right to:",
-    "yourRightsList0": "Request a copy of their data",
-    "yourRightsList1": "Request data modification or updates",
-    "yourRightsList2": "Request data deletion",
-    "yourRightsList3": "Withdraw consent for data usage (where applicable)",
-    "yourRightsList4": "To exercise any of these rights:",
-    "yourRightsList5": "You can contact us via the Contact Us page.",
+    "yourRightsList": [
+      "Request a copy of their data",
+      "Request data modification or updates",
+      "Request data deletion",
+      "Withdraw consent for data usage (where applicable)",
+      "To exercise any of these rights:",
+      "You can contact us via the Contact Us page."
+    ],
     "contactTitle": "Contact Us",
     "contactContent": "If you have any questions about the privacy policy or how your data is handled, please reach out to us:",
     "contactEmail": "privacy@savvy.com",
@@ -284,71 +290,91 @@
     "acceptanceContent": "By using the Savvy World website or any of its pages and services, you agree to comply with these terms. If you do not agree with any part of them, please do not use the site.",
     "permittedUseTitle": "Permitted Use",
     "permittedContent": "You are allowed to use the site for the following purposes only:",
-    "permittedList0": "Browsing and learning about Savvy World's services",
-    "permittedList1": "Contacting us through official forms",
-    "permittedList2": "Registering for events or expressing interest in projects",
-    "permittedList3": "Reading displayed content (news, images, exhibitions, solutions, services)",
+    "permittedList": [
+      "Browsing and learning about Savvy World’s services",
+      "Contacting us through official forms",
+      "Registering for events or expressing interest in projects",
+      "Reading displayed content (news, images, exhibitions, solutions, services)"
+    ],
     "intellectualPropertyTitle": "Intellectual Property",
     "intellectualPropertyContent": "All content published on the site is owned by Savvy World and includes:",
-    "intellectualPropertyList0": "Texts",
-    "intellectualPropertyList1": "Images",
-    "intellectualPropertyList2": "Designs",
-    "intellectualPropertyList3": "Logos",
-    "intellectualPropertyList4": "Videos",
+    "intellectualPropertyList": [
+      "Texts",
+      "Images",
+      "Designs",
+      "Logos",
+      "Videos"
+    ],
     "intellectualPropertyFooter": "Creative content related to mr.savvy, robots, and solutions — any content from Savvy exhibitions, media, or innovation — may not be used without prior written permission.",
     "userTeamTitle": "Accuracy of Information",
     "userTeamContent": "We strive to provide accurate and up-to-date information, but:",
-    "userTeamList0": "Content or services may change without notice",
-    "userTeamList1": "Some pages may contain experimental or preliminary information",
-    "userTeamList2": "We do not guarantee the site is error-free or uninterrupted",
-    "userTeamList3": "Use of any information is at your own risk.",
+    "userTeamList": [
+      "Content or services may change without notice",
+      "Some pages may contain experimental or preliminary information",
+      "We do not guarantee the site is error-free or uninterrupted",
+      "Use of any information is at your own risk."
+    ],
     "modificationsTitle": "Modifications to Terms",
     "modificationsContent": "We reserve the right to modify the terms of use at any time. Continued use of the site after changes constitutes explicit acceptance of the new version.",
     "terminationTitle": "Termination",
     "terminationContent": "We may suspend or prevent your use of the site if you violate any of the stated terms. This may occur without prior notice."
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "We're happy to hear from you. Send us a message and we'll get back to you as soon as possible.",
+    "heroBadge": "Get In Touch",
+    "heroTitle": "Get In Touch",
+    "heroSubtitle": "We're here to answer your questions and help with your next project",
     "formTitle": "Send a Message",
-    "fullNameLabel": "Full Name",
-    "emailLabel": "Email",
-    "phoneLabel": "Phone Number",
-    "companyNameLabel": "Company Name",
-    "jobTitleLabel": "Job Title",
-    "savvySolutionsLabel": "Savvy solutions (optional)",
-    "messageLabel": "Message",
-    "placeholderFullName": "John Doe",
-    "placeholderCompanyName": "company Name",
-    "placeholderJobTitle": "Company Manager",
-    "placeholderMessage": "Please put in a brief about your product of interest. Example (Innovation, Media, Expo)",
-    "submitButton": "Send",
-    "submitting": "Sending...",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "companyName": "Company Name",
+    "jobTitle": "Job Title",
+    "fullNamePlaceholder": "John Doe",
+    "emailPlaceholder": "user@email.com",
+    "phonePlaceholder": "0581234567",
+    "companyPlaceholder": "company Name",
+    "jobPlaceholder": "Company Manager",
+    "savvySolutions": "Savvy solutions (optional)",
+    "message": "Message",
+    "messagePlaceholder": "Please put in a brief about your product of interest. Example (Innovation, Media, Expo)",
+    "sending": "Sending...",
+    "send": "Send",
     "successMessage": "Your message has been sent successfully!",
     "errorMessage": "An error occurred. Please try again.",
-    "contactInfo": "Contact Information",
-    "addressLabel": "Address",
-    "emailValue": "info@savvyinnovation.sa",
-    "phoneValue": "+966 XX XXX XXXX",
-    "addressValue": "Riyadh, Saudi Arabia",
-    "solution0": "Advisory services in Data Management",
-    "solution1": "Advisory services in Responsible AI",
-    "solution2": "Industrial robots (firefighting, inspection, security)",
-    "solution3": "Strategic partnerships",
-    "solution4": "Electric vehicle (EV) charging stations",
-    "solution5": "Eco-friendly cement",
-    "solution6": "Energy-efficient smart home solutions",
-    "solution7": "Engaging and purposeful activities",
-    "solution8": "mr.savvy robot",
-    "solution9": "Innovative and interactive visitor experiences",
-    "solution10": "Brand building",
-    "solution11": "Digital marketing",
-    "solution12": "Creative content production",
-    "solution13": "Large-scale screens on building facades promoting your brand",
-    "solution14": "Humanoid robots (with training services)",
-    "solution15": "Alcrea Intelligent assistants designed to reduce your workload.",
-    "solution16": "Other",
-    "solution17": "Solar panels for factories"
+    "faqTitle": "Frequently Asked Questions",
+    "faqQuestion1": "What is Savvy World?",
+    "faqAnswer1": "Savvy World is an innovative Saudi platform combining modern technologies + sustainability + digital transformation + robotics, presented to people and businesses in a simple way, aiming to bring AI and robotics into a better world — the Savvy World.",
+    "faqQuestion2": "What does Savvy Media offer?",
+    "faqAnswer2": "It provides indoor and outdoor digital display screens operating 24/7, along with advanced immersive content using 3D and AR technologies, featuring smart targeting and precise interaction measurement.",
+    "faqQuestion3": "Who is mr.savvy?",
+    "faqAnswer3": "mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
+    "faqQuestion4": "What is the role of Savvy Expo?",
+    "faqAnswer4": "Savvy Expo is the events and exhibitions arm of Savvy World. Its main role is to transform any event into an intelligent, engaging, and educational experience using robotics, AI, and interactive content.",
+    "faqQuestion5": "Do you offer green energy solutions?",
+    "faqAnswer5": "Yes — comprehensively and clearly. In collaboration with the Saudi Green Building Forum, we provide fully certified green solutions. We offer it as a complete 'Green Transformation Journey' for developers, companies, and banks with profitable business models.",
+    "faqQuestion6": "What is Savvy Innovation?",
+    "faqAnswer6": "Savvy Innovation links AI, digital interaction, and green solutions to develop more sustainable urban spaces, providing solutions geared toward the future of cities and experiences.",
+    "solutionOptions": [
+      "Advisory services in Data Management",
+      "Advisory services in Responsible AI",
+      " Industrial robots (firefighting, inspection, security)",
+      "Strategic partnerships",
+      " Electric vehicle (EV) charging stations",
+      "Eco-friendly cement",
+      "Energy-efficient smart home solutions",
+      "Strategic partnerships",
+      "Engaging and purposeful activities",
+      "mr.savvy robot",
+      "Innovative and interactive visitor experiences",
+      "Brand building",
+      "Digital marketing",
+      "Creative content production",
+      "Digital marketing",
+      "Large-scale screens on building facades promoting your brand",
+      "Humanoid robots (with training services)",
+      "Alcrea Intelligent assistants designed to reduce your workload.",
+      "Other"
+    ]
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -580,13 +606,24 @@
         "title": "More flexible and more comfortable!",
         "subtitle": null,
         "items": [
-
-          { "image": "/robot/g1/slider/sliderg2.jpg" },
-          { "image": "/robot/g1/slider/sliderg4.jpg" },
-          { "image": "/robot/g1/slider/sliderg.jpg" },
-          { "image": "/robot/g1/slider/sliderg6.jpg" },
-          { "image": "/robot/g1/slider/sliderg7.jpg" },
-          { "image": "/robot/g1/slider/sliderg8.jpg" }
+          {
+            "image": "/robot/g1/slider/sliderg2.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg4.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg6.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg7.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg8.jpg"
+          }
         ]
       },
       "go2": {
@@ -618,51 +655,179 @@
         "specLabel": "Specification",
         "modelLabel": "Model",
         "valueLabel": "Value",
-
-        "columnHeaders": [ "G1 EDU"],
+        "columnHeaders": [
+          "G1 EDU"
+        ],
         "sections": [
           {
             "label": "Mechanical Dimensions",
             "rows": [
-
-              { "name": "Height, Width and Thickness (Stand)", "values": [ "1320x450x200mm"] },
-              { "name": "Height, Width and Thickness (Fold)", "values": ["690x450x300mm"] },
-              { "name": "Weight (With Battery)", "values": [ "About 35kg+"] },
-              { "name": "Battery Life", "values": [ "About 2h"] },
-
-              { "name": "Total Degrees of Freedom (Joint Freedom)", "values": [ "23-43"] },
-              { "name": "Single Leg Degrees of Freedom", "values": [ "6"] },
-              { "name": "Waist Degrees of Freedom", "values": [ "1+(Optional 2 additional waist degrees of freedom)"] },
-              { "name": "Single Arm Degrees of Freedom", "values": [ "5"] },
-              { "name": "Single Hand Degrees of Freedom", "values": ["7 (Optional Force control of three-fingered hand)\n+2(Optional 2 additional wrist degrees of freedom)\n*Three-fingered dexterous hand Dex3-1 Parameter: The thumb has 3 active degrees of freedom; the index finger has 2 active degrees of freedom; the middle finger has 2 active degrees of freedom.\n**Dex3-1 can optionally be installed with tactile sensor arrays"] },
-              { "name": "Joint output bearing", "values": [ "Industrial grade crossed roller bearings (high precision, high load capacity)"] },
-              { "name": "Joint motor", "values": [ "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"] }
+              {
+                "name": "Height, Width and Thickness (Stand)",
+                "values": [
+                  "1320x450x200mm"
+                ]
+              },
+              {
+                "name": "Height, Width and Thickness (Fold)",
+                "values": [
+                  "690x450x300mm"
+                ]
+              },
+              {
+                "name": "Weight (With Battery)",
+                "values": [
+                  "About 35kg+"
+                ]
+              },
+              {
+                "name": "Battery Life",
+                "values": [
+                  "About 2h"
+                ]
+              },
+              {
+                "name": "Total Degrees of Freedom (Joint Freedom)",
+                "values": [
+                  "23-43"
+                ]
+              },
+              {
+                "name": "Single Leg Degrees of Freedom",
+                "values": [
+                  "6"
+                ]
+              },
+              {
+                "name": "Waist Degrees of Freedom",
+                "values": [
+                  "1+(Optional 2 additional waist degrees of freedom)"
+                ]
+              },
+              {
+                "name": "Single Arm Degrees of Freedom",
+                "values": [
+                  "5"
+                ]
+              },
+              {
+                "name": "Single Hand Degrees of Freedom",
+                "values": [
+                  "7 (Optional Force control of three-fingered hand)\n+2(Optional 2 additional wrist degrees of freedom)\n*Three-fingered dexterous hand Dex3-1 Parameter: The thumb has 3 active degrees of freedom; the index finger has 2 active degrees of freedom; the middle finger has 2 active degrees of freedom.\n**Dex3-1 can optionally be installed with tactile sensor arrays"
+                ]
+              },
+              {
+                "name": "Joint output bearing",
+                "values": [
+                  "Industrial grade crossed roller bearings (high precision, high load capacity)"
+                ]
+              },
+              {
+                "name": "Joint motor",
+                "values": [
+                  "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"
+                ]
+              }
             ]
           },
           {
             "label": "Electrical Characteristics",
             "rows": [
-
-              { "name": "Maximum Torque of Knee Joint [1]", "values": ["120N.m"] },
-              { "name": "Arm Maximum Load (2)", "values": [ "About 3Kg"] },
-              { "name": "Calf + Thigh Length", "values": [ "0.45M"] },
-              { "name": "Extra Large Joint Movement Space", "values": ["Waist, Knee, Hip joints\nWrist joint"] },
-              { "name": "Full Joint Hollow Electrical Routing", "values": [ "YES"] },
-              { "name": "Joint Encoder", "values": [ "Dual encoder"] },
-              { "name": "4 Microphone Array", "values": [ "YES"] },
-              { "name": "Heat Dissipation", "values": ["Local air cooling"] },
-              { "name": "Battery", "values": [ "13 string lithium battery"] },
-              { "name": "Computing Platform", "values": [ "8-core high-performance CPU"] },
-              { "name": "Perception", "values": [ "Depth Camera+3D LIDAR"] }
+              {
+                "name": "Maximum Torque of Knee Joint [1]",
+                "values": [
+                  "120N.m"
+                ]
+              },
+              {
+                "name": "Arm Maximum Load (2)",
+                "values": [
+                  "About 3Kg"
+                ]
+              },
+              {
+                "name": "Calf + Thigh Length",
+                "values": [
+                  "0.45M"
+                ]
+              },
+              {
+                "name": "Extra Large Joint Movement Space",
+                "values": [
+                  "Waist, Knee, Hip joints\nWrist joint"
+                ]
+              },
+              {
+                "name": "Full Joint Hollow Electrical Routing",
+                "values": [
+                  "YES"
+                ]
+              },
+              {
+                "name": "Joint Encoder",
+                "values": [
+                  "Dual encoder"
+                ]
+              },
+              {
+                "name": "4 Microphone Array",
+                "values": [
+                  "YES"
+                ]
+              },
+              {
+                "name": "Heat Dissipation",
+                "values": [
+                  "Local air cooling"
+                ]
+              },
+              {
+                "name": "Battery",
+                "values": [
+                  "13 string lithium battery"
+                ]
+              },
+              {
+                "name": "Computing Platform",
+                "values": [
+                  "8-core high-performance CPU"
+                ]
+              },
+              {
+                "name": "Perception",
+                "values": [
+                  "Depth Camera+3D LIDAR"
+                ]
+              }
             ]
           },
           {
             "label": "Accessories",
             "rows": [
-              { "name": "High Computing Power Module", "values": [   "NVIDIA Jetson Orin"] },
-              { "name": "Smart Battery (Quick Release)", "values": [ "9000mAh"] },
-              { "name": "Charger", "values": [ "54V 5A"] },
-              { "name": "Manual Controller", "values": [ "YES"] }
+              {
+                "name": "High Computing Power Module",
+                "values": [
+                  "NVIDIA Jetson Orin"
+                ]
+              },
+              {
+                "name": "Smart Battery (Quick Release)",
+                "values": [
+                  "9000mAh"
+                ]
+              },
+              {
+                "name": "Charger",
+                "values": [
+                  "54V 5A"
+                ]
+              },
+              {
+                "name": "Manual Controller",
+                "values": [
+                  "YES"
+                ]
+              }
             ]
           }
         ]
@@ -1796,7 +1961,10 @@
     "copyrightFull": "Copyright © 2025 Savvy. All rights reserved",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
-    "mediaGallery": "Gallery"
+    "mediaGallery": "Gallery",
+    "savvyEStore": "Savvy eStore",
+    "mediaContentSection": "Content",
+    "mediaGallerySection": "Gallery"
   },
   "savvySections": {
     "sectionTitle": "Savvy World Sections",

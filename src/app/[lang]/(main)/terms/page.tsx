@@ -1,6 +1,8 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import TermsPage from "@/components/terms-page/TermsPage"
 import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import en from "../../../../../public/locales/en.json"
+import ar from "../../../../../public/locales/ar.json"
 
 interface TermsPageProps {
   params: Promise<{
@@ -8,35 +10,27 @@ interface TermsPageProps {
   }>
 }
 
-// نصوص الهيدر الخاصة بصفحة شروط الاستخدام
-const headerTextsEn = {
-  main: "Home",
-  news: "News",
-  ourServices: "Our Services",
-  ourRobots: "Robots",
-  contactUs: "Contact Us",
-}
-
-const headerTextsAr = {
-  main: "الرئيسية",
-  news: "الأخبار",
-  ourServices: "خدماتنا",
-  ourRobots: "الروبوتات",
-  contactUs: "تواصل معنا",
-}
-
 export default async function Terms({ params }: TermsPageProps) {
   const { lang } = await params
   const currentLang = lang as "en" | "ar"
-  const texts = currentLang === "ar" ? headerTextsAr : headerTextsEn
+  const dict = currentLang === "ar" ? ar : en
+  const c = dict.common
+  const h = dict.header
+
+  const texts = {
+    main: c.main,
+    news: c.news,
+    ourServices: h.ourServices,
+    ourRobots: c.robots,
+    contactUs: c.contactUs,
+  }
 
   return (
     <>
       <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
-        <TermsPage lang={currentLang} />
+        <TermsPage />
       </PageTransition>
     </>
   )
 }
-

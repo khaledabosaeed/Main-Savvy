@@ -5,16 +5,14 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
-import type { Language } from "./content"
-import { getUnrealHeroContent } from "./content"
-import Link from "next/link"
+import { useTranslation } from "react-i18next"
 
 export default function UnrealHero() {
   const [animate, setAnimate] = useState(false)
   const { language } = useLanguage()
-  const lang = language as Language
+  const { t } = useTranslation()
+  const lang = language as "en" | "ar"
   const isRTL = lang === "ar"
-  const content = getUnrealHeroContent(lang)
 
   useEffect(() => {
     setAnimate(true)
@@ -85,7 +83,7 @@ export default function UnrealHero() {
             {/* Badge - Top Right */}
             <motion.div variants={itemVariants} className={`mb-6 ${isRTL ? '' : ''}`}>
               <span className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                {content.badge}
+                {t("media.hero.badge")}
               </span>
             </motion.div>
 
@@ -94,7 +92,7 @@ export default function UnrealHero() {
               variants={itemVariants}
               className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight ${isRTL ? 'text-right' : 'text-left'}`}
             >
-              {content.title}
+              {t("media.hero.title")}
             </motion.h1>
 
             {/* Description */}
@@ -102,7 +100,7 @@ export default function UnrealHero() {
               variants={itemVariants}
               className={`text-sm md:text-base text-gray-600 mb-8 leading-relaxed ${isRTL ? 'text-right' : 'text-left'}`}
             >
-              {content.description}
+              {t("media.hero.description")}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -110,22 +108,22 @@ export default function UnrealHero() {
               variants={itemVariants}
               className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}
             >
-             <motion.a
-              href={`/${lang}/contact`}
-              className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              <motion.a
+                href="#content"
+                className="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {isRTL ? "تواصل معنا " : "Learn More"}
+                {t("media.hero.primaryButton")}
               </motion.a>
 
               <motion.a
-                href={`#content`}
+                href={`/${lang}/contact`}
                 className="inline-block px-8 py-4 bg-white text-gray-900 border-2 border-gray-200 rounded-xl font-semibold hover:border-gray-300 transition-all"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {isRTL ? "تعلم المزيد" : "Contact Us"}
+                {t("media.hero.secondaryButton")}
               </motion.a>
             </motion.div>
           </motion.div>
@@ -146,7 +144,7 @@ export default function UnrealHero() {
                 
                 <Image
                   src="/media/hero/hero-image.png"
-                  alt={content.imageAlt}
+                  alt={t("media.hero.imageAlt")}
                   width={450}
                   height={624}  
                   className=" h-full  object-cover rounded-3xl shadow-2xl"

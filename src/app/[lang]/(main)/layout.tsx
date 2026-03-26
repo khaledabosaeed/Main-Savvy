@@ -34,7 +34,7 @@ export default async function MainLayout({
         </PageTransition>
       </PageTransitionProvider>
       <PromoSection />
-      <UnifiedFooter lang={lang} />
+      <UnifiedFooter />
     </>
   );
 }
