@@ -516,7 +516,7 @@
           {
             "scrollVideoSrc": "/robot/R1/R1b3.mp4",
             "scrollTitle": "Lightweight structure, easy maintenance",
-            "scrollSubtitle": "≤123cm agile form, ultra-lightweight at about 29kg, and ready out-of-the-box to empower"
+            "scrollSubtitle": "≤123cm agile form, ultra-lightweight at  29kg, and ready out-of-the-box to empower"
           },
           {
             "scrollVideoSrc": "/robot/R1/56e81e1c28a64c83a429a85e5ff3b870.mp4",
@@ -604,8 +604,8 @@
             "rows": [
               { "name": "Height, Width and Thickness (Stand)", "values": [ "1320x450x200mm"] },
               { "name": "Height, Width and Thickness (Fold)", "values": ["690x450x300mm"] },
-              { "name": "Weight (With Battery)", "values": [ "About 35kg+"] },
-              { "name": "Battery Life", "values": [ "About 2h"] },
+              { "name": "Weight (With Battery)", "values": [ " 35kg+"] },
+              { "name": "Battery Life", "values": [ " 2h"] },
 
               { "name": "Total Degrees of Freedom (Joint Freedom)", "values": [ "23-43"] },
               { "name": "Single Leg Degrees of Freedom", "values": [ "6"] },
@@ -620,7 +620,7 @@
             "label": "Electrical Characteristics",
             "rows": [
               { "name": "Maximum Torque of Knee Joint [1]", "values": ["120N.m"] },
-              { "name": "Arm Maximum Load (2)", "values": [ "About 3Kg"] },
+              { "name": "Arm Maximum Load (2)", "values": [ " 3Kg"] },
               { "name": "Calf + Thigh Length", "values": [ "0.45M"] },
               { "name": "Extra Large Joint Movement Space", "values": ["Waist, Knee, Hip joints\nWrist joint"] },
               { "name": "Full Joint Hollow Electrical Routing", "values": [ "YES"] },
@@ -657,7 +657,7 @@
             "label": "Mechanical Dimensions",
             "rows": [
               { "name": "Height, Width and Thickness (Stand)", "values": ["1820 x 456 x 218mm", "1820 x 456 x 218mm"] },
-              { "name": "Weight (With Battery)", "values": ["About 70kg", "About 70kg"] },
+              { "name": "Weight (With Battery)", "values": [" 70kg", " 70kg"] },
               { "name": "Degree of Freedom (Total Joints)", "values": ["31", "31"] },
               { "name": "Single Leg Degrees of Freedom", "values": ["6", "6"] },
               { "name": "Single Arm Degrees of Freedom", "values": ["7", "7"] },
@@ -700,7 +700,7 @@
           {
             "label": "Other",
             "rows": [
-              { "name": "Battery Life", "values": ["About 3h", "About 3h"] },
+              { "name": "Battery Life", "values": [" 3h", " 3h"] },
               { "name": "Upgraded Intelligent OTA", "values": ["YES", "YES"] },
               { "name": "Secondary Development [2]", "values": ["/", "YES"] },
               { "name": "Warranty Period [3]", "values": ["8 Months", "12 Months"] }
@@ -721,7 +721,7 @@
             "label": "Mechanical Dimensions",
             "rows": [
               { "name": "Height, Width and Thickness (Stand)", "values": ["1230x357x190mm", "1230x357x190mm", "1230x357x190mm"] },
-              { "name": "Weight (With Battery)", "values": ["About 27kg", "About 29kg", "About 29kg"] },
+              { "name": "Weight (With Battery)", "values": [" 27kg", " 29kg", " 29kg"] },
               { "name": "Degree of Freedom(Total Joints)", "values": ["20", "26", "26-40"] },
               { "name": "Single Leg Degrees of Freedom", "values": ["6", "6", "6"] },
               { "name": "Single Arm Degrees of Freedom", "values": ["4", "5", "5"] },
@@ -735,7 +735,7 @@
           {
             "label": "Electrical Characteristics",
             "rows": [
-              { "name": "Maximum Torque of Arm Joint [1]", "values": ["About 2kg", "About 2kg", "About 2kg"] },
+              { "name": "Maximum Torque of Arm Joint [1]", "values": [" 2kg", " 2kg", " 2kg"] },
               { "name": "Calf + Thigh Length", "values": ["600", "600", "600"] },
               { "name": "Forearm + Upper Arm Length", "values": ["420", "420", "420"] },
               { "name": "Joint Movement Space", "values": ["Knee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°", "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°", "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°"] },
@@ -762,7 +762,7 @@
           {
             "label": "Other",
             "rows": [
-              { "name": "Battery Life", "values": ["About 1h", "About 1h", "About 1h"] },
+              { "name": "Battery Life", "values": [" 1h", " 1h", " 1h"] },
               { "name": "Upgraded Intelligent OTA", "values": ["YES", "YES", "YES"] },
               { "name": "Secondary Development [2]", "values": ["/", "/", "YES"] },
               { "name": "Warranty Period [3]", "values": ["6 Months", "8 Months", "12 Months"] }
@@ -784,7 +784,7 @@
             "rows": [
               { "name": "Dimension of standing", "values": ["70cm x 31cm x 40cm", "70cm x 31cm x 40cm", "70cm x 31cm x 40cm", "70cm x 31cm x 40cm"] },
               { "name": "Dimension of crouching", "values": ["76cm x 31cm x 20cm", "76cm x 31cm x 20cm", "76cm x 31cm x 20cm", "76cm x 31cm x 20cm"] },
-              { "name": "Weight (with battery)", "values": ["About 15kg", "About 15kg", "About 15kg", "About 15kg"] },
+              { "name": "Weight (with battery)", "values": [" 15kg", " 15kg", " 15kg", " 15kg"] },
               { "name": "Material", "values": ["Aluminium alloy + High strength engineering plastic", "Aluminium alloy + High strength engineering plastic", "Aluminium alloy + High strength engineering plastic", "Aluminium alloy + High strength engineering plastic"] }
             ]
           },
@@ -792,7 +792,7 @@
             "label": "Electronic Parameter",
             "rows": [
               { "name": "Voltage", "values": ["28V-33.6V", "28V-33.6V", "28V-33.6V", "28V-33.6V"] },
-              { "name": "Working maximum power", "values": ["About 3000W", "About 3000W", "About 3000W", "About 3000W"] }
+              { "name": "Working maximum power", "values": [" 3000W", " 3000W", " 3000W", " 3000W"] }
             ]
           },
           {
@@ -800,7 +800,7 @@
             "rows": [
               { "name": "Payload", "values": ["=7kg (MAX ~ 10kg)", "=8kg (MAX ~ 10kg)", "=8kg (MAX ~ 12kg)", "=8kg (MAX ~ 12kg)"] },
               { "name": "Speed", "values": ["0 ~ 2.5m/s", "0 ~ 3.5m/s", "0 ~ 3.7m/s (MAX ~ 5m/s)", "0 ~ 3.7m/s (MAX ~ 5m/s)"] },
-              { "name": "Max Climb Drop Height", "values": ["About 15cm", "About 16cm", "About 16cm", "About 16cm"] },
+              { "name": "Max Climb Drop Height", "values": [" 15cm", " 16cm", " 16cm", " 16cm"] },
               { "name": "Max Climb Angle", "values": ["30°", "40°", "40°", "40°"] },
               { "name": "Basic Computing Power", "values": ["Standard", "8-core High-performance CPU", "8-core High-performance CPU", "8-core High-performance CPU"] }
             ]
@@ -808,7 +808,7 @@
           {
             "label": "Knee Joint Parameters",
             "rows": [
-              { "name": "Max Joint Torque [1]", "values": ["—", "About 45N.m", "About 45N.m", "About 45N.m"] },
+              { "name": "Max Joint Torque [1]", "values": ["—", " 45N.m", " 45N.m", " 45N.m"] },
               { "name": "Aluminum knee joint motor", "values": ["12 set", "12 set", "12 set", "12 set"] },
               { "name": "Range of Motion", "values": ["body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°", "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°", "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°", "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°"] },
               { "name": "Intra-joint circuit (knee)", "values": ["✓", "✓", "✓", "✓"] },
@@ -850,7 +850,7 @@
               { "name": "High computing power module", "values": ["—", "—", "—", "NVIDIA Jetson Orin (optional) (40-100Tops computing power)"] },
               { "name": "Depth Camera", "values": ["—", "—", "—", "Included"] },
               { "name": "Smart battery", "values": ["Standard (8000mAh)", "Standard (8000mAh)", "Standard (8000mAh)", "Long endurance (15000mAh)"] },
-              { "name": "Battery life", "values": ["About 1-2h", "About 1-2h", "About 1-2h", "About 2-4h"] },
+              { "name": "Battery life", "values": [" 1-2h", " 1-2h", " 1-2h", " 2-4h"] },
               { "name": "Charger", "values": ["Standard (33.6V 3.5A)", "Standard (33.6V 3.5A)", "Standard (33.6V 3.5A)", "Fast charge (33.6V 9A)"] },
               { "name": "Warranty period [7]", "values": ["6 months", "12 months", "12 months", "12 months"] },
               { "name": "Price (Tax and freight excluded)", "values": ["$1,600", "$2,800", "$4,500", "Contact your sales expert"], "highlight": true }

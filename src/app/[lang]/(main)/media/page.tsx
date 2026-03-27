@@ -17,7 +17,7 @@ interface MediaPageProps {
 const headerTextsEn = {
   // content: "Content",
   main: "Home",
-  news: "News",
+  // news: "News",
   gallery: "Our Gallery",
   "why-savvy": "Why Savvy",
   ourRobots: "Robots",
@@ -28,7 +28,7 @@ const headerTextsEn = {
 const headerTextsAr = {
   // gallery: "معرض الصور",
   main: "الرئيسية",
-  news: "الأخبار",
+  // news: "الأخبار",
   "why-savvy": "لماذا ساڤي",
   content: "المحتوى",
   ourRobots: "الروبوتات",

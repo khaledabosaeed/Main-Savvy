@@ -15,7 +15,7 @@ import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsS
 // نصوص الهيدر بالإنجليزية
 const headerTextsEn = {
   main: "Home",
-  news: "News",
+  // news: "News",
   projects: "Latest Projects",
   services: "Gallery",
   about: "Our Sections",
@@ -26,7 +26,7 @@ const headerTextsEn = {
 // نصوص الهيدر بالعربية
 const headerTextsAr = {
   main: "الرئيسية",
-  news: "الأخبار",  
+  // news: "الأخبار",  
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",

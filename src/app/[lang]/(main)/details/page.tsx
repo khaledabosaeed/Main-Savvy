@@ -11,7 +11,7 @@ interface ArticlePageProps {
 // نصوص الهيدر
 const headerTextsEn = {
   main: "Home",
-  news: "News",
+  // news: "News",
   ourServices: "Our Services",
   ourRobots: "Robots",
   contactUs: "Contact Us",
@@ -20,7 +20,7 @@ const headerTextsEn = {
 
 const headerTextsAr = {
   main: "الرئيسية",
-  news: "الأخبار",
+  // news: "الأخبار",
   ourServices: "خدماتنا",
   ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",

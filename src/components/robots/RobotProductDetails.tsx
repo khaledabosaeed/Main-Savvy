@@ -150,12 +150,8 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
             >
               {(currentLang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
             </h2>
-            <SpecsTable
-              slug={slug}
-              lang={currentLang}
-              singleColumn={slug === "g1"}
-              valueColumnIndex={slug === "g1" ? 1 : 0}
-            />
+            <SpecsTable slug="g1" lang={lang} />
+
           </div>
         )}
       </div>

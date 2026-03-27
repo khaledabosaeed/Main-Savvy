@@ -8,17 +8,17 @@ interface G1PageProps {
 
 const headerTextsEn = {
   main: "Home",
-  news: "News",
+  // news: "News",
   projects: "Latest Projects",
   services: "Gallery",
-  about: "Our Sections",
+  about: "Our Sections",  
   ourRobots: "Robots",
   contactUs: "Contact Us",
 }
 
 const headerTextsAr = {
   main: "الرئيسية",
-  news: "الأخبار",
+  // news: "الأخبار",
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",

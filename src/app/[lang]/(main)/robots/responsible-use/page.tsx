@@ -7,8 +7,8 @@ interface ResponsibleUsePageProps {
 }
 
 const headerTextsEn = {
-  main: "Home",
-  news: "News",
+  main: "Home", 
+  // news: "News",
   projects: "Latest Projects",
   services: "Gallery",
   about: "Our Sections",
@@ -18,7 +18,7 @@ const headerTextsEn = {
 
 const headerTextsAr = {
   main: "الرئيسية",
-  news: "الأخبار",
+  // news: "الأخبار",
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",

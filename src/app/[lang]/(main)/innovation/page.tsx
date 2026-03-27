@@ -14,7 +14,7 @@ interface InnovationPageProps {
 // نصوص الهيدر الخاصة بهذه الصفحة
 const headerTextsEn = {
   main: "Home",
-  news: "News",
+  // news: "News",
   solutions: "Solutions",
   partners: "Partners",
   ourRobots: "Robots",
@@ -24,7 +24,7 @@ const headerTextsEn = {
 
 const headerTextsAr = {
   main: "الرئيسية",
-  news: "الأخبار",
+  // news: "الأخبار",
   partners: "الشركاء",
   solutions: "الحلول",
   ourRobots: "الروبوتات",

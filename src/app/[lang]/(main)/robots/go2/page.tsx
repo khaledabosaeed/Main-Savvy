@@ -8,7 +8,7 @@ interface Go2PageProps {
 
 const headerTextsEn = {
   main: "Home",
-  news: "News",
+  // news: "News",
   projects: "Latest Projects",
   services: "Gallery",
   about: "Our Sections",
@@ -16,9 +16,9 @@ const headerTextsEn = {
   contactUs: "Contact Us",
 }
 
-const headerTextsAr = {
+const headerTextsAr = { 
   main: "الرئيسية",
-  news: "الأخبار",
+  // news: "الأخبار",
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",

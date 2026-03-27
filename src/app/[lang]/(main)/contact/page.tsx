@@ -14,7 +14,7 @@ const headerTextsEn = {
   ourRobots: "Robots",
   contactUs: "Contact Us",
   main: "Home",
-  news: "News",
+  // news: "News",
 }
 
 const headerTextsAr = {
@@ -22,7 +22,7 @@ const headerTextsAr = {
   ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",
   main: "الرئيسية",
-  news: "الأخبار",
+  // news: "الأخبار",
 }
 
 export default async function Contact({ params }: ContactPageProps) {

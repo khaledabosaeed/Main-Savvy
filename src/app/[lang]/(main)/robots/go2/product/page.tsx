@@ -8,7 +8,7 @@ interface ProductPageProps {
 
 const headerTextsEn = {
   main: "Home",
-  news: "News",
+  // news: "News",
   projects: "Latest Projects",
   services: "Gallery",
   about: "Our Sections",
@@ -18,13 +18,13 @@ const headerTextsEn = {
 
 const headerTextsAr = {
   main: "الرئيسية",
-  news: "الأخبار",
+  // news: "الأخبار",
   projects: "معارضنا السابقة",
   services: "معرض الصور",
   about: "أقسامنا",
   ourRobots: "الروبوتات",
   contactUs: "تواصل معنا",
-}
+} 
 
 export default async function Go2ProductPage({ params }: ProductPageProps) {
   const { lang } = await params
