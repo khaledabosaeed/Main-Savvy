@@ -9,8 +9,8 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { useSmoothScroll } from "@/contexts/SmoothScrollContext"
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
-import Badge from "../Badge/Badge"
+import LanguageSwitcher from "./LanguageSwitcher"
+import Badge from "./Badge"
 import { motion, AnimatePresence } from "framer-motion"
 
 interface UnifiedHeaderProps {

@@ -1,6 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
-import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import RobotResponsibleUsePage from "@/components/robots/RobotResponsibleUsePage/RobotResponsibleUsePage"
+import UnifiedHeader from "@/components/shared/UnifiedHeader"
+import RobotResponsibleUsePage from "@/components/robots/RobotResponsibleUsePage"
 import { robotsRouteHeaderTexts } from "@/lib/robots-route-header"
 
 interface ResponsibleUsePageProps {

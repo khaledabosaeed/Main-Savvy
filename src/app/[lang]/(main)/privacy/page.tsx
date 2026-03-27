@@ -1,6 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import PrivacyPage from "@/components/privacy-page/PrivacyPage"
-import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import en from "../../../../../public/locales/en.json"
 import ar from "../../../../../public/locales/ar.json"
 

@@ -1,5 +1,5 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
-import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import G1PageContent from "@/components/robots/G1PageContent"
 import { robotsRouteHeaderTexts } from "@/lib/robots-route-header"
 

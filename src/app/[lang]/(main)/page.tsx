@@ -1,16 +1,16 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import NewHero from "@/components/main-page/sections/NewHero/NewHero"
-import SavvySections from "@/components/main-page/sections/SavvySections/SavvySections"
+import NewHero from "@/components/main-page/sections/NewHero"
+import SavvySections from "@/components/main-page/sections/SavvySections"
 
-import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import TopBanner from "@/components/shared/TopBanner/TopBanner"
+import UnifiedHeader from "@/components/shared/UnifiedHeader"
+import TopBanner from "@/components/shared/TopBanner"
 import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
 import { useLanguage } from "@/contexts/LanguageContext"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
-import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSlider/PartnersSlider"
-import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsSection"
+import ImageSlider, { ImageItem } from "@/components/media-page/sections/PartnersSlider"
+import RobotsSection from "@/components/main-page/sections/RobotsSection"
 import { useTranslation } from "react-i18next"
 
 

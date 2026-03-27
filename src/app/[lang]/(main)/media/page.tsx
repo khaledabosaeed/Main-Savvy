@@ -1,9 +1,9 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
-import MediaContent from "@/components/media-page/sections/MediaContent/MediaContent"
-import WhySavvy from "@/components/media-page/sections/WhySavvy/WhySavvy"
-import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import MediaContent from "@/components/media-page/sections/MediaContent"
+import WhySavvy from "@/components/media-page/sections/WhySavvy"
+import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import MadiaProjects from "@/components/shared/mdia-projects/LatestProjects"
-import UnrealHero from "@/components/media-page/sections/UnrealHero/UnrealHero"
+import UnrealHero from "@/components/media-page/sections/UnrealHero"
 import en from "../../../../../public/locales/en.json"
 import ar from "../../../../../public/locales/ar.json"
 

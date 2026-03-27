@@ -1,5 +1,5 @@
-import PromoSection from "@/components/main-page/sections/PromoSection/PromoSection";
-import UnifiedFooter from "@/components/shared/footer/UnifiedFooter"
+import PromoSection from "@/components/main-page/sections/PromoSection";
+import UnifiedFooter from "@/components/shared/UnifiedFooter"
 import PageTransition from "@/components/shared/PageTransition"
 import PageTransitionProvider from "@/components/shared/PageTransitionProvider"
 import { notFound } from "next/navigation";

@@ -1,6 +1,6 @@
 "use client"
 
-import PageAbout from "@/components/shared/PageAbout/PageAbout"
+import PageAbout from "@/components/shared/PageAbout"
 import { useTranslation } from "react-i18next"
 
 export default function InnovationAbout() {

@@ -1,6 +1,6 @@
 "use client"
 
-import PageServices, { type ServiceData } from "@/components/shared/PageServices/PageServices"
+import PageServices, { type ServiceData } from "@/components/shared/PageServices"
 import { Monitor, Bot, Sparkles } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
