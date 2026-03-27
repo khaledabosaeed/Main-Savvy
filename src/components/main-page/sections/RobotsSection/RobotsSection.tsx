@@ -5,11 +5,15 @@ import { getRobotsSectionContent } from "@/lib/robots-locale"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { useIsMobile } from "@/hooks/useIsMobile"
 
 export default function RobotsSection() {
   const { language } = useLanguage()
   const lang = language as "en" | "ar"
   const content = getRobotsSectionContent(lang)
+
+  const isMobile = useIsMobile()
+  const isRTL = lang === "ar"
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -37,7 +41,7 @@ export default function RobotsSection() {
     <section id="robots" className="w-full py-20 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <motion.h2
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 text-gray-900"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 text-primary"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -57,7 +61,7 @@ export default function RobotsSection() {
             <motion.a
               href={`/${lang}${card.link}`}
               key={card.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
               variants={cardVariants}
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
@@ -76,18 +80,47 @@ export default function RobotsSection() {
                 <h3 className="text-xl font-semibold text-gray-900 leading-relaxed">
                   {card.name}
                 </h3>
-                <p className="text-gray-600 text-sm line-clamp-2">
+                {/* <p className="text-gray-600 text-sm line-clamp-2">
                   {card.description}
-                </p>
+                </p> */}
                 <div className="pt-4 border-t border-gray-200">
                   <Link
                     href={`/${lang}${card.link}`}
-                    className="px-6 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all duration-300 hover:-translate-y-0.5 inline-block w-fit"
+                    className={`inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors group w-fit ${isRTL ? "flex-row-reverse" : ""}`}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    {card.buttonText}
+                    <span>{card.buttonText}</span>
+                    <svg
+                      className={`h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180" : ""}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
                   </Link>
                 </div>
+              </div>
+
+              <div
+                className="pointer-events-none absolute bottom-0 left-0 right-0 h-4 md:h-5 overflow-hidden"
+                aria-hidden
+              >
+                <Image
+                  src="/home-page/services/footer.svg"
+                  alt=""
+                  width={isMobile ? 500 : 800}
+                  height={20}
+                  className="absolute inset-0 h-full w-full object-cover object-bottom"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 " />
               </div>
             </motion.a>
           ))}

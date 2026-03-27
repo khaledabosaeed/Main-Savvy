@@ -21,12 +21,6 @@ const heroCtaBase =
   "motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100 motion-reduce:active:scale-100 " +
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black/50"
 
-const heroCtaPrimary =
-  `${heroCtaBase} ` +
-  "bg-primary text-white shadow-md shadow-black/25 " +
-  "hover:bg-primary/95 hover:shadow-lg hover:shadow-primary/35 " +
-  "focus-visible:ring-primary focus-visible:ring-offset-black/40"
-
 const heroCtaSecondary =
   `${heroCtaBase} ` +
   "bg-primary/15 backdrop-blur-md text-white border border-primary/45 " +
@@ -163,19 +157,33 @@ export default function RobotHeroSlider() {
                 </div>
 
                 <div
-                  className={`flex w-full max-w-xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 ${
-                    isRTL ? "sm:flex-row-reverse sm:justify-end" : "sm:justify-start"
+                  className={`flex w-full max-w-xl flex-row items-center justify-between gap-3 sm:gap-4 ${
+                    isRTL ? "flex-row-reverse" : ""
                   }`}
                 >
                   <Link
                     href={`/${lang}${currentSlide.link}`}
-                    className={heroCtaPrimary}
+                    className={`inline-flex min-w-0 shrink items-center gap-2 text-sm sm:text-base font-medium text-primary hover:text-primary/90 transition-colors group w-fit [text-shadow:0_1px_3px_rgba(0,0,0,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 rounded-sm ${isRTL ? "flex-row-reverse" : ""}`}
                   >
-                    {currentSlide.buttonText}
+                    <span>{currentSlide.buttonText}</span>
+                    <svg
+                      className={`h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5 ${isRTL ? "rotate-180" : ""}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
                   </Link>
                   <Link
                     href={`/${lang}${currentSlide.link}/product`}
-                    className={heroCtaSecondary}
+                    className={`${heroCtaSecondary} !w-auto shrink-0`}
                   >
                     {getRobotLabel(lang, "viewProduct")}
                   </Link>

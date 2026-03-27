@@ -66,13 +66,13 @@ export default function RobotProductDetails({ slug, lang }: RobotProductDetailsP
             >
               {content.name}
             </h1>
-            <p
+            {/* <p
               className={`text-2xl font-semibold text-gray-900 mb-8 ${
                 isRTL ? "text-right" : "text-left"
               }`}
             >
               {content.price}
-            </p>
+            </p> */}
 
             {/* Bullet points */}
             <ul className="space-y-3 mb-8">
