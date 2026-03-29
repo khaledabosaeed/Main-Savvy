@@ -6,6 +6,23 @@
     "latestProjects": "Latest Projects",
     "contactUs": "Contact Us"
   },
+  "nav": {
+    "expo": "Expo",
+    "innovation": "Innovation",
+    "media": "Media",
+    "contact": "Contact",
+    "languageToArabic": "العربية",
+    "languageToEnglish": "English",
+    "about": "About",
+    "pricing": "Pricing",
+    "steps": "Steps"
+  },
+  "serviceBrandNames": [
+    "Savvy World",
+    "Savvy Expo",
+    "Savvy Media",
+    "Savvy Innovation"
+  ],
   "footer": {
     "savvyWorld": "Smart World",
     "aboutSavvy": "About Savvy",
@@ -231,14 +248,18 @@
     "lastUpdated": "Last Updated: November 11, 2025",
     "introTitle": "Acceptance of Terms",
     "introContent": "We respect your privacy and are committed to protecting your personal data while you use Savvy World and its services. This policy explains the types of data we collect, how we use it, and your options for managing it.",
+    "introList": [],
+    "introFooter": "",
     "dataCollectionTitle": "Data We Collect",
     "dataCollectionContent": "When using any form on the site (Contact Us, Interest Registration, Newsletter Subscription):",
-    "dataCollectionList0": "1. Name",
-    "dataCollectionList1": "2. Email",
-    "dataCollectionList2": "3. Phone Number",
-    "dataCollectionList3": "4. ID or Company (Optional)",
-    "dataCollectionList4": "5. Message or Request",
-    "dataCollectionList5": "6. Any additional information provided by the user",
+    "dataCollectionList": [
+      "1. Name",
+      "2. Email",
+      "3. Phone Number",
+      "4. ID or Company (Optional)",
+      "5. Message or Request",
+      "6. Any additional information provided by the user"
+    ],
     "dataSharingTitle": "Sharing Data Within Savvy World",
     "dataSharingContent": "We may share your data across our different departments to provide better services.",
     "noSellingTitle": "No Selling of Data",
@@ -249,12 +270,14 @@
     "policyChangesContent": "We may update this policy from time to time. Continued use of the site constitutes acceptance of the updated version.",
     "yourRightsTitle": "Your Rights",
     "yourRightsContent": "Users have the right to:",
-    "yourRightsList0": "Request a copy of their data",
-    "yourRightsList1": "Request data modification or updates",
-    "yourRightsList2": "Request data deletion",
-    "yourRightsList3": "Withdraw consent for data usage (where applicable)",
-    "yourRightsList4": "To exercise any of these rights:",
-    "yourRightsList5": "You can contact us via the Contact Us page.",
+    "yourRightsList": [
+      "Request a copy of their data",
+      "Request data modification or updates",
+      "Request data deletion",
+      "Withdraw consent for data usage (where applicable)",
+      "To exercise any of these rights:",
+      "You can contact us via the Contact Us page."
+    ],
     "contactTitle": "Contact Us",
     "contactContent": "If you have any questions about the privacy policy or how your data is handled, please reach out to us:",
     "contactEmail": "privacy@savvy.com",
@@ -267,71 +290,91 @@
     "acceptanceContent": "By using the Savvy World website or any of its pages and services, you agree to comply with these terms. If you do not agree with any part of them, please do not use the site.",
     "permittedUseTitle": "Permitted Use",
     "permittedContent": "You are allowed to use the site for the following purposes only:",
-    "permittedList0": "Browsing and learning about Savvy World's services",
-    "permittedList1": "Contacting us through official forms",
-    "permittedList2": "Registering for events or expressing interest in projects",
-    "permittedList3": "Reading displayed content (news, images, exhibitions, solutions, services)",
+    "permittedList": [
+      "Browsing and learning about Savvy World’s services",
+      "Contacting us through official forms",
+      "Registering for events or expressing interest in projects",
+      "Reading displayed content (news, images, exhibitions, solutions, services)"
+    ],
     "intellectualPropertyTitle": "Intellectual Property",
     "intellectualPropertyContent": "All content published on the site is owned by Savvy World and includes:",
-    "intellectualPropertyList0": "Texts",
-    "intellectualPropertyList1": "Images",
-    "intellectualPropertyList2": "Designs",
-    "intellectualPropertyList3": "Logos",
-    "intellectualPropertyList4": "Videos",
+    "intellectualPropertyList": [
+      "Texts",
+      "Images",
+      "Designs",
+      "Logos",
+      "Videos"
+    ],
     "intellectualPropertyFooter": "Creative content related to mr.savvy, robots, and solutions — any content from Savvy exhibitions, media, or innovation — may not be used without prior written permission.",
     "userTeamTitle": "Accuracy of Information",
     "userTeamContent": "We strive to provide accurate and up-to-date information, but:",
-    "userTeamList0": "Content or services may change without notice",
-    "userTeamList1": "Some pages may contain experimental or preliminary information",
-    "userTeamList2": "We do not guarantee the site is error-free or uninterrupted",
-    "userTeamList3": "Use of any information is at your own risk.",
+    "userTeamList": [
+      "Content or services may change without notice",
+      "Some pages may contain experimental or preliminary information",
+      "We do not guarantee the site is error-free or uninterrupted",
+      "Use of any information is at your own risk."
+    ],
     "modificationsTitle": "Modifications to Terms",
     "modificationsContent": "We reserve the right to modify the terms of use at any time. Continued use of the site after changes constitutes explicit acceptance of the new version.",
     "terminationTitle": "Termination",
     "terminationContent": "We may suspend or prevent your use of the site if you violate any of the stated terms. This may occur without prior notice."
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "We're happy to hear from you. Send us a message and we'll get back to you as soon as possible.",
+    "heroBadge": "Get In Touch",
+    "heroTitle": "Get In Touch",
+    "heroSubtitle": "We're here to answer your questions and help with your next project",
     "formTitle": "Send a Message",
-    "fullNameLabel": "Full Name",
-    "emailLabel": "Email",
-    "phoneLabel": "Phone Number",
-    "companyNameLabel": "Company Name",
-    "jobTitleLabel": "Job Title",
-    "savvySolutionsLabel": "Savvy solutions (optional)",
-    "messageLabel": "Message",
-    "placeholderFullName": "John Doe",
-    "placeholderCompanyName": "company Name",
-    "placeholderJobTitle": "Company Manager",
-    "placeholderMessage": "Please put in a brief about your product of interest. Example (Innovation, Media, Expo)",
-    "submitButton": "Send",
-    "submitting": "Sending...",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "companyName": "Company Name",
+    "jobTitle": "Job Title",
+    "fullNamePlaceholder": "John Doe",
+    "emailPlaceholder": "user@email.com",
+    "phonePlaceholder": "0581234567",
+    "companyPlaceholder": "company Name",
+    "jobPlaceholder": "Company Manager",
+    "savvySolutions": "Savvy solutions (optional)",
+    "message": "Message",
+    "messagePlaceholder": "Please put in a brief about your product of interest. Example (Innovation, Media, Expo)",
+    "sending": "Sending...",
+    "send": "Send",
     "successMessage": "Your message has been sent successfully!",
     "errorMessage": "An error occurred. Please try again.",
-    "contactInfo": "Contact Information",
-    "addressLabel": "Address",
-    "emailValue": "info@savvyinnovation.sa",
-    "phoneValue": "+966 XX XXX XXXX",
-    "addressValue": "Riyadh, Saudi Arabia",
-    "solution0": "Advisory services in Data Management",
-    "solution1": "Advisory services in Responsible AI",
-    "solution2": "Industrial robots (firefighting, inspection, security)",
-    "solution3": "Strategic partnerships",
-    "solution4": "Electric vehicle (EV) charging stations",
-    "solution5": "Eco-friendly cement",
-    "solution6": "Energy-efficient smart home solutions",
-    "solution7": "Engaging and purposeful activities",
-    "solution8": "mr.savvy robot",
-    "solution9": "Innovative and interactive visitor experiences",
-    "solution10": "Brand building",
-    "solution11": "Digital marketing",
-    "solution12": "Creative content production",
-    "solution13": "Large-scale screens on building facades promoting your brand",
-    "solution14": "Humanoid robots (with training services)",
-    "solution15": "Alcrea Intelligent assistants designed to reduce your workload.",
-    "solution16": "Other",
-    "solution17": "Solar panels for factories"
+    "faqTitle": "Frequently Asked Questions",
+    "faqQuestion1": "What is Savvy World?",
+    "faqAnswer1": "Savvy World is an innovative Saudi platform combining modern technologies + sustainability + digital transformation + robotics, presented to people and businesses in a simple way, aiming to bring AI and robotics into a better world — the Savvy World.",
+    "faqQuestion2": "What does Savvy Media offer?",
+    "faqAnswer2": "It provides indoor and outdoor digital display screens operating 24/7, along with advanced immersive content using 3D and AR technologies, featuring smart targeting and precise interaction measurement.",
+    "faqQuestion3": "Who is mr.savvy?",
+    "faqAnswer3": "mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
+    "faqQuestion4": "What is the role of Savvy Expo?",
+    "faqAnswer4": "Savvy Expo is the events and exhibitions arm of Savvy World. Its main role is to transform any event into an intelligent, engaging, and educational experience using robotics, AI, and interactive content.",
+    "faqQuestion5": "Do you offer green energy solutions?",
+    "faqAnswer5": "Yes — comprehensively and clearly. In collaboration with the Saudi Green Building Forum, we provide fully certified green solutions. We offer it as a complete 'Green Transformation Journey' for developers, companies, and banks with profitable business models.",
+    "faqQuestion6": "What is Savvy Innovation?",
+    "faqAnswer6": "Savvy Innovation links AI, digital interaction, and green solutions to develop more sustainable urban spaces, providing solutions geared toward the future of cities and experiences.",
+    "solutionOptions": [
+      "Advisory services in Data Management",
+      "Advisory services in Responsible AI",
+      " Industrial robots (firefighting, inspection, security)",
+      "Strategic partnerships",
+      " Electric vehicle (EV) charging stations",
+      "Eco-friendly cement",
+      "Energy-efficient smart home solutions",
+      "Strategic partnerships",
+      "Engaging and purposeful activities",
+      "mr.savvy robot",
+      "Innovative and interactive visitor experiences",
+      "Brand building",
+      "Digital marketing",
+      "Creative content production",
+      "Digital marketing",
+      "Large-scale screens on building facades promoting your brand",
+      "Humanoid robots (with training services)",
+      "Alcrea Intelligent assistants designed to reduce your workload.",
+      "Other"
+    ]
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -407,7 +450,7 @@
       },
       {
         "id": "go2",
-        "name": "Unitree Robo-Dog Go2",  
+        "name": "Unitree Robo-Dog Go2",
         "description": "New Creature of Embodied AI",
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
@@ -456,17 +499,16 @@
     },
     "scrollSection": {
       "g1": {
-
-        "items": [  
+        "items": [
           {
             "scrollVideoSrc": "/robot/g1/four.mp4",
             "scrollTitle": "Force control dexterous hand, manipulation of all things",
             "scrollSubtitle": "Combined with force-position hybrid control, it is sensitive and reliable, and can simulate human hands to achieve precise operation of objects."
           },
-        {
-              "scrollVideoSrc": "/robot/g1/five.mp4",
-              "scrollTitle": "Multi-mode operation",
-              "scrollSubtitle": "The Go2 robot can operate in various modes, including manual control, autonomous navigation, and obstacle avoidance."
+          {
+            "scrollVideoSrc": "/robot/g1/five.mp4",
+            "scrollTitle": "Multi-mode operation",
+            "scrollSubtitle": "The Go2 robot can operate in various modes, including manual control, autonomous navigation, and obstacle avoidance."
           },
           {
             "scrollVideoSrc": "/robot/g1/six.mp4",
@@ -476,29 +518,26 @@
         ]
       },
       "h2": {
-      "items": [
-        {
-          "scrollVideoSrc": "/robot/h2/sec.mp4",
-          "scrollTitle": "Motion Control Algorithms Breathing Life into Form",
-          "scrollSubtitle": "31 degrees of freedom, 360N·m joint torque, and precise dynamic movement replication. Algorithms evolve continuously via OTA."
-        }
-      ,
-      {
-        "scrollVideoSrc": "/robot/h2/first.mp4",
-        "scrollTitle": "Embodied Models   Global Co-Creation",
-        "scrollSubtitle": "Powered by a 2070 TOPS chip, it supports diverse intelligent models, enabling multiple work scenarios and pushing humanoid robot boundaries."
-      }
- 
-    ]
-  },
+        "items": [
+          {
+            "scrollVideoSrc": "/robot/h2/sec.mp4",
+            "scrollTitle": "Motion Control Algorithms Breathing Life into Form",
+            "scrollSubtitle": "31 degrees of freedom, 360N·m joint torque, and precise dynamic movement replication. Algorithms evolve continuously via OTA."
+          },
+          {
+            "scrollVideoSrc": "/robot/h2/first.mp4",
+            "scrollTitle": "Embodied Models   Global Co-Creation",
+            "scrollSubtitle": "Powered by a 2070 TOPS chip, it supports diverse intelligent models, enabling multiple work scenarios and pushing humanoid robot boundaries."
+          }
+        ]
+      },
       "go2": {
         "items": [
           {
             "scrollVideoSrc": "/robot/go2/first.mp4",
             "scrollTitle": "Advanced AI Mode",
             "scrollSubtitle": "Through large-scale AI simulation training, the Go2 robot has learned advanced gaits such as upside-down walking, adaptive roll-over, and climbing over obstacles, with excellent flexibility and stability at the same time."
-          }
-          ,
+          },
           {
             "scrollVideoSrc": "/robot/go2/second.mp4",
             "scrollTitle": "3D LiDAR Mapping",
@@ -534,22 +573,31 @@
     "imageSection": {
       "h2": {
         "beforeVideo": [
-          { "title": "Unitree H2 Parameter", "image": "/robot/h2/H2.png" }
+          {
+            "title": "Unitree H2 Parameter",
+            "image": "/robot/h2/H2.png"
+          }
         ]
       },
       "go2": {
-
         "beforeTable": [
-
-          {  "title": "Discover Hidden Highlights", "image": "/robot/go2/imagesection.webp" }
+          {
+            "title": "Discover Hidden Highlights",
+            "image": "/robot/go2/imagesection.webp"
+          }
         ]
       },
       "r1": {
         "beforeVideo": [
-          { "title": "Intelligent pioneer, fully customizable", "image": "/robot/R1/R1b2.webp" }
+          {
+            "title": "Intelligent pioneer, fully customizable",
+            "image": "/robot/R1/R1b2.webp"
+          }
         ],
         "beforeTable": [
-          { "image": "/robot/R1/befor.png" }
+          {
+            "image": "/robot/R1/befor.png"
+          }
         ]
       }
     },
@@ -558,12 +606,24 @@
         "title": "More flexible and more comfortable!",
         "subtitle": null,
         "items": [
-          { "image": "/robot/g1/slider/sliderg2.jpg" },
-          { "image": "/robot/g1/slider/sliderg4.jpg" },
-          { "image": "/robot/g1/slider/sliderg.jpg" },
-          { "image": "/robot/g1/slider/sliderg6.jpg" },
-          { "image": "/robot/g1/slider/sliderg7.jpg" },
-          { "image": "/robot/g1/slider/sliderg8.jpg" }
+          {
+            "image": "/robot/g1/slider/sliderg2.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg4.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg6.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg7.jpg"
+          },
+          {
+            "image": "/robot/g1/slider/sliderg8.jpg"
+          }
         ]
       },
       "go2": {
@@ -572,13 +632,11 @@
         "cards": [
           {
             "image": "/robot/go2/slider/slider1.webp",
-
             "title": "Graphical programming, simple yet smarter.",
             "description": "Optimise the graphical programming function, make it easy to complete the program design by simple drag, drop and connection. Make programming beginners easy to start and innovate."
           },
           {
             "image": "/robot/go2/slider/slider2.webp",
-
             "title": "Intelligent obstacle avoidance, precise and sensitive",
             "description": "Keen detection, equipped with 4D LiDAR L2, for the owner to explore forward, intelligent obstacle avoidance, accurately capture and draw the 3D real world"
           },
@@ -597,7 +655,9 @@
         "specLabel": "Specification",
         "modelLabel": "Model",
         "valueLabel": "Value",
-        "columnHeaders": [ "G1 EDU"],
+        "columnHeaders": [
+          "G1 EDU"
+        ],
         "sections": [
           {
             "label": "Mechanical Dimensions",
@@ -635,10 +695,30 @@
           {
             "label": "Accessories",
             "rows": [
-              { "name": "High Computing Power Module", "values": [   "NVIDIA Jetson Orin"] },
-              { "name": "Smart Battery (Quick Release)", "values": [ "9000mAh"] },
-              { "name": "Charger", "values": [ "54V 5A"] },
-              { "name": "Manual Controller", "values": [ "YES"] }
+              {
+                "name": "High Computing Power Module",
+                "values": [
+                  "NVIDIA Jetson Orin"
+                ]
+              },
+              {
+                "name": "Smart Battery (Quick Release)",
+                "values": [
+                  "9000mAh"
+                ]
+              },
+              {
+                "name": "Charger",
+                "values": [
+                  "54V 5A"
+                ]
+              },
+              {
+                "name": "Manual Controller",
+                "values": [
+                  "YES"
+                ]
+              }
             ]
           }
         ]
@@ -648,9 +728,15 @@
         "modelLabel": "Model",
         "image": "/robot/h2/detalisimage.webp",
         "valueLabel": "Value",
-        "columnHeaders": ["H2", "H2 EDU"],
+        "columnHeaders": [
+          "H2",
+          "H2 EDU"
+        ],
         "headerImage": "/robot/h2/detalisimage.webp",
-        "columnPrices": ["$29,900", "Contact Sales"],
+        "columnPrices": [
+          "$29,900",
+          "Contact Sales"
+        ],
         "priceLabel": "Price (Tax and Shipping cost excluded)",
         "sections": [
           {
@@ -672,29 +758,137 @@
           {
             "label": "Electrical Characteristics",
             "rows": [
-              { "name": "Maximum Torque of Arm Joint [1]", "values": ["120N.m", "120N.m"] },
-              { "name": "Maximum Torque of Leg Joint [1]", "values": ["360N.m", "360N.m"] },
-              { "name": "Arm Maximum Payload [1]", "values": ["Peak: ~15 kg; Rated: ~7 kg", "Peak: ~15 kg; Rated: ~7 kg"] },
-              { "name": "Calf + Thigh Length", "values": ["1045mm", "1045mm"] },
-              { "name": "Forearm + Upper Arm Length", "values": ["690mm", "690mm"] },
-              { "name": "Materials Used in Construction", "values": ["Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics", "Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics"] },
-              { "name": "Cooling System", "values": ["Local air cooling", "Local air cooling"] },
-              { "name": "Power Supply", "values": ["Premium Lithium Battery with Low Internal Resistance", "Premium Lithium Battery with Low Internal Resistance"] },
-              { "name": "Battery Capacity", "values": ["15Ah(0.972KWh)", "15Ah(0.972KWh)"] },
-              { "name": "Battery Voltage", "values": ["Maximum Voltage: 75.6 V", "Maximum Voltage: 75.6 V"] },
-              { "name": "Basic Computing Power", "values": ["PC1 : Intel Core i5 (Platform Capabilities)", "PC1 : Intel Core i5 (Platform Capabilities)\nPC2 : Intel Core i7 (Custom Development)"] },
-              { "name": "Sensing Sensor", "values": ["Humanoid Binocular Camera with Wide Field of View", "Humanoid Binocular Camera with Wide Field of View"] },
-              { "name": "Voice Interaction", "values": ["Array Microphone and High-Power Speaker for Voice Interaction", "Array Microphone and High-Power Speaker for Voice Interaction"] },
-              { "name": "WiFi 6 · Bluetooth 5.2", "values": ["YES", "YES"] }
+              {
+                "name": "Maximum Torque of Arm Joint [1]",
+                "values": [
+                  "120N.m",
+                  "120N.m"
+                ]
+              },
+              {
+                "name": "Maximum Torque of Leg Joint [1]",
+                "values": [
+                  "360N.m",
+                  "360N.m"
+                ]
+              },
+              {
+                "name": "Arm Maximum Payload [1]",
+                "values": [
+                  "Peak: ~15 kg; Rated: ~7 kg",
+                  "Peak: ~15 kg; Rated: ~7 kg"
+                ]
+              },
+              {
+                "name": "Calf + Thigh Length",
+                "values": [
+                  "1045mm",
+                  "1045mm"
+                ]
+              },
+              {
+                "name": "Forearm + Upper Arm Length",
+                "values": [
+                  "690mm",
+                  "690mm"
+                ]
+              },
+              {
+                "name": "Materials Used in Construction",
+                "values": [
+                  "Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics",
+                  "Aircraft-Grade Aluminum + Titanium Alloy + High-Strength Engineering Plastics"
+                ]
+              },
+              {
+                "name": "Cooling System",
+                "values": [
+                  "Local air cooling",
+                  "Local air cooling"
+                ]
+              },
+              {
+                "name": "Power Supply",
+                "values": [
+                  "Premium Lithium Battery with Low Internal Resistance",
+                  "Premium Lithium Battery with Low Internal Resistance"
+                ]
+              },
+              {
+                "name": "Battery Capacity",
+                "values": [
+                  "15Ah(0.972KWh)",
+                  "15Ah(0.972KWh)"
+                ]
+              },
+              {
+                "name": "Battery Voltage",
+                "values": [
+                  "Maximum Voltage: 75.6 V",
+                  "Maximum Voltage: 75.6 V"
+                ]
+              },
+              {
+                "name": "Basic Computing Power",
+                "values": [
+                  "PC1 : Intel Core i5 (Platform Capabilities)",
+                  "PC1 : Intel Core i5 (Platform Capabilities)\nPC2 : Intel Core i7 (Custom Development)"
+                ]
+              },
+              {
+                "name": "Sensing Sensor",
+                "values": [
+                  "Humanoid Binocular Camera with Wide Field of View",
+                  "Humanoid Binocular Camera with Wide Field of View"
+                ]
+              },
+              {
+                "name": "Voice Interaction",
+                "values": [
+                  "Array Microphone and High-Power Speaker for Voice Interaction",
+                  "Array Microphone and High-Power Speaker for Voice Interaction"
+                ]
+              },
+              {
+                "name": "WiFi 6 · Bluetooth 5.2",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              }
             ]
           },
           {
             "label": "Accessories",
             "rows": [
-              { "name": "High-Power Computing Module", "values": ["/", "Compute Module Up to Jetson AGX Thor (2070 TOPS)"] },
-              { "name": "Smart Battery (Quick Release)", "values": ["YES", "YES"] },
-              { "name": "Charger", "values": ["YES", "YES"] },
-              { "name": "Manual Controller", "values": ["YES", "YES"] }
+              {
+                "name": "High-Power Computing Module",
+                "values": [
+                  "/",
+                  "Compute Module Up to Jetson AGX Thor (2070 TOPS)"
+                ]
+              },
+              {
+                "name": "Smart Battery (Quick Release)",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Charger",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Manual Controller",
+                "values": [
+                  "YES",
+                  "YES"
+                ]
+              }
             ]
           },
           {
@@ -711,9 +905,17 @@
       "r1": {
         "specLabel": "Specification",
         "valueLabel": "Value",
-        "columnHeaders": ["R1 AIR", "R1", "R1 EDU"],
+        "columnHeaders": [
+          "R1 AIR",
+          "R1",
+          "R1 EDU"
+        ],
         "headerImage": "/robot/R1/tabel.webp",
-        "columnPrices": ["$4,900", "$5,900", "Contact Sales"],
+        "columnPrices": [
+          "$4,900",
+          "$5,900",
+          "Contact Sales"
+        ],
         "modelLabel": "Model",
         "priceLabel": "Price (Tax and Shipping cost excluded)",
         "sections": [
@@ -753,10 +955,38 @@
           {
             "label": "Accessories",
             "rows": [
-              { "name": "High-Power Computing Module", "values": ["/", "/", "NVIDIA Jetson Orin Optional (40-100 TOPS)"] },
-              { "name": "Smart Battery (Quick Release)", "values": ["YES", "YES", "YES"] },
-              { "name": "Charger", "values": ["YES", "YES", "YES"] },
-              { "name": "Manual Controller", "values": ["YES", "YES", "YES"] }
+              {
+                "name": "High-Power Computing Module",
+                "values": [
+                  "/",
+                  "/",
+                  "NVIDIA Jetson Orin Optional (40-100 TOPS)"
+                ]
+              },
+              {
+                "name": "Smart Battery (Quick Release)",
+                "values": [
+                  "YES",
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Charger",
+                "values": [
+                  "YES",
+                  "YES",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Manual Controller",
+                "values": [
+                  "YES",
+                  "YES",
+                  "YES"
+                ]
+              }
             ]
           },
           {
@@ -773,9 +1003,19 @@
       "go2": {
         "specLabel": "Specification",
         "valueLabel": "Value",
-        "columnHeaders": ["AIR", "PRO", "X", "EDU"],
+        "columnHeaders": [
+          "AIR",
+          "PRO",
+          "X",
+          "EDU"
+        ],
         "headerImage": "/robot/go2/table.png",
-        "columnPrices": ["$1,600", "$2,800", "$4,500", "Contact Sales"],
+        "columnPrices": [
+          "$1,600",
+          "$2,800",
+          "$4,500",
+          "Contact Sales"
+        ],
         "modelLabel": "Model",
         "priceLabel": "Price (Tax and freight excluded)",
         "sections": [
@@ -818,29 +1058,173 @@
           {
             "label": "Force Sensor Parameters",
             "rows": [
-              { "name": "Super-wide-angle 4D LIDAR", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Wireless Vector Positioning Tracking Module", "values": ["—", "✓", "✓", "✓"] },
-              { "name": "HD Wide-angle Camera", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Foot-end force sensor", "values": ["—", "—", "✓", "✓"] }
+              {
+                "name": "Super-wide-angle 4D LIDAR",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Wireless Vector Positioning Tracking Module",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "HD Wide-angle Camera",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Foot-end force sensor",
+                "values": [
+                  "—",
+                  "—",
+                  "✓",
+                  "✓"
+                ]
+              }
             ]
           },
           {
             "label": "Feature List",
             "rows": [
-              { "name": "Basic Action", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Auto-scaling strap", "values": ["—", "✓", "✓", "—"] },
-              { "name": "Upgraded Intelligent OTA", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "RTT 2.0 Pictures Transaction", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Graphical programme", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Front lamp", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "WiFi6 with Dual-band", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Bluetooth 5.2/4.2/2.1", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "4G module (with GPS)", "values": ["—", "✓", "✓", "✓"] },
-              { "name": "Voice Function [5]", "values": ["—", "✓", "✓", "✓"] },
-              { "name": "ISS 2.0 Intelligent side-follow system", "values": ["—", "✓", "✓", "✓"] },
-              { "name": "Intelligent detection and avoidance", "values": ["✓", "✓", "✓", "✓"] },
-              { "name": "Charging Pile Compatibility", "values": ["—", "—", "✓", "—"] },
-              { "name": "Secondary development [6]", "values": ["—", "✓", "—", "—"] }
+              {
+                "name": "Basic Action",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Auto-scaling strap",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "—"
+                ]
+              },
+              {
+                "name": "Upgraded Intelligent OTA",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "RTT 2.0 Pictures Transaction",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Graphical programme",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Front lamp",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "WiFi6 with Dual-band",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Bluetooth 5.2/4.2/2.1",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "4G module (with GPS)",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Voice Function [5]",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "ISS 2.0 Intelligent side-follow system",
+                "values": [
+                  "—",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Intelligent detection and avoidance",
+                "values": [
+                  "✓",
+                  "✓",
+                  "✓",
+                  "✓"
+                ]
+              },
+              {
+                "name": "Charging Pile Compatibility",
+                "values": [
+                  "—",
+                  "—",
+                  "✓",
+                  "—"
+                ]
+              },
+              {
+                "name": "Secondary development [6]",
+                "values": [
+                  "—",
+                  "✓",
+                  "—",
+                  "—"
+                ]
+              }
             ]
           },
           {
@@ -863,8 +1247,16 @@
       "g1": {
         "name": "G1 EDU ",
         "price": "250,000 SAR",
-        "images": ["/robot/g1/catlouge/g1c1.webp", "/robot/g1/catlouge/g1c2.webp"],
-        "versions": [{"id": "g1-edu", "name": "G1 EDU "}],
+        "images": [
+          "/robot/g1/catlouge/g1c1.webp",
+          "/robot/g1/catlouge/g1c2.webp"
+        ],
+        "versions": [
+          {
+            "id": "g1-edu",
+            "name": "G1 EDU "
+          }
+        ],
         "bulletPoints": [
           "Order now and ship within 1 month",
           "Contact sales to get G1 EDU price"
@@ -878,7 +1270,12 @@
           "/robot/h2/catlouge/2.png",
           "/robot/h2/catlouge/3.png"
         ],
-        "versions": [{ "id": "h2-edu", "name": "H2 EDU " }],
+        "versions": [
+          {
+            "id": "h2-edu",
+            "name": "H2 EDU "
+          }
+        ],
         "bulletPoints": [
           "Order now and ship within 1 month",
           "Contact sales to get H2 EDU price"
@@ -887,12 +1284,30 @@
       "go2": {
         "name": "Go2",
         "price": "$2,800 USD",
-        "images": ["/robot/go2/catlouge/Go2c.webp", "/robot/go2/catlouge/go2c2.webp", "/robot/go2/catlouge/go2c3.webp" ,"/robot/go2/catlouge/go2c4.webp" ,"/robot/go2/catlouge/go2c5.webp"],
+        "images": [
+          "/robot/go2/catlouge/Go2c.webp",
+          "/robot/go2/catlouge/go2c2.webp",
+          "/robot/go2/catlouge/go2c3.webp",
+          "/robot/go2/catlouge/go2c4.webp",
+          "/robot/go2/catlouge/go2c5.webp"
+        ],
         "versions": [
-          {"id": "go2-pro", "name": "Go2 Pro (without controller)"},
-          {"id": "go2-pro-ctrl", "name": "Go2 Pro (with controller)"},
-          {"id": "go2-air", "name": "Go2 Air (without controller)"},
-          {"id": "go2-air-ctrl", "name": "Go2 Air (with controller)"}
+          {
+            "id": "go2-pro",
+            "name": "Go2 Pro (without controller)"
+          },
+          {
+            "id": "go2-pro-ctrl",
+            "name": "Go2 Pro (with controller)"
+          },
+          {
+            "id": "go2-air",
+            "name": "Go2 Air (without controller)"
+          },
+          {
+            "id": "go2-air-ctrl",
+            "name": "Go2 Air (with controller)"
+          }
         ],
         "bulletPoints": [
           "Order now and ship within 1 month",
@@ -904,10 +1319,19 @@
       "r1": {
         "name": "Unitree Robo-Dog R1",
         "price": "$2,800 USD",
-        "images": ["/robot/R1/catlouge/p2.webp", "/robot/R1/catlouge/p1.webp"],
+        "images": [
+          "/robot/R1/catlouge/p2.webp",
+          "/robot/R1/catlouge/p1.webp"
+        ],
         "versions": [
-          {"id": "r1-pro", "name": "Unitree Robo-Dog R1 Pro (without controller)"},
-          {"id": "r1-pro-ctrl", "name": "Unitree Robo-Dog R1 Pro (with controller)"}
+          {
+            "id": "r1-pro",
+            "name": "Unitree Robo-Dog R1 Pro (without controller)"
+          },
+          {
+            "id": "r1-pro-ctrl",
+            "name": "Unitree Robo-Dog R1 Pro (with controller)"
+          }
         ],
         "bulletPoints": [
           "Order now and ship within 1 month",
@@ -938,9 +1362,12 @@
     "servicesLabel": "Services",
     "projectsLabel": "Projects",
     "solutions": "Solutions",
+    "partnersLabel": "Partners",
     "specifications": "Specifications",
     "stayTuned": "Stay tuned for the official launch on",
     "close": "Close",
+    "toggleMenu": "Toggle menu",
+    "robotsViewAll": "View all",
     "previousImage": "Previous image",
     "nextImage": "Next image",
     "viewFullscreen": "View fullscreen",
@@ -953,6 +1380,206 @@
     "copyrightFull": "Copyright © 2025 Savvy. All rights reserved",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
-    "mediaGallery": "Gallery"
+    "mediaGallery": "Gallery",
+    "savvyEStore": "Savvy eStore",
+    "mediaContentSection": "Content",
+    "mediaGallerySection": "Gallery"
+  },
+  "savvySections": {
+    "sectionTitle": "Savvy World Sections",
+    "cards": [
+      {
+        "id": "innovation",
+        "title": "Savvy Innovation",
+        "description": "We transform local and global innovation into operational solutions aligned with the Saudi market.",
+        "features": [
+          "Advisory services in Data Management",
+          "Advisory services in Responsible AI",
+          " Industrial robots (firefighting, inspection, security)",
+          "Strategic partnerships",
+          " Electric vehicle (EV) charging stations",
+          "Eco-friendly cement",
+          "Energy-efficient smart home solutions"
+        ],
+        "icon": "/home-page/icons/innovation-icon.svg",
+        "image": "/sections/innovation-image.jpg",
+        "link": "/innovation",
+        "buttonText": "Learn more"
+      },
+      {
+        "id": "expo",
+        "title": "Savvy Expo",
+        "description": "We turn brands into experiences people feel, remember, and share!",
+        "features": [
+          "Strategic partnerships",
+          "Engaging and purposeful activities",
+          "mr.savvy robot",
+          "Innovative and interactive visitor experiences"
+        ],
+        "icon": "/home-page/icons/expo-icon.svg",
+        "image": "/sections/expo-image.jpg",
+        "link": "/expo",
+        "buttonText": "Learn more"
+      },
+      {
+        "id": "media",
+        "title": "Savvy Media",
+        "description": "We build the most suitable content for your brand and target market",
+        "features": [
+          "Brand building",
+          "Digital marketing",
+          "Creative content production",
+          "Digital marketing",
+          "Large-scale screens on building facades promoting your brand"
+        ],
+        "icon": "/home-page/icons/media-icon.svg",
+        "image": "/sections/media-image.jpg",
+        "link": "/media",
+        "buttonText": "Learn more"
+      }
+    ]
+  },
+  "gallerySection": {
+    "title": "Snapshots that tell our story.. Images that make the first impression",
+    "emptyState": "No images added yet. Please add images in locale JSON",
+    "images": [
+      {
+        "id": "img-1",
+        "src": "/home-page/gallery/image-1.jpg",
+        "alt": "Gallery Image 1",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-2",
+        "src": "/home-page/gallery/image-2.jpg",
+        "alt": "Gallery Image 2",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-3",
+        "src": "/home-page/gallery/image-3.jpg",
+        "alt": "Gallery Image 3",
+        "gridSpan": {
+          "cols": 2,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-4",
+        "src": "/home-page/gallery/image-4.jpg",
+        "alt": "Gallery Image 4",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-5",
+        "src": "/home-page/gallery/image-5.jpg",
+        "alt": "Gallery Image 5",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 2
+        }
+      },
+      {
+        "id": "img-6",
+        "src": "/home-page/gallery/image-6.jpg",
+        "alt": "Gallery Image 6",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-7",
+        "src": "/home-page/gallery/image-7.jpg",
+        "alt": "Gallery Image 7",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-8",
+        "src": "/home-page/gallery/image-8.jpg",
+        "alt": "Gallery Image 8",
+        "gridSpan": {
+          "cols": 2,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-9",
+        "src": "/home-page/gallery/image-9.jpg",
+        "alt": "Gallery Image 9",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-10",
+        "src": "/home-page/gallery/image-10.jpg",
+        "alt": "Gallery Image 10",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-11",
+        "src": "/home-page/gallery/image-11.png",
+        "alt": "Gallery Image 11",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      },
+      {
+        "id": "img-12",
+        "src": "/home-page/gallery/image-12.png",
+        "alt": "Gallery Image 12",
+        "gridSpan": {
+          "cols": 1,
+          "rows": 1
+        }
+      }
+    ]
+  },
+  "latestNewsSection": {
+    "sectionTitle": "Latest News.. Step by step with us.",
+    "cards": [
+      {
+        "id": "news-1",
+        "title": "How to build interactive future activities?",
+        "date": "October 12",
+        "image": "/news/news-3.jpg",
+        "buttonText": "News",
+        "link": "/news/interactive-displays-future"
+      },
+      {
+        "id": "news-2",
+        "title": "How to design images and videos for the first impression?",
+        "date": "October 3",
+        "image": "/news/news-2.jpg",
+        "buttonText": "Media",
+        "link": "/news/2"
+      },
+      {
+        "id": "news-3",
+        "title": "How does technology change the future of events?",
+        "date": "October 5",
+        "image": "/news/news-1.jpg",
+        "buttonText": "News",
+        "link": "/news/3"
+      }
+    ]
   }
 }

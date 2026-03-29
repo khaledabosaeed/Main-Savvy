@@ -1,43 +1,31 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import NewHero from "@/components/main-page/sections/NewHero/NewHero"
-import SavvySections from "@/components/main-page/sections/SavvySections/SavvySections"
+import NewHero from "@/components/main-page/sections/NewHero"
+import SavvySections from "@/components/main-page/sections/SavvySections"
 
-import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
-import TopBanner from "@/components/shared/TopBanner/TopBanner"
+import UnifiedHeader from "@/components/shared/UnifiedHeader"
+import TopBanner from "@/components/shared/TopBanner"
 import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
 import { useLanguage } from "@/contexts/LanguageContext"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
-import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSlider/PartnersSlider"
-import RobotsSection from "@/components/main-page/sections/RobotsSection/RobotsSection"
+import ImageSlider, { ImageItem } from "@/components/media-page/sections/PartnersSlider"
+import RobotsSection from "@/components/main-page/sections/RobotsSection"
+import { useTranslation } from "react-i18next"
 
-// نصوص الهيدر بالإنجليزية
-const headerTextsEn = {
-  main: "Home",
-  // news: "News",
-  projects: "Latest Projects",
-  services: "Gallery",
-  about: "Our Sections",
-  ourRobots: "Savvy eStore",
-  contactUs: "Contact Us",
-}
 
-// نصوص الهيدر بالعربية
-const headerTextsAr = {
-  main: "الرئيسية",
-  // news: "الأخبار",  
-  projects: "معارضنا السابقة",
-  services: "معرض الصور",
-  about: "أقسامنا",
-  ourRobots: "متجر ساڤي",
-  contactUs: "تواصل معنا",
-}
 
 export default function Home() {
   const { language } = useLanguage()
-  const lang = language as "en" | "ar"
-  const texts = lang === "ar" ? headerTextsAr : headerTextsEn
+  const { t } = useTranslation()
+  const texts = {
+    main: t("common.main"),
+    projects: t("common.projects"),
+    services: t("common.services"),
+    about: t("common.about"),
+    ourRobots: t("common.robots"),
+    contactUs: t("common.contactUs"),
+  }
   const [showBadge, setShowBadge] = useState(true)
 
 
@@ -137,7 +125,7 @@ export default function Home() {
       </section>
 
       <section id="services">
-          <ImageSlider images={images} heading={ lang === "ar" ? "معرض الصور" : "Our Gallery"} />
+          <ImageSlider images={images} heading={t("common.gallery")} />
         </section>
 
 

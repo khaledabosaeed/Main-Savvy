@@ -1,6 +1,8 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import PrivacyPage from "@/components/privacy-page/PrivacyPage"
-import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import UnifiedHeader from "@/components/shared/UnifiedHeader"
+import en from "../../../../../public/locales/en.json"
+import ar from "../../../../../public/locales/ar.json"
 
 interface PrivacyPageProps {
   params: Promise<{
@@ -8,37 +10,28 @@ interface PrivacyPageProps {
   }>
 }
 
-// نصوص الهيدر الخاصة بصفحة الخصوصية
-const headerTextsEn = {
-  main: "Home",
-  // news: "News",
-  ourServices: "Our Services",
-  ourRobots: "Robots",
-  contactUs: "Contact Us",
-}
-
-const headerTextsAr = {
-  main: "الرئيسية",
-  // news: "الأخبار",
-  ourServices: "خدماتنا",
-  ourRobots: "الروبوتات",
-  contactUs: "تواصل معنا",
-
-}
 
 export default async function Privacy({ params }: PrivacyPageProps) {
   const { lang } = await params
   const currentLang = lang as "en" | "ar"
-  const texts = currentLang === "ar" ? headerTextsAr : headerTextsEn
+  const dict = currentLang === "ar" ? ar : en
+  const c = dict.common
+  const h = dict.header
+
+  const texts = {
+    main: c.main,
+    news: c.news,
+    ourServices: h.ourServices,
+    ourRobots: c.robots,
+    contactUs: c.contactUs,
+  }
 
   return (
     <>
       <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
-        <PrivacyPage lang={currentLang} />
-
+        <PrivacyPage />
       </PageTransition>
     </>
   )
 }
-

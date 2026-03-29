@@ -1,17 +1,17 @@
 "use client"
 
-import { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
-import { getRobotSliderSlides, getRobotLabel } from "@/lib/robots-locale"
+import { useTranslation } from "react-i18next"
+import type { RobotCard, RobotSlide } from "@/lib/robots-locale"
 
 /** Shared container: matches navbar (max-w-7xl, px-4 md:px-6 lg:px-8) */
 const HERO_CONTAINER = "max-w-7xl mx-auto px-4 md:px-6 lg:px-8"
 
-/** Hero CTA — brand tokens only; motion-safe micro-interactions */
 const heroCtaBase =
   "inline-flex w-full sm:w-auto min-w-0 items-center justify-center gap-2 rounded-full font-semibold text-center " +
   "text-sm sm:text-base leading-tight px-5 md:px-6 lg:px-7 " +
@@ -30,8 +30,20 @@ const heroCtaSecondary =
 
 export default function RobotHeroSlider() {
   const { language } = useLanguage()
+  const { t } = useTranslation()
   const lang = language as "en" | "ar"
-  const slides = getRobotSliderSlides(lang)
+
+  const slides = useMemo((): RobotSlide[] => {
+    const raw = t("robots.cards", { returnObjects: true })
+    const cards = (Array.isArray(raw) ? raw : []) as RobotCard[]
+    const suffix = t("robots.sliderDescriptionSuffix")
+    return cards.map((r) => ({
+      ...r,
+      description: r.description + suffix,
+      backgroundImage: r.image,
+    }))
+  }, [t])
+
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const goToPrev = useCallback(() => {
@@ -44,8 +56,9 @@ export default function RobotHeroSlider() {
 
   const isRTL = lang === "ar"
   const currentSlide = slides[currentIndex]
+  const prevLabel = t("common.previousImage")
+  const nextLabel = t("common.nextImage")
 
-  // Keyboard navigation - RTL: ArrowRight=prev, ArrowLeft=next
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isRTL) {
@@ -60,9 +73,12 @@ export default function RobotHeroSlider() {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [goToPrev, goToNext, isRTL])
 
+  if (!currentSlide) {
+    return null
+  }
+
   return (
     <section className="relative h-screen min-h-[100dvh] overflow-hidden">
-      {/* Background - full screen image/video */}
       <div className="absolute inset-0 z-0">
         {currentSlide.backgroundVideo ? (
           <video
@@ -85,12 +101,7 @@ export default function RobotHeroSlider() {
             priority
           />
         )}
-        {/* Base dark overlay */}
-        <div
-          className="absolute inset-0 bg-black/30 pointer-events-none"
-          aria-hidden
-        />
-        {/* Gradient overlay for text readability - RTL: from right; LTR: from left */}
+        <div className="absolute inset-0 bg-black/30 pointer-events-none" aria-hidden />
         <div
           className={`absolute inset-y-0 w-[min(65%,700px)] pointer-events-none ${
             isRTL
@@ -101,7 +112,6 @@ export default function RobotHeroSlider() {
         />
       </div>
 
-      {/* Content - structured container, aligned with navbar */}
       <div className="relative z-10 h-full flex items-center">
         <div className={`w-full ${HERO_CONTAINER}`}>
           <div
@@ -124,17 +134,13 @@ export default function RobotHeroSlider() {
                 <p className="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed line-clamp-2 [text-shadow:0_1px_4px_rgba(0,0,0,0.7),0_2px_12px_rgba(0,0,0,0.5)]">
                   {currentSlide.description}
                 </p>
-      
-                {/* Mobile: arrows at end of block; desktop uses edge arrows */}
-                <div
-                  dir={isRTL ? "rtl" : "ltr"}
-                  className="flex md:hidden w-full items-center justify-between"
-                >
+
+                <div className="flex md:hidden w-full items-center justify-between" dir={isRTL ? "rtl" : "ltr"}>
                   <button
                     type="button"
                     onClick={goToPrev}
                     className="p-2 flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all"
-                    aria-label={isRTL ? "الشريحة السابقة" : "Previous slide"}
+                    aria-label={prevLabel}
                   >
                     {isRTL ? (
                       <ChevronRight className="w-7 h-7" strokeWidth={1.5} />
@@ -146,7 +152,7 @@ export default function RobotHeroSlider() {
                     type="button"
                     onClick={goToNext}
                     className="p-2 flex items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all"
-                    aria-label={isRTL ? "الشريحة التالية" : "Next slide"}
+                    aria-label={nextLabel}
                   >
                     {isRTL ? (
                       <ChevronLeft className="w-7 h-7" strokeWidth={1.5} />
@@ -192,13 +198,12 @@ export default function RobotHeroSlider() {
             </AnimatePresence>
           </div>
         </div>
-        {/* Navigation arrows */}
         <button
           onClick={goToPrev}
           className={`hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 p-3 items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all ${
             isRTL ? "right-4 md:right-8" : "left-4 md:left-8"
           }`}
-          aria-label={isRTL ? "الشريحة السابقة" : "Previous slide"}
+          aria-label={prevLabel}
         >
           {isRTL ? (
             <ChevronRight className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />
@@ -211,7 +216,7 @@ export default function RobotHeroSlider() {
           className={`hidden md:flex absolute top-1/2 -translate-y-1/2 z-20 p-3 items-center justify-center text-white/90 hover:text-white hover:bg-white/10 rounded-full transition-all ${
             isRTL ? "left-4 md:left-8" : "right-4 md:right-8"
           }`}
-          aria-label={isRTL ? "الشريحة التالية" : "Next slide"}
+          aria-label={nextLabel}
         >
           {isRTL ? (
             <ChevronLeft className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />

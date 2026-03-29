@@ -1,11 +1,11 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
-import MediaContent from "@/components/media-page/sections/MediaContent/MediaContent"
-import WhySavvy from "@/components/media-page/sections/WhySavvy/WhySavvy"
-import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import MediaContent from "@/components/media-page/sections/MediaContent"
+import WhySavvy from "@/components/media-page/sections/WhySavvy"
+import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import MadiaProjects from "@/components/shared/mdia-projects/LatestProjects"
-
-import UnrealHero from "@/components/media-page/sections/UnrealHero/UnrealHero"
-import ImageSlider, { ImageItem } from "@/components/media-page/sections/ImageSlider/PartnersSlider"
+import UnrealHero from "@/components/media-page/sections/UnrealHero"
+import en from "../../../../../public/locales/en.json"
+import ar from "../../../../../public/locales/ar.json"
 
 interface MediaPageProps {
   params: Promise<{
@@ -13,60 +13,38 @@ interface MediaPageProps {
   }>
 }
 
-// نصوص الهيدر الخاصة بصفحة Media
-const headerTextsEn = {
-  // content: "Content",
-  main: "Home",
-  // news: "News",
-  gallery: "Our Gallery",
-  "why-savvy": "Why Savvy",
-  ourRobots: "Robots",
-  contactUs: "Contact Us",
-
-}
-
-const headerTextsAr = {
-  // gallery: "معرض الصور",
-  main: "الرئيسية",
-  // news: "الأخبار",
-  "why-savvy": "لماذا ساڤي",
-  content: "المحتوى",
-  ourRobots: "الروبوتات",
-  contactUs: "تواصل معنا",
-
-} 
 
 export default async function MediaPage({ params }: MediaPageProps) {
   const { lang } = await params
   const currentLang = lang as "en" | "ar"
-  const texts = currentLang === "ar" ? headerTextsAr : headerTextsEn
+  const dict = currentLang === "ar" ? ar : en
+  const c = dict.common
 
-
+  const texts = {
+    main: c.main,
+    news: c.news,
+    gallery: c.gallery,
+    "why-savvy": c.whySavvy,
+    ourRobots: c.robots,
+    contactUs: c.contactUs,
+  }
 
   return (
     <>
-      <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/media/media.svg" logoHref="#hero"/>
+      <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/media/media.svg" logoHref="#hero" />
       <PageTransition>
+        <MadiaProjects />
 
-      <MadiaProjects  />
-
-      <section id="content" className="bg-white">
-          <MediaContent lang={currentLang} />
+        <section id="content" className="bg-white">
+          <MediaContent />
         </section>
         <section id="hero">
-          <UnrealHero  />
+          <UnrealHero />
         </section>
 
-
-
-
-     <section id="why-savvy">
-          <WhySavvy lang={currentLang} />
+        <section id="why-savvy">
+          <WhySavvy />
         </section>
-
-
-
-
       </PageTransition>
     </>
   )

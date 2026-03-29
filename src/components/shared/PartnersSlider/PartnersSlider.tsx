@@ -3,12 +3,10 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, useAnimationFrame, useMotionValue, useTransform } from 'framer-motion';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { partnersContent } from './content';
+import { useTranslation } from 'react-i18next';
 
 const PartnersSlider: React.FC = () => {
-    const { language } = useLanguage()
-    const content = partnersContent[language as keyof typeof partnersContent] || partnersContent.en
+    const { t } = useTranslation()
 
     const partners = [
         { name: "Al Awaly", logo: "/home-page/partners/al-awaly.svg" },
@@ -64,7 +62,7 @@ const PartnersSlider: React.FC = () => {
           className="text-center mb-8 sm:mb-10 md:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-foreground">
-            {content.heading}
+            {t("partnersSlider.heading")}
           </h2>
         </motion.div>
 

@@ -6,8 +6,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Counter from "../Counter"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { useTranslation } from "react-i18next"
 import type { Language } from "./content"
-import { getProjects, getLatestProjectsTitle, getLatestProjectsSubtitle } from "./content"
+import { getProjects } from "./content"
 import {
   fadeInUp,
   viewportConfig,
@@ -17,6 +18,7 @@ import {
 
 function MadiaProjects() {
   const { language } = useLanguage()
+  const { t } = useTranslation()
   const lang = language as Language
   const isRTL = lang === "ar"
 
@@ -26,8 +28,8 @@ function MadiaProjects() {
   const tabsContainerRef = useRef<HTMLDivElement>(null)
 
   const projects = getProjects(lang)
-  const title = getLatestProjectsTitle(lang)
-  const subtitle = getLatestProjectsSubtitle(lang)
+  const title = t("media.content.topTitle")
+  const subtitle = t("media.content.topDescription")
 
   const currentProject = projects[activeProject]
 

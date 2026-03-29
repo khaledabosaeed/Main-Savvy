@@ -1,6 +1,6 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import NewsPage from "@/components/news-page/NewsPage"
-import UnifiedHeader from "@/components/shared/header/UnifiedHeader"
+import UnifiedHeader from "@/components/shared/UnifiedHeader"
 
 interface NewsPageProps {
   params: Promise<{
