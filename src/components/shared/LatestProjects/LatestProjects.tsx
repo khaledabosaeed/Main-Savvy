@@ -170,7 +170,7 @@ function LatestProjects() {
           transition={{ delay: 0.2 }}
           className="relative mb-12 border-b border-gray-200 pb-4"
         >
-          {/* Left Arrow */}
+
           {showArrows.left && (
             <button
               onClick={() => scrollTabs('left')}
@@ -196,8 +196,8 @@ function LatestProjects() {
                   key={index}
                   data-tab-index={index}
                   onClick={() => handleTabClick(index)}
-                  className={`relative px-5 py-2 text-xs md:text-sm font-medium transition-colors whitespace-nowrap ${activeProject === index
-                      ? "text-gray-900"
+                  className={`relative px-5 py-2 text-sm md:text-sm font-medium transition-colors whitespace-nowrap ${activeProject === index
+                      ? "text-primary"
                       : "text-gray-400 hover:text-gray-600"
                     }`}
                   whileHover={{ y: -2 }}
@@ -207,7 +207,7 @@ function LatestProjects() {
                   {activeProject === index && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-gray-900"
+                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary"
                       initial={false}
                       transition={{ type: "spring", stiffness: 400, damping: 35 }}
                     />
@@ -241,7 +241,6 @@ function LatestProjects() {
           >
             {/* Media Section - 1 Video + Photo Gallery with Arrows */}
             <div className={`space-y-4 ${isRTL ? 'md:order-2 rtl' : 'md:order-1'}`}>
-              {/* Video Row */}
               {currentProject.video ? (
                 <div className="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-xl">
                   <iframe
@@ -373,23 +372,7 @@ function LatestProjects() {
               >
                 {currentProject.description}
               </motion.p>
-
-              {/* CTA Button */}
-              {/* <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-[#3960F9] text-white rounded-lg font-medium text-sm md:text-base shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  {currentProject.ctaButton}
-                </motion.button>
-              </motion.div> */}
-
-              {/* Statistics - Horizontal Layout */}
+              
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

@@ -3,14 +3,13 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { useTranslation } from "react-i18next"
-
 import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa"
 import { FaLinkedinIn } from "react-icons/fa6"
-import Link from "next/link"
 import { Leaf, Wind, Brain, Bot } from "lucide-react"
 
 export default function NewHero() {
@@ -21,6 +20,11 @@ export default function NewHero() {
   const lang = language as "en" | "ar"
   const isRTL = lang === "ar"
   const goalTexts = [0, 1, 2, 3].map((i) => t(`hero.goals.${i}`))
+  const getGoalHref = (i: number): string | null => {
+    const path = String(t(`hero.goalLinks.${i}`)).trim()
+    if (!path) return null
+    return `/${lang}${path.startsWith("/") ? path : `/${path}`}`
+  }
 
   useEffect(() => {
     setAnimate(true)
@@ -301,30 +305,56 @@ export default function NewHero() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 w-full"
             >
               {[
-                { goal: goalTexts[0], Icon: Leaf },
-                { goal: goalTexts[1], Icon: Wind },
-                { goal: goalTexts[2], Icon: Brain },
-                { goal: goalTexts[3], Icon: Bot },
-              ].map(({ goal, Icon }, i) => (
-                <motion.div
-                  key={i}
-                  variants={goalItemVariants}
-                  whileHover={{
-                    scale: 1.03,
-                    transition: { duration: 0.2 },
-                  }}
-                  className="flex flex-col items-start p-6 rounded-2xl border border-gray-200 bg-gray-50/80 shadow-sm hover:border-primary hover:shadow-md transition-shadow duration-200 cursor-default"
-                >
-                  <>
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 mb-4 flex items-center justify-center shrink-0 text-primary">
-                        <Icon className="w-5 h-5" strokeWidth={2} />
-                      </div>
-                      <p className="text-sm md:text-base font-bold text-gray-800 leading-relaxed flex-1 text-start">
-                        {goal}
-                      </p>
-                    </>
-                </motion.div>
-              ))}
+                { goal: goalTexts[0], Icon: Bot },
+                { goal: goalTexts[1], Icon: Leaf },
+                { goal: goalTexts[2], Icon: Wind },
+                { goal: goalTexts[3], Icon: Brain },
+              ].map(({ goal, Icon }, i) => {
+                const href = getGoalHref(i)
+                const cardClass =
+                  "flex flex-col items-start p-6 rounded-2xl border border-gray-200 bg-gray-50/80 shadow-sm transition-shadow duration-200 h-full"
+                const interactiveClass = href
+                  ? "group cursor-pointer hover:border-primary hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  : "cursor-default hover:border-gray-200"
+
+                const inner = (
+                  <motion.div
+                    whileHover={  
+                      href
+                        ? { scale: 1.03, transition: { duration: 0.2 } }
+                        : undefined
+                    }
+                    className="flex flex-col items-start w-full"
+                  >
+                    <div
+                      className={`w-10 h-10 rounded-lg bg-primary/10 mb-4 flex items-center justify-center shrink-0 text-primary transition-colors ${href ? "group-hover:bg-primary/15" : ""}`}
+                    >
+                      <Icon className="w-5 h-5" strokeWidth={2} />
+                    </div>
+                    <p
+                      className={`text-sm md:text-base font-bold text-gray-800 leading-relaxed flex-1 text-start transition-colors ${href ? "group-hover:text-gray-900" : ""}`}
+                    >
+                      {goal}
+                    </p>
+                  </motion.div>
+                )
+
+                return (
+                  <motion.div key={i} variants={goalItemVariants}>
+                    {href ? (
+                      <Link
+                        href={href}
+                        className={`${cardClass} ${interactiveClass}`}
+                        aria-label={goal}
+                      >
+                        {inner}
+                      </Link>
+                    ) : (
+                      <div className={`${cardClass} ${interactiveClass}`}>{inner}</div>
+                    )}
+                  </motion.div>
+                )
+              })}
             </motion.div>
           </motion.div>
 

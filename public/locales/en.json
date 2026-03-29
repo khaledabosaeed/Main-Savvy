@@ -54,10 +54,16 @@
     "subDescription": "Paving the way to onboard solutions focused on:",
     "goalsTitle": "2026 Goals",
     "goals": {
-      "0": "Sustainability and green solutions",
-      "1": "Net-Zero Emissions Solutions",
-      "2": "Responsible Artificial Intelligence (AI)",
-      "3": "Governed and purpose-driven robotics"
+      "0": "Governed and purpose-driven robotics",
+      "1": "Sustainability and green solutions",
+      "2": "Net-Zero Emissions Solutions",
+      "3": "Responsible Artificial Intelligence (AI)"
+    },
+    "goalLinks": {
+      "0": "/robots",
+      "1": "",
+      "2": "",
+      "3": ""
     },
     "ctaButton": "Contact Us",
     "partners": "Partners who trusted us to create different experiences… you're next",
@@ -68,7 +74,7 @@
   },
   "promo": {
     "title": "Savvy World.. Your gateway to the new world",
-    "description": "An integrated industrial advisory ecosystem combining Governed Robotics, Responsible AI, and sustainable technologies, contributing to resilient and future-ready infrastructure. We bridge advanced global technologies with the local environment through structured localization strategies, ensuring full alignment with Saudi market requirements and regulatory frameworks.",
+    "description": "An integrated industrial consultancy system that combines governed robotics, responsible artificial intelligence, and sustainable technologies. We strive to contribute to building a resilient, future-ready infrastructure. We connect emerging technologies with the local environment by designing comprehensive localization strategies to ensure alignment with local market needs.",
     "buttonText": "Contact Us",
     "buttonLink": "/contact",
     "image": "/promo/robot-hand.png"

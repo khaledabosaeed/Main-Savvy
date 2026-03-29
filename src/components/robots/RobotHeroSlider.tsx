@@ -191,7 +191,7 @@ export default function RobotHeroSlider() {
                     href={`/${lang}${currentSlide.link}/product`}
                     className={`${heroCtaSecondary} !w-auto shrink-0`}
                   >
-                    {getRobotLabel(lang, "viewProduct")}
+                    {t("robots.viewProduct")}
                   </Link>
                 </div>
               </motion.div>
