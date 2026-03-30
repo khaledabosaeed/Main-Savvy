@@ -2,6 +2,8 @@ import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import RobotResponsibleUsePage from "@/components/robots/RobotResponsibleUsePage"
 import { robotsRouteHeaderTexts } from "@/lib/robots-route-header"
+import { isAppLanguage } from "@/i18n/settings"
+import { notFound } from "next/navigation"
 
 interface ResponsibleUsePageProps {
   params: Promise<{ lang: string }>
@@ -9,8 +11,10 @@ interface ResponsibleUsePageProps {
 
 export default async function ResponsibleUsePage({ params }: ResponsibleUsePageProps) {
   const { lang } = await params
-  const currentLang = lang as "en" | "ar"
-  const texts = robotsRouteHeaderTexts(currentLang)
+  if (!isAppLanguage(lang)) {
+    notFound()
+  }
+  const texts = robotsRouteHeaderTexts(lang)
 
   return (
     <>

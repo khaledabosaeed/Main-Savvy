@@ -1,30 +1,22 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import PrivacyPage from "@/components/privacy-page/PrivacyPage"
 import UnifiedHeader from "@/components/shared/UnifiedHeader"
-import en from "../../../../../public/locales/en.json"
-import ar from "../../../../../public/locales/ar.json"
+import { getDictionary } from "@/i18n/getDictionary"
+import { privacyPageHeaderTexts } from "@/i18n/page-header-texts"
+import { isAppLanguage } from "@/i18n/settings"
+import { notFound } from "next/navigation"
 
 interface PrivacyPageProps {
-  params: Promise<{
-    lang: string
-  }>
+  params: Promise<{ lang: string }>
 }
-
 
 export default async function Privacy({ params }: PrivacyPageProps) {
   const { lang } = await params
-  const currentLang = lang as "en" | "ar"
-  const dict = currentLang === "ar" ? ar : en
-  const c = dict.common
-  const h = dict.header
-
-  const texts = {
-    main: c.main,
-    news: c.news,
-    ourServices: h.ourServices,
-    ourRobots: c.robots,
-    contactUs: c.contactUs,
+  if (!isAppLanguage(lang)) {
+    notFound()
   }
+  const dict = getDictionary(lang)
+  const texts = privacyPageHeaderTexts(dict)
 
   return (
     <>

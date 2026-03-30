@@ -4,29 +4,22 @@ import InnovationSolutions from "@/components/innovation-page/sections/Innovatio
 import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import ExpoPartners from "@/components/expo-page/sections/ExpoPartners"
 import RobotsSection from "@/components/main-page/sections/RobotsSection"
-import en from "../../../../../public/locales/en.json"
-import ar from "../../../../../public/locales/ar.json"
+import { getDictionary } from "@/i18n/getDictionary"
+import { innovationPageHeaderTexts } from "@/i18n/page-header-texts"
+import { isAppLanguage } from "@/i18n/settings"
+import { notFound } from "next/navigation"
 
 interface InnovationPageProps {
-  params: Promise<{
-    lang: string
-  }>
+  params: Promise<{ lang: string }>
 }
-
 
 export default async function InnovationPage({ params }: InnovationPageProps) {
   const { lang } = await params
-  const currentLang = lang as "en" | "ar"
-  const dict = currentLang === "ar" ? ar : en
-  const c = dict.common
-
-  const texts = {
-    main: c.main,
-    solutions: c.solutions,
-    partners: c.partnersLabel,
-    ourRobots: c.robots,
-    contactUs: c.contactUs,
+  if (!isAppLanguage(lang)) {
+    notFound()
   }
+  const dict = getDictionary(lang)
+  const texts = innovationPageHeaderTexts(dict)
 
   return (
     <>

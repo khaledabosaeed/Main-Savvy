@@ -2,6 +2,8 @@ import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import RobotProductDetails from "@/components/robots/RobotProductDetails"
 import { robotsRouteHeaderTexts } from "@/lib/robots-route-header"
+import { isAppLanguage } from "@/i18n/settings"
+import { notFound } from "next/navigation"
 
 interface ProductPageProps {
   params: Promise<{ lang: string }>
@@ -9,8 +11,10 @@ interface ProductPageProps {
 
 export default async function Go2ProductPage({ params }: ProductPageProps) {
   const { lang } = await params
-  const currentLang = lang as "en" | "ar"
-  const texts = robotsRouteHeaderTexts(currentLang)
+  if (!isAppLanguage(lang)) {
+    notFound()
+  }
+  const texts = robotsRouteHeaderTexts(lang)
 
   return (
     <>

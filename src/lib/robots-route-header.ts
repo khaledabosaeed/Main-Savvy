@@ -1,17 +1,8 @@
-import en from "../../public/locales/en.json"
-import ar from "../../public/locales/ar.json"
+import { getDictionary } from "@/i18n/getDictionary"
+import { robotsSubpageHeaderTexts } from "@/i18n/page-header-texts"
+import type { AppLanguage } from "@/i18n/settings"
 
-/** UnifiedHeader `texts` for all /robots/* routes — matches other app pages (locale JSON). */
-export function robotsRouteHeaderTexts(lang: "en" | "ar") {
-  const dict = lang === "ar" ? ar : en
-  const c = dict.common
-  return {
-    main: c.main,
-    news: c.news,
-    projects: c.projects,
-    services: c.mediaGallery,
-    about: c.about,
-    ourRobots: c.robots,
-    contactUs: c.contactUs,
-  }
+/** UnifiedHeader `texts` for /robots/* subroutes (not the robots index). */
+export function robotsRouteHeaderTexts(lang: AppLanguage) {
+  return robotsSubpageHeaderTexts(getDictionary(lang))
 }

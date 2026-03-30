@@ -1,45 +1,28 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import ArticlePage from "@/components/article-page/ArticlePage"
 import UnifiedHeader from "@/components/shared/UnifiedHeader"
+import { getDictionary } from "@/i18n/getDictionary"
+import { newsSectionHeaderTexts } from "@/i18n/page-header-texts"
+import { isAppLanguage } from "@/i18n/settings"
+import { notFound } from "next/navigation"
 
 interface ArticlePageProps {
-  params: Promise<{
-    lang: string
-    slug: string
-  }>
-}
-
-// نصوص الهيدر
-const headerTextsEn = {
-  main: "Home",
-  news: "News",
-  ourServices: "Our Services",
-  ourRobots: "Robots",
-  contactUs: "Contact Us",
-
-}
-
-const headerTextsAr = {
-  main: "الرئيسية",
-  news: "الأخبار",
-  ourServices: "خدماتنا",
-  ourRobots: "الروبوتات",
-  contactUs: "تواصل معنا",
-
+  params: Promise<{ lang: string; slug: string }>
 }
 
 export default async function Article({ params }: ArticlePageProps) {
   const { lang, slug } = await params
-  const currentLang = lang as "en" | "ar"
-  const texts = currentLang === "ar" ? headerTextsAr : headerTextsEn
+  if (!isAppLanguage(lang)) {
+    notFound()
+  }
+  const texts = newsSectionHeaderTexts(getDictionary(lang))
 
   return (
     <>
       <UnifiedHeader texts={texts} hasBanner={false} />
       <PageTransition>
-        <ArticlePage lang={currentLang} slug={slug} />
+        <ArticlePage lang={lang} slug={slug} />
       </PageTransition>
     </>
   )
 }
-

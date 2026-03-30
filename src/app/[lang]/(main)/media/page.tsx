@@ -4,30 +4,22 @@ import WhySavvy from "@/components/media-page/sections/WhySavvy"
 import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import MadiaProjects from "@/components/shared/mdia-projects/LatestProjects"
 import UnrealHero from "@/components/media-page/sections/UnrealHero"
-import en from "../../../../../public/locales/en.json"
-import ar from "../../../../../public/locales/ar.json"
+import { getDictionary } from "@/i18n/getDictionary"
+import { mediaPageHeaderTexts } from "@/i18n/page-header-texts"
+import { isAppLanguage } from "@/i18n/settings"
+import { notFound } from "next/navigation"
 
 interface MediaPageProps {
-  params: Promise<{
-    lang: string
-  }>
+  params: Promise<{ lang: string }>
 }
-
 
 export default async function MediaPage({ params }: MediaPageProps) {
   const { lang } = await params
-  const currentLang = lang as "en" | "ar"
-  const dict = currentLang === "ar" ? ar : en
-  const c = dict.common
-
-  const texts = {
-    main: c.main,
-    news: c.news,
-    gallery: c.gallery,
-    "why-savvy": c.whySavvy,
-    ourRobots: c.robots,
-    contactUs: c.contactUs,
+  if (!isAppLanguage(lang)) {
+    notFound()
   }
+  const dict = getDictionary(lang)
+  const texts = mediaPageHeaderTexts(dict)
 
   return (
     <>

@@ -73,7 +73,7 @@
     "socialSnapchat": "Follow us on Snapchat"
   },
   "promo": {
-    "title": "Savvy World.. Your gateway to the new world",
+    "title": "Savvy World .. Your gateway to the new world",
     "description": "An integrated industrial consultancy system that combines governed robotics, responsible artificial intelligence, and sustainable technologies. We strive to contribute to building a resilient, future-ready infrastructure. We connect emerging technologies with the local environment by designing comprehensive localization strategies to ensure alignment with local market needs.",
     "buttonText": "Contact Us",
     "buttonLink": "/contact",
@@ -198,8 +198,8 @@
     "content": {
       "topTitle": "Creating Unique Content! More Beautiful… Simpler…",
       "topDescription": "Immersive digital content features technologies like Hyper Realistic, Anamorphic, and AR to create vivid, interactive scenes with high visual quality, enriched with AI-driven, interactive, 3D content suitable for all marketing needs.",
-      "bottomTitle": "Indoor and Outdoor Digital Screens for Commercial Use 24/7",
-      "bottomDescription": "A network of indoor and outdoor screens operating 24/7 with high-brightness panels, weather-resistant, featuring remote content management and smart targeting that measures total visitors and attendance, analyzes dwell time, demographics, emotions, and impressions to increase campaign effectiveness by up to 50%.",
+      "bottomTitle": "With the ability to display content on both indoor and outdoor digital screens for continuous commercial use, 24/7",
+      "bottomDescription": "A network of indoor and outdoor screens operating 24/7, featuring high-brightness displays and weather-resistant design. It includes remote content management, smart targeting, and scene analysis capabilities that measure total audience reach, dwell time, age groups, and emotional engagement—helping boost campaign effectiveness by up to 50%.",
       "activeEngagements": "Active Engagements",
       "uptime": "Uptime",
       "hours": "Hours",
@@ -398,7 +398,7 @@
     "answer6": "Savvy Innovation links AI, digital interaction, and green solutions to develop more sustainable urban spaces, providing solutions geared toward the future of cities and experiences."
   },
   "robots": {
-    "heading": "Savvy Store",
+    "heading": "Savvy E-Store",
     "subheading": "Governed and purpose-driven robotics for tomorrow's world",
     "viewDetails": "View details",
     "viewProduct": "View Product",
@@ -1362,7 +1362,7 @@
     "savvyExpo": "Savvy Expo",
     "savvyInnovation": "Savvy Innovation",
     "otherPages": "Other Pages",
-    "robots": "Robots",
+    "robots": "Savvy E-Store",
     "content": "Content",
     "whySavvy": "Why Savvy",
     "servicesLabel": "Services",

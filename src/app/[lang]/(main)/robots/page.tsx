@@ -3,9 +3,10 @@ import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import RobotHeroSlider from "@/components/robots/RobotHeroSlider"
 import RobotsSection from "@/components/main-page/sections/RobotsSection"
 import ResponsibleUseLink from "@/components/robots/ResponsibleUseLink"
-import { robotsRouteHeaderTexts } from "@/lib/robots-route-header"
-import en from "../../../../../public/locales/en.json"
-import ar from "../../../../../public/locales/ar.json"
+import { getDictionary } from "@/i18n/getDictionary"
+import { robotsIndexHeaderTexts } from "@/i18n/page-header-texts"
+import { isAppLanguage } from "@/i18n/settings"
+import { notFound } from "next/navigation"
 
 interface RobotsPageProps {
   params: Promise<{ lang: string }>
@@ -13,14 +14,11 @@ interface RobotsPageProps {
 
 export default async function RobotsPage({ params }: RobotsPageProps) {
   const { lang } = await params
-  const currentLang = lang as "en" | "ar"
-  const dict = currentLang === "ar" ? ar : en
-  const h = robotsRouteHeaderTexts(currentLang)
-  const texts = {
-    main: h.main,
-    ourRobots: dict.common.savvyEStore,
-    contactUs: h.contactUs,
+  if (!isAppLanguage(lang)) {
+    notFound()
   }
+  const dict = getDictionary(lang)
+  const texts = robotsIndexHeaderTexts(dict)
 
   return (
     <>

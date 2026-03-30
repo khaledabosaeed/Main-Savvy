@@ -5,30 +5,22 @@ import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import ExpoPartners from "@/components/expo-page/sections/ExpoPartners"
 import ImageSlider, { ImageItem } from "@/components/media-page/sections/PartnersSlider"
-import en from "../../../../../public/locales/en.json"
-import ar from "../../../../../public/locales/ar.json"
+import { getDictionary } from "@/i18n/getDictionary"
+import { expoPageHeaderTexts } from "@/i18n/page-header-texts"
+import { isAppLanguage } from "@/i18n/settings"
+import { notFound } from "next/navigation"
 
 interface ExpoPageProps {
-  params: Promise<{
-    lang: string
-  }>
+  params: Promise<{ lang: string }>
 }
-
 
 export default async function ExpoPage({ params }: ExpoPageProps) {
   const { lang } = await params
-  const currentLang = lang as "en" | "ar"
-  const dict = currentLang === "ar" ? ar : en
-  const c = dict.common
-
-  const texts = {
-    main: c.main,
-    services: c.servicesLabel,
-    projects: c.projects,
-    partners: c.partnersLabel,
-    ourRobots: c.robots,
-    contactUs: c.contactUs,
+  if (!isAppLanguage(lang)) {
+    notFound()
   }
+  const dict = getDictionary(lang)
+  const { texts, imageSliderHeading } = expoPageHeaderTexts(dict)
 
   const sliderImages: ImageItem[] = Array.from({ length: 29 }, (_, i) => ({
     name: `Image ${i + 1}`,
@@ -50,7 +42,7 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
           <LatestProjects />
         </section>
         <section id="news">
-          <ImageSlider images={sliderImages} />
+          <ImageSlider images={sliderImages} heading={imageSliderHeading} />
         </section>
 
         <section id="partners">
