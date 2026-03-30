@@ -1415,13 +1415,13 @@
       {
         "id": "expo",
         "title": "Savvy Expo",
-        "description": "We turn brands into experiences people feel, remember, and share!",
-        "features": [
-          "Strategic partnerships",
-          "Engaging and purposeful activities",
-          "mr.savvy robot",
-          "Innovative and interactive visitor experiences"
-        ],
+          "description": "We turn your brand into unforgettable experiences… through",
+          "features": [
+            "Building strategic partnerships",
+            "Focusing on engaging and purposeful entertainment activities",
+            "Creating attractive and interactive experiences with visitors",
+            "Leveraging the world of robotics with strong media presence (Mr. Savvy & Haksha characters)"
+          ],
         "icon": "/home-page/icons/expo-icon.svg",
         "image": "/sections/expo-image.jpg",
         "link": "/expo",
