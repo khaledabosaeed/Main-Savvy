@@ -401,7 +401,7 @@
     "heading": "Savvy E-Store",
     "subheading": "Governed and purpose-driven robotics for tomorrow's world",
     "viewDetails": "View details",
-    "viewProduct": "View Product",
+    "viewProduct": "Technical information",
     "viewAll": "View all robots",
     "notFound": "Robot not found",
     "moreRobots": "More Robots",
@@ -442,7 +442,7 @@
         "description": "Humanoid agent AI avatar",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
-        "buttonText": "Learn more",
+        "buttonText": "Explore the world of G1",
         "productLink": "/robots/g1/product"
       },
       {
@@ -451,7 +451,7 @@
         "description": "Destiny Awakening",
         "image": "/robot/h2/H2 Ring.jpg",
         "link": "/robots/h2",
-        "buttonText": "Learn more",
+        "buttonText": "Explore the world of H2",
         "productLink": "/robots/h2/product"
       },
       {
@@ -460,7 +460,7 @@
         "description": "New Creature of Embodied AI",
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
-        "buttonText": "Learn more",
+        "buttonText": "Explore the world of Go2",
         "productLink": "/robots/go2/product"
       },
       {
@@ -469,7 +469,7 @@
         "description": "Ultra-lightweight, fully customizable",
         "image": "/robot/R1/R!.webp",
         "link": "/robots/r1",
-        "buttonText": "Learn more",
+        "buttonText": "Explore the world of R1",
         "productLink": "/robots/r1/product"
       }
     ],

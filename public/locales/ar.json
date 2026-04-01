@@ -401,7 +401,7 @@
     "heading": "متجر ساڤي",
     "subheading": "روبوتات مُحوكمة وهادفة لعالم الغد",
     "viewDetails": "عرض التفاصيل",
-    "viewProduct": "عرض المنتج",
+    "viewProduct": "معلومات تقنيّة ",
     "viewAll": "عرض جميع الروبوتات",
     "notFound": "الروبوت غير موجود",
     "moreRobots": "المزيد من الروبوتات",
@@ -442,7 +442,7 @@
         "description": "جسم افتراضي للوكيل البشري من الذكاء الاصطناعي",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
-        "buttonText": "تعلم المزيد",
+        "buttonText": "استكشف عالم G1",
         "productLink": "/robots/g1/product"
       },
       {
@@ -451,7 +451,7 @@
         "description": "إيقاظ المصير",
         "image": "/robot/h2/H2 Ring.jpg",
         "link": "/robots/h2",
-        "buttonText": "تعلم المزيد",
+        "buttonText": "استكشف عالم H2",
         "productLink": "/robots/h2/product"
       },
       {
@@ -460,7 +460,7 @@
         "description": "مخلوق جديد للذكاء الاصطناعي المتجسد",
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
-        "buttonText": "تعلم المزيد",
+        "buttonText": "استكشف عالم Go2",
         "productLink": "/robots/go2/product"
       },
       {
@@ -469,7 +469,7 @@
         "description": "خفيف الوزن للغاية، قابل للتخصيص بالكامل",
         "image": "/robot/R1/R!.webp",
         "link": "/robots/r1",
-        "buttonText": "تعلم المزيد",
+        "buttonText": "استكشف عالم R1",
         "productLink": "/robots/r1/product"
       }
     ],
