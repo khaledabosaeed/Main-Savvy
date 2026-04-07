@@ -12,17 +12,13 @@ export interface RobotSingleImageSectionProps {
 export default function RobotSingleImageSection({
   title,
   image,
-  lang,
 }: RobotSingleImageSectionProps) {
-  const isRTL = lang === "ar"
 
   return (
     <section className="w-full">
       {title && (
         <h3
-          className={`text-xl md:text-2xl font-bold text-gray-900 mb-4 ${
-            isRTL ? "text-right" : "text-left"
-          }`}
+          className={`text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 text-center`}
         >
           {title}
         </h3>

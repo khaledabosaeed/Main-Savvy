@@ -23,6 +23,28 @@ export default function SpecsTable({
   if (!content) return null
 
   const isRTL = lang === "ar"
+  const normalizeCellText = (text?: string) =>
+    (text ?? "/")
+      .split("\n")
+      .map((line) => line.trim())
+      .join("\n")
+  const getValueDirection = (value: string) => (/^\s*\d/.test(value) ? "ltr" : "auto")
+  const renderSpecValue = (value?: string) => {
+    const displayValue = normalizeCellText(value)
+    return (
+      <span
+        dir={getValueDirection(displayValue)}
+        className="block whitespace-pre-line [unicode-bidi:isolate]"
+      >
+        {displayValue}
+      </span>
+    )
+  }
+  const renderSpecName = (name?: string) => (
+    <span className="block whitespace-pre-line [unicode-bidi:isolate]">
+      {normalizeCellText(name)}
+    </span>
+  )
 
   const firstColLabel = content.specLabel
   const headerImage = content.headerImage
@@ -30,6 +52,7 @@ export default function SpecsTable({
   const priceLabel = content.priceLabel
   const modelLabel = content.modelLabel
   const hasHeaderImage = !!headerImage
+  const firstColumnWidthClass = "w-[260px] min-w-[260px] max-w-[260px] md:w-[300px] md:min-w-[300px] md:max-w-[300px]"
 
   return (
     <div dir={isRTL ? "rtl" : "ltr"} className="space-y-6">
@@ -48,14 +71,14 @@ export default function SpecsTable({
           </div>
           {/* Table for this section */}
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[500px] border-collapse">
+            <table className="w-full min-w-[500px] border-collapse table-fixed">
               <thead>
                 {hasHeaderImage && sIdx === 0 && content.columnHeaders && content.columnHeaders.length > 0 && (
                   <>
                     <tr className="border-b border-neutral-700">
                       <th
                         rowSpan={2}
-                        className={`w-[200px] px-5 py-3 text-sm font-semibold text-white align-top ${
+                        className={`${firstColumnWidthClass} px-5 py-3 text-sm font-semibold text-white align-top ${
                           isRTL ? "text-right" : "text-left"
                         }`}
                       >
@@ -67,8 +90,12 @@ export default function SpecsTable({
                       {content.columnHeaders.map((h, i) => (
                         <th
                           key={i}
-                          className={`px-5 py-3 text-center border-r border-neutral-700 last:border-r-0 ${
-                            i < content.columnHeaders!.length - 1 ? "border-r border-neutral-700" : ""
+                          className={`px-5 py-3 text-center ${
+                            i < content.columnHeaders!.length - 1
+                              ? isRTL
+                                ? "border-l border-neutral-700"
+                                : "border-r border-neutral-700"
+                              : ""
                           }`}
                         >
                           <div className="flex flex-col items-center gap-4">
@@ -94,7 +121,11 @@ export default function SpecsTable({
                           <th
                             key={i}
                             className={`px-5 py-3 text-sm font-semibold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent text-center ${
-                              i < columnPrices.length - 1 ? "border-r border-neutral-700" : ""
+                              i < columnPrices.length - 1
+                                ? isRTL
+                                  ? "border-l border-neutral-700"
+                                  : "border-r border-neutral-700"
+                                : ""
                             }`}
                           >
                             {price}
@@ -107,7 +138,7 @@ export default function SpecsTable({
                 {(!hasHeaderImage || sIdx > 0 || !content.columnHeaders?.length) && (
                   <tr className="border-b border-neutral-700">
                     <th
-                      className={`h-12 px-5 py-3 text-sm font-semibold text-white ${
+                      className={`${firstColumnWidthClass} h-12 px-5 py-3 text-sm font-semibold text-white ${
                         isRTL ? "text-right" : "text-left"
                       }`}
                     >
@@ -126,7 +157,11 @@ export default function SpecsTable({
                         <th
                           key={i}
                           className={`h-12 px-5 py-3 text-sm font-semibold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent ${
-                            i < (content.columnHeaders?.length ?? 0) - 1 ? "border-r border-neutral-700" : ""
+                            i < (content.columnHeaders?.length ?? 0) - 1
+                              ? isRTL
+                                ? "border-l border-neutral-700"
+                                : "border-r border-neutral-700"
+                              : ""
                           } ${isRTL ? "text-right" : "text-left"}`}
                         >
                           {h}
@@ -143,11 +178,13 @@ export default function SpecsTable({
                     className="border-b border-neutral-700/80 last:border-b-0 hover:bg-neutral-800/30 transition-colors"
                   >
                     <td
-                      className={`border-r border-neutral-700/60 px-5 py-4 text-sm text-neutral-300 align-top ${
+                      className={`${firstColumnWidthClass} ${
+                        isRTL ? "border-l" : "border-r"
+                      } border-neutral-700/60 px-5 py-4 text-sm text-neutral-300 align-top ${
                         isRTL ? "text-right" : "text-left"
                       }`}
                     >
-                      {row.name}
+                      {renderSpecName(row.name)}
                     </td>
                     {singleColumn ? (
                       <td
@@ -157,21 +194,28 @@ export default function SpecsTable({
                             : ""
                         } ${isRTL ? "text-right" : "text-left"}`}
                       >
-                        {row.values[valueColumnIndex] ?? "/"}
+                        {renderSpecValue(row.values[valueColumnIndex])}
                       </td>
                     ) : (
-                      row.values.map((val, vIdx) => (
+                      Array.from(
+                        { length: content.columnHeaders?.length ?? row.values.length },
+                        (_, vIdx) => row.values[vIdx] ?? "/",
+                      ).map((val, vIdx, vals) => (
                         <td
                           key={vIdx}
                           className={`px-5 py-4 text-sm text-neutral-200 whitespace-pre-line align-top ${
-                            vIdx < (row.values.length - 1) ? "border-r border-neutral-700/60" : ""
+                            vIdx < (vals.length - 1)
+                              ? isRTL
+                                ? "border-l border-neutral-700/60"
+                                : "border-r border-neutral-700/60"
+                              : ""
                           } ${
                             row.highlight
                               ? "bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text font-semibold text-transparent"
                               : ""
                           } ${isRTL ? "text-right" : "text-left"}`}
                         >
-                          {val ?? "/"}
+                          {renderSpecValue(val)}
                         </td>
                       ))
                     )}

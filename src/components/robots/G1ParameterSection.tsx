@@ -12,14 +12,11 @@ export default function G1ParameterSection({ lang }: G1ParameterSectionProps) {
   const content = getG1ParameterSectionContent(lang)
   if (!content) return null
 
-  const isRTL = lang === "ar"
 
   return (
     <section className="w-full">
       <h3
-        className={`text-xl md:text-2xl font-bold text-gray-900 mb-4 ${
-          isRTL ? "text-right" : "text-left"
-        }`}
+        className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center`}
       >
         {content.header}
       </h3>

@@ -69,7 +69,7 @@ export default function UnrealHero() {
   }
 
   return (
-    <section className={`relative w-full  h-screen pt-80 bg-white flex items-center mb-50 md:mb-0 mt-30 md:mt-0 ${isRTL ? 'rtl' : 'ltr'}`}>
+    <section className={`relative w-full bg-white   flex items-center md:mb-0   ${isRTL ? 'rtl' : 'ltr'}`}>
       <div className="relative h-full  mb-20 z-10 container mx-auto px-4 md:px-6 w-full">
         <div className={`flex flex-col h-full ${isRTL ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-12 lg:gap-30 items-center`}>
 

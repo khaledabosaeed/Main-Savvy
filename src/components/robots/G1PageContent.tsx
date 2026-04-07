@@ -33,11 +33,10 @@ export default function G1PageContent({ lang }: G1PageContentProps) {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10">
           <G1ParameterSection lang={lang} />
-          <div className="mt-8">
+          <div className="mt-16">
             <h2
-              className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${
-                lang === "ar" ? "text-right" : "text-left"
-              }`}
+              className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`
+              }
             >
               {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
             </h2>

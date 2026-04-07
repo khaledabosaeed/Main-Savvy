@@ -359,7 +359,7 @@ function LatestProjects() {
                 initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+                className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
               >
                 {currentProject.title}
               </motion.h3>
@@ -381,15 +381,15 @@ function LatestProjects() {
               >
                 {currentProject.statistics.map((stat, index) => (
                   <div key={index} className={`${isRTL ? 'text-right' : 'text-left'}`}>
-                    <div className="flex items-baseline gap-1 mb-1">
+                    <div className="flex items-baseline ">
                       {stat.value ? (
                         <Counter
                           to={stat.value}
-                          className="text-2xl md:text-4xl font-bold text-gray-900"
+                          className="text-[20px] md:text-2xl font-bold text-gray-900"
                           formatter={(n) => `${Math.floor(n)}`}
                         />
                       ) : (
-                        <span className="text-1xl md:text-4xl font-bold text-gray-900">
+                        <span className="text-1xl md:text-2xl font-bold text-gray-900">
                           {stat.value}
                         </span>
                       )}
