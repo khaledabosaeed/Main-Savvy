@@ -66,11 +66,63 @@
       "3": ""
     },
     "ctaButton": "Contact Us",
+    "ctaPrimary": "Contact us",
+    "ctaSecondary": "Explore our divisions",
+    "valueProps": [
+      "Governed and purpose-driven robotics",
+      "Sustainability and green solutions",
+      "Net-zero emissions solutions"
+    ],
     "partners": "Partners who trusted us to create different experiences… you're next",
     "socialTiktok": "Follow us on TikTok",
     "socialLinkedin": "Follow us on LinkedIn",
     "socialInstagram": "Follow us on Instagram",
     "socialSnapchat": "Follow us on Snapchat"
+  },
+  "home": {
+    "goals2030": {
+      "intro": "Aligned with Saudi Vision 2030 — building a resilient, technology-led economy."
+    },
+    "socialProof": {
+      "title": "Trusted at major exhibitions",
+      "stats": [
+        { "value": "8000+", "label": "Visitors" },
+        { "value": "60+", "label": "Company visits" },
+        { "value": "250M+", "label": "Social impressions" }
+      ]
+    },
+    "useCases": {
+      "title": "Proof from the field",
+      "subtitle": "Short highlights from exhibitions and activations.",
+      "items": [
+        {
+          "title": "HajjConfex",
+          "outcome": "Immersive storytelling for Hajj and Umrah ecosystem innovation.",
+          "metric": "420K+ visitors",
+          "link": "/expo"
+        },
+        {
+          "title": "Cityscape",
+          "outcome": "Smart-city and PropTech narratives on a global stage.",
+          "metric": "550+ exhibitors",
+          "link": "/expo"
+        },
+        {
+          "title": "Robotics & AI",
+          "outcome": "Industrial robotics and responsible AI showcased live.",
+          "metric": "Live demos",
+          "link": "/robots"
+        }
+      ]
+    },
+    "robotsSection": {
+      "exploreStore": "Explore the full store"
+    },
+    "finalCta": {
+      "title": "Book a consultation",
+      "subtitle": "Tell us about your project — our team will respond with next steps.",
+      "button": "Contact us"
+    }
   },
   "promo": {
     "title": "Savvy World .. Your gateway to the new world",
@@ -327,19 +379,26 @@
   },
   "contact": {
     "heroBadge": "Get In Touch",
-    "heroTitle": "Get In Touch",
+    "heroTitle": "Contact the Savvy team — we respond within 24 hours",
     "heroSubtitle": "We're here to answer your questions and help with your next project",
-    "formTitle": "Send a Message",
+    "formTitle": "Complete the form below and our team will get back to you",
     "fullName": "Full Name",
     "email": "Email",
     "phone": "Phone Number",
     "companyName": "Company Name",
-    "jobTitle": "Job Title",
+    "jobTitle": "Job role",
     "fullNamePlaceholder": "John Doe",
     "emailPlaceholder": "user@email.com",
     "phonePlaceholder": "0581234567",
     "companyPlaceholder": "company Name",
-    "jobPlaceholder": "Company Manager",
+    "jobRolePlaceholder": "Select role",
+    "jobRoles": [
+      { "value": "ceo_gm", "label": "CEO / GM" },
+      { "value": "cto", "label": "CTO" },
+      { "value": "operations_manager", "label": "Operations Manager" },
+      { "value": "procurement", "label": "Procurement" },
+      { "value": "other", "label": "Other" }
+    ],
     "savvySolutions": "Savvy solutions (optional)",
     "message": "Message",
     "messagePlaceholder": "Please put in a brief about your product of interest. Example (Innovation, Media, Expo)",
@@ -347,9 +406,10 @@
     "send": "Send",
     "successMessage": "Your message has been sent successfully!",
     "errorMessage": "An error occurred. Please try again.",
-    "faqTitle": "Frequently Asked Questions",
+    "faqTitle": "Everything you want to know about Savvy World",
+    "faqLead": "Quick answers before you reach out",
     "faqQuestion1": "What is Savvy World?",
-    "faqAnswer1": "Savvy World is an innovative Saudi platform combining modern technologies + sustainability + digital transformation + robotics, presented to people and businesses in a simple way, aiming to bring AI and robotics into a better world — the Savvy World.",
+    "faqAnswer1": "Savvy World is a Saudi consulting and technology platform that helps companies adopt industrial robotics, responsible AI, and green energy solutions — aligned with Vision 2030.",
     "faqQuestion2": "What does Savvy Media offer?",
     "faqAnswer2": "It provides indoor and outdoor digital display screens operating 24/7, along with advanced immersive content using 3D and AR technologies, featuring smart targeting and precise interaction measurement.",
     "faqQuestion3": "Who is mr.savvy?",
@@ -360,26 +420,42 @@
     "faqAnswer5": "Yes — comprehensively and clearly. In collaboration with the Saudi Green Building Forum, we provide fully certified green solutions. We offer it as a complete 'Green Transformation Journey' for developers, companies, and banks with profitable business models.",
     "faqQuestion6": "What is Savvy Innovation?",
     "faqAnswer6": "Savvy Innovation links AI, digital interaction, and green solutions to develop more sustainable urban spaces, providing solutions geared toward the future of cities and experiences.",
-    "solutionOptions": [
-      "Advisory services in Data Management",
-      "Advisory services in Responsible AI",
-      " Industrial robots (firefighting, inspection, security)",
-      "Strategic partnerships",
-      " Electric vehicle (EV) charging stations",
-      "Eco-friendly cement",
-      "Energy-efficient smart home solutions",
-      "Strategic partnerships",
-      "Engaging and purposeful activities",
-      "mr.savvy robot",
-      "Innovative and interactive visitor experiences",
-      "Brand building",
-      "Digital marketing",
-      "Creative content production",
-      "Digital marketing",
-      "Large-scale screens on building facades promoting your brand",
-      "Humanoid robots (with training services)",
-      "Alcrea Intelligent assistants designed to reduce your workload.",
-      "Other"
+    "sidebarTitle": "Direct contact",
+    "sidebarPhoneLabel": "Phone",
+    "sidebarPhone": "—",
+    "sidebarEmailLabel": "Email",
+    "sidebarEmail": "—",
+    "sidebarAddressLabel": "Location",
+    "sidebarAddress": "—",
+    "sidebarHoursLabel": "Business hours",
+    "sidebarHours": "—",
+    "solutionOther": "Other",
+    "solutionOptionGroups": [
+      {
+        "title": "Savvy Innovation",
+        "options": [
+          "Advisory: responsible AI and data management",
+          "Industrial robots (firefighting, inspection, security)",
+          "Green energy: solar, EV charging, eco cement, efficient smart home",
+          "Strategic partnerships"
+        ]
+      },
+      {
+        "title": "Savvy Expo",
+        "options": [
+          "Events, exhibitions, and interactive visitor experiences",
+          "mr.savvy robot",
+          "Entertainment humanoid robots (with training)"
+        ]
+      },
+      {
+        "title": "Savvy Media",
+        "options": [
+          "Indoor, outdoor, and facade digital screens",
+          "Brand, content, and social media",
+          "Alcrea — intelligent assistants to reduce workload"
+        ]
+      }
     ]
   },
   "faq": {

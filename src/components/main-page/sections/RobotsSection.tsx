@@ -9,7 +9,15 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
 import type { RobotCard } from "@/lib/robots-locale"
 
-export default function RobotsSection() {
+type RobotsSectionProps = {
+  limit?: number
+  showExploreStore?: boolean
+}
+
+export default function RobotsSection({
+  limit,
+  showExploreStore,
+}: RobotsSectionProps = {}) {
   const { language } = useLanguage()
   const { t } = useTranslation()
   const lang = language as "en" | "ar"
@@ -17,11 +25,13 @@ export default function RobotsSection() {
   const content = useMemo(() => {
     const raw = t("robots.cards", { returnObjects: true })
     const robots = (Array.isArray(raw) ? raw : []) as RobotCard[]
+    const capped =
+      typeof limit === "number" && limit > 0 ? robots.slice(0, limit) : robots
     return {
       sectionTitle: t("robots.heading"),
-      robots,
+      robots: capped,
     }
-  }, [t])
+  }, [t, limit])
 
   const isMobile = useIsMobile()
   const isRTL = lang === "ar"
@@ -62,7 +72,11 @@ export default function RobotsSection() {
         </motion.h2>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10"
+          className={`grid grid-cols-1 gap-8 md:gap-10 ${
+            limit === 2
+              ? "md:grid-cols-2 max-w-4xl mx-auto"
+              : "md:grid-cols-3"
+          }`}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -137,6 +151,17 @@ export default function RobotsSection() {
             </motion.a>
           ))}
         </motion.div>
+
+        {showExploreStore && (
+          <div className="mt-12 md:mt-16 flex justify-center px-4">
+            <Link
+              href={`/${lang}/robots`}
+              className={`inline-flex items-center justify-center rounded-full border-2 border-primary text-primary px-8 py-3.5 text-base font-semibold hover:bg-primary hover:text-white transition-colors ${isRTL ? "flex-row-reverse" : ""}`}
+            >
+              {t("home.robotsSection.exploreStore")}
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   )
