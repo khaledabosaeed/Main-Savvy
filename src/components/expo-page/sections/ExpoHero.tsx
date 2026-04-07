@@ -18,7 +18,7 @@ export default function ExpoHero() {
   }, [lang])
 
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-white py-20">
+    <section className="relative min-h-[90vh] flex items-center bg-white pt-20 md:pt-5 pb-10">
       <div className="max-w-7xl mx-auto px-6 md:px-10 w-full">
         <div className={`flex flex-col ${isRTL ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 md:gap-16`}>
           <motion.div

@@ -312,7 +312,7 @@ export default function NewHero() {
               ].map(({ goal, Icon }, i) => {
                 const href = getGoalHref(i)
                 const cardClass =
-                  "flex flex-col items-start p-6 rounded-2xl border border-gray-200 bg-gray-50/80 shadow-sm transition-shadow duration-200 h-full"
+                  "flex flex-col items-center p-6 rounded-2xl border border-gray-200 bg-gray-50/80 shadow-sm transition-shadow duration-200 h-full"
                 const interactiveClass = href
                   ? "group cursor-pointer hover:border-primary hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   : "cursor-default hover:border-gray-200"
@@ -324,7 +324,7 @@ export default function NewHero() {
                         ? { scale: 1.03, transition: { duration: 0.2 } }
                         : undefined
                     }
-                    className="flex flex-col items-start w-full"
+                    className="flex flex-col items-center  w-full"
                   >
                     <div
                       className={`w-10 h-10 rounded-lg bg-primary/10 mb-4 flex items-center justify-center shrink-0 text-primary transition-colors ${href ? "group-hover:bg-primary/15" : ""}`}
@@ -332,7 +332,7 @@ export default function NewHero() {
                       <Icon className="w-5 h-5" strokeWidth={2} />
                     </div>
                     <p
-                      className={`text-sm md:text-base font-bold text-gray-800 leading-relaxed flex-1 text-start transition-colors ${href ? "group-hover:text-gray-900" : ""}`}
+                      className={`text-sm md:text-base font-bold text-gray-800 leading-relaxed flex-1 text-center transition-colors ${href ? "group-hover:text-gray-900" : ""}`}
                     >
                       {goal}
                     </p>

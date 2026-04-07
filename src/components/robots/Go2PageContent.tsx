@@ -61,11 +61,9 @@ export default function Go2PageContent({ lang }: Go2PageContentProps) {
             />
           ))}
           {hasSpecs && (
-            <div className="mt-8">
+            <div className="mt-16">
               <h2
-                className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${
-                  lang === "ar" ? "text-right" : "text-left"
-                }`}
+                className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`}
               >
                 {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
               </h2>

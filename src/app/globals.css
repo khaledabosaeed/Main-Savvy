@@ -247,10 +247,10 @@ a[href^="#"] {
   }
   
   /* Reduce padding and margins globally on mobile */
-  section {
+  /* section {
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
+  } */
   
   /* Optimize button sizes */
   button {

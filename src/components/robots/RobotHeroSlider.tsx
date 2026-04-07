@@ -169,7 +169,7 @@ export default function RobotHeroSlider() {
                 >
                   <Link
                     href={`/${lang}${currentSlide.link}`}
-                    className={`inline-flex min-w-0 shrink items-center gap-2 text-sm sm:text-base font-medium text-primary hover:text-primary/90 transition-colors group w-fit [text-shadow:0_1px_3px_rgba(0,0,0,0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black/50 rounded-sm ${isRTL ? "flex-row-reverse" : ""}`}
+                    className={`${heroCtaSecondary} !w-auto shrink-0`}
                   >
                     <span>{currentSlide.buttonText}</span>
                     <svg
