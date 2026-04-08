@@ -31,11 +31,9 @@ export default async function InnovationPage({ params }: InnovationPageProps) {
         <section id="solutions">
           <InnovationSolutions />
         </section>
-
         <section id="partners">
           <ExpoPartners />
         </section>
-
         <section id="robots">
           <RobotsSection />
         </section>
