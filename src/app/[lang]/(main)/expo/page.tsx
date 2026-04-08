@@ -34,7 +34,6 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
         <section id="hero">
           <ExpoHero />
         </section>
-
         <section id="services">
           <ExpoServices />
         </section>
@@ -44,7 +43,6 @@ export default async function ExpoPage({ params }: ExpoPageProps) {
         <section id="news">
           <ImageSlider images={sliderImages} heading={imageSliderHeading} />
         </section>
-
         <section id="partners">
           <ExpoPartners />
         </section>

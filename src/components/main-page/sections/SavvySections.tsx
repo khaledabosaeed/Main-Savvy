@@ -25,7 +25,7 @@ export default function SavvySections() {
     }
 
     return (
-        <section className="py-12 md:py-16 lg:py-20 bg-white">
+        <section className="py-16 md:py-20 lg:py-24 bg-white">
             <div className="container mx-auto px-4">
                 {/* Section Title - Better mobile sizing */}
                 <h2 className={`text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 md:mb-12 lg:mb-16 text-center`}>
