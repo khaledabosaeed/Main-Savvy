@@ -144,7 +144,7 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
             >
               {t("common.specifications")}
             </h2>
-            <SpecsTable slug="g1" lang={lang} />
+            <SpecsTable slug="h2" lang={lang} />
 
           </div>
         )}

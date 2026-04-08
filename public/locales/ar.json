@@ -1322,7 +1322,7 @@
         ]
       },
       "r1": {
-        "name": "Unitree Robo-Dog R1",
+        "name": "Unitree Humanoid R1",
         "price": "2,800 دولار أمريكي",
         "images": [
           "/robot/R1/catlouge/p2.webp",
@@ -1331,18 +1331,18 @@
         "versions": [
           {
             "id": "r1-pro",
-            "name": "Unitree Robo-Dog R1 Pro (بدون وحدة تحكم)"
+            "name": "Unitree Humanoid R1 Pro (بدون وحدة تحكم)"
           },
           {
             "id": "r1-pro-ctrl",
-            "name": "Unitree Robo-Dog R1 Pro (مع وحدة تحكم)"
+            "name": "Unitree Humanoid R1 Pro (مع وحدة تحكم)"
           }
         ],
         "bulletPoints": [
           "اطلب الآن والشحن خلال شهر",
           "تكلفة الشحن بين 399 و 1000 دولار",
           "العميل مسؤول عن الرسوم الجمركية والضرائب",
-          "تواصل مع المبيعات للحصول على سعر Unitree Robo-Dog R1"
+          "تواصل مع المبيعات للحصول على سعر Unitree Humanoid R1"
         ]
       }
     }
