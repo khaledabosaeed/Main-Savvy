@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import Link from "next/link"
 import { Package, Truck, DollarSign, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -11,6 +11,9 @@ import SpecsTable from "./SpecsTable"
 import ProductImageGallery from "./ProductImageGallery"
 
 const bulletIcons = [Package, Truck, DollarSign, MessageCircle]
+
+const R1_CATALOG_P2 = "/robot/R1/catlouge/p2.webp"
+const R1_CATALOG_P1 = "/robot/R1/catlouge/p1.webp"
 
 interface RobotProductDetailsProps {
   slug: RobotSlug
@@ -26,7 +29,26 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
 
   const [selectedVersion, setSelectedVersion] = useState(0)
 
-  const images = content.images.length > 0 ? content.images : ["/robot/go2/go2.webp"]
+  const selected =
+    content.versions[selectedVersion] ?? content.versions[0]
+  const displayPrice = selected?.price ?? content.price
+
+  const galleryImages = useMemo(() => {
+    if (slug === "r1" && selected?.id) {
+      // Same two catalogue assets as before; order puts the matching color first
+      if (selected.id.includes("white")) {
+        return [R1_CATALOG_P1, R1_CATALOG_P2]
+      }
+      return [R1_CATALOG_P2, R1_CATALOG_P1]
+    }
+    if (selected?.images && selected.images.length > 0) {
+      return selected.images
+    }
+    if (content.images.length > 0) {
+      return content.images
+    }
+    return ["/robot/go2/go2.webp"]
+  }, [slug, selected, content.images])
 
   return (
     <section className="py-25 md:py-25 bg-white">
@@ -39,7 +61,8 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
           {/* Left - Images */}
           <div className={isRTL ? "" : ""}>
             <ProductImageGallery
-              images={images}
+              key={`${slug}-${selected?.id ?? "default"}`}
+              images={galleryImages}
               alt={content.name}
               isRTL={isRTL}
               ariaLabels={{
@@ -60,13 +83,45 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
             >
               {content.name}
             </h1>
-            {/* <p
-              className={`text-2xl font-semibold text-gray-900 mb-8 ${
+
+            {/* Version selector — price below reflects selected variant */}
+            {content.versions.length > 0 && (
+              <div className="mb-4">
+                <p
+                  className={`font-semibold text-gray-900 mb-3 ${
+                    isRTL ? "text-right" : "text-left"
+                  }`}
+                >
+                  {slug === "r1"
+                    ? t("robots.r1VariantLabel")
+                    : t("robots.version")}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {content.versions.map((v, i) => (
+                    <button
+                      key={v.id}
+                      type="button"
+                      onClick={() => setSelectedVersion(i)}
+                      className={`px-4 py-2 rounded-lg border-2 text-sm font-medium transition-colors ${
+                        selectedVersion === i
+                          ? "border-gray-900 bg-gray-900 text-white"
+                          : "border-gray-300 text-gray-700 hover:border-gray-300"
+                      }`}
+                    >
+                      {v.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <p
+              className={`text-2xl font-semibold text-gray-900 mb-8 [unicode-bidi:isolate] ${
                 isRTL ? "text-right" : "text-left"
               }`}
             >
-              {content.price}
-            </p> */}
+              {displayPrice}
+            </p>
 
             {/* Bullet points */}
             <ul className="space-y-3 mb-8">
@@ -85,34 +140,6 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
                 )
               })}
             </ul>
-
-            {/* Version selector */}
-            {content.versions.length > 0 && (
-              <div className="mb-8">
-                <p
-                  className={`font-semibold text-gray-900 mb-3 ${
-                    isRTL ? "text-right" : "text-left"
-                  }`}
-                >
-                  {t("robots.version")}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {content.versions.map((v, i) => (
-                    <button
-                      key={v.id}
-                      onClick={() => setSelectedVersion(i)}
-                      className={`px-4 py-2 rounded-lg border-2 text-sm font-medium transition-colors ${
-                        selectedVersion === i
-                          ? "border-gray-900 bg-gray-900 text-white"
-                          : "border-gray-300 text-gray-700 hover:border-gray-300"
-                      }`}
-                    >
-                      {v.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {/* CTA — contact page (replaces add-to-cart); dir=ltr keeps button position same as EN in both languages */}
             <div className="flex flex-col gap-4" >
@@ -135,7 +162,7 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
         </div>
 
         {/* Specifications table - G1, H2, R1 */}
-        {(slug === "g1" || slug === "h2" || slug === "r1") && (
+        {(slug === "g1" || slug === "h2" || slug === "r1" || slug === "go2") && (
           <div className="mt-16 md:mt-24">
             <h2
               className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${
@@ -144,7 +171,7 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
             >
               {t("common.specifications")}
             </h2>
-            <SpecsTable slug="h2" lang={lang} />
+            <SpecsTable slug={slug} lang={lang} />
 
           </div>
         )}

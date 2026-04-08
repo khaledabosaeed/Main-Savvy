@@ -20,7 +20,7 @@ export interface RobotHeroConfig {
   videoSrc: string
   title: string
   subtitle: string
-  priceStartsFrom: string
+  priceStartsFrom?: string
   buttonText: string
   textPlacement: "left" | "center" | "right"
 }
@@ -28,6 +28,10 @@ export interface RobotHeroConfig {
 export interface ProductVersion {
   id: string
   name: string
+  /** List price for this variant; falls back to `RobotProductConfig.price` if omitted */
+  price?: string
+  /** When set (e.g. R1 colorways), gallery uses these instead of product-level `images` */
+  images?: string[]
 }
 
 export interface RobotProductConfig {
@@ -132,7 +136,7 @@ export interface RobotSpecsConfig {
   sections: SpecsSection[]
   /** Header image shown above each model column (e.g. robot product image) */
   headerImage?: string
-  /** Price or CTA for each model column (e.g. "$4,900", "Contact Sales") */
+  /** Price or CTA for each model column (e.g. "18,375 SAR", "Contact Sales") */
   columnPrices?: string[]
   /** Label for the price row in header (e.g. "Price (Tax and Shipping cost excluded)") */
   priceLabel?: string

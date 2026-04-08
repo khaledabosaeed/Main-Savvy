@@ -407,6 +407,7 @@
     "moreRobots": "More Robots",
     "sliderDescriptionSuffix": " Contact us directly to obtain price.",
     "version": "Version",
+    "r1VariantLabel": "Size",
     "viewPricingText": "View pricing",
     "responsibleUseLabel": "Responsible use notice",
     "responsibleUse": {
@@ -478,6 +479,7 @@
         "videoSrc": "/robot/g1/hero.mp4",
         "title": "G1 EDU ",
         "subtitle": "A robot powered by artificial intelligence, designed to learn human movement.",
+        "priceStartsFrom": "Contact Sales",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
@@ -485,6 +487,7 @@
         "videoSrc": "/robot/h2/hero.mp4",
         "title": "H2 EDU ",
         "subtitle": "High-performance humanoid robot for industrial and service applications.",
+        "priceStartsFrom": "Contact Sales",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
@@ -492,6 +495,7 @@
         "videoSrc": "/robot/go2/hero.mp4",
         "title": "Go2",
         "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
+        "priceStartsFrom": "From 6,000 SAR",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
@@ -499,6 +503,7 @@
         "videoSrc": "/robot/R1/hero.mp4",
         "title": "R1",
         "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
+        "priceStartsFrom": "From 18,375 SAR",
         "buttonText": "View Product",
         "textPlacement": "center"
       }
@@ -740,10 +745,10 @@
         ],
         "headerImage": "/robot/h2/detalisimage.webp",
         "columnPrices": [
-          "$29,900",
+          "112,125 SAR",
           "Contact Sales"
         ],
-        "priceLabel": "Price (Tax and Shipping cost excluded)",
+        "priceLabel": "Price in SAR (tax and shipping excluded)",
         "sections": [
           {
             "label": "Mechanical Dimensions",
@@ -918,12 +923,12 @@
         ],
         "headerImage": "/robot/R1/tabel.webp",
         "columnPrices": [
-          "$4,900",
-          "$5,900",
+          "18,375 SAR",
+          "22,125 SAR",
           "Contact Sales"
         ],
         "modelLabel": "Model",
-        "priceLabel": "Price (Tax and Shipping cost excluded)",
+        "priceLabel": "Price in SAR (tax and shipping excluded)",
         "sections": [
           {
             "label": "Mechanical Dimensions",
@@ -1017,13 +1022,13 @@
         ],
         "headerImage": "/robot/go2/table.png",
         "columnPrices": [
-          "$1,600",
-          "$2,800",
-          "$4,500",
+          "6,000 SAR",
+          "10,500 SAR",
+          "16,875 SAR",
           "Contact Sales"
         ],
         "modelLabel": "Model",
-        "priceLabel": "Price (Tax and freight excluded)",
+        "priceLabel": "Price in SAR (tax and freight excluded)",
         "sections": [
           {
             "label": "Mechanical Specifications",
@@ -1243,7 +1248,7 @@
               { "name": "Battery life", "values": [" 1-2h", " 1-2h", " 1-2h", " 2-4h"] },
               { "name": "Charger", "values": ["Standard (33.6V 3.5A)", "Standard (33.6V 3.5A)", "Standard (33.6V 3.5A)", "Fast charge (33.6V 9A)"] },
               { "name": "Warranty period [7]", "values": ["6 months", "12 months", "12 months", "12 months"] },
-              { "name": "Price (Tax and freight excluded)", "values": ["$1,600", "$2,800", "$4,500", "Contact your sales expert"], "highlight": true }
+              { "name": "Price in SAR (tax and freight excluded)", "values": ["6,000 SAR", "10,500 SAR", "16,875 SAR", "Contact Sales"], "highlight": true }
             ]
           }
         ]
@@ -1252,7 +1257,7 @@
     "product": {
       "g1": {
         "name": "G1 EDU ",
-        "price": "250,000 SAR",
+        "price": "Contact Sales",
         "images": [
           "/robot/g1/catlouge/g1c1.webp",
           "/robot/g1/catlouge/g1c2.webp"
@@ -1260,7 +1265,8 @@
         "versions": [
           {
             "id": "g1-edu",
-            "name": "G1 EDU "
+            "name": "G1 EDU ",
+            "price": "Contact Sales"
           }
         ],
         "bulletPoints": [
@@ -1270,7 +1276,7 @@
       },
       "h2": {
         "name": "H2 EDU ",
-        "price": "350,000 SAR",
+        "price": "Contact Sales",
         "images": [
           "/robot/h2/catlouge/1.png",
           "/robot/h2/catlouge/2.png",
@@ -1279,7 +1285,8 @@
         "versions": [
           {
             "id": "h2-edu",
-            "name": "H2 EDU "
+            "name": "H2 EDU ",
+            "price": "Contact Sales"
           }
         ],
         "bulletPoints": [
@@ -1289,7 +1296,7 @@
       },
       "go2": {
         "name": "Go2",
-        "price": "$2,800 USD",
+        "price": "From 6,000 SAR",
         "images": [
           "/robot/go2/catlouge/Go2c.webp",
           "/robot/go2/catlouge/go2c2.webp",
@@ -1299,44 +1306,58 @@
         ],
         "versions": [
           {
-            "id": "go2-pro",
-            "name": "Go2 Pro (without controller)"
-          },
-          {
-            "id": "go2-pro-ctrl",
-            "name": "Go2 Pro (with controller)"
-          },
-          {
             "id": "go2-air",
-            "name": "Go2 Air (without controller)"
+            "name": "Go2 Air (without controller)",
+            "price": "6,000 SAR"
           },
           {
             "id": "go2-air-ctrl",
-            "name": "Go2 Air (with controller)"
+            "name": "Go2 Air (with controller)",
+            "price": "6,938 SAR"
+          },
+          {
+            "id": "go2-pro",
+            "name": "Go2 Pro (without controller)",
+            "price": "10,500 SAR"
+          },
+          {
+            "id": "go2-pro-ctrl",
+            "name": "Go2 Pro (with controller)",
+            "price": "11,438 SAR"
           }
         ],
         "bulletPoints": [
           "Order now and ship within 3 months",
-          "Shipping costs between $399 and $1000",
-          "Customer is responsible for customs duties and taxes",
           "Contact sales to get Go2 Edu price"
         ]
       },
       "r1": {
-        "name": "Unitree Humanoid G1 ",
-        "price": "$2,800 USD",
+        "name": "Unitree Humanoid R1 ",
+        "price": "From 18,375 SAR",
         "images": [
           "/robot/R1/catlouge/p2.webp",
           "/robot/R1/catlouge/p1.webp"
         ],
         "versions": [
           {
-            "id": "r1-pro",
-            "name": "Unitree Humanoid R1 Pro (without controller)"
+            "id": "r1-air-red",
+            "name": "R1 Air (Red)",
+            "price": "18,375 SAR"
           },
           {
-            "id": "r1-pro-ctrl",
-            "name": "Unitree Humanoid R1 Pro (with controller)"
+            "id": "r1-red",
+            "name": "R1 (Red)",
+            "price": "22,125 SAR"
+          },
+          {
+            "id": "r1-air-white",
+            "name": "R1 Air (White)",
+            "price": "18,375 SAR"
+          },
+          {
+            "id": "r1-white",
+            "name": "R1 (White)",
+            "price": "22,125 SAR"
           }
         ],
         "bulletPoints": [

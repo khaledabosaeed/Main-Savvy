@@ -407,6 +407,7 @@
     "moreRobots": "المزيد من الروبوتات",
     "sliderDescriptionSuffix": " يمكنك التواصل معنا مباشرة للحصول على السعر.",
     "version": "الإصدار",
+    "r1VariantLabel": "المقاس",
     "viewPricingText": "عرض السعر",
     "responsibleUseLabel": "إشعار الاستخدام المسؤول",
     "responsibleUse": {
@@ -478,6 +479,7 @@
         "videoSrc": "/robot/g1/hero.mp4",
         "title": "G1 EDU ",
         "subtitle": "روبوت مدعوم بتقنية الذكاء الاصطناعي .. مصمم ليتعلم الحركة البشرية",
+        "priceStartsFrom": "تواصل مع المبيعات",
         "buttonText": "عرض المنتج",
         "textPlacement": "center"
       },
@@ -485,6 +487,7 @@
         "videoSrc": "/robot/h2/hero.mp4",
         "title": "H2 EDU ",
         "subtitle": "روبوت بشري عالي الأداء للتطبيقات الصناعية والخدمية.",
+        "priceStartsFrom": "تواصل مع المبيعات",
         "buttonText": "عرض المنتج",
         "textPlacement": "center"
       },
@@ -492,7 +495,7 @@
         "videoSrc": "/robot/go2/hero.mp4",
         "title": "Go2",
         "subtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
-        "priceStartsFrom": "السعر يبدأ من 2,800 دولار أمريكي",
+        "priceStartsFrom": "السعر يبدأ من 6,000 ريال سعودي",
         "buttonText": "عرض المنتج",
         "textPlacement": "center"
       },
@@ -500,6 +503,7 @@
         "videoSrc": "/robot/R1/hero.mp4",
         "title": "R1",
         "subtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
+        "priceStartsFrom": "السعر يبدأ من 18,375 ريال سعودي",
         "buttonText": "عرض المنتج",
         "textPlacement": "center"
       }
@@ -740,10 +744,10 @@
         ],
         "headerImage": "/robot/h2/detalisimage.webp",
         "columnPrices": [
-          "29,900 دولار",
+          "112,125 ريال سعودي",
           "تواصل مع المبيعات"
         ],
-        "priceLabel": "السعر (بدون الضريبة والشحن)",
+        "priceLabel": "السعر بالريال السعودي (بدون الضريبة والشحن)",
         "sections": [
           {
             "label": "الأبعاد الميكانيكية",
@@ -918,12 +922,12 @@
         ],
         "headerImage": "/robot/R1/tabel.webp",
         "columnPrices": [
-          "4,900 دولار",
-          "5,900 دولار",
+          "18,375 ريال سعودي",
+          "22,125 ريال سعودي",
           "تواصل مع المبيعات"
         ],
         "modelLabel": "الموديل",
-        "priceLabel": "السعر (بدون الضريبة والشحن)",
+        "priceLabel": "السعر بالريال السعودي (بدون الضريبة والشحن)",
         "sections": [
           {
             "label": "الأبعاد الميكانيكية",
@@ -1017,13 +1021,13 @@
         ],
         "headerImage": "/robot/go2/table.png",
         "columnPrices": [
-          "1,600 دولار",
-          "2,800 دولار",
-          "4,500 دولار",
+          "6,000 ريال سعودي",
+          "10,500 ريال سعودي",
+          "16,875 ريال سعودي",
           "تواصل مع المبيعات"
         ],
         "modelLabel": "الموديل",
-        "priceLabel": "السعر (بدون الضريبة والشحن)",
+        "priceLabel": "السعر بالريال السعودي (بدون الضريبة والشحن)",
         "sections": [
           {
             "label": "المواصفات الميكانيكية",
@@ -1243,7 +1247,7 @@
               { "name": "عمر البطارية", "values": [" 1-2 ساعة", " 1-2 ساعة", " 1-2 ساعة", " 2-4 ساعات"] },
               { "name": "الشاحن", "values": ["قياسي (33.6V 3.5A)", "قياسي (33.6V 3.5A)", "قياسي (33.6V 3.5A)", "شحن سريع (33.6V 9A)"] },
               { "name": "فترة الضمان [7]", "values": ["6 أشهر", "12 شهراً", "12 شهراً", "12 شهراً"] },
-              { "name": "السعر (بدون الضريبة والشحن)", "values": ["1,600 دولار", "2,800 دولار", "4,500 دولار", "تواصل مع خبير المبيعات"], "highlight": true }
+              { "name": "السعر بالريال السعودي (بدون الضريبة والشحن)", "values": ["6,000 ريال سعودي", "10,500 ريال سعودي", "16,875 ريال سعودي", "تواصل مع المبيعات"], "highlight": true }
             ]
           }
         ]
@@ -1252,7 +1256,7 @@
     "product": {
       "g1": {
         "name": "G1 EDU ",
-        "price": "250,000 ريال سعودي",
+        "price": "تواصل مع المبيعات",
         "images": [
           "/robot/g1/catlouge/g1c1.webp",
           "/robot/g1/catlouge/g1c2.webp"
@@ -1260,7 +1264,8 @@
         "versions": [
           {
             "id": "g1-edu",
-            "name": "G1 EDU "
+            "name": "G1 EDU ",
+            "price": "تواصل مع المبيعات"
           }
         ],
         "bulletPoints": [
@@ -1270,7 +1275,7 @@
       },
       "h2": {
         "name": "H2 EDU ",
-        "price": "350,000 ريال سعودي",
+        "price": "تواصل مع المبيعات",
         "images": [
           "/robot/h2/catlouge/1.png",
           "/robot/h2/catlouge/2.png",
@@ -1279,7 +1284,8 @@
         "versions": [
           {
             "id": "h2-edu",
-            "name": "H2 EDU "
+            "name": "H2 EDU ",
+            "price": "تواصل مع المبيعات"
           }
         ],
         "bulletPoints": [
@@ -1289,7 +1295,7 @@
       },
       "go2": {
         "name": "Go2",
-        "price": "2,800 دولار أمريكي",
+        "price": "يبدأ من 6,000 ريال سعودي",
         "images": [
           "/robot/go2/catlouge/Go2c.webp",
           "/robot/go2/catlouge/go2c2.webp",
@@ -1299,48 +1305,62 @@
         ],
         "versions": [
           {
-            "id": "go2-pro",
-            "name": "Go2 Pro (بدون وحدة تحكم)"
-          },
-          {
-            "id": "go2-pro-ctrl",
-            "name": "Go2 Pro (مع وحدة تحكم)"
-          },
-          {
             "id": "go2-air",
-            "name": "Go2 Air (بدون وحدة تحكم)"
+            "name": "Go2 Air (بدون وحدة تحكم)",
+            "price": "6,000 ريال سعودي"
           },
           {
             "id": "go2-air-ctrl",
-            "name": "Go2 Air (مع وحدة تحكم)"
+            "name": "Go2 Air (مع وحدة تحكم)",
+            "price": "6,938 ريال سعودي"
+          },
+          {
+            "id": "go2-pro",
+            "name": "Go2 Pro (بدون وحدة تحكم)",
+            "price": "10,500 ريال سعودي"
+          },
+          {
+            "id": "go2-pro-ctrl",
+            "name": "Go2 Pro (مع وحدة تحكم)",
+            "price": "11,438 ريال سعودي"
           }
         ],
         "bulletPoints": [
           "اطلب الآن والشحن خلال ٣ أشهر",
-          "العميل مسؤول عن الرسوم الجمركية والضرائب",
           "تواصل مع المبيعات للحصول على سعر Go2 Edu"
         ]
       },
       "r1": {
         "name": "Unitree Humanoid R1",
-        "price": "2,800 دولار أمريكي",
+        "price": "يبدأ من 18,375 ريال سعودي",
         "images": [
           "/robot/R1/catlouge/p2.webp",
           "/robot/R1/catlouge/p1.webp"
         ],
         "versions": [
           {
-            "id": "r1-pro",
-            "name": "Unitree Humanoid R1 Pro (بدون وحدة تحكم)"
+            "id": "r1-air-red",
+            "name": "R1 Air (أحمر)",
+            "price": "18,375 ريال سعودي"
           },
           {
-            "id": "r1-pro-ctrl",
-            "name": "Unitree Humanoid R1 Pro (مع وحدة تحكم)"
+            "id": "r1-red",
+            "name": "R1 (أحمر)",
+            "price": "22,125 ريال سعودي"
+          },
+          {
+            "id": "r1-air-white",
+            "name": "R1 Air (أبيض)",
+            "price": "18,375 ريال سعودي"
+          },
+          {
+            "id": "r1-white",
+            "name": "R1 (أبيض)",
+            "price": "22,125 ريال سعودي"
           }
         ],
         "bulletPoints": [
           "اطلب الآن والشحن خلال شهر",
-          "تكلفة الشحن بين 399 و 1000 دولار",
           "العميل مسؤول عن الرسوم الجمركية والضرائب",
           "تواصل مع المبيعات للحصول على سعر Unitree Humanoid R1"
         ]
