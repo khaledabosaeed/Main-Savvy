@@ -35,6 +35,10 @@ export interface ProductVersion {
   price?: string
   /** When set (e.g. R1 colorways), gallery uses these instead of product-level `images` */
   images?: string[]
+  /** Distributor catalog — optional per variant */
+  manufacturerName?: string
+  sku?: string
+  manufacturerPartNumber?: string
 }
 
 export interface RobotProductConfig {
@@ -43,6 +47,10 @@ export interface RobotProductConfig {
   images: string[]
   versions: ProductVersion[]
   bulletPoints: string[]
+  /** Distributor catalog — optional; variant fields override when present */
+  manufacturerName?: string
+  sku?: string
+  manufacturerPartNumber?: string
 }
 
 export interface RobotSlide extends RobotCard {
