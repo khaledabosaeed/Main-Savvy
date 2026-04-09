@@ -92,7 +92,7 @@
       ]
     },
     "useCases": {
-      "title": "Proof from the field",
+      "title": "Contributions from the field",
       "subtitle": "Short highlights from exhibitions and activations.",
       "items": [
         {
@@ -196,7 +196,7 @@
       "subtitle": "We bridge global innovation with Saudi market needs by localizing advanced technologies and engineering tailored solutions across supply chain optimization, industrial automation, energy infrastructure, inspection, and security systems, ensuring compliance, reliability, and measurable operational impact."
     },
     "about": {
-      "title": "Savvy Innovation is an R&D program featuring the mr.savvy robot, camera-tracking screens, and AR maps. We develop intelligent content on instant dashboards, implement smart home experiences, and ensure full PDPL compliance. We continuously test and improve based on real-world usage.",
+      "title": "Savvy Innovation is an R&D program featuring the Mr.savvy robot, camera-tracking screens, and AR maps. We develop intelligent content on instant dashboards, implement smart home experiences, and ensure full PDPL compliance. We continuously test and improve based on real-world usage.",
       "description": "Savvy Innovation turns ideas into reality through advanced AI, sustainable energy solutions, and cutting-edge robotics that shape the future of technology."
     },
     "services": {
@@ -363,7 +363,7 @@
       "Logos",
       "Videos"
     ],
-    "intellectualPropertyFooter": "Creative content related to mr.savvy, robots, and solutions — any content from Savvy exhibitions, media, or innovation — may not be used without prior written permission.",
+    "intellectualPropertyFooter": "Creative content related to Mr.savvy, robots, and solutions — any content from Savvy exhibitions, media, or innovation — may not be used without prior written permission.",
     "userTeamTitle": "Accuracy of Information",
     "userTeamContent": "We strive to provide accurate and up-to-date information, but:",
     "userTeamList": [
@@ -412,8 +412,8 @@
     "faqAnswer1": "Savvy World is a Saudi consulting and technology platform that helps companies adopt industrial robotics, responsible AI, and green energy solutions — aligned with Vision 2030.",
     "faqQuestion2": "What does Savvy Media offer?",
     "faqAnswer2": "It provides indoor and outdoor digital display screens operating 24/7, along with advanced immersive content using 3D and AR technologies, featuring smart targeting and precise interaction measurement.",
-    "faqQuestion3": "Who is mr.savvy?",
-    "faqAnswer3": "mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
+    "faqQuestion3": "Who is Mr.savvy?",
+    "faqAnswer3": "Mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
     "faqQuestion4": "What is the role of Savvy Expo?",
     "faqAnswer4": "Savvy Expo is the events and exhibitions arm of Savvy World. Its main role is to transform any event into an intelligent, engaging, and educational experience using robotics, AI, and interactive content.",
     "faqQuestion5": "Do you offer green energy solutions?",
@@ -422,13 +422,13 @@
     "faqAnswer6": "Savvy Innovation links AI, digital interaction, and green solutions to develop more sustainable urban spaces, providing solutions geared toward the future of cities and experiences.",
     "sidebarTitle": "Direct contact",
     "sidebarPhoneLabel": "Phone",
-    "sidebarPhone": "—",
+    "sidebarPhone": "+966 58 033 5989",
     "sidebarEmailLabel": "Email",
-    "sidebarEmail": "—",
+    "sidebarEmail": "sales@savvyworld.ai",
     "sidebarAddressLabel": "Location",
-    "sidebarAddress": "—",
+    "sidebarAddress": "Riyadh, KSA",
     "sidebarHoursLabel": "Business hours",
-    "sidebarHours": "—",
+    "sidebarHours": "24/7",
     "solutionOther": "Other",
     "solutionOptionGroups": [
       {
@@ -444,7 +444,7 @@
         "title": "Savvy Expo",
         "options": [
           "Events, exhibitions, and interactive visitor experiences",
-          "mr.savvy robot",
+          "Mr.savvy robot",
           "Entertainment humanoid robots (with training)"
         ]
       },
@@ -464,8 +464,8 @@
     "answer1": "Savvy World is an innovative Saudi platform combining modern technologies + sustainability + digital transformation + robotics, presented to people and businesses in a simple way, aiming to bring AI and robotics into a better world — the Savvy World.",
     "question2": "What does Savvy Media offer?",
     "answer2": "It provides indoor and outdoor digital display screens operating 24/7, along with advanced immersive content using 3D and AR technologies, featuring smart targeting and precise interaction measurement.",
-    "question3": "Who is mr.savvy?",
-    "answer3": "mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
+    "question3": "Who is Mr.savvy?",
+    "answer3": "Mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
     "question4": "What is the role of Savvy Expo?",
     "answer4": "Savvy Expo is the events and exhibitions arm of Savvy World. Its main role is to transform any event into an intelligent, engaging, and educational experience using robotics, AI, and interactive content.",
     "question5": "Do you offer green energy solutions?",
@@ -484,6 +484,9 @@
     "sliderDescriptionSuffix": " Contact us directly to obtain price.",
     "version": "Version",
     "r1VariantLabel": "Size",
+    "catalogManufacturer": "Manufacturer",
+    "catalogSku": "SKU",
+    "catalogManufacturerPart": "Manufacturer #",
     "viewPricingText": "View pricing",
     "responsibleUseLabel": "Responsible use notice",
     "responsibleUse": {
@@ -516,7 +519,7 @@
       {
         "id": "g1",
         "name": "Unitree Humanoid G1 ",
-        "description": "Humanoid agent AI avatar",
+        "description": "Unitree G1 EDU Standard (U1) Humanoid Robot",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
         "buttonText": "Explore the world of G1",
@@ -525,7 +528,7 @@
       {
         "id": "h2",
         "name": "Unitree Humanoid H2 ",
-        "description": "Destiny Awakening",
+        "description": "Unitree H2 Humanoid Robot",
         "image": "/robot/h2/H2 Ring.jpg",
         "link": "/robots/h2",
         "buttonText": "Explore the world of H2",
@@ -534,7 +537,7 @@
       {
         "id": "go2",
         "name": "Unitree Robo-Dog Go2",
-        "description": "New Creature of Embodied AI",
+        "description": "Unitree Go2 PRO Robotic Dog",
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
         "buttonText": "Explore the world of Go2",
@@ -543,7 +546,7 @@
       {
         "id": "r1",
         "name": "Unitree Humanoid R1",
-        "description": "Ultra-lightweight, fully customizable",
+        "description": "Unitree R1 Humanoid Robot",
         "image": "/robot/R1/R!.webp",
         "link": "/robots/r1",
         "buttonText": "Explore the world of R1",
@@ -553,32 +556,32 @@
     "hero": {
       "g1": {
         "videoSrc": "/robot/g1/hero.mp4",
-        "title": "G1 EDU ",
-        "subtitle": "A robot powered by artificial intelligence, designed to learn human movement.",
+        "title": "Unitree Humanoid G1 EDU ",
+        "subtitle": "Unitree G1 EDU Standard (U1) Humanoid Robot",
         "priceStartsFrom": "Contact Sales",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
       "h2": {
         "videoSrc": "/robot/h2/hero.mp4",
-        "title": "H2 EDU ",
-        "subtitle": "High-performance humanoid robot for industrial and service applications.",
+        "title": "Unitree Humanoid H2 EDU ",
+        "subtitle": "Unitree H2 Humanoid Robot",
         "priceStartsFrom": "Contact Sales",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
       "go2": {
         "videoSrc": "/robot/go2/hero.mp4",
-        "title": "Go2",
-        "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
+        "title": "Unitree Robo-Dog Go2",
+        "subtitle": "Unitree Go2 PRO Robotic Dog",
         "priceStartsFrom": "From 6,000 SAR",
         "buttonText": "View Product",
         "textPlacement": "center"
       },
       "r1": {
         "videoSrc": "/robot/R1/hero.mp4",
-        "title": "R1",
-        "subtitle": "Quadruped robot built for mobility and exploration in diverse environments.",
+        "title": "Unitree Humanoid  R1",
+        "subtitle": "Unitree R1 Humanoid Robot",
         "priceStartsFrom": "From 18,375 SAR",
         "buttonText": "View Product",
         "textPlacement": "center"
@@ -1332,11 +1335,18 @@
     },
     "product": {
       "g1": {
-        "name": "G1 EDU ",
+        "name": "Unitree Humanoid G1 EDU ",
+        "manufacturerName": "Unitree Robotics",
+        "sku": "RB-Unt-50",
+        "manufacturerPartNumber": "G1-EDU-U1",
         "price": "Contact Sales",
         "images": [
           "/robot/g1/catlouge/g1c1.webp",
-          "/robot/g1/catlouge/g1c2.webp"
+          "/robot/g1/catlouge/g1c2.webp",
+          "/robot/g1/catlouge/g1c3.jpg",
+          "/robot/g1/catlouge/g1c4.jpg",
+          "/robot/g1/catlouge/g1c5.jpg",
+          "/robot/g1/catlouge/g1c6.jpg"
         ],
         "versions": [
           {
@@ -1351,7 +1361,10 @@
         ]
       },
       "h2": {
-        "name": "H2 EDU ",
+        "name": "Unitree Humanoid H2 EDU ",
+        "manufacturerName": "Unitree Robotics",
+        "sku": "RB-Unt-210",
+        "manufacturerPartNumber": "H2",
         "price": "Contact Sales",
         "images": [
           "/robot/h2/catlouge/1.png",
@@ -1371,7 +1384,7 @@
         ]
       },
       "go2": {
-        "name": "Go2",
+        "name": "Unitree Robo-Dog Go2",
         "price": "From 6,000 SAR",
         "images": [
           "/robot/go2/catlouge/Go2c.webp",
@@ -1381,25 +1394,14 @@
           "/robot/go2/catlouge/go2c5.webp"
         ],
         "versions": [
-          {
-            "id": "go2-air",
-            "name": "Go2 Air (without controller)",
-            "price": "6,000 SAR"
-          },
-          {
-            "id": "go2-air-ctrl",
-            "name": "Go2 Air (with controller)",
-            "price": "6,938 SAR"
-          },
+
           {
             "id": "go2-pro",
             "name": "Go2 Pro (without controller)",
-            "price": "10,500 SAR"
-          },
-          {
-            "id": "go2-pro-ctrl",
-            "name": "Go2 Pro (with controller)",
-            "price": "11,438 SAR"
+            "price": "10,500 SAR",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-05",
+            "manufacturerPartNumber": "Go2-PRO"
           }
         ],
         "bulletPoints": [
@@ -1409,27 +1411,22 @@
       },
       "r1": {
         "name": "Unitree Humanoid R1 ",
+        "manufacturerName": "Unitree Robotics",
+        "sku": "RB-Unt-164",
+        "manufacturerPartNumber": "R1-Basic-US",
         "price": "From 18,375 SAR",
         "images": [
           "/robot/R1/catlouge/p2.webp",
           "/robot/R1/catlouge/p1.webp"
         ],
         "versions": [
-          {
-            "id": "r1-air-red",
-            "name": "R1 Air (Red)",
-            "price": "18,375 SAR"
-          },
+   
           {
             "id": "r1-red",
             "name": "R1 (Red)",
             "price": "22,125 SAR"
           },
-          {
-            "id": "r1-air-white",
-            "name": "R1 Air (White)",
-            "price": "18,375 SAR"
-          },
+
           {
             "id": "r1-white",
             "name": "R1 (White)",

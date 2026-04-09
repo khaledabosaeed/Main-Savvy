@@ -150,16 +150,13 @@ export default function ContactPage() {
     <>
       <section className="relative pt-20 md:pt-0 py-20 md:py-24 bg-white overflow-hidden">
         <div className="container relative z-10 px-6">
-          <div
-            className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_minmax(260px,320px)] gap-10 lg:gap-12 items-start"
-            dir={isRTL ? "rtl" : "ltr"}
-          >
+          <div className="max-w-6xl mx-auto" dir={isRTL ? "rtl" : "ltr"}>
             <motion.div
               ref={formRef}
               initial={{ opacity: 0, y: 30 }}
               animate={isFormInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className={`min-w-0 ${isRTL ? "text-right" : "text-left"} order-1 lg:order-none`}
+              className={isRTL ? "text-right" : "text-left"}
             >
               <h1 className="text-3xl mt-20 md:text-4xl font-bold text-gray-900 mb-4 text-center lg:text-start">
                 {t("contact.heroTitle")}
@@ -168,6 +165,8 @@ export default function ContactPage() {
                 {t("contact.formTitle")}
               </h2>
 
+              <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(260px,320px)] gap-10 lg:gap-12 items-start">
+                <div className={`min-w-0 order-1 lg:order-none ${isRTL ? "text-right" : "text-left"}`}>
               <motion.form
                 onSubmit={handleSubmit}
                 variants={staggerContainer}
@@ -413,7 +412,7 @@ export default function ContactPage() {
                   </motion.div>
                 )}
               </motion.form>
-            </motion.div>
+                </div>
 
             <aside
               className={`order-2 lg:order-none rounded-lg border border-gray-200 bg-gray-50 p-6 ${isRTL ? "text-right" : "text-left"}`}
@@ -463,6 +462,8 @@ export default function ContactPage() {
                 </li>
               </ul>
             </aside>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

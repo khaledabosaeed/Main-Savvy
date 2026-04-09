@@ -48,7 +48,7 @@
     "learnMore": "تعلم المزيد"
   },
   "hero": {
-    "welcomeText": "نحوّل التقنية إلى واقع — روبوتات، ذكاء اصطناعي مسؤول، وحلول مستدامة للسوق السعودي",
+    "welcomeText": "نحوّل التقنية إلى واقع  روبوتات، ذكاء اصطناعي مسؤول، وحلول مستدامة للسوق السعودي",
     "savvyWorld": "",
     "description": "ساڤي وورلد: منصة سعودية متخصصة في توطين الروبوتات الصناعية والذكاء الاصطناعي المسؤول وحلول الطاقة الخضراء. شريكك نحو رؤية 2030. تواصل معنا الآن.",
     "subDescription": "حلولنا: الروبوتات الصناعية | الذكاء الاصطناعي | الطاقة الشمسية",
@@ -92,7 +92,7 @@
       ]
     },
     "useCases": {
-      "title": "أدلة من الميدان",
+      "title": "مشاركات من الميدان",
       "subtitle": "لمحات سريعة من معارض وتفعيلات.",
       "items": [
         {
@@ -409,7 +409,7 @@
     "faqTitle": "كل ما تريد معرفته عن ساڤي وورلد",
     "faqLead": "إجابات سريعة قبل أن تتواصل معنا",
     "faqQuestion1": "ما هي ساڤي وورلد؟",
-    "faqAnswer1": "ساڤي وورلد منصة استشارية وتقنية سعودية تُساعد الشركات على اعتماد الروبوتات الصناعية والذكاء الاصطناعي المسؤول وحلول الطاقة الخضراء — بما ينسجم مع رؤية 2030.",
+    "faqAnswer1": "ساڤي وورلد منصة استشارية وتقنية سعودية تُساعد الشركات على اعتماد الروبوتات الصناعية والذكاء الاصطناعي المسؤول وحلول الطاقة الخضراء  بما ينسجم مع رؤية 2030.",
     "faqQuestion2": "ماذا تقدم ساڤي ميديا؟",
     "faqAnswer2": "توفر شاشات عرض رقمية داخلية وخارجية تعمل 24/7، إضافة إلى محتوى غامر متطور بتقنيات 3D وAR، مع خصائص استهداف ذكي وقياس دقيق للتفاعل.",
     "faqQuestion3": "من هو مستر ساڤي؟",
@@ -422,13 +422,13 @@
     "faqAnswer6": "ساڤي ابتكار يربط بين الذكاء الاصطناعي، التفاعل الرقمي، والحلول الخضراء لتطوير مساحات حضرية أكثر استدامة، ويوفر حلولاً موجهة لمستقبل المدن والتجارب.",
     "sidebarTitle": "تواصل مباشر",
     "sidebarPhoneLabel": "الهاتف",
-    "sidebarPhone": "—",
+    "sidebarPhone": "+966 58 033 5989",
     "sidebarEmailLabel": "البريد الإلكتروني",
-    "sidebarEmail": "—",
+    "sidebarEmail": "sales@savvyworld.ai",
     "sidebarAddressLabel": "الموقع",
-    "sidebarAddress": "—",
+    "sidebarAddress": "الرياض، المملكة العربية السعودية",
     "sidebarHoursLabel": "أوقات العمل",
-    "sidebarHours": "—",
+    "sidebarHours":"24/7",
     "solutionOther": "أخرى",
     "solutionOptionGroups": [
       {
@@ -484,6 +484,9 @@
     "sliderDescriptionSuffix": " يمكنك التواصل معنا مباشرة للحصول على السعر.",
     "version": "الإصدار",
     "r1VariantLabel": "المقاس",
+    "catalogManufacturer": "الشركة المصنّعة",
+    "catalogSku": "رمز المنتج (SKU)",
+    "catalogManufacturerPart": "رقم الصنف لدى المصنّع",
     "viewPricingText": "عرض السعر",
     "responsibleUseLabel": "إشعار الاستخدام المسؤول",
     "responsibleUse": {
@@ -516,7 +519,7 @@
       {
         "id": "g1",
         "name": "Unitree Humanoid G1 ",
-        "description": "جسم افتراضي للوكيل البشري من الذكاء الاصطناعي",
+        "description": "روبوت بشري Unitree G1 EDU قياسي (U1)",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
         "buttonText": "استكشف عالم G1",
@@ -525,7 +528,7 @@
       {
         "id": "h2",
         "name": "Unitree Humanoid H2 ",
-        "description": "إيقاظ المصير",
+        "description": "روبوت بشري Unitree H2",
         "image": "/robot/h2/H2 Ring.jpg",
         "link": "/robots/h2",
         "buttonText": "استكشف عالم H2",
@@ -534,7 +537,7 @@
       {
         "id": "go2",
         "name": "Unitree Robo-Dog Go2",
-        "description": "مخلوق جديد للذكاء الاصطناعي المتجسد",
+        "description": "كلب روبوتي Unitree Go2 PRO",
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
         "buttonText": "استكشف عالم Go2",
@@ -543,7 +546,7 @@
       {
         "id": "r1",
         "name": "Unitree Humanoid R1",
-        "description": "خفيف الوزن للغاية، قابل للتخصيص بالكامل",
+        "description": "روبوت بشري Unitree R1",
         "image": "/robot/R1/R!.webp",
         "link": "/robots/r1",
         "buttonText": "استكشف عالم R1",
@@ -553,32 +556,32 @@
     "hero": {
       "g1": {
         "videoSrc": "/robot/g1/hero.mp4",
-        "title": "G1 EDU ",
-        "subtitle": "روبوت مدعوم بتقنية الذكاء الاصطناعي .. مصمم ليتعلم الحركة البشرية",
+        "title": "Unitree Humanoid G1 EDU ",
+        "subtitle": "روبوت بشري Unitree G1 EDU قياسي (U1)",
         "priceStartsFrom": "تواصل مع المبيعات",
         "buttonText": "عرض المنتج",
         "textPlacement": "center"
       },
       "h2": {
         "videoSrc": "/robot/h2/hero.mp4",
-        "title": "H2 EDU ",
-        "subtitle": "روبوت بشري عالي الأداء للتطبيقات الصناعية والخدمية.",
+        "title": "Unitree Humanoid H2 EDU ",
+        "subtitle": "روبوت بشري Unitree H2",
         "priceStartsFrom": "تواصل مع المبيعات",
         "buttonText": "عرض المنتج",
         "textPlacement": "center"
       },
       "go2": {
         "videoSrc": "/robot/go2/hero.mp4",
-        "title": "Go2",
-        "subtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
+        "title": "Unitree Robo-Dog Go2",
+        "subtitle": "كلب روبوتي Unitree Go2 PRO",
         "priceStartsFrom": "السعر يبدأ من 6,000 ريال سعودي",
         "buttonText": "عرض المنتج",
         "textPlacement": "center"
       },
       "r1": {
         "videoSrc": "/robot/R1/hero.mp4",
-        "title": "R1",
-        "subtitle": "روبوت رباعي الأرجل مصمم للتنقل والاستكشاف في بيئات متنوعة.",
+        "title": "Unitree Humanoid R1",
+        "subtitle": "روبوت بشري Unitree R1",
         "priceStartsFrom": "السعر يبدأ من 18,375 ريال سعودي",
         "buttonText": "عرض المنتج",
         "textPlacement": "center"
@@ -1331,11 +1334,18 @@
     },
     "product": {
       "g1": {
-        "name": "G1 EDU ",
+        "name": "Unitree Humanoid  G1 EDU ",
+        "manufacturerName": "Unitree Robotics",
+        "sku": "RB-Unt-50",
+        "manufacturerPartNumber": "G1-EDU-U1",
         "price": "تواصل مع المبيعات",
         "images": [
           "/robot/g1/catlouge/g1c1.webp",
-          "/robot/g1/catlouge/g1c2.webp"
+          "/robot/g1/catlouge/g1c2.webp",
+          "/robot/g1/catlouge/g1c3.jpg",
+          "/robot/g1/catlouge/g1c4.jpg",
+          "/robot/g1/catlouge/g1c5.jpg",
+          "/robot/g1/catlouge/g1c6.jpg"
         ],
         "versions": [
           {
@@ -1350,7 +1360,10 @@
         ]
       },
       "h2": {
-        "name": "H2 EDU ",
+        "name": "Unitree Humanoid H2 EDU ",
+        "manufacturerName": "Unitree Robotics",
+        "sku": "RB-Unt-210",
+        "manufacturerPartNumber": "H2",
         "price": "تواصل مع المبيعات",
         "images": [
           "/robot/h2/catlouge/1.png",
@@ -1370,7 +1383,7 @@
         ]
       },
       "go2": {
-        "name": "Go2",
+        "name": "Unitree Robo-Dog Go2",
         "price": "يبدأ من 6,000 ريال سعودي",
         "images": [
           "/robot/go2/catlouge/Go2c.webp",
@@ -1380,55 +1393,37 @@
           "/robot/go2/catlouge/go2c5.webp"
         ],
         "versions": [
-          {
-            "id": "go2-air",
-            "name": "Go2 Air (بدون وحدة تحكم)",
-            "price": "6,000 ريال سعودي"
-          },
-          {
-            "id": "go2-air-ctrl",
-            "name": "Go2 Air (مع وحدة تحكم)",
-            "price": "6,938 ريال سعودي"
-          },
+
           {
             "id": "go2-pro",
-            "name": "Go2 Pro (بدون وحدة تحكم)",
-            "price": "10,500 ريال سعودي"
-          },
-          {
-            "id": "go2-pro-ctrl",
-            "name": "Go2 Pro (مع وحدة تحكم)",
-            "price": "11,438 ريال سعودي"
+            "name": "Go2 ",
+            "price": "10,500 ريال سعودي",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-05",
+            "manufacturerPartNumber": "Go2-PRO"
           }
-        ],
-        "bulletPoints": [
-          "اطلب الآن والشحن خلال ٣ أشهر",
-          "تواصل مع المبيعات للحصول على سعر Go2 Edu"
+
         ]
+
       },
       "r1": {
         "name": "Unitree Humanoid R1",
+        "manufacturerName": "Unitree Robotics",
+        "sku": "RB-Unt-164",
+        "manufacturerPartNumber": "R1-Basic-US",
         "price": "يبدأ من 18,375 ريال سعودي",
         "images": [
           "/robot/R1/catlouge/p2.webp",
           "/robot/R1/catlouge/p1.webp"
         ],
         "versions": [
-          {
-            "id": "r1-air-red",
-            "name": "R1 Air (أحمر)",
-            "price": "18,375 ريال سعودي"
-          },
+
           {
             "id": "r1-red",
             "name": "R1 (أحمر)",
             "price": "22,125 ريال سعودي"
           },
-          {
-            "id": "r1-air-white",
-            "name": "R1 Air (أبيض)",
-            "price": "18,375 ريال سعودي"
-          },
+      
           {
             "id": "r1-white",
             "name": "R1 (أبيض)",

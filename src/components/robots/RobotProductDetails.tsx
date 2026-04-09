@@ -33,6 +33,16 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
     content.versions[selectedVersion] ?? content.versions[0]
   const displayPrice = selected?.price ?? content.price
 
+  const resolvedManufacturer =
+    selected?.manufacturerName ?? content.manufacturerName
+  const resolvedSku = selected?.sku ?? content.sku
+  const resolvedMpn =
+    selected?.manufacturerPartNumber ?? content.manufacturerPartNumber
+
+  const showCatalogBlock = [resolvedManufacturer, resolvedSku, resolvedMpn].some(
+    (v) => typeof v === "string" && v.trim() !== ""
+  )
+
   const galleryImages = useMemo(() => {
     if (slug === "r1" && selected?.id) {
       // Same two catalogue assets as before; order puts the matching color first
@@ -75,7 +85,7 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
           </div>
 
           {/* Right - Product details */}
-          <div className={ isRTL ? "lg:order-1 py-35 md:py-25" : "py-35 md:py-25"}>
+          <div className={ isRTL ? "lg:order-1 py-5 md:py-25" : "py-5 md:py-25"}>
             <h1
               className={`text-3xl md:text-4xl font-bold text-gray-900 mb-4 ${
                 isRTL ? "text-right" : "text-left"
@@ -83,6 +93,45 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
             >
               {content.name}
             </h1>
+
+            {showCatalogBlock && (
+              <div
+                className={`mb-4 space-y-1 text-sm text-gray-600 ${
+                  isRTL ? "text-right" : "text-left"
+                }`}
+              >
+                {resolvedManufacturer && resolvedManufacturer.trim() !== "" && (
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      {t("robots.catalogManufacturer")}:
+                    </span>{" "}
+                    <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
+                      {resolvedManufacturer}
+                    </span>
+                  </p>
+                )}
+                {resolvedSku && resolvedSku.trim() !== "" && (
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      {t("robots.catalogSku")}:
+                    </span>{" "}
+                    <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
+                      {resolvedSku}
+                    </span>
+                  </p>
+                )}
+                {resolvedMpn && resolvedMpn.trim() !== "" && (
+                  <p>
+                    <span className="font-medium text-gray-700">
+                      {t("robots.catalogManufacturerPart")}:
+                    </span>{" "}
+                    <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
+                      {resolvedMpn}
+                    </span>
+                  </p>
+                )}
+              </div>
+            )}
 
             {/* Version selector — price below reflects selected variant */}
             {content.versions.length > 0 && (
@@ -126,7 +175,7 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
             )}
 
             {/* Bullet points */}
-            <ul className="space-y-3 mb-8">
+            {/* <ul className="space-y-3 mb-8">
               {content.bulletPoints.map((point, i) => {
                 const Icon = bulletIcons[i % bulletIcons.length]
                 return (
@@ -141,7 +190,7 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
                   </li>
                 )
               })}
-            </ul>
+            </ul> */}
 
             {/* CTA — contact page (replaces add-to-cart); dir=ltr keeps button position same as EN in both languages */}
             <div className="flex flex-col gap-4" >
@@ -164,7 +213,6 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
         </div>
 
         {/* Specifications table - G1, H2, R1 */}
-        {(slug === "g1" || slug === "h2" || slug === "r1" || slug === "go2") && (
           <div className="mt-16 md:mt-24">
             <h2
               className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${
@@ -176,7 +224,6 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
             <SpecsTable slug={slug} lang={lang} />
 
           </div>
-        )}
       </div>
     </section>
   )
