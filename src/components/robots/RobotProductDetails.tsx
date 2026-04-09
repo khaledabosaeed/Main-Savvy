@@ -85,7 +85,7 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
           </div>
 
           {/* Right - Product details */}
-          <div className={ isRTL ? "lg:order-1 py-35 md:py-25" : "py-35 md:py-25"}>
+          <div className={ isRTL ? "lg:order-1 py-5 md:py-25" : "py-5 md:py-25"}>
             <h1
               className={`text-3xl md:text-4xl font-bold text-gray-900 mb-4 ${
                 isRTL ? "text-right" : "text-left"
