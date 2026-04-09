@@ -60,7 +60,6 @@ export function privacyPageHeaderTexts(d: LocaleDictionary): PageHeaderTexts {
   const h = d.header
   return {
     main: c.main,
-    news: c.news,
     ourServices: h.ourServices,
     ourRobots: c.robots,
     contactUs: c.contactUs,
@@ -94,7 +93,6 @@ export function robotsSubpageHeaderTexts(d: LocaleDictionary): PageHeaderTexts {
   const c = d.common
   return {
     main: c.main,
-    news: c.news,
     projects: c.projects,
     services: c.mediaGallery,
     about: c.about,
@@ -108,7 +106,6 @@ export function newsSectionHeaderTexts(d: LocaleDictionary): PageHeaderTexts {
   const h = d.header
   return {
     main: c.main,
-    news: c.news,
     ourServices: h.ourServices,
     ourRobots: c.robots,
     contactUs: c.contactUs,

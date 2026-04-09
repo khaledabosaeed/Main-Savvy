@@ -49,6 +49,7 @@ export default function SpecsTable({
   const firstColLabel = content.specLabel
   const headerImage = content.headerImage
   const columnPrices = content.columnPrices
+  const hasColumnPriceRow = !!(columnPrices && columnPrices.length > 0)
   const priceLabel = content.priceLabel
   const modelLabel = content.modelLabel
   const hasHeaderImage = !!headerImage
@@ -77,7 +78,7 @@ export default function SpecsTable({
                   <>
                     <tr className="border-b border-neutral-700">
                       <th
-                        rowSpan={2}
+                        rowSpan={hasColumnPriceRow ? 2 : 1}
                         className={`${firstColumnWidthClass} px-5 py-3 text-sm font-semibold text-white align-top ${
                           isRTL ? "text-right" : "text-left"
                         }`}
@@ -115,7 +116,7 @@ export default function SpecsTable({
                         </th>
                       ))}
                     </tr>
-                    {columnPrices && columnPrices.length > 0 && (
+                    {hasColumnPriceRow && (
                       <tr className="border-b border-neutral-700">
                         {columnPrices.map((price, i) => (
                           <th

@@ -241,11 +241,6 @@ a[href^="#"] {
     line-height: 1.4 !important;
   }
   
-  p {
-    font-size: 0.9375rem !important;
-    line-height: 1.6 !important;
-  }
-  
   /* Reduce padding and margins globally on mobile */
   /* section {
     padding-top: 2rem;

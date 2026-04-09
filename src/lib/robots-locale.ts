@@ -6,6 +6,9 @@ export type RobotSlug = "g1" | "h2" | "go2" | "r1"
 
 const locales = { en, ar } as const
 
+/** Set to `true` to show hero prices, spec table prices, product prices, and “View pricing” CTAs. */
+export const SHOW_ROBOT_PRICING = false
+
 export interface RobotCard {
   id: string
   name: string
@@ -165,14 +168,19 @@ export function getRobotsSectionContent(lang: Language): {
 
 export function getRobotSliderSlides(lang: Language): RobotSlide[] {
   const cards = getRobotCards(lang)
-  const suffix =
-    (locales[lang]?.robots as { sliderDescriptionSuffix?: string })
-      ?.sliderDescriptionSuffix ?? locales.en.robots.sliderDescriptionSuffix
+  const suffix = SHOW_ROBOT_PRICING
+    ? ((locales[lang]?.robots as { sliderDescriptionSuffix?: string })
+        ?.sliderDescriptionSuffix ?? locales.en.robots.sliderDescriptionSuffix)
+    : ""
   return cards.map((r) => ({
     ...r,
     description: r.description + suffix,
     backgroundImage: r.image,
   }))
+}
+
+function stripHeroPricing(config: RobotHeroConfig): RobotHeroConfig {
+  return { ...config, priceStartsFrom: undefined }
 }
 
 export function getRobotHeroContent(
@@ -181,7 +189,16 @@ export function getRobotHeroContent(
 ): RobotHeroConfig {
   const hero = (locales[lang]?.robots as unknown as { hero?: Record<RobotSlug, RobotHeroConfig> })?.hero?.[slug]
   const fallback = (locales.en.robots as unknown as { hero: Record<RobotSlug, RobotHeroConfig> }).hero[slug]
-  return (hero ?? fallback) as RobotHeroConfig
+  const config = (hero ?? fallback) as RobotHeroConfig
+  return SHOW_ROBOT_PRICING ? config : stripHeroPricing(config)
+}
+
+function stripProductPricing(config: RobotProductConfig): RobotProductConfig {
+  return {
+    ...config,
+    price: "",
+    versions: config.versions.map(({ price: _p, ...v }) => v),
+  }
 }
 
 export function getRobotProductContent(
@@ -190,7 +207,8 @@ export function getRobotProductContent(
 ): RobotProductConfig {
   const product = (locales[lang]?.robots as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
   const fallback = (locales.en.robots as unknown as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
-  return (product ?? fallback) as RobotProductConfig
+  const config = (product ?? fallback) as RobotProductConfig
+  return SHOW_ROBOT_PRICING ? config : stripProductPricing(config)
 }
 
 export function getG1ScrollSectionContent(lang: Language): ScrollSectionItem[] {
@@ -305,13 +323,26 @@ export function getGo2FlexibleSectionContent(lang: Language): Go2FlexibleSection
   return (raw ?? fallback ?? {}) as Go2FlexibleSectionConfig
 }
 
+function stripSpecsPricing(config: RobotSpecsConfig): RobotSpecsConfig {
+  const { columnPrices: _cp, priceLabel: _pl, ...rest } = config
+  return {
+    ...rest,
+    sections: config.sections.map((section) => ({
+      ...section,
+      rows: section.rows.filter((row) => !row.highlight),
+    })),
+  }
+}
+
 export function getRobotSpecsContent(
   slug: RobotSlug,
   lang: Language
 ): RobotSpecsConfig | null {
   const specs = (locales[lang]?.robots as unknown as { specs?: Record<RobotSlug, RobotSpecsConfig> })?.specs?.[slug]
   const fallback = (locales.en.robots as unknown as { specs?: Record<RobotSlug, RobotSpecsConfig> })?.specs?.[slug]
-  return (specs ?? fallback) ?? null
+  const raw = (specs ?? fallback) ?? null
+  if (!raw) return null
+  return SHOW_ROBOT_PRICING ? raw : stripSpecsPricing(raw)
 }
 
 export function getRobotLabel(
