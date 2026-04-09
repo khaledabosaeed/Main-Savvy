@@ -82,7 +82,7 @@ export default function HomePageClient({ texts, galleryHeading }: HomePageClient
 
       <HomeGoals2026 />
 
-      <RobotsSection limit={2} showExploreStore />
+      <RobotsSection limit={2} showExploreStore animated={false} />
 
       <HomeFinalCta />
 

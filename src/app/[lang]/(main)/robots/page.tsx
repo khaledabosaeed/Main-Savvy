@@ -25,7 +25,7 @@ export default async function RobotsPage({ params }: RobotsPageProps) {
       <UnifiedHeader texts={texts} hasBanner={false} transparentHeader />
       <PageTransition>
         <RobotHeroSlider />
-        <RobotsSection />
+        <RobotsSection animated={false} />
         <ResponsibleUseLink />
       </PageTransition>
     </>
