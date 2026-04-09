@@ -196,7 +196,7 @@
       "subtitle": "We bridge global innovation with Saudi market needs by localizing advanced technologies and engineering tailored solutions across supply chain optimization, industrial automation, energy infrastructure, inspection, and security systems, ensuring compliance, reliability, and measurable operational impact."
     },
     "about": {
-      "title": "Savvy Innovation is an R&D program featuring the mr.savvy robot, camera-tracking screens, and AR maps. We develop intelligent content on instant dashboards, implement smart home experiences, and ensure full PDPL compliance. We continuously test and improve based on real-world usage.",
+      "title": "Savvy Innovation is an R&D program featuring the Mr.savvy robot, camera-tracking screens, and AR maps. We develop intelligent content on instant dashboards, implement smart home experiences, and ensure full PDPL compliance. We continuously test and improve based on real-world usage.",
       "description": "Savvy Innovation turns ideas into reality through advanced AI, sustainable energy solutions, and cutting-edge robotics that shape the future of technology."
     },
     "services": {
@@ -363,7 +363,7 @@
       "Logos",
       "Videos"
     ],
-    "intellectualPropertyFooter": "Creative content related to mr.savvy, robots, and solutions — any content from Savvy exhibitions, media, or innovation — may not be used without prior written permission.",
+    "intellectualPropertyFooter": "Creative content related to Mr.savvy, robots, and solutions — any content from Savvy exhibitions, media, or innovation — may not be used without prior written permission.",
     "userTeamTitle": "Accuracy of Information",
     "userTeamContent": "We strive to provide accurate and up-to-date information, but:",
     "userTeamList": [
@@ -412,8 +412,8 @@
     "faqAnswer1": "Savvy World is a Saudi consulting and technology platform that helps companies adopt industrial robotics, responsible AI, and green energy solutions — aligned with Vision 2030.",
     "faqQuestion2": "What does Savvy Media offer?",
     "faqAnswer2": "It provides indoor and outdoor digital display screens operating 24/7, along with advanced immersive content using 3D and AR technologies, featuring smart targeting and precise interaction measurement.",
-    "faqQuestion3": "Who is mr.savvy?",
-    "faqAnswer3": "mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
+    "faqQuestion3": "Who is Mr.savvy?",
+    "faqAnswer3": "Mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
     "faqQuestion4": "What is the role of Savvy Expo?",
     "faqAnswer4": "Savvy Expo is the events and exhibitions arm of Savvy World. Its main role is to transform any event into an intelligent, engaging, and educational experience using robotics, AI, and interactive content.",
     "faqQuestion5": "Do you offer green energy solutions?",
@@ -422,13 +422,13 @@
     "faqAnswer6": "Savvy Innovation links AI, digital interaction, and green solutions to develop more sustainable urban spaces, providing solutions geared toward the future of cities and experiences.",
     "sidebarTitle": "Direct contact",
     "sidebarPhoneLabel": "Phone",
-    "sidebarPhone": "—",
+    "sidebarPhone": "+966 58 033 5989",
     "sidebarEmailLabel": "Email",
-    "sidebarEmail": "—",
+    "sidebarEmail": "sales@savvyworld.ai",
     "sidebarAddressLabel": "Location",
-    "sidebarAddress": "—",
+    "sidebarAddress": "Riyadh, KSA",
     "sidebarHoursLabel": "Business hours",
-    "sidebarHours": "—",
+    "sidebarHours": "24/7",
     "solutionOther": "Other",
     "solutionOptionGroups": [
       {
@@ -444,7 +444,7 @@
         "title": "Savvy Expo",
         "options": [
           "Events, exhibitions, and interactive visitor experiences",
-          "mr.savvy robot",
+          "Mr.savvy robot",
           "Entertainment humanoid robots (with training)"
         ]
       },
@@ -464,8 +464,8 @@
     "answer1": "Savvy World is an innovative Saudi platform combining modern technologies + sustainability + digital transformation + robotics, presented to people and businesses in a simple way, aiming to bring AI and robotics into a better world — the Savvy World.",
     "question2": "What does Savvy Media offer?",
     "answer2": "It provides indoor and outdoor digital display screens operating 24/7, along with advanced immersive content using 3D and AR technologies, featuring smart targeting and precise interaction measurement.",
-    "question3": "Who is mr.savvy?",
-    "answer3": "mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
+    "question3": "Who is Mr.savvy?",
+    "answer3": "Mr.savvy is a humanoid robot introduced in Saudi Arabia as an ambassador for good technologies and sustainability. Its main idea is to simplify the world of robotics and AI for people in a fun, easy way, available in both Arabic and English.",
     "question4": "What is the role of Savvy Expo?",
     "answer4": "Savvy Expo is the events and exhibitions arm of Savvy World. Its main role is to transform any event into an intelligent, engaging, and educational experience using robotics, AI, and interactive content.",
     "question5": "Do you offer green energy solutions?",
@@ -1394,28 +1394,11 @@
           "/robot/go2/catlouge/go2c5.webp"
         ],
         "versions": [
-          {
-            "id": "go2-air",
-            "name": "Go2 Air (without controller)",
-            "price": "6,000 SAR"
-          },
-          {
-            "id": "go2-air-ctrl",
-            "name": "Go2 Air (with controller)",
-            "price": "6,938 SAR"
-          },
+
           {
             "id": "go2-pro",
             "name": "Go2 Pro (without controller)",
             "price": "10,500 SAR",
-            "manufacturerName": "Unitree Robotics",
-            "sku": "RB-Unt-05",
-            "manufacturerPartNumber": "Go2-PRO"
-          },
-          {
-            "id": "go2-pro-ctrl",
-            "name": "Go2 Pro (with controller)",
-            "price": "11,438 SAR",
             "manufacturerName": "Unitree Robotics",
             "sku": "RB-Unt-05",
             "manufacturerPartNumber": "Go2-PRO"
@@ -1437,21 +1420,13 @@
           "/robot/R1/catlouge/p1.webp"
         ],
         "versions": [
-          {
-            "id": "r1-air-red",
-            "name": "R1 Air (Red)",
-            "price": "18,375 SAR"
-          },
+   
           {
             "id": "r1-red",
             "name": "R1 (Red)",
             "price": "22,125 SAR"
           },
-          {
-            "id": "r1-air-white",
-            "name": "R1 Air (White)",
-            "price": "18,375 SAR"
-          },
+
           {
             "id": "r1-white",
             "name": "R1 (White)",
