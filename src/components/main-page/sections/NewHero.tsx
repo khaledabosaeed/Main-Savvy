@@ -280,7 +280,7 @@ export default function NewHero() {
               variants={socialContainerVariants}
               initial="hidden"
               animate={animate ? "visible" : "hidden"}
-              className="flex items-center gap-3 md:gap-4"
+              className="flex items-center gap-3  md:gap-4"
             >
               {[
                 {
@@ -326,21 +326,6 @@ export default function NewHero() {
           </div>
         </div>
       </div>
-
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-30"
-        style={{
-          background: `
-            linear-gradient(
-              to bottom,
-              transparent 0%,
-              rgba(255, 255, 255, 0.4) 30%,
-              rgba(255, 255, 255, 0.8) 60%,
-              rgb(255, 255, 255) 100%
-            )
-          `,
-        }}
-      />
     </section>
   )
 }

@@ -62,7 +62,7 @@ export default async function LangLayout({
       <TranslationsProvider locale={lang} resources={localeResources as Record<string, unknown>}>
         <div dir={dir} className={lang === "ar" ? expoArabic.className : inter.className}>
           {children}
-          <WhatsAppButton
+          <WhatsAppButton 
             phoneNumber="966580335989"
           />
         </div>

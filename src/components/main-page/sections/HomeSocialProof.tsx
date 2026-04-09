@@ -37,12 +37,10 @@ export default function HomeSocialProof() {
             key={i}
             className="rounded-2xl border border-gray-200 bg-gray-50/90 px-6 py-8 text-center shadow-sm"
           >
-            {/* الرقم */}
             <p className="font-bold text-primary mb-2 text-[clamp(2.2rem,6vw,4.5rem)] leading-none">
               {stat.value}
             </p>
   
-            {/* النص */}
             <p className="text-gray-600 font-medium text-[clamp(1rem,3.5vw,1.5rem)] leading-snug">
               {stat.label}
             </p>

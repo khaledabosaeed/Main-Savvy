@@ -6,7 +6,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
-import type { RobotCard } from "@/lib/robots-locale"
+import { SHOW_ROBOT_PRICING, type RobotCard } from "@/lib/robots-locale"
 
 export default function RobotCardsSection() {
   const { language } = useLanguage()
@@ -69,7 +69,7 @@ export default function RobotCardsSection() {
                 >
                   {card.buttonText}
                 </Link>
-                {card.productLink && (
+                {SHOW_ROBOT_PRICING && card.productLink && (
                   <Link
                     href={`/${lang}${card.productLink}`}
                     className="inline-block w-fit px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"

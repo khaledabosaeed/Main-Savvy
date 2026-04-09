@@ -115,13 +115,15 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
               </div>
             )}
 
-            <p
-              className={`text-2xl font-semibold text-gray-900 mb-8 [unicode-bidi:isolate] ${
-                isRTL ? "text-right" : "text-left"
-              }`}
-            >
-              {displayPrice}
-            </p>
+            {displayPrice.trim() !== "" && (
+              <p
+                className={`text-2xl font-semibold text-gray-900 mb-8 [unicode-bidi:isolate] ${
+                  isRTL ? "text-right" : "text-left"
+                }`}
+              >
+                {displayPrice}
+              </p>
+            )}
 
             {/* Bullet points */}
             <ul className="space-y-3 mb-8">
