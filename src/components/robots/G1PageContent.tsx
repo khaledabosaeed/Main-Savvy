@@ -5,6 +5,7 @@ import G1ScrollVideoSection from "./G1ScrollVideoSection"
 import G1FlexibleCarousel from "./G1FlexibleCarousel"
 import G1ParameterSection from "./G1ParameterSection"
 import SpecsTable from "./SpecsTable"
+import RobotProductDetails from "./RobotProductDetails"
 import { getRobotHeroContent } from "@/lib/robots-locale"
 import type { Language } from "@/lib/robots-locale"
 import en from "@/../public/locales/en.json"
@@ -25,18 +26,20 @@ export default function G1PageContent({ lang }: G1PageContentProps) {
         subtitle={heroContent.subtitle}
         priceStartsFrom={heroContent.priceStartsFrom}
         buttonText={heroContent.buttonText}
-        productLink={`/${lang}/robots/g1/product`}
+        productLink={`/${lang}/contact`}
         textPlacement={heroContent.textPlacement}
+        features={heroContent.features}
+        isRTL={lang === "ar"}
       />
       <G1ScrollVideoSection lang={lang} />
       <G1FlexibleCarousel lang={lang} />
+      <RobotProductDetails slug="g1" showSpecs={false} />
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10">
           <G1ParameterSection lang={lang} />
           <div className="mt-16">
             <h2
-              className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`
-              }
+              className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`}
             >
               {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
             </h2>

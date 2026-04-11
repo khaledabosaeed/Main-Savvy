@@ -164,7 +164,7 @@ export default function RobotHeroSlider() {
 
                 <div
                   className={`flex w-full max-w-xl flex-row items-center justify-between gap-3 sm:gap-4 ${
-                    isRTL ? "flex-row-reverse" : ""
+                    isRTL ? "" : ""
                   }`}
                 >
                   <Link
@@ -187,12 +187,12 @@ export default function RobotHeroSlider() {
                       />
                     </svg>
                   </Link>
-                  <Link
+                  {/* <Link
                     href={`/${lang}${currentSlide.link}/product`}
                     className={`${heroCtaSecondary} !w-auto shrink-0`}
                   >
                     {t("robots.viewProduct")}
-                  </Link>
+                  </Link> */}
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -224,6 +224,7 @@ export default function RobotHeroSlider() {
             <ChevronRight className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />
           )}
         </button>
+
       </div>
     </section>
   )

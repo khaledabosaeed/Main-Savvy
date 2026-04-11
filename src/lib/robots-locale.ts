@@ -26,6 +26,7 @@ export interface RobotHeroConfig {
   priceStartsFrom?: string
   buttonText: string
   textPlacement: "left" | "center" | "right"
+  features?: string[]
 }
 
 export interface ProductVersion {
