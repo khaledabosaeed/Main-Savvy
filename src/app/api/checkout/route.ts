@@ -1,3 +1,5 @@
+import { randomUUID } from 'crypto'
+
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import { getProductById } from '@/lib/odoo'
@@ -13,6 +15,9 @@ export async function POST(req: Request) {
     if (!product) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 })
     }
+
+    const internalOrderId = randomUUID()
+    const isTestMode = !process.env.STRIPE_SECRET_KEY?.startsWith('sk_live_')
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
@@ -32,13 +37,15 @@ export async function POST(req: Request) {
       customer_creation: 'always',
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/payment/cancel`,
-      client_reference_id: String(product.id),
+      client_reference_id: internalOrderId,
       metadata: {
         odoo_product_id: String(product.id),
+        internal_order_id: internalOrderId,
+        is_test: isTestMode ? 'true' : 'false',
       },
     })
 
-    return NextResponse.json({ url: session.url })
+    return NextResponse.json({ url: session.url, internalOrderId })
   } catch (error) {
     console.error('Checkout error:', error)
     return NextResponse.json({ error: 'Failed to create checkout session' }, { status: 500 })

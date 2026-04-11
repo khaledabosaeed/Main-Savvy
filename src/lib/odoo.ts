@@ -312,6 +312,24 @@ export async function login(): Promise<number> {
   return uid
 }
 
+/**
+ * Low-level Odoo `execute_kw` for any model/method. Prefer domain-specific helpers when they exist.
+ */
+export async function odooExecuteKw<T>(
+  model: string,
+  method: string,
+  args: unknown[],
+  kwargs: Record<string, unknown> = {}
+): Promise<T> {
+  const env = parseOdooEnv()
+  const uid = await login()
+  return jsonRpcCall<T>(env, {
+    service: 'object',
+    method: 'execute_kw',
+    args: [env.ODOO_DB, uid, env.ODOO_API_KEY, model, method, args, kwargs],
+  })
+}
+
 const PRODUCT_FIELDS = ['id', 'name', 'list_price', 'default_code', 'description_sale'] as const
 
 export async function getProducts(): Promise<NormalizedOdooProduct[]> {
