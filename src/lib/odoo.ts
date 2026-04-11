@@ -313,8 +313,9 @@ export async function login(): Promise<number> {
 }
 
 /**
- * Low-level Odoo `execute_kw` for any model/method. Prefer domain-specific helpers when they exist.
- */
+* Low-level Odoo `execute_kw` for any model/method. Prefer domain-specific helpers when they exist.
+*/
+
 export async function odooExecuteKw<T>(
   model: string,
   method: string,
@@ -332,7 +333,8 @@ export async function odooExecuteKw<T>(
 
 const PRODUCT_FIELDS = ['id', 'name', 'list_price', 'default_code', 'description_sale'] as const
 
-export async function getProducts(): Promise<NormalizedOdooProduct[]> {
+/** Raw `search_read` rows (Odoo field names; empty values are often `false`). */
+export async function getProductsRaw(): Promise<OdooProductRecord[]> {
   const env = parseOdooEnv()
   const uid = await login()
 
@@ -354,7 +356,20 @@ export async function getProducts(): Promise<NormalizedOdooProduct[]> {
     throw new OdooRpcError('Unexpected Odoo search_read result')
   }
 
+  return rows
+}
+
+export async function getProducts(): Promise<NormalizedOdooProduct[]> {
+  const rows = await getProductsRaw()
   return rows.map((r) => normalizeProduct(r))
+}
+
+/**
+ * When true, product API routes may return unnormalized Odoo records via `?raw=1`.
+ * Enabled in development or when `ODOO_DEBUG_RAW_PRODUCTS=1`.
+ */
+export function isOdooRawProductDebugEnabled(): boolean {
+  return process.env.NODE_ENV === 'development' || process.env.ODOO_DEBUG_RAW_PRODUCTS === '1'
 }
 
 const NAME_PREFIX_SEARCH_LIMIT = 500
@@ -365,12 +380,13 @@ function sanitizeNamePrefixForIlike(namePrefix: string): string {
 }
 
 /**
- * Saleable product templates whose name starts with the given prefix (case-insensitive in Odoo via ilike).
- */
-export async function getProductsByNamePrefix(
+* Saleable product templates whose name starts with the given prefix (case-insensitive in Odoo via ilike).
+*/
+
+export async function getProductsByNamePrefixRaw(
   namePrefix: string,
   options?: { limit?: number }
-): Promise<NormalizedOdooProduct[]> {
+): Promise<OdooProductRecord[]> {
   const literal = sanitizeNamePrefixForIlike(namePrefix)
   if (!literal) {
     throw new OdooInvalidPrefixError('namePrefix must be non-empty and cannot consist only of wildcards')
@@ -403,10 +419,18 @@ export async function getProductsByNamePrefix(
     throw new OdooRpcError('Unexpected Odoo search_read result')
   }
 
+  return rows
+}
+
+export async function getProductsByNamePrefix(
+  namePrefix: string,
+  options?: { limit?: number }
+): Promise<NormalizedOdooProduct[]> {
+  const rows = await getProductsByNamePrefixRaw(namePrefix, options)
   return rows.map((r) => normalizeProduct(r))
 }
 
-export async function getProductById(id: number): Promise<NormalizedOdooProduct | null> {
+export async function getProductByIdRaw(id: number): Promise<OdooProductRecord | null> {
   if (!Number.isInteger(id) || id <= 0) {
     throw new OdooInvalidIdError()
   }
@@ -432,5 +456,10 @@ export async function getProductById(id: number): Promise<NormalizedOdooProduct 
     return null
   }
 
-  return normalizeProduct(rows[0]!)
+  return rows[0]!
+}
+
+export async function getProductById(id: number): Promise<NormalizedOdooProduct | null> {
+  const raw = await getProductByIdRaw(id)
+  return raw ? normalizeProduct(raw) : null
 }

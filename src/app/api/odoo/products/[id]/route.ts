@@ -1,13 +1,37 @@
 import { NextResponse } from 'next/server'
 
-import { getOdooHttpError, getProductById } from '@/lib/odoo'
+import {
+  getOdooHttpError,
+  getProductById,
+  getProductByIdRaw,
+  isOdooRawProductDebugEnabled,
+} from '@/lib/odoo'
 
 export const dynamic = 'force-dynamic'
 
 type RouteContext = { params: Promise<{ id: string }> }
 
-export async function GET(_request: Request, context: RouteContext) {
+function wantsRaw(searchParams: URLSearchParams): boolean {
+  const v = searchParams.get('raw')
+  return v === '1' || v === 'true'
+}
+
+export async function GET(request: Request, context: RouteContext) {
   try {
+    const url = new URL(request.url)
+    const raw = wantsRaw(url.searchParams)
+
+    if (raw && !isOdooRawProductDebugEnabled()) {
+      return NextResponse.json(
+        {
+          error:
+            'Raw Odoo payloads are disabled. Use NODE_ENV=development or set ODOO_DEBUG_RAW_PRODUCTS=1.',
+          code: 'FORBIDDEN',
+        },
+        { status: 403 }
+      )
+    }
+
     const { id: idParam } = await context.params
     const id = Number(idParam)
     if (!Number.isFinite(id) || String(Math.trunc(id)) !== idParam.trim()) {
@@ -17,7 +41,20 @@ export async function GET(_request: Request, context: RouteContext) {
       )
     }
 
-    const product = await getProductById(Math.trunc(id))
+    const tid = Math.trunc(id)
+
+    if (raw) {
+      const odooRecord = await getProductByIdRaw(tid)
+      if (!odooRecord) {
+        return NextResponse.json(
+          { error: 'Product not found', code: 'NOT_FOUND' },
+          { status: 404 }
+        )
+      }
+      return NextResponse.json({ raw: true as const, odooRecord }, { status: 200 })
+    }
+
+    const product = await getProductById(tid)
     if (!product) {
       return NextResponse.json(
         { error: 'Product not found', code: 'NOT_FOUND' },

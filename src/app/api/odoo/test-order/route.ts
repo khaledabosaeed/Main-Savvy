@@ -14,7 +14,16 @@ export async function POST(req: Request) {
   try {
     const body = (await req.json()) as { productId?: unknown; email?: unknown }
     const productId = body.productId
-    const email = typeof body.email === 'string' ? body.email : undefined
+    const emailFromBody =
+      typeof body.email === 'string' && body.email.trim() !== ''
+        ? body.email.trim()
+        : undefined
+    const rawTestEmail = process.env.ODOO_TEST_ORDER_EMAIL
+    const emailFromEnv =
+      typeof rawTestEmail === 'string' && rawTestEmail.trim() !== ''
+        ? rawTestEmail.trim()
+        : undefined
+    const email = emailFromBody ?? emailFromEnv
 
     if (typeof productId !== 'number' || !Number.isInteger(productId) || productId <= 0) {
       return NextResponse.json({ error: 'Invalid productId' }, { status: 400 })
@@ -50,7 +59,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           error:
-            'Set ODOO_ANONYMOUS_PARTNER_ID or include an "email" field in the JSON body.',
+            'Set ODOO_ANONYMOUS_PARTNER_ID, or ODOO_TEST_ORDER_EMAIL, or include an "email" field in the JSON body.',
           code: 'PARTNER',
         },
         { status: 400 }

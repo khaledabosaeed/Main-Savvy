@@ -68,10 +68,10 @@ export default function OdooProductCard({
 
   return (
     <article className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-      <h2 className="text-lg font-semibold text-neutral-900">{product.name}</h2>
-      {product.defaultCode ? (
+      <h2 className="text-lg font-semibold text-neutral-900">{product.descriptionSale}</h2>
+      {/* {product.descriptionSale ? (
         <p className="mt-1 text-sm text-neutral-500">{product.defaultCode}</p>
-      ) : null}
+      ) : null} */}
       {product.descriptionSale ? (
         <p className="mt-3 line-clamp-3 text-sm text-neutral-600">{product.descriptionSale}</p>
       ) : null}
