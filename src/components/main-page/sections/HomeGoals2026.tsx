@@ -80,11 +80,11 @@ export default function HomeGoals2026() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
-          className="text-center text-lg md:text-xl font-semibold text-gray-900 mb-2 md:mb-3"
+          className="text-center text-lg md:text-xl mb-8 md:mb-10 font-semibold text-gray-900 mb-2 md:mb-3"
         >
           {t("hero.goalsTitle")}
         </motion.h2>
-        <motion.p
+        {/* <motion.p
           variants={headerVariants}
           initial="hidden"
           whileInView="visible"
@@ -92,7 +92,7 @@ export default function HomeGoals2026() {
           className="text-center text-xs md:text-sm lg:text-base text-gray-600 mb-8 md:mb-10 max-w-3xl mx-auto"
         >
           {t("hero.subDescription")}
-        </motion.p>
+        </motion.p> */}
 
         <motion.div
           variants={goalsContainerVariants}

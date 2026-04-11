@@ -34,9 +34,9 @@ export default function NewHero() {
   const imageVariants = {
     hidden: {
       opacity: 0,
-      scale: isMobile ? 0.95 : 0.85,
-      y: isMobile ? 30 : 60,
-      rotateX: isMobile ? 0 : 15,
+      scale: isMobile ? 0.98 : 0.96,
+      y: isMobile ? 12 : 24,
+      rotateX: isMobile ? 0 : 6,
     },
     visible: {
       opacity: 1,
@@ -44,21 +44,21 @@ export default function NewHero() {
       y: 0,
       rotateX: 0,
       transition: {
-        duration: isMobile ? 0.6 : 1.2,
-        delay: isMobile ? 0.1 : 0.3,
+        duration: isMobile ? 0.35 : 0.55,
+        delay: isMobile ? 0.05 : 0.12,
         ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
   }
 
   const titleVariants = {
-    hidden: { opacity: 0, y: isMobile ? 20 : 30, scale: isMobile ? 1 : 0.95 },
+    hidden: { opacity: 0, y: isMobile ? 10 : 14, scale: isMobile ? 1 : 0.98 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: isMobile ? 0.4 : 0.8,
+        duration: isMobile ? 0.28 : 0.45,
         delay: 0,
         ease: [0.22, 0.61, 0.36, 1] as any,
       },
@@ -66,13 +66,13 @@ export default function NewHero() {
   }
 
   const descriptionVariants = {
-    hidden: { opacity: 0, y: isMobile ? 15 : 20 },
+    hidden: { opacity: 0, y: isMobile ? 8 : 10 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: isMobile ? 0.4 : 0.7,
-        delay: isMobile ? 0.1 : 0.15,
+        duration: isMobile ? 0.28 : 0.4,
+        delay: isMobile ? 0.04 : 0.08,
         ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
@@ -83,50 +83,50 @@ export default function NewHero() {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: isMobile ? 0.12 : 0.2,
-        staggerChildren: isMobile ? 0.06 : 0.08,
+        delayChildren: isMobile ? 0.04 : 0.08,
+        staggerChildren: isMobile ? 0.03 : 0.04,
       },
     },
   }
 
   const propItemVariants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 6 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.35,
+        duration: 0.22,
         ease: [0.22, 0.61, 0.36, 1] as any,
       },
     },
   }
 
   const socialContainerVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.9 },
+    hidden: { opacity: 0, y: 12, scale: 0.97 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.45,
         ease: [0.22, 0.61, 0.36, 1] as any,
-        delay: 0.5,
-        delayChildren: 0.2,
-        staggerChildren: 0.08,
+        delay: 0.2,
+        delayChildren: 0.06,
+        staggerChildren: 0.04,
       },
     },
   }
 
   const socialIconVariants = {
-    hidden: { opacity: 0, scale: 0, y: 10 },
+    hidden: { opacity: 0, scale: 0.85, y: 4 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 400,
-        damping: 15,
+        stiffness: 520,
+        damping: 22,
       } as any,
     },
   }
@@ -227,8 +227,8 @@ export default function NewHero() {
             whileHover={
               !isMobile
                 ? {
-                    scale: 1.03,
-                    transition: { duration: 0.4, ease: [0.22, 0.61, 0.36, 1] as any },
+                    scale: 1.015,
+                    transition: { duration: 0.25, ease: [0.22, 0.61, 0.36, 1] as any },
                   }
                 : undefined
             }
@@ -260,7 +260,7 @@ export default function NewHero() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 2, delay: 0.8 }}
+                  transition={{ duration: 0.9, delay: 0.35 }}
                   className="absolute inset-0 z-20 pointer-events-none"
                 >
                   <Image

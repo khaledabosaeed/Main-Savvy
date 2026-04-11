@@ -24,7 +24,6 @@ const images: ImageItem[] = [
   { name: "Image 2", logo: "/home-page/gallery/image-2.jpg" },
   { name: "Image 3", logo: "/home-page/gallery/image-3.jpg" },
   { name: "Image 4", logo: "/home-page/gallery/image-4.jpg" },
-  { name: "Image 5", logo: "/home-page/gallery/image-5.jpg" },
   { name: "Image 6", logo: "/home-page/gallery/image-6.jpg" },
   { name: "Image 7", logo: "/home-page/gallery/image-7.jpg" },
   { name: "Image 7", logo: "/home-page/gallery/image-8.jpg" },
@@ -49,7 +48,7 @@ export default function HomePageClient({ texts, galleryHeading }: HomePageClient
     }
 
     const handleScroll = () => {
-      setShowBadge(window.scrollY < 600)
+      setShowBadge(window.scrollY < 600)  
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -78,11 +77,11 @@ export default function HomePageClient({ texts, galleryHeading }: HomePageClient
         <SavvySections />
       </section>
 
-      <HomeUseCases />
+      {/* <HomeUseCases /> */}
 
       <HomeGoals2026 />
 
-      <RobotsSection limit={2} showExploreStore animated={false} />
+      <RobotsSection limit={3} showExploreStore />
 
       <HomeFinalCta />
 
