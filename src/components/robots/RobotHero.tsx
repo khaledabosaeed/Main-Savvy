@@ -17,6 +17,10 @@ interface RobotHeroProps {
   textPlacement?: TextPlacement
   /** Optional poster image shown while video loads. Falls back to dark placeholder if not provided. */
   poster?: string
+  /** Optional numbered feature points rendered below the title */
+  features?: string[]
+  /** Optional RTL direction for features list */
+  isRTL?: boolean
 }
 
 const placementClasses: Record<TextPlacement, string> = {
@@ -41,6 +45,8 @@ export default function RobotHero({
   productLink,
   textPlacement = "center",
   poster,
+  features,
+  isRTL = false,
 }: RobotHeroProps) {
   const [isVideoReady, setIsVideoReady] = useState(false)
   const placement = placementClasses[textPlacement]
@@ -123,14 +129,7 @@ export default function RobotHero({
             {priceStartsFrom}
           </p>
         )}
-        {buttonText && productLink && (
-          <Link
-            href={productLink}
-            className="mt-8 inline-block px-8 py-4 bg-white text-gray-900 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-xl drop-shadow-lg border border-white/20"
-          >
-            {buttonText}
-          </Link>
-        )}
+
       </motion.div>
     </section>
   )

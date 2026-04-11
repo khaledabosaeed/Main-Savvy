@@ -4,6 +4,7 @@ import RobotHero from "./RobotHero"
 import RobotVideoSection from "./RobotVideoSection"
 import RobotSingleImageSection from "./RobotSingleImageSection"
 import SpecsTable from "./SpecsTable"
+import RobotProductDetails from "./RobotProductDetails"
 import {
   getRobotHeroContent,
   getRobotImageSectionsBeforeVideo,
@@ -28,7 +29,7 @@ export default function H2PageContent({ lang }: H2PageContentProps) {
         subtitle={heroContent.subtitle}
         priceStartsFrom={heroContent.priceStartsFrom}
         buttonText={heroContent.buttonText}
-        productLink={`/${lang}/robots/h2/product`}
+        productLink={`/${lang}/contact`}
         textPlacement={heroContent.textPlacement}
       />
             <RobotVideoSection slug="h2" lang={lang} />
@@ -44,6 +45,7 @@ export default function H2PageContent({ lang }: H2PageContentProps) {
           </div>
         </section>
       ))}
+      <RobotProductDetails slug="h2" showSpecs={false} />
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10 space-y-12">
           {getRobotImageSectionsBeforeTable("h2", lang).map((item) => (

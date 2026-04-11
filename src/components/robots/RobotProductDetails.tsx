@@ -17,9 +17,10 @@ const R1_CATALOG_P1 = "/robot/R1/catlouge/p1.webp"
 
 interface RobotProductDetailsProps {
   slug: RobotSlug
+  showSpecs?: boolean
 }
 
-export default function RobotProductDetails({ slug }: RobotProductDetailsProps) {
+export default function RobotProductDetails({ slug, showSpecs = true }: RobotProductDetailsProps) {
   const { language } = useLanguage()
   const { t } = useTranslation()
   const currentLang = language as Language
@@ -213,17 +214,18 @@ export default function RobotProductDetails({ slug }: RobotProductDetailsProps) 
         </div>
 
         {/* Specifications table - G1, H2, R1 */}
-          <div className="mt-16 md:mt-24">
-            <h2
-              className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${
-                isRTL ? "text-right" : "text-left"
-              }`}
-            >
-              {t("common.specifications")}
-            </h2>
-            <SpecsTable slug={slug} lang={lang} />
-
-          </div>
+          {showSpecs && (
+            <div className="mt-16 md:mt-24">
+              <h2
+                className={`text-2xl md:text-3xl font-bold text-gray-900 mb-6 ${
+                  isRTL ? "text-right" : "text-left"
+                }`}
+              >
+                {t("common.specifications")}
+              </h2>
+              <SpecsTable slug={slug} lang={lang} />
+            </div>
+          )}
       </div>
     </section>
   )

@@ -1,16 +1,13 @@
 "use client"
 
-import { useState, useRef, useEffect, Fragment } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
 import { useIsMobile } from "@/hooks/useIsMobile"
-import { useSmoothScroll } from "@/contexts/SmoothScrollContext"
 import LanguageSwitcher from "./LanguageSwitcher"
-import Badge from "./Badge"
 import { motion, AnimatePresence } from "framer-motion"
 
 interface UnifiedHeaderProps {
@@ -27,46 +24,44 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
   const { language } = useLanguage()
   const { t } = useTranslation()
   const isMobile = useIsMobile()
-  const pathname = usePathname()
-  const { scrollTo } = useSmoothScroll()
   const lang = language as "en" | "ar"
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
-  const [isRobotsOpen, setIsRobotsOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isRobotsOpen, setIsRobotsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const isRTL = lang === "ar"
-  const dropdownRef = useRef<HTMLDivElement>(null)
   const robotsDropdownRef = useRef<HTMLDivElement>(null)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
   const robotsTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  const serviceSections = t("serviceBrandNames", { returnObjects: true }) as string[]
-
-  const aboutSectionLinks = [
-    { href: `/${lang}/expo`, label: t("nav.expo") },
-    { href: `/${lang}/innovation`, label: t("nav.innovation") },
-    { href: `/${lang}/media`, label: t("nav.media") },
-  ] as const
+  const robots = [
+    { href: `/${lang}/robots/g1`, label: "Unitree Humanoid G1" },
+    { href: `/${lang}/robots/go2`, label: "Unitree Robo-Dog Go2" },
+    { href: `/${lang}/robots/r1`, label: "Unitree Humanoid R1" },
+  ]
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Node
-      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
-        setIsServicesOpen(false)
-      }
-      if (robotsDropdownRef.current && !robotsDropdownRef.current.contains(target)) {
+      if (robotsDropdownRef.current && !robotsDropdownRef.current.contains(event.target as Node)) {
         setIsRobotsOpen(false)
       }
     }
+    if (isRobotsOpen) document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [isRobotsOpen])
 
-    if (isServicesOpen || isRobotsOpen) {
-      document.addEventListener("mousedown", handleClickOutside)
-    }
-
+  useEffect(() => {
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
+      if (robotsTimeoutRef.current) clearTimeout(robotsTimeoutRef.current)
     }
-  }, [isServicesOpen, isRobotsOpen])
+  }, [])
+
+  const handleRobotsEnter = () => {
+    if (robotsTimeoutRef.current) clearTimeout(robotsTimeoutRef.current)
+    setIsRobotsOpen(true)
+  }
+
+  const handleRobotsLeave = () => {
+    robotsTimeoutRef.current = setTimeout(() => setIsRobotsOpen(false), 200)
+  }
 
   // Scroll detection - set initial state and listen for scroll
   useEffect(() => {
@@ -80,45 +75,8 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-      if (robotsTimeoutRef.current) {
-        clearTimeout(robotsTimeoutRef.current)
-      }
-    }
-  }, [])
-
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
-    setIsServicesOpen(true)
-  }
-
-  const handleMouseLeave = () => {
-    timeoutRef.current = setTimeout(() => {
-      setIsServicesOpen(false)
-    }, 200)
-  }
-
-  const handleRobotsMouseEnter = () => {
-    if (robotsTimeoutRef.current) {
-      clearTimeout(robotsTimeoutRef.current)
-    }
-    setIsRobotsOpen(true)
-  }
-
-  const handleRobotsMouseLeave = () => {
-    robotsTimeoutRef.current = setTimeout(() => {
-      setIsRobotsOpen(false)
-    }, 200)
-  }
-
   const isTransparent = transparentHeader && !isScrolled
-  const navTextClass = isTransparent ? "text-white hover:text-white/90" : "text-gray-700 hover:text-gray-900"
+  const navTextClass = isTransparent ? "text-white hover:text-white/80" : "text-gray-700 hover:text-gray-900"
 
   return (
     <>
@@ -152,6 +110,52 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
                 </Link>
               </div>
 
+              {/* Desktop Robots Dropdown */}
+              <div
+                ref={robotsDropdownRef}
+                className="relative hidden md:block"
+                onMouseEnter={handleRobotsEnter}
+                onMouseLeave={handleRobotsLeave}
+              >
+                <button
+                  onClick={() => setIsRobotsOpen(!isRobotsOpen)}
+                  className={`${navTextClass} transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap`}
+                >
+                  { (lang === "ar" ? "روبوتاتنا" : "Our Robots")}
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isRobotsOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                <AnimatePresence>
+                  {isRobotsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                      transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                      className={`absolute top-full mt-2 w-52 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? "right-0" : "left-0"}`}
+                    >
+                      <Link
+                        href={`/${lang}`}
+                        onClick={() => setIsRobotsOpen(false)}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors font-medium border-b border-gray-100 mb-1"
+                      >
+                        {t("common.robotsViewAll") || (lang === "ar" ? "عرض الكل" : "View All")}
+                      </Link>
+                      {robots.map((r) => (
+                        <Link
+                          key={r.href}
+                          href={r.href}
+                          onClick={() => setIsRobotsOpen(false)}
+                          className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                        >
+                          {r.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -160,168 +164,6 @@ export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner 
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
-
-              {/* Navigation */}
-              <nav className={`hidden md:flex items-center gap-8 flex-1 justify-center ${isRTL ? 'flex-row-reverse' : ''}`}>
-                {Object.entries(texts)
-                  .filter(([key]) => key !== "ourServices" && key !== "ourRobots" && key !== "contactUs")
-                  .map(([key, value]) => {
-                    // Handle "main" and "news" as page links, others as section links
-                    const href = key === "main" ? `/${lang}` : key === "news" ? `/${lang}/news` : `#${key}`
-                    
-                    // Handle "main" link: if already on home page, scroll to top instead of navigating
-                    const handleMainClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-                      if (key === "main") {
-                        const homePath = `/${lang}`
-                        const homePathWithSlash = `/${lang}/`
-                        // If already on home page (with or without trailing slash), scroll to top
-                        if (pathname === homePath || pathname === homePathWithSlash) {
-                          e.preventDefault()
-                          scrollTo(0, { duration: 1.5 })
-                        }
-                        // Otherwise, let the Link handle navigation normally
-                        // PageTransition will scroll to top on navigation
-                      }
-                    }
-                    
-                    return (
-                      <Link
-                        key={key}
-                        href={href}
-                        onClick={handleMainClick}
-                        className={`${navTextClass} transition-colors text-sm font-medium whitespace-nowrap flex items-center`}
-                      >
-                        {value}
-                        {key === "whySavvy" && showBadge && <Badge text="1512 × 69" />}
-                      </Link>
-                    )
-                  })}
-
-                {/* Services Dropdown */}
-                {texts["ourServices"] && (
-                  <div
-                    ref={dropdownRef}
-                    className="relative"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <button
-                      onClick={() => setIsServicesOpen(!isServicesOpen)}
-                      className={`${navTextClass} transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap`}
-                    >
-                      {texts["ourServices"]}
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                    </button>
-
-                    <AnimatePresence>
-                      {isServicesOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                          className={`absolute top-full mt-2 w-48 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? 'right-0' : 'left-0'}`}
-                        >
-                          <Link
-                            href={`/${lang}`}
-                            onClick={() => setIsServicesOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                          >
-                            {serviceSections[0]}
-                          </Link>
-                          <Link
-                            href={`/${lang}/expo`}
-                            onClick={() => setIsServicesOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                          >
-                            {serviceSections[1]}
-                          </Link>
-                          <Link
-                            href={`/${lang}/media`}
-                            onClick={() => setIsServicesOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                          >
-                            {serviceSections[2]}
-                          </Link>
-                          <Link
-                            href={`/${lang}/innovation`}
-                            onClick={() => setIsServicesOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                          >
-                            {serviceSections[3]}
-                          </Link>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                )}
-
-                {/* Robots Dropdown */}
-                {texts["ourRobots"] && (
-                  <div
-                    ref={robotsDropdownRef}
-                    className="relative"
-                    onMouseEnter={handleRobotsMouseEnter}
-                    onMouseLeave={handleRobotsMouseLeave}
-                  >
-                    <button
-                      onClick={() => setIsRobotsOpen(!isRobotsOpen)}
-                      className={`${navTextClass} transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap`}
-                    >
-                      {texts["ourRobots"]}
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isRobotsOpen ? 'rotate-180' : ''}`} />
-                    </button>
-
-                    <AnimatePresence>
-                      {isRobotsOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                          className={`absolute top-full mt-2 w-48 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? 'right-0' : 'left-0'}`}
-                        >
-                          <Link
-                            href={`/${lang}/robots`}
-                            onClick={() => setIsRobotsOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors font-medium"
-                          >
-                            {t("common.robotsViewAll")}
-                          </Link>
-                          <Link
-                            href={`/${lang}/robots/g1`}
-                            onClick={() => setIsRobotsOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                          >
-Unitree Humanoid G1
-                          </Link>
-                          <Link
-                            href={`/${lang}/robots/h2`}
-                            onClick={() => setIsRobotsOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                          >
-                            Unitree Humanoid H2
-                          </Link>
-                          <Link
-                            href={`/${lang}/robots/go2`}
-                            onClick={() => setIsRobotsOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                          >
-Unitree Robo- Dog Go2
-                          </Link>
-                          <Link
-                            href={`/${lang}/robots/r1`}
-                            onClick={() => setIsRobotsOpen(false)}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
-                          >
-Unitree Humanoid R1
-                          </Link>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                )}
-              </nav>
 
               {/* Language Switcher & Contact Button */}
               <div className={`hidden md:flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
@@ -347,145 +189,29 @@ Unitree Humanoid R1
                 className="md:hidden overflow-y-auto overflow-x-hidden overscroll-y-contain max-h-[calc(100dvh-120px)] absolute top-full left-4 right-4 mt-2 bg-black/90 backdrop-blur-md rounded-2xl"
               >
                 <nav className="py-4">
-                  {/* Robots in mobile menu */}
-                  {texts["ourRobots"] && (
-                    <>
-                      <div className="px-6 py-3 text-white/60 text-xs font-semibold uppercase">
-                        {texts["ourRobots"]}
-                      </div>
+                  {/* Robots list */}
+                  <div className="px-6 pb-2">
+                    <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-2">
+                      { (lang === "ar" ? "روبوتاتنا" : "Our Robots")}
+                    </p>
+                    <Link
+                      href={`/${lang}`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block px-3 py-2 text-white text-sm font-medium hover:bg-white/10 rounded-lg transition-colors"
+                    >
+                      {t("common.robotsViewAll") || (lang === "ar" ? "عرض الكل" : "View All")}
+                    </Link>
+                    {robots.map((r) => (
                       <Link
-                        href={`/${lang}/robots`}                        
-
+                        key={r.href}
+                        href={r.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
+                        className="block px-3 py-2 text-white/80 text-sm hover:bg-white/10 hover:text-white rounded-lg transition-colors"
                       >
-                        {lang === "ar" ? "عرض الكل" : "View all"}
+                        {r.label}
                       </Link>
-                      <Link
-                        href={`/${lang}/robots/g1`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        Unitree Humanoid G1
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/h2`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        Unitree Humanoid H2
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/go2`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        Unitree Robo-Dog Go2
-                      </Link>
-                      <Link
-                        href={`/${lang}/robots/r1`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        Unitree Humanoid R1
-                      </Link>
-                    </>
-                  )}
-
-                  {Object.entries(texts)  
-                    .filter(([key]) => key !== "ourServices" && key !== "ourRobots" && key !== "contactUs")
-                    .map(([key, value]) => {
-                      // Handle "main" and "news" as page links, others as section links
-                      const href = key === "main" ? `/${lang}` : key === "news" ? `/${lang}/news` : `#${key}`
-                      
-                      // Handle "main" link: if already on home page, scroll to top instead of navigating
-                      const handleMainClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-                        if (key === "main") {
-                          const homePath = `/${lang}`
-                          const homePathWithSlash = `/${lang}/`
-                          // If already on home page (with or without trailing slash), scroll to top
-                          if (pathname === homePath || pathname === homePathWithSlash) {
-                            e.preventDefault()
-                            scrollTo(0, { duration: 1.5 })
-                          }
-                          // Otherwise, let the Link handle navigation normally
-                          // PageTransition will scroll to top on navigation
-                        }
-                        setIsMobileMenuOpen(false)
-                      }
-                      
-                      if (key === "about") {
-                        return (
-                          <Fragment key={key}>
-                            <Link
-                              href={href}
-                              onClick={handleMainClick}
-                              className="block px-6 py-3 text-white hover:bg-white/10 transition-colors text-sm font-medium"
-                            >
-                              {value}
-                            </Link>
-                            {aboutSectionLinks.map((item) => (
-                              <Link
-                                key={item.href}
-                                href={item.href}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="block px-10 py-2 text-white/90 hover:bg-white/10 transition-colors text-sm"
-                              >
-                                {item.label}
-                              </Link>
-                            ))}
-                          </Fragment>
-                        )
-                      }
-
-                      return (  
-                        <Link
-                          key={key}
-                          href={href}
-                          onClick={handleMainClick}
-                          className="block px-6 py-3 text-white hover:bg-white/10 transition-colors text-sm font-medium"
-                        >
-                          {value}
-                        </Link>
-                      )
-                    })}
-
-                  {/* Services في القائمة الموبايل */}
-                  {texts["ourServices"] && (
-                    <>
-                      <div className="px-6 py-3 text-white/60 text-xs font-semibold uppercase">
-                        {texts["ourServices"]}
-                      </div>
-                      <Link
-                        href={`/${lang}`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        {serviceSections[0]}
-                      </Link>
-                      <Link
-                        href={`/${lang}/expo`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        {serviceSections[1]}
-                      </Link>
-                      <Link
-                        href={`/${lang}/media`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        {serviceSections[2]}
-                      </Link>
-                      <Link
-                        href={`/${lang}/innovation`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-8 py-2 text-white hover:bg-white/10 transition-colors text-sm"
-                      >
-                        {serviceSections[3]}
-                      </Link>
-                    </>
-                  )}
+                    ))}
+                  </div>
 
                   {/* Language & Contact */}
                   <div className="px-6 py-4 mt-2 border-t border-white/10 space-y-2">

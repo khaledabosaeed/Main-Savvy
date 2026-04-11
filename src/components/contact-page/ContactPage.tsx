@@ -468,7 +468,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="relative py-16 md:py-24 bg-white">
+      {/* <section className="relative py-16 md:py-24 bg-white">
         <div className="container px-6">
           <motion.div
             ref={faqRef}
@@ -500,7 +500,7 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

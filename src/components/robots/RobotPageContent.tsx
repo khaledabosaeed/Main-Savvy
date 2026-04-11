@@ -27,7 +27,7 @@ export default function RobotPageContent({ slug, lang }: RobotPageContentProps) 
         subtitle={heroContent.subtitle}
         priceStartsFrom={heroContent.priceStartsFrom}
         buttonText={heroContent.buttonText}
-        productLink={`/${lang}/robots/${slug}/product`}
+        productLink={`/${lang}/contact`}
         textPlacement={heroContent.textPlacement}
       />
       {slug === "g1" && (

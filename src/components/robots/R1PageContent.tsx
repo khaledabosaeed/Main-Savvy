@@ -4,6 +4,7 @@ import RobotHero from "./RobotHero"
 import RobotVideoSection from "./RobotVideoSection"
 import RobotSingleImageSection from "./RobotSingleImageSection"
 import SpecsTable from "./SpecsTable"
+import RobotProductDetails from "./RobotProductDetails"
 import {
   getRobotHeroContent,
   getRobotImageSectionsBeforeVideo,
@@ -32,7 +33,7 @@ export default function R1PageContent({ lang }: R1PageContentProps) {
         subtitle={heroContent.subtitle}
         priceStartsFrom={heroContent.priceStartsFrom}
         buttonText={heroContent.buttonText}
-        productLink={`/${lang}/robots/r1/product`}
+        productLink={`/${lang}/contact`}
         textPlacement={heroContent.textPlacement}
       />
       <RobotVideoSection slug="r1" lang={lang} />
@@ -47,6 +48,7 @@ export default function R1PageContent({ lang }: R1PageContentProps) {
           </div>
         </section>
       ))}
+      <RobotProductDetails slug="r1" showSpecs={false} />
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10 space-y-12">
           {beforeTable.map((item) => (
@@ -60,8 +62,7 @@ export default function R1PageContent({ lang }: R1PageContentProps) {
           {hasSpecs && (
             <div className="mt-16">
               <h2
-                className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`
-                }
+                className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`}
               >
                 {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
               </h2>

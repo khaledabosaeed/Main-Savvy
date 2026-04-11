@@ -33,7 +33,7 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     // Initialize Lenis with optimized settings
     // Use lighter settings on mobile for better performance
     const lenis = new Lenis({
-      duration: isMobile ? 0.8 : 1.2, // Faster on mobile
+      duration: isMobile ? 0.6 : 0.9,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
       orientation: 'vertical',
       smoothWheel: !isMobile, // Disable smooth wheel on mobile for better performance
@@ -44,36 +44,19 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
 
     lenisRef.current = lenis;
 
-    // Sync GSAP ScrollTrigger with Lenis
+    // Sync ScrollTrigger positions with Lenis on every scroll event
     lenis.on('scroll', ScrollTrigger.update);
 
-    // Tell ScrollTrigger to use Lenis scroll position
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length && typeof value === 'number') {
-          lenis.scrollTo(value);
-        }
-        return lenis.scroll;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-      },
-    });
-
-    // Animation frame loop
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
+    // Drive Lenis from GSAP's ticker so both share the same frame budget
+    // This eliminates the "stuck" jank caused by scrollerProxy conflicts
+    const tickerCallback = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+    gsap.ticker.add(tickerCallback);
+    gsap.ticker.lagSmoothing(0); // Prevents GSAP from skipping frames after tab focus
 
     return () => {
+      gsap.ticker.remove(tickerCallback);
       lenis.destroy();
     };
   }, []);

@@ -147,9 +147,8 @@ export default function SpecsTable({
                     </th>
                     {singleColumn ? (
                       <th
-                        className={`h-12 px-5 py-3 text-sm font-semibold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent ${
-                          isRTL ? "text-right" : "text-left"
-                        }`}
+                        className={`h-12 px-5 py-3 text-sm font-semibold bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent te
+                        text-center`}
                       >
                         {content.columnHeaders?.[valueColumnIndex] ?? content.valueLabel}
                       </th>
@@ -163,7 +162,7 @@ export default function SpecsTable({
                                 ? "border-l border-neutral-700"
                                 : "border-r border-neutral-700"
                               : ""
-                          } ${isRTL ? "text-right" : "text-left"}`}
+                          } text-center`}
                         >
                           {h}
                         </th>
@@ -193,7 +192,7 @@ export default function SpecsTable({
                           row.highlight
                             ? "bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text font-semibold text-transparent"
                             : ""
-                        } ${isRTL ? "text-right" : "text-left"}`}
+                        } text-center`}
                       >
                         {renderSpecValue(row.values[valueColumnIndex])}
                       </td>
@@ -204,7 +203,7 @@ export default function SpecsTable({
                       ).map((val, vIdx, vals) => (
                         <td
                           key={vIdx}
-                          className={`px-5 py-4 text-sm text-neutral-200 whitespace-pre-line align-top ${
+                          className={`px-5 py-4 text-sm text-neutral-200 whitespace-pre-line align-top  ${
                             vIdx < (vals.length - 1)
                               ? isRTL
                                 ? "border-l border-neutral-700/60"
@@ -214,7 +213,7 @@ export default function SpecsTable({
                             row.highlight
                               ? "bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text font-semibold text-transparent"
                               : ""
-                          } ${isRTL ? "text-right" : "text-left"}`}
+                          } text-center`}
                         >
                           {renderSpecValue(val)}
                         </td>
