@@ -223,13 +223,77 @@ export function normalizeProduct(record: OdooProductRecord): NormalizedOdooProdu
         ? null
         : String(record.description_sale)
 
+  // Same-origin proxy; some Odoo DBs have no `has_image` on product.template — always link and let GET return 404 if empty.
+  const imageUrl = id > 0 ? `/api/odoo/product-image?templateId=${id}` : null
+
   return {
     id,
     name,
     listPrice,
     defaultCode,
     descriptionSale,
+    imageUrl,
   }
+}
+
+function sniffImageContentType(buf: Buffer): string {
+  if (buf.length >= 8 && buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47) {
+    return 'image/png'
+  }
+  if (buf.length >= 3 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) {
+    return 'image/jpeg'
+  }
+  if (
+    buf.length >= 12 &&
+    buf.toString('ascii', 0, 4) === 'RIFF' &&
+    buf.toString('ascii', 8, 12) === 'WEBP'
+  ) {
+    return 'image/webp'
+  }
+  return 'image/png'
+}
+
+function decodeOdooBinaryField(value: string | false | undefined): Buffer | null {
+  if (typeof value !== 'string' || value.length === 0) return null
+  const trimmed = value.trim()
+  const b64 = trimmed.startsWith('data:') ? (trimmed.split(',')[1] ?? '') : trimmed
+  if (!b64) return null
+  try {
+    return Buffer.from(b64, 'base64')
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Loads `image_512` for a product template (server-only). Used by the image proxy route.
+ */
+export async function getProductTemplateImage(
+  templateId: number
+): Promise<{ data: Buffer; contentType: string } | null> {
+  if (!Number.isInteger(templateId) || templateId <= 0) {
+    throw new OdooInvalidIdError()
+  }
+
+  type Row = { image_512?: string | false }
+  const rows = await odooExecuteKw<Row[]>(
+    'product.template',
+    'read',
+    [[templateId], ['image_512']],
+    {}
+  )
+
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return null
+  }
+
+  const raw = rows[0]?.image_512
+  const data = decodeOdooBinaryField(raw)
+  if (!data || data.length === 0) {
+    return null
+  }
+
+  return { data, contentType: sniffImageContentType(data) }
 }
 
 async function jsonRpcCall<T>(env: OdooEnv, params: OdooJsonRpcRequest['params']): Promise<T> {

@@ -7,12 +7,16 @@ import { motion } from "framer-motion"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
 import type { RobotCard } from "@/lib/robots-locale"
+import type { NormalizedOdooProduct } from "@/types/odoo"
+import OdooProductCarousel from "@/components/odoo/OdooProductCarousel"
 
 type RobotsSectionProps = {
   limit?: number
   showExploreStore?: boolean
   /** When false, skip scroll-in stagger and card lift animations. */
   animated?: boolean
+  /** Odoo products to display as a carousel below the robots grid */
+  products?: NormalizedOdooProduct[]
 }
 
 function RobotCardLink({
@@ -88,6 +92,7 @@ export default function RobotsSection({
   limit,
   showExploreStore,
   animated = true,
+  products,
 }: RobotsSectionProps = {}) {
   const { language } = useLanguage()
   const { t } = useTranslation()
@@ -197,6 +202,24 @@ export default function RobotsSection({
             >
               {t("home.robotsSection.exploreStore")}
             </Link>
+          </div>
+        )}
+
+        {products && products.length > 0 && (
+          <div className="mt-20 md:mt-24 border-t border-neutral-100 pt-16">
+            <h2 className="mb-2 text-2xl font-bold text-neutral-900 md:text-3xl">
+              {lang === "ar" ? "منتجات CNUTR" : "CNUTR Products"}
+            </h2>
+            <p className="mb-10 text-neutral-500">
+              {lang === "ar"
+                ? "تصفح منتجاتنا — انقر على المنتج لمزيد من التفاصيل أو اشترِ الآن مباشرةً."
+                : "Browse our products — click a product for details or buy directly."}
+            </p>
+            <OdooProductCarousel
+              products={products}
+              lang={lang}
+              buyLabel={lang === "ar" ? "اشتري الآن" : "Buy now"}
+            />
           </div>
         )}
       </div>

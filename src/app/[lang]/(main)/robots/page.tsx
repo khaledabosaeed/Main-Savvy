@@ -6,6 +6,7 @@ import ResponsibleUseLink from "@/components/robots/ResponsibleUseLink"
 import { getDictionary } from "@/i18n/getDictionary"
 import { robotsIndexHeaderTexts } from "@/i18n/page-header-texts"
 import { isAppLanguage } from "@/i18n/settings"
+import { getProductsByNamePrefix } from "@/lib/odoo"
 import { notFound } from "next/navigation"
 
 interface RobotsPageProps {
@@ -20,12 +21,19 @@ export default async function RobotsPage({ params }: RobotsPageProps) {
   const dict = getDictionary(lang)
   const texts = robotsIndexHeaderTexts(dict)
 
+  let products: Awaited<ReturnType<typeof getProductsByNamePrefix>> = []
+  try {
+    products = await getProductsByNamePrefix('CNUTR')
+  } catch {
+    // silently skip — products section is optional
+  }
+
   return (
     <>
       <UnifiedHeader texts={texts} hasBanner={false} transparentHeader />
       <PageTransition>
         <RobotHeroSlider />
-        <RobotsSection animated={false} />
+        <RobotsSection animated={false} products={products} />
         <ResponsibleUseLink />
       </PageTransition>
     </>

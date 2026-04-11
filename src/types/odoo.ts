@@ -39,4 +39,6 @@ export type NormalizedOdooProduct = {
   listPrice: number | null
   defaultCode: string | null
   descriptionSale: string | null
+  /** Same-origin URL to `/api/odoo/product-image` (proxy returns 404 if the template has no image) */
+  imageUrl: string | null
 }
