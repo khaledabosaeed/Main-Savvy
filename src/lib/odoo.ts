@@ -67,6 +67,13 @@ export class OdooInvalidIdError extends Error {
   }
 }
 
+export class OdooInvalidPrefixError extends Error {
+  readonly name = 'OdooInvalidPrefixError'
+  constructor(message = 'Invalid name prefix') {
+    super(message)
+  }
+}
+
 /** Map domain errors to HTTP status + safe client message (no secrets). */
 export function getOdooHttpError(err: unknown): {
   status: number
@@ -77,6 +84,9 @@ export function getOdooHttpError(err: unknown): {
     return { status: 500, error: 'Odoo is not configured', code: 'CONFIG' }
   }
   if (err instanceof OdooInvalidIdError) {
+    return { status: 400, error: err.message, code: 'BAD_REQUEST' }
+  }
+  if (err instanceof OdooInvalidPrefixError) {
     return { status: 400, error: err.message, code: 'BAD_REQUEST' }
   }
   if (err instanceof OdooAuthError) {
@@ -319,6 +329,55 @@ export async function getProducts(): Promise<NormalizedOdooProduct[]> {
       'search_read',
       [[['sale_ok', '=', true]], [...PRODUCT_FIELDS]],
       { limit: 20 },
+    ],
+  })
+
+  if (!Array.isArray(rows)) {
+    throw new OdooRpcError('Unexpected Odoo search_read result')
+  }
+
+  return rows.map((r) => normalizeProduct(r))
+}
+
+const NAME_PREFIX_SEARCH_LIMIT = 500
+
+/** Strip SQL LIKE wildcards so the prefix is matched literally (ilike still case-insensitive). */
+function sanitizeNamePrefixForIlike(namePrefix: string): string {
+  return namePrefix.trim().replace(/[%_\\]/g, '')
+}
+
+/**
+ * Saleable product templates whose name starts with the given prefix (case-insensitive in Odoo via ilike).
+ */
+export async function getProductsByNamePrefix(
+  namePrefix: string,
+  options?: { limit?: number }
+): Promise<NormalizedOdooProduct[]> {
+  const literal = sanitizeNamePrefixForIlike(namePrefix)
+  if (!literal) {
+    throw new OdooInvalidPrefixError('namePrefix must be non-empty and cannot consist only of wildcards')
+  }
+
+  const env = parseOdooEnv()
+  const uid = await login()
+  const limit = Math.min(
+    Math.max(1, options?.limit ?? NAME_PREFIX_SEARCH_LIMIT),
+    2000
+  )
+
+  const domain: unknown[] = ['&', ['sale_ok', '=', true], ['name', 'ilike', `${literal}%`]]
+
+  const rows = await jsonRpcCall<OdooProductRecord[]>(env, {
+    service: 'object',
+    method: 'execute_kw',
+    args: [
+      env.ODOO_DB,
+      uid,
+      env.ODOO_API_KEY,
+      'product.template',
+      'search_read',
+      [domain, [...PRODUCT_FIELDS]],
+      { limit },
     ],
   })
 
