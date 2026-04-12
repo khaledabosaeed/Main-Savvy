@@ -28,20 +28,24 @@ export default function SpecsTable({
       .split("\n")
       .map((line) => line.trim())
       .join("\n")
-  const getValueDirection = (value: string) => (/^\s*\d/.test(value) ? "ltr" : "auto")
   const renderSpecValue = (value?: string) => {
     const displayValue = normalizeCellText(value)
+    if (isRTL) {
+      return (
+        <bdi className="block whitespace-pre-line max-w-full">{displayValue}</bdi>
+      )
+    }
     return (
-      <span
-        dir={getValueDirection(displayValue)}
-        className="block whitespace-pre-line [unicode-bidi:isolate]"
-      >
+      <span dir="ltr" className="block whitespace-pre-line">
         {displayValue}
       </span>
     )
   }
   const renderSpecName = (name?: string) => (
-    <span className="block whitespace-pre-line [unicode-bidi:isolate]">
+    <span
+      dir={isRTL ? "rtl" : "ltr"}
+      className="block whitespace-pre-line [unicode-bidi:isolate]"
+    >
       {normalizeCellText(name)}
     </span>
   )
@@ -130,7 +134,7 @@ export default function SpecsTable({
                                 : ""
                             }`}
                           >
-                            {price}
+                            {isRTL ? <bdi>{price}</bdi> : price}
                           </th>
                         ))}
                       </tr>

@@ -579,17 +579,17 @@
         "items": [
           {
             "scrollVideoSrc": "/robot/g1/four.mp4",
-            "scrollTitle": "Equipped with 23–43 degrees of freedom (DOF) and high-torque motors reaching up to 120 N·m, enabling smooth, human-like movement and advanced balance.",
-            "scrollSubtitle": ""
+            "scrollTitle": "Flexible design, superior performance",
+            "scrollSubtitle": "Equipped with up to **23–43 degrees of freedom (DOF)** and high-torque motors reaching **120 N·m**, at approximately **1.3 meters** tall and around **35 kg**, it delivers smooth movement and human-like balance."
           },
           {
             "scrollVideoSrc": "/robot/g1/five.mp4",
-            "scrollTitle": "Powered by the NVIDIA Jetson Orin processor, delivering up to 100 TOPS, allowing advanced AI development using ROS2 and Python.",
+            "scrollTitle": "Powered by the **NVIDIA Jetson Orin** processor, delivering up to **100 TOPS**, allowing advanced AI development using **ROS2** and **Python**.",
             "scrollSubtitle": ""
           },
           {
             "scrollVideoSrc": "/robot/g1/six.mp4",
-            "scrollTitle": "Features advanced sensors including LiDAR and 3D depth cameras, with optional dexterous hands (up to 7 DOF per hand), making it ideal for research, education, and interactive experiences.",
+            "scrollTitle": "Features advanced sensors including **LiDAR** and **3D depth cameras**, with optional dexterous hands (up to **7 DOF per hand**), making it ideal for research, education, and interactive experiences.",
             "scrollSubtitle": ""
           }
         ]
@@ -599,17 +599,17 @@
         "items": [
           {
             "scrollVideoSrc": "/robot/go2/first.mp4",
-            "scrollTitle": "Equipped with AI systems, LiDAR, and 3D cameras for accurate environment perception and autonomous navigation.",
+            "scrollTitle": "Equipped with **AI systems**, **LiDAR**, and **3D cameras** for accurate environment perception and autonomous navigation.",
             "scrollSubtitle": ""
           },
           {
             "scrollVideoSrc": "/robot/go2/second.mp4",
-            "scrollTitle": "Available in Pro and EDU versions, covering both out-of-the-box use (entertainment) and advanced development using ROS2 and Python.",
+            "scrollTitle": "Available in **Pro** and **EDU** versions, covering both out-of-the-box use (entertainment) and advanced development using **ROS2** and **Python**.",
             "scrollSubtitle": ""
           },
           {
             "scrollVideoSrc": "/robot/go2/third.mp4",
-            "scrollTitle": "Supports add-ons such as additional LiDAR, robotic arms, and autonomous charging, transforming it into a complete solution for business, research, and experimentation.",
+            "scrollTitle": "Supports add-ons such as additional **LiDAR**, **robotic arms**, and **autonomous charging**, transforming it into a complete solution for business, research, and experimentation.",
             "scrollSubtitle": ""
           }
         ]
@@ -619,17 +619,17 @@
           {
             "scrollVideoSrc": "/robot/R1/R1b3.mp4",
             "scrollTitle": "Lightweight structure, easy maintenance",
-            "scrollSubtitle": "≤123cm agile form, ultra-lightweight at  29kg, and ready out-of-the-box to empower"
+            "scrollSubtitle": "**≤123cm** agile form, ultra-lightweight at  **29kg**, and ready out-of-the-box to empower"
           },
           {
             "scrollVideoSrc": "/robot/R1/56e81e1c28a64c83a429a85e5ff3b870.mp4",
             "scrollTitle": "Integrated with a Large Multimodal Model for voice and images",
-            "scrollSubtitle": "Fully open control interfaces for joints and sensors, with support for mainstream simulation platforms, allowing algorithms to seamlessly enter the physical world."
+            "scrollSubtitle": "Fully open control interfaces for **joints and sensors**, with support for mainstream **simulation platforms**, allowing algorithms to seamlessly enter the physical world."
           },
           {
             "scrollVideoSrc": "/robot/R1/c90b50849fa349e084a942b5d14f2c4e.mp4",
             "scrollTitle": "Movement first, tasks as well",
-            "scrollSubtitle": "A diversity of movement is the foundation for completing tasks"
+            "scrollSubtitle": "A diversity of **movement** is the foundation for completing **tasks**"
           }
         ]
       }
