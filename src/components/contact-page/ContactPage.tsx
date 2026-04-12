@@ -414,13 +414,13 @@ export default function ContactPage() {
                     <p className="whitespace-pre-line break-words">{t("contact.sidebarAddress")}</p>
                   </div>
                 </li>
-                <li className={sidebarRowClass}>
+                {/* <li className={sidebarRowClass}>
                   <Clock className="w-5 h-5 text-[#4361EE] shrink-0 mt-0.5" aria-hidden />
                   <div className="min-w-0 flex-1">
                     <p className="font-medium text-gray-900">{t("contact.sidebarHoursLabel")}</p>
                     <p className="whitespace-pre-line break-words">{t("contact.sidebarHours")}</p>
                   </div>
-                </li>
+                </li> */}
               </ul>
             </aside>
               </div>
