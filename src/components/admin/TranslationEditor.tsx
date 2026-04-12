@@ -394,9 +394,50 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
   }
 
   const dirty = activeSection ? isSectionDirty(activeSection) : false
+  const canSave =
+    !loading &&
+    !!content &&
+    !!activeSection &&
+    activeSection in (content ?? {}) &&
+    dirty
 
   return (
-    <div className="flex min-h-[calc(100vh-1px)] flex-col md:flex-row md:min-h-screen">
+    <div className="flex min-h-screen flex-col">
+      {/* Top bar: View site, Sign out, Save */}
+      <header className="sticky top-0 z-30 flex flex-wrap items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-950/95 px-4 py-3 backdrop-blur md:px-6">
+        <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">
+          Admin
+        </p>
+        <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
+          <Link
+            href={`/${locale}`}
+            className="rounded-lg border border-zinc-700 px-3 py-2 text-sm text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900 hover:text-white"
+          >
+            View website
+          </Link>
+          <button
+            type="button"
+            onClick={() => void onSignOut()}
+            className="rounded-lg border border-zinc-700 px-3 py-2 text-sm text-zinc-300 hover:border-red-900/50 hover:bg-red-950/30 hover:text-red-200"
+          >
+            Sign out
+          </button>
+          <button
+            type="button"
+            disabled={saving || !canSave}
+            onClick={() => void saveActiveSection()}
+            className="min-w-[140px] rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-md shadow-primary/20 transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {saving
+              ? "Saving…"
+              : activeSection
+                ? `Save “${activeSection}”`
+                : "Save"}
+          </button>
+        </div>
+      </header>
+
+      <div className="flex min-h-0 flex-1 flex-col md:flex-row">
       {/* Sidebar */}
       <aside className="flex w-full shrink-0 flex-col border-zinc-800 bg-zinc-900/40 md:w-72 md:border-r">
         <div className="border-b border-zinc-800 p-3">
@@ -497,30 +538,21 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
               )
             })}
         </nav>
-
-        <div className="mt-auto border-t border-zinc-800 p-3">
-          <Link
-            href="/ar"
-            className="mb-2 block w-full rounded-lg border border-zinc-700 py-2 text-center text-xs text-zinc-300 hover:border-zinc-500 hover:text-white"
-          >
-            View site
-          </Link>
-          <button
-            type="button"
-            onClick={() => void onSignOut()}
-            className="w-full rounded-lg border border-zinc-700 py-2 text-sm text-zinc-300 hover:border-red-900/60 hover:bg-red-950/30 hover:text-red-200"
-          >
-            Sign out
-          </button>
-        </div>
       </aside>
 
       {/* Main editor */}
       <div className="flex min-h-[50vh] min-w-0 flex-1 flex-col bg-zinc-950">
         <div className="border-b border-zinc-800 px-4 py-4 md:px-6">
-          <h1 className="text-xl font-bold text-white md:text-2xl">
-            Translations
-          </h1>
+          <div className="mb-2 flex flex-wrap items-center gap-2">
+            <h1 className="text-xl font-bold text-white md:text-2xl">
+              Translations
+            </h1>
+            {dirty && activeSection && (
+              <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-xs font-medium text-amber-300">
+                Unsaved
+              </span>
+            )}
+          </div>
           <p className="mt-1 max-w-2xl text-sm text-zinc-400">
             Edit copy by section. Changes save to Supabase and refresh the public
             site on next request (
@@ -591,11 +623,6 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
                   <span className="rounded-md bg-zinc-800 px-2 py-1 font-mono text-sm text-primary">
                     {activeSection}
                   </span>
-                  {dirty && (
-                    <span className="text-xs font-medium text-amber-400">
-                      Unsaved changes
-                    </span>
-                  )}
                 </div>
                 <ValueField
                   path={activeSection}
@@ -608,24 +635,12 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
                   }}
                 />
               </div>
-
-              <div className="sticky bottom-0 border-t border-zinc-800 bg-zinc-950/95 px-4 py-4 backdrop-blur md:px-6">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <p className="text-xs text-zinc-500">
-                    {dirty
-                      ? "Save to publish this section to the live site."
-                      : "No pending changes for this section."}
-                  </p>
-                  <button
-                    type="button"
-                    disabled={saving || !dirty}
-                    onClick={() => void saveActiveSection()}
-                    className="rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
-                  >
-                    {saving ? "Saving…" : `Save “${activeSection}”`}
-                  </button>
-                </div>
-              </div>
+              {dirty && (
+                <p className="border-t border-zinc-800/80 px-4 py-3 text-xs text-zinc-500 md:px-6">
+                  Use <strong className="text-zinc-400">Save</strong> in the top bar
+                  to publish this section to the live site.
+                </p>
+              )}
             </>
           )}
 
@@ -633,6 +648,7 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
             <p className="p-6 text-sm text-zinc-500">No translation data.</p>
           )}
         </div>
+      </div>
       </div>
     </div>
   )
