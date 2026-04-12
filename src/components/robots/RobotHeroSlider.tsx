@@ -168,7 +168,7 @@ export default function RobotHeroSlider() {
                 >
                   <Link
                     href={`/${lang}${currentSlide.link}`}
-                    className={`${heroCtaSecondary} !w-auto shrink-0`}
+                    className={`${heroCtaSecondary} w-auto  shrink-0`}
                   >
                     <span>{currentSlide.buttonText}</span>
                     <svg

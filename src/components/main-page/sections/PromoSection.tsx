@@ -48,18 +48,20 @@ export default function PromoSection() {
 
                     {/* Text Content - Optimized for mobile */}
                     <motion.div
-                        className={`flex-1 flex flex-col gap-4 md:gap-6 ${lang === 'ar' ? 'text-right' : 'text-left'}`}
+                        className={`flex-1 w-full min-w-0 flex flex-col gap-4 md:gap-6 ${lang === "ar" ? "text-right" : "text-left"}`}
                         initial={{ opacity: 0, x: isMobile ? 0 : (lang === 'ar' ? -50 : 50), y: isMobile ? 20 : 0 }}
                         whileInView={{ opacity: 1, x: 0, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: isMobile ? 0.5 : 0.8, delay: isMobile ? 0.1 : 0.2 }}
                     >
+                        <div className="w-full max-w-[600px]">
                         <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
                             {t("promo.title")}
                         </h2>
                         <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
                             {t("promo.description")}
                         </p>
+                        </div>
                         <div className="mt-2 md:mt-4 flex md:justify-start justify-center">
                         <Link
                             href={promoHref}
