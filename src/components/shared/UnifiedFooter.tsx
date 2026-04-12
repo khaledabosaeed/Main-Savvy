@@ -17,7 +17,7 @@ export default function UnifiedFooter() {
   const isMobile = useIsMobile()
   const footerRef = useRef(null)
   const isInView = useInView(footerRef, { once: true, amount: isMobile ? 0.1 : 0.2 })
-
+  const intorText = isRTL ? "ساڤي :" : "Savvy :"
   return (
     <footer ref={footerRef} className="relative bg-white text-gray-700 pt-12 md:pt-16 pb-6 md:pb-8">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-10">
@@ -28,7 +28,7 @@ export default function UnifiedFooter() {
           className={`flex flex-row items-start  justify-between ${isRTL ? "flex-row" : "flex-row"}`}
         >
               <p className={`text-[10px] w-[200px] md:w-full md:text-sm text-gray-600 leading-relaxed ${isRTL ? "text-right" : "text-left"}`}>
-            {t("common.gateway")}
+            <span className="font-bold text-primary">{intorText}</span> {t("common.gateway")}
           </p>
           <div className="mb-4">
             <Image src="/footer.svg" alt="Savvy Logo" width={120} height={60} className="h-10 md:h-16 w-auto" />
