@@ -17,7 +17,7 @@ export default function UnifiedFooter() {
   const isMobile = useIsMobile()
   const footerRef = useRef(null)
   const isInView = useInView(footerRef, { once: true, amount: isMobile ? 0.1 : 0.2 })
-  const intorText = isRTL ? "ساڤي :" : "Savvy :"
+  const intorText = isRTL ? "ساڤي .." : "Savvy .."
   return (
     <footer ref={footerRef} className="relative bg-white text-gray-700 pt-12 md:pt-16 pb-6 md:pb-8">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-10">

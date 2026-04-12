@@ -140,7 +140,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
             {/* Version selector — price below reflects selected variant */}
             {content.versions.length > 0 && (
               <div className="mb-4">
-                <p
+                {/* <p
                   className={`font-semibold text-gray-900 mb-3 ${
                     isRTL ? "text-right" : "text-left"
                   }`}
@@ -148,7 +148,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
                   {slug === "r1"
                     ? t("robots.r1VariantLabel")
                     : t("robots.version")}
-                </p>
+                </p> */}
                 {/* <div className="flex flex-wrap gap-2">
                   {content.versions.map((v, i) => (
                     <button
