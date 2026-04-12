@@ -113,11 +113,11 @@ const htmlContent = isArabic
       process.env.RECIPIENT_EMAIL || '',
       'modar.alfaleh@savvyworld.ai',
       // 'raad.a@savvyworld.ai',
-      // 'rami.a@savvyworld.ai',
+      'rami.a@savvyworld.ai',
       // 'rashad.walid@savvyworld.ai',
       'sayf.m@savvyworld.ai',
-       'issam.p@savvyworld.ai'
-      // 'tamara.h@savvyworld.ai',
+       'issam.p@savvyworld.ai',
+      'tamara.h@savvyworld.ai',
       // 'mansour.m@savvyworld.ai'
     ].join(', ')
 

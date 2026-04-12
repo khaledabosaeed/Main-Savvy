@@ -33,7 +33,6 @@ export default function G1PageContent({ lang }: G1PageContentProps) {
       />
       <G1ScrollVideoSection lang={lang} />
       <G1FlexibleCarousel lang={lang} />
-      <RobotProductDetails slug="g1" showSpecs={false} />
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10">
           <G1ParameterSection lang={lang} />
@@ -46,6 +45,8 @@ export default function G1PageContent({ lang }: G1PageContentProps) {
             <SpecsTable slug="g1" lang={lang} />
           </div>
         </div>
+        <RobotProductDetails slug="g1" showSpecs={false} />
+
       </section>
     </>
   )

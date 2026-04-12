@@ -28,8 +28,11 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
   const isRTL = currentLang === "ar"
   const lang = currentLang
 
-  const [selectedVersion, setSelectedVersion] = useState(0)
+  const [selectedVersion] = useState(0)
 
+
+
+  
   const selected =
     content.versions[selectedVersion] ?? content.versions[0]
   const displayPrice = selected?.price ?? content.price
@@ -146,7 +149,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
                     ? t("robots.r1VariantLabel")
                     : t("robots.version")}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                {/* <div className="flex flex-wrap gap-2">
                   {content.versions.map((v, i) => (
                     <button
                       key={v.id}
@@ -161,7 +164,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
                       {v.name}
                     </button>
                   ))}
-                </div>
+                </div> */}
               </div>
             )}
 

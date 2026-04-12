@@ -134,7 +134,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="relative pt-20 md:pt-0 py-20 md:py-24 bg-white overflow-hidden">
+      <section className="relative  py-5 md:py-24 bg-white overflow-hidden">
         <div className="container relative z-10 px-6">
           <div className="max-w-6xl mx-auto" dir={isRTL ? "rtl" : "ltr"}>
             <motion.div
@@ -144,12 +144,12 @@ export default function ContactPage() {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className={isRTL ? "text-right" : "text-left"}
             >
-              <h1 className="text-3xl mt-20 md:text-4xl font-bold text-gray-900 mb-4 text-center lg:text-start">
+              <h1 className="text-3xl mt-20 md:text-4xl font-bold text-gray-900 mb-12 text-center lg:text-start">
                 {t("contact.heroTitle")}
               </h1>
-              <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-12 text-center lg:text-start">
+              {/* <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-12 text-center lg:text-start">
                 {t("contact.formTitle")}
-              </h2>
+              </h2> */}
 
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(260px,320px)] gap-10 lg:gap-12 items-start">
                 <div className={`min-w-0 order-1 lg:order-none ${isRTL ? "text-right" : "text-left"}`}>

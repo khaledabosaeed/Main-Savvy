@@ -25,14 +25,15 @@ export default function UnifiedFooter() {
           initial={{ opacity: 0, y: isMobile ? 15 : 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: isMobile ? 0.4 : 0.5 }}
-          className={`flex flex-col items-start mb-8 md:mb-12 ${isRTL ? "items-end" : "items-start"}`}
+          className={`flex flex-row items-start  justify-between ${isRTL ? "flex-row" : "flex-row"}`}
         >
-          <div className="mb-4">
-            <Image src="/footer.svg" alt="Savvy Logo" width={120} height={60} className="h-12 w-auto" />
-          </div>
-          <p className={`text-sm text-gray-600 leading-relaxed ${isRTL ? "text-right" : "text-left"}`}>
+              <p className={`text-[10px] w-[200px] md:w-full md:text-sm text-gray-600 leading-relaxed ${isRTL ? "text-right" : "text-left"}`}>
             {t("common.gateway")}
           </p>
+          <div className="mb-4">
+            <Image src="/footer.svg" alt="Savvy Logo" width={120} height={60} className="h-10 md:h-16 w-auto" />
+          </div>
+      
         </motion.div>
 
         <div className="h-px bg-gray-200 mb-8" />

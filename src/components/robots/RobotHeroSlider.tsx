@@ -36,10 +36,9 @@ export default function RobotHeroSlider() {
   const slides = useMemo((): RobotSlide[] => {
     const raw = t("robots.cards", { returnObjects: true })
     const cards = (Array.isArray(raw) ? raw : []) as RobotCard[]
-    const suffix = t("robots.sliderDescriptionSuffix")
     return cards.map((r) => ({
       ...r,
-      description: r.description + suffix,
+      description: r.description ,
       backgroundImage: r.image,
     }))
   }, [t])
