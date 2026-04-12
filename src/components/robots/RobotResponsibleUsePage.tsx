@@ -104,7 +104,7 @@ export default function RobotResponsibleUsePage() {
                       <li
                         key={i}
                         className={`text-gray-700 text-lg flex gap-2 items-start ${
-                          isRTL ? "flex-row-reverse" : ""
+                          isRTL ? "" : ""
                         }`}
                       >
                         <span className="text-primary shrink-0 mt-0.5">•</span>

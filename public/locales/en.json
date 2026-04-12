@@ -719,6 +719,12 @@
           {
             "label": "Mechanical Dimensions",
             "rows": [
+              {
+                "name": "High Computing Power Module",
+                "values": [
+                  "NVIDIA Jetson Orin (GPU)"
+                ]
+              },
               { "name": "Height, Width and Thickness (Stand)", "values": [ "1320 x 450 x 200mm"] },
               { "name": "Height, Width and Thickness (Fold)", "values": ["690 x 450 x 300mm"] },
               { "name": "Weight (With Battery)", "values": [ " 35kg"] },
@@ -752,12 +758,7 @@
           {
             "label": "Accessories",
             "rows": [
-              {
-                "name": "High Computing Power Module",
-                "values": [
-                  "NVIDIA Jetson Orin"
-                ]
-              },
+          
               {
                 "name": "Smart Battery (Quick Release)",
                 "values": [
