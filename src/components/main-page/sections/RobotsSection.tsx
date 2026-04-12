@@ -37,7 +37,7 @@ function RobotCardLink({
       </div>
 
       <div className="p-6 flex flex-col gap-4">
-        <h3 className="text-xl font-semibold text-gray-900 leading-relaxed">
+        <h3 className="text-xl font-semibold text-gray-900 leading-relaxed " >
           {card.name}
         </h3>
 

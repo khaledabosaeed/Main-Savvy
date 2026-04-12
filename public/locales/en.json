@@ -553,13 +553,8 @@
         "subtitle": "Unitree G1 EDU Standard (U1) Humanoid Robot",
         "priceStartsFrom": "Contact Sales",
         "buttonText": "View Product",
-        "textPlacement": "center",
-        "features": [
-          "A fully integrated humanoid robot standing ~1.3 meters tall and weighing around 35 kg, with a foldable design for easy transport and deployment in different environments.",
-          "Equipped with 23–43 degrees of freedom (DOF) and high-torque motors reaching up to 120 N·m, enabling smooth, human-like movement and advanced balance.",
-          "Powered by the NVIDIA Jetson Orin processor, delivering up to 100 TOPS, allowing advanced AI development using ROS2 and Python.",
-          "Features advanced sensors including LiDAR and 3D depth cameras, with optional dexterous hands (up to 7 DOF per hand), making it ideal for research, education, and interactive experiences."
-        ]
+        "textPlacement": "center"
+
       },
 
       "go2": {
@@ -584,18 +579,18 @@
         "items": [
           {
             "scrollVideoSrc": "/robot/g1/four.mp4",
-            "scrollTitle": "Force control dexterous hand, manipulation of all things",
-            "scrollSubtitle": "Combined with force-position hybrid control, it is sensitive and reliable, and can simulate human hands to achieve precise operation of objects."
+            "scrollTitle": "Equipped with 23–43 degrees of freedom (DOF) and high-torque motors reaching up to 120 N·m, enabling smooth, human-like movement and advanced balance.",
+            "scrollSubtitle": ""
           },
           {
             "scrollVideoSrc": "/robot/g1/five.mp4",
-            "scrollTitle": "Multi-mode operation",
-            "scrollSubtitle": "The G1 robot can operate in various modes, including manual control, autonomous navigation, and obstacle avoidance."
+            "scrollTitle": "Powered by the NVIDIA Jetson Orin processor, delivering up to 100 TOPS, allowing advanced AI development using ROS2 and Python.",
+            "scrollSubtitle": ""
           },
           {
             "scrollVideoSrc": "/robot/g1/six.mp4",
-            "scrollTitle": "Robot world model, let’s create it together",
-            "scrollSubtitle": "UnifoLM (Unified Robot Large Model), create a new era of intelligence together"
+            "scrollTitle": "Features advanced sensors including LiDAR and 3D depth cameras, with optional dexterous hands (up to 7 DOF per hand), making it ideal for research, education, and interactive experiences.",
+            "scrollSubtitle": ""
           }
         ]
       },
@@ -604,18 +599,18 @@
         "items": [
           {
             "scrollVideoSrc": "/robot/go2/first.mp4",
-            "scrollTitle": "Advanced AI Mode",
-            "scrollSubtitle": "Through large-scale AI simulation training, the Go2 robot has learned advanced gaits such as upside-down walking, adaptive roll-over, and climbing over obstacles, with excellent flexibility and stability at the same time."
+            "scrollTitle": "Equipped with AI systems, LiDAR, and 3D cameras for accurate environment perception and autonomous navigation.",
+            "scrollSubtitle": ""
           },
           {
             "scrollVideoSrc": "/robot/go2/second.mp4",
-            "scrollTitle": "3D LiDAR Mapping",
-            "scrollSubtitle": "With L2 LiDAR and a dedicated App, you can construct point cloud map within a certain area, and specify a path for Go2 to move autonomously."
+            "scrollTitle": "Available in Pro and EDU versions, covering both out-of-the-box use (entertainment) and advanced development using ROS2 and Python.",
+            "scrollSubtitle": ""
           },
           {
             "scrollVideoSrc": "/robot/go2/third.mp4",
-            "scrollTitle": "ISS2.0",
-            "scrollSubtitle": "Intelligent Side-follow System. By adopting the new wireless vector positioning and control technology, the positioning accuracy is technically upgraded by 50%, the remote control distance is over 30m[2], and combined with the optimised obstacle avoidance strategy, it can make the robot better traverse complex terrain."
+            "scrollTitle": "Supports add-ons such as additional LiDAR, robotic arms, and autonomous charging, transforming it into a complete solution for business, research, and experimentation.",
+            "scrollSubtitle": ""
           }
         ]
       },

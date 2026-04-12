@@ -8,7 +8,6 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
 import { staggerContainer, fadeInUp } from "@/lib/animations"
 
-type JobRole = { value: string; label: string }
 type SolutionOptionGroup = { title: string; options: string[] }
 
 function isPlaceholderContactValue(s: string) {
@@ -39,7 +38,6 @@ export default function ContactPage() {
     email: "",
     phone: "",
     companyName: "",
-    jobTitle: "",
     message: "",
   })
   const [selectedSolutions, setSelectedSolutions] = useState<string[]>([])
@@ -58,16 +56,6 @@ export default function ContactPage() {
   }, [t])
 
   const solutionOtherLabel = t("contact.solutionOther")
-
-  const jobRoles = useMemo(() => {
-    const raw = t("contact.jobRoles", { returnObjects: true })
-    return Array.isArray(raw) ? (raw as JobRole[]) : []
-  }, [t])
-
-  const jobTitleForSubmit = useMemo(() => {
-    const role = jobRoles.find((r) => r.value === formData.jobTitle)
-    return role?.label ?? formData.jobTitle
-  }, [formData.jobTitle, jobRoles])
 
   const sidebarPhone = t("contact.sidebarPhone")
   const sidebarEmail = t("contact.sidebarEmail")
@@ -104,7 +92,6 @@ export default function ContactPage() {
           email: formData.email,
           phone: formData.phone,
           companyName: formData.companyName,
-          jobTitle: jobTitleForSubmit,
           message: [...selectedSolutions, formData.message].filter(Boolean).join("\n"),
           lang,
         }),
@@ -117,7 +104,6 @@ export default function ContactPage() {
           email: "",
           phone: "",
           companyName: "",
-          jobTitle: "",
           message: "",
         })
         setSelectedSolutions([])
@@ -234,7 +220,7 @@ export default function ContactPage() {
                   </motion.div>
                 </div>
 
-                <div className={`grid grid-cols-1 md:grid-cols-2 gap-5 ${isRTL ? "rtl" : "ltr"}`}>
+                <div className={`${isRTL ? "rtl" : "ltr"}`}>
                   <motion.div variants={fadeInUp}>
                     <label
                       className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
@@ -250,31 +236,6 @@ export default function ContactPage() {
                       className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all ${isRTL ? "text-right" : "text-left"}`}
                       dir={isRTL ? "rtl" : "ltr"}
                     />
-                  </motion.div>
-
-                  <motion.div variants={fadeInUp}>
-                    <label
-                      className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
-                    >
-                      {t("contact.jobTitle")}
-                    </label>
-                    <select
-                      name="jobTitle"
-                      value={formData.jobTitle}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all ${isRTL ? "text-right" : "text-left"}`}
-                      dir={isRTL ? "rtl" : "ltr"}
-                      required
-                    >
-                      <option value="" disabled>
-                        {t("contact.jobRolePlaceholder")}
-                      </option>
-                      {jobRoles.map((role) => (
-                        <option key={role.value} value={role.value}>
-                          {role.label}
-                        </option>
-                      ))}
-                    </select>
                   </motion.div>
                 </div>
 
@@ -425,7 +386,7 @@ export default function ContactPage() {
                   <div className="min-w-0 flex-1">
                     <p className="font-medium text-gray-900">{t("contact.sidebarPhoneLabel")}</p>
                     {telHref ? (
-                      <a href={`tel:${telHref}`} className="text-[#4361EE] hover:underline break-all">
+                      <a href={`tel:${telHref}`} className="text-[#4361EE] hover:underline break-all" dir="ltr">
                         {sidebarPhone}
                       </a>
                     ) : (
