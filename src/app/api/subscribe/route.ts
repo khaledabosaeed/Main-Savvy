@@ -108,17 +108,14 @@ const htmlContent = isArabic
 
 
 
-    // قائمة المستقبلين
     const recipients = [
       process.env.RECIPIENT_EMAIL || '',
       'modar.alfaleh@savvyworld.ai',
-      // 'raad.a@savvyworld.ai',
       'rami.a@savvyworld.ai',
-      // 'rashad.walid@savvyworld.ai',
       'sayf.m@savvyworld.ai',
        'issam.p@savvyworld.ai',
       'tamara.h@savvyworld.ai',
-      // 'mansour.m@savvyworld.ai'
+      'norhatta.p@savvyworld.ai',
     ].join(', ')
 
     // Send email
