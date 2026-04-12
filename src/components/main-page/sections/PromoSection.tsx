@@ -5,13 +5,20 @@ import { useIsMobile } from "@/hooks/useIsMobile"
 import { useTranslation } from "react-i18next"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 
 export default function PromoSection() {
     const { language } = useLanguage()
     const { t } = useTranslation()
     const isMobile = useIsMobile()
+    const pathname = usePathname()
     const lang = language as "en" | "ar"
+    const isOnContactPage = pathname === `/${lang}/contact`
+    const promoHref = isOnContactPage ? `/${lang}` : `/${lang}/contact`
+    const promoButtonText = isOnContactPage
+        ? t("promo.buttonTextOnContactPage")
+        : t("promo.buttonText")
 
     return (
         <section className="w-full py-12 md:py-16 lg:py-20  mt-0 md:mt-50" >
@@ -55,10 +62,10 @@ export default function PromoSection() {
                         </p>
                         <div className="mt-2 md:mt-4 flex md:justify-start justify-center">
                         <Link
-                            href={`/${lang}/contact`}
-                            className={`px-8 md:px-10 py-3 md:py-4 bg-blue-600 text-white rounded-xl text-base md:text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 ${lang === 'ar' ? 'self-end' : 'self-start'} md:${lang === 'ar' ? 'self-end' : 'self-start'} self-center`}
+                            href={promoHref}
+                            className={`px-8 md:px-10 py-3 md:py-4 bg-blue-600 text-white rounded-xl text-base md:text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 ${lang === "ar" ? "md:self-end" : "md:self-start"} self-center`}
                         >
-                            {t("promo.buttonText")}
+                            {promoButtonText}
                         </Link>
                         </div>
                     </motion.div>
