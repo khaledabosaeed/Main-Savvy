@@ -51,7 +51,6 @@ export default function Go2PageContent({ lang }: Go2PageContentProps) {
       ))}
             <Go2FlexibleSection lang={lang} />
 
-      <RobotProductDetails slug="go2" showSpecs={false} />
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10 space-y-12">
           {beforeTable.map((item) => (
@@ -73,6 +72,8 @@ export default function Go2PageContent({ lang }: Go2PageContentProps) {
             </div>
           )}
         </div>
+        <RobotProductDetails slug="go2" showSpecs={false} />
+
       </section>
     </>
   )

@@ -48,7 +48,6 @@ export default function R1PageContent({ lang }: R1PageContentProps) {
           </div>
         </section>
       ))}
-      <RobotProductDetails slug="r1" showSpecs={false} />
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10 space-y-12">
           {beforeTable.map((item) => (
@@ -70,6 +69,8 @@ export default function R1PageContent({ lang }: R1PageContentProps) {
             </div>
           )}
         </div>
+        <RobotProductDetails slug="r1" showSpecs={false} />
+
       </section>
     </>
   )

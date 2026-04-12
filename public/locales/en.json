@@ -434,10 +434,11 @@
       {
         "title": "Savvy Innovation",
         "options": [
-          "Advisory: responsible AI and data management",
-          "Industrial robots (firefighting, inspection, security)",
-          "Green energy: solar, EV charging, eco cement, efficient smart home",
-          "Strategic partnerships"
+          "G1 Humanoid Robot ",
+          "R1 Humanoid Robot",
+          "Go2 Robo-Dog Robot",
+          "Industrial robots (firefighting, inspection, security)"
+
         ]
       },
       {
@@ -452,8 +453,7 @@
         "title": "Savvy Media",
         "options": [
           "Indoor, outdoor, and facade digital screens",
-          "Brand, content, and social media",
-          "Alcrea  intelligent assistants to reduce workload"
+          "Brand, content, and social media"
         ]
       }
     ]
@@ -520,7 +520,7 @@
       {
         "id": "r1",
         "name": "Unitree Humanoid R1",
-        "description": "Unitree R1 Humanoid Robot",
+        "description": "A lightweight humanoid robot, approximately 1.2 meters tall and weighing less than 30 kg, designed to be easy to transport and use daily.",
         "image": "/robot/R1/R!.webp",
         "link": "/robots/r1",
         "buttonText": "Explore the world of R1",
@@ -529,7 +529,7 @@
       {
         "id": "g1",
         "name": "Unitree Humanoid G1 ",
-        "description": "Unitree G1 EDU Standard (U1) Humanoid Robot",
+        "description": "A fully integrated humanoid robot standing about 1.3 meters tall and weighing around 35 kg, with a foldable design for easy transport and deployment in different environments.",
         "image": "/robot/g1/g1.webp",
         "link": "/robots/g1",
         "buttonText": "Explore the world of G1",
@@ -539,7 +539,7 @@
       {
         "id": "go2",
         "name": "Unitree Robo-Dog Go2",
-        "description": "Unitree Go2 PRO Robotic Dog",
+        "description": "An advanced quadruped robot platform, designed for intelligent movement and real-world applications across various environments.",
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
         "buttonText": "Explore the world of Go2",
@@ -550,7 +550,7 @@
       "g1": {
         "videoSrc": "/robot/g1/hero.mp4",
         "title": "Unitree G1 Humanoid Robot",
-        "subtitle": "Unitree G1 EDU Standard (U1) Humanoid Robot",
+        "subtitle": "A fully integrated humanoid robot standing about 1.3 meters tall and weighing around 35 kg, with a foldable design for easy transport and deployment in different environments.",
         "priceStartsFrom": "Contact Sales",
         "buttonText": "View Product",
         "textPlacement": "center"
@@ -560,7 +560,7 @@
       "go2": {
         "videoSrc": "/robot/go2/hero.mp4",
         "title": "Unitree Robo-Dog Go2",
-        "subtitle": "Unitree Go2 PRO Robotic Dog",
+        "subtitle": "An advanced quadruped robot platform, designed for intelligent movement and real-world applications across various environments.",
         "priceStartsFrom": "From 6,000 SAR",
         "buttonText": "View Product",
         "textPlacement": "center"
@@ -568,7 +568,7 @@
       "r1": {
         "videoSrc": "/robot/R1/hero.mp4",
         "title": "Unitree Humanoid  R1",
-        "subtitle": "Unitree R1 Humanoid Robot",
+        "subtitle": "A lightweight humanoid robot, approximately 1.2 meters tall and weighing less than 30 kg, designed to be easy to transport and use daily.",
         "priceStartsFrom": "From 18,375 SAR",
         "buttonText": "View Product",
         "textPlacement": "center"
