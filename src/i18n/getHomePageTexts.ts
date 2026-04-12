@@ -3,8 +3,10 @@ import type { HomePageTextsResult } from "./home-page-texts"
 import type { AppLanguage } from "./settings"
 
 /** Server Components: home header labels + gallery heading from locale JSON. */
-export function getHomePageTexts(lang: AppLanguage): HomePageTextsResult {
-  const d = getDictionary(lang)
+export async function getHomePageTexts(
+  lang: AppLanguage
+): Promise<HomePageTextsResult> {
+  const d = await getDictionary(lang)
   const c = d.common
   return {
     texts: {

@@ -1,5 +1,7 @@
 "use client"
 
+import { useTranslation } from "react-i18next"
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import RobotHero from "./RobotHero"
 import RobotVideoSection from "./RobotVideoSection"
 import RobotSingleImageSection from "./RobotSingleImageSection"
@@ -13,18 +15,18 @@ import {
   getRobotSpecsContent,
 } from "@/lib/robots-locale"
 import type { Language } from "@/lib/robots-locale"
-import en from "@/../public/locales/en.json"
-import ar from "@/../public/locales/ar.json"
 
 interface Go2PageContentProps {
   lang: Language
 }
 
 export default function Go2PageContent({ lang }: Go2PageContentProps) {
-  const heroContent = getRobotHeroContent("go2", lang)
-  const beforeVideo = getRobotImageSectionsBeforeVideo("go2", lang)
-  const beforeTable = getRobotImageSectionsBeforeTable("go2", lang)
-  const hasSpecs = !!getRobotSpecsContent("go2", lang)
+  const dict = useLocaleDictionary()
+  const { t } = useTranslation()
+  const heroContent = getRobotHeroContent("go2", dict)
+  const beforeVideo = getRobotImageSectionsBeforeVideo("go2", dict)
+  const beforeTable = getRobotImageSectionsBeforeTable("go2", dict)
+  const hasSpecs = !!getRobotSpecsContent("go2", dict)
 
   return (
     <>
@@ -66,7 +68,7 @@ export default function Go2PageContent({ lang }: Go2PageContentProps) {
               <h2
                 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`}
               >
-                {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
+                {t("common.specifications")}
               </h2>
               <SpecsTable slug="go2" lang={lang} />
             </div>

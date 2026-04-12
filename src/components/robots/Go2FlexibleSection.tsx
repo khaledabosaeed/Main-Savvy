@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import { getGo2FlexibleSectionContent } from "@/lib/robots-locale"
 import type { Language } from "@/lib/robots-locale"
 
@@ -11,7 +12,8 @@ interface Go2FlexibleSectionProps {
 }
 
 export default function Go2FlexibleSection({ lang }: Go2FlexibleSectionProps) {
-  const content = getGo2FlexibleSectionContent(lang)
+  const dict = useLocaleDictionary()
+  const content = getGo2FlexibleSectionContent(dict)
   const cards = content.cards ?? []
   const [currentIndex, setCurrentIndex] = useState(0)
   const isRTL = lang === "ar"

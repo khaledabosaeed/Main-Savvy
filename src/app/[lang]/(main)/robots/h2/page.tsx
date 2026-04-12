@@ -14,7 +14,7 @@ export default async function H2Page({ params }: H2PageProps) {
   if (!isAppLanguage(lang)) {
     notFound()
   }
-  const texts = robotsRouteHeaderTexts(lang)
+  const texts = await robotsRouteHeaderTexts(lang)
 
   return (
     <>

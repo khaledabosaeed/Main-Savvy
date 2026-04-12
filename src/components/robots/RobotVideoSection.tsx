@@ -1,5 +1,6 @@
 "use client"
 
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import { ScrollVideoBlock } from "@/components/robots/ScrollVideoBlock"
 import { getRobotScrollSectionContent } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
@@ -10,7 +11,8 @@ interface RobotVideoSectionProps {
 }
 
 export default function RobotVideoSection({ slug, lang }: RobotVideoSectionProps) {
-  const items = getRobotScrollSectionContent(slug, lang)
+  const dict = useLocaleDictionary()
+  const items = getRobotScrollSectionContent(slug, dict)
   if (items.length === 0) return null
 
   const isRTL = lang === "ar"

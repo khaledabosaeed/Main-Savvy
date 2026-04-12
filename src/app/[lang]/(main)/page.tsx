@@ -17,7 +17,7 @@ export default async function Home({ params }: HomePageProps) {
   if (!isAppLanguage(lang)) {
     notFound()
   }
-  const dict = getDictionary(lang)
+  const dict = await getDictionary(lang)
   const texts = robotsIndexHeaderTexts(dict)
 
   return (

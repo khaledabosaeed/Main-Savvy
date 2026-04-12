@@ -1,5 +1,6 @@
 "use client"
 
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import { ScrollVideoBlock } from "@/components/robots/ScrollVideoBlock"
 import { getG1ScrollSectionContent } from "@/lib/robots-locale"
 import type { Language } from "@/lib/robots-locale"
@@ -9,7 +10,8 @@ interface G1ScrollVideoSectionProps {
 }
 
 export default function G1ScrollVideoSection({ lang }: G1ScrollVideoSectionProps) {
-  const items = getG1ScrollSectionContent(lang)
+  const dict = useLocaleDictionary()
+  const items = getG1ScrollSectionContent(dict)
   if (items.length === 0) return null
 
   const isRTL = lang === "ar"

@@ -14,7 +14,7 @@ export default async function G1Page({ params }: G1PageProps) {
   if (!isAppLanguage(lang)) {
     notFound()
   }
-  const texts = robotsRouteHeaderTexts(lang)
+  const texts = await robotsRouteHeaderTexts(lang)
 
   return (
     <>

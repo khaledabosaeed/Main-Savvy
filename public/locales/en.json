@@ -522,7 +522,7 @@
         "id": "r1",
         "name": "Unitree Humanoid R1",
         "description": "A lightweight humanoid robot, approximately 1.2 meters tall and weighing less than 30 kg, designed to be easy to transport and use daily.",
-        "image": "/robot/R1/R!.webp",
+        "image": "/robot/R1/R!.png",
         "link": "/robots/r1",
         "buttonText": "Explore the world of R1",
         "productLink": "/robots/r1/product"
@@ -531,7 +531,7 @@
         "id": "g1",
         "name": "Unitree Humanoid G1 ",
         "description": "A fully integrated humanoid robot standing about 1.3 meters tall and weighing around 35 kg, with a foldable design for easy transport and deployment in different environments.",
-        "image": "/robot/g1/g1.webp",
+        "image": "/robot/g1/g1.png",
         "link": "/robots/g1",
         "buttonText": "Explore the world of G1",
         "productLink": "/robots/g1/product"
@@ -736,8 +736,8 @@
               { "name": "Waist Degrees of Freedom", "values": [ "1+(Optional 2 additional waist degrees of freedom)"] },
               { "name": "Single Arm Degrees of Freedom", "values": [ "5"] },
               { "name": "Single Hand Degrees of Freedom", "values": ["7 (Optional Force control of three-fingered hand)\n+2(Optional 2 additional wrist degrees of freedom)\n*Three-fingered dexterous hand Dex3-1 Parameter: The thumb has 3 active degrees of freedom; the index finger has 2 active degrees of freedom; the middle finger has 2 active degrees of freedom.\n**Dex3-1 can optionally be installed with tactile sensor arrays"] },
-              { "name": "Joint output bearing", "values": [ "Industrial grade crossed roller bearings (high precision, high load capacity)"] },
-              { "name": "Joint motor", "values": [ "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"] }
+              { "name": "Joint output bearing", "values": [ "Industrial grade crossed "] },
+              { "name": "Joint motor", "values": [ "PMSM (permanent magnet) "] }
             ]
           },
           {
@@ -856,7 +856,6 @@
               {
                 "name": "Manual Controller",
                 "values": [
-            
                   "YES"
                 ]
               }

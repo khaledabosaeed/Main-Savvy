@@ -1,11 +1,11 @@
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { LocaleDictionaryProvider } from "@/contexts/LocaleDictionaryContext";
 import { notFound } from "next/navigation";
 import { Inter } from "next/font/google"
 import localFont from "next/font/local"
 import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { TranslationsProvider } from "@/i18n/client";
-import en from "../../../public/locales/en.json";
-import ar from "../../../public/locales/ar.json";
+import { getDictionary } from "@/i18n/getDictionary";
 
 type Language = 'en' | 'ar';
 
@@ -55,18 +55,20 @@ export default async function LangLayout({
 
   const lang = rawLang as Language;
   const dir = lang === "ar" ? "rtl" : "ltr"
-  const localeResources = lang === "ar" ? ar : en
+  const localeResources = await getDictionary(lang)
 
   return (
     <LanguageProvider initialLanguage={lang}>
-      <TranslationsProvider locale={lang} resources={localeResources as Record<string, unknown>}>
-        <div dir={dir} className={lang === "ar" ? expoArabic.className : inter.className}>
-          {children}
-          <WhatsAppButton 
-            phoneNumber="966580335989"
-          />
-        </div>
-      </TranslationsProvider>
+      <LocaleDictionaryProvider value={localeResources}>
+        <TranslationsProvider locale={lang} resources={localeResources as Record<string, unknown>}>
+          <div dir={dir} className={lang === "ar" ? expoArabic.className : inter.className}>
+            {children}
+            <WhatsAppButton 
+              phoneNumber="966580335989"
+            />
+          </div>
+        </TranslationsProvider>
+      </LocaleDictionaryProvider>
     </LanguageProvider>
   );
 }
