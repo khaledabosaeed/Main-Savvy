@@ -11,7 +11,10 @@ export default function AdminLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 antialiased">
+    <div
+      className="h-dvh min-h-0 overflow-hidden bg-zinc-950 text-zinc-100 antialiased"
+      data-lenis-prevent
+    >
       {children}
     </div>
   )
