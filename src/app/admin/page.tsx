@@ -15,4 +15,5 @@ export default function AdminDashboardPage() {
   }
 
   return <TranslationEditor onSignOut={handleSignOut} />
+  
 }
