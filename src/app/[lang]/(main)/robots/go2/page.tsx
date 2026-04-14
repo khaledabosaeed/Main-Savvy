@@ -14,7 +14,7 @@ export default async function Go2Page({ params }: Go2PageProps) {
   if (!isAppLanguage(lang)) {
     notFound()
   }
-  const texts = robotsRouteHeaderTexts(lang)
+  const texts = await robotsRouteHeaderTexts(lang)
 
   return (
     <>

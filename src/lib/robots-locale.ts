@@ -1,10 +1,8 @@
 import en from "../../public/locales/en.json"
-import ar from "../../public/locales/ar.json"
+import type { LocaleDictionary } from "@/i18n/getDictionary"
 
 export type Language = "en" | "ar"
 export type RobotSlug = "g1" | "h2" | "go2" | "r1"
-
-const locales = { en, ar } as const
 
 /** Set to `true` to show hero prices, spec table prices, product prices, and “View pricing” CTAs. */
 export const SHOW_ROBOT_PRICING = false
@@ -156,18 +154,21 @@ export interface RobotSpecsConfig {
   modelLabel?: string
 }
 
-export function getRobotCards(lang: Language): RobotCard[] {
-  const robots = locales[lang]?.robots
-  return (robots?.cards ?? locales.en.robots.cards) as RobotCard[]
+export function getRobotCards(dict: LocaleDictionary): RobotCard[] {
+  const robots = dict?.robots
+  return (robots?.cards ?? en.robots.cards) as RobotCard[]
 }
 
-export function getRobotsSectionContent(lang: Language): {
+export function getRobotsSectionContent(
+  lang: Language,
+  dict: LocaleDictionary
+): {
   sectionTitle: string
   robots: RobotCard[]
   viewPricingText: string
 } {
-  const robots = locales[lang]?.robots as { heading?: string; cards?: RobotCard[]; viewPricingText?: string }
-  const fallback = locales.en.robots as { heading: string; cards: RobotCard[]; viewPricingText: string }
+  const robots = dict?.robots as { heading?: string; cards?: RobotCard[]; viewPricingText?: string }
+  const fallback = en.robots as { heading: string; cards: RobotCard[]; viewPricingText: string }
   return {
     sectionTitle: robots?.heading ?? fallback.heading,
     robots: (robots?.cards ?? fallback.cards) as RobotCard[],
@@ -175,11 +176,11 @@ export function getRobotsSectionContent(lang: Language): {
   }
 }
 
-export function getRobotSliderSlides(lang: Language): RobotSlide[] {
-  const cards = getRobotCards(lang)
+export function getRobotSliderSlides(dict: LocaleDictionary): RobotSlide[] {
+  const cards = getRobotCards(dict)
   const suffix = SHOW_ROBOT_PRICING
-    ? ((locales[lang]?.robots as { sliderDescriptionSuffix?: string })
-        ?.sliderDescriptionSuffix ?? locales.en.robots.sliderDescriptionSuffix)
+    ? ((dict?.robots as { sliderDescriptionSuffix?: string })
+        ?.sliderDescriptionSuffix ?? en.robots.sliderDescriptionSuffix)
     : ""
   return cards.map((r) => ({
     ...r,
@@ -194,10 +195,10 @@ function stripHeroPricing(config: RobotHeroConfig): RobotHeroConfig {
 
 export function getRobotHeroContent(
   slug: RobotSlug,
-  lang: Language
+  dict: LocaleDictionary
 ): RobotHeroConfig {
-  const hero = (locales[lang]?.robots as unknown as { hero?: Record<RobotSlug, RobotHeroConfig> })?.hero?.[slug]
-  const fallback = (locales.en.robots as unknown as { hero: Record<RobotSlug, RobotHeroConfig> }).hero[slug]
+  const hero = (dict?.robots as unknown as { hero?: Record<RobotSlug, RobotHeroConfig> })?.hero?.[slug]
+  const fallback = (en.robots as unknown as { hero: Record<RobotSlug, RobotHeroConfig> }).hero[slug]
   const config = (hero ?? fallback) as RobotHeroConfig
   return SHOW_ROBOT_PRICING ? config : stripHeroPricing(config)
 }
@@ -212,92 +213,92 @@ function stripProductPricing(config: RobotProductConfig): RobotProductConfig {
 
 export function getRobotProductContent(
   slug: RobotSlug,
-  lang: Language
+  dict: LocaleDictionary
 ): RobotProductConfig {
-  const product = (locales[lang]?.robots as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
-  const fallback = (locales.en.robots as unknown as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
+  const product = (dict?.robots as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
+  const fallback = (en.robots as unknown as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
   const config = (product ?? fallback) as RobotProductConfig
   return SHOW_ROBOT_PRICING ? config : stripProductPricing(config)
 }
 
-export function getG1ScrollSectionContent(lang: Language): ScrollSectionItem[] {
-  const raw = (locales[lang]?.robots as { scrollSection?: { g1?: unknown } })?.scrollSection?.g1
-  const fallback = (locales.en.robots as { scrollSection: { g1: unknown } }).scrollSection.g1
+export function getG1ScrollSectionContent(dict: LocaleDictionary): ScrollSectionItem[] {
+  const raw = (dict?.robots as { scrollSection?: { g1?: unknown } })?.scrollSection?.g1
+  const fallback = (en.robots as { scrollSection: { g1: unknown } }).scrollSection.g1
   return normalizeScrollSection(raw ?? fallback)
 }
 
 export function getRobotScrollSectionContent(
   slug: RobotSlug,
-  lang: Language
+  dict: LocaleDictionary
 ): ScrollSectionItem[] {
-  const raw = (locales[lang]?.robots as unknown as { scrollSection?: Record<RobotSlug, unknown> })?.scrollSection?.[slug]
-  const fallback = (locales.en.robots as unknown as { scrollSection?: Record<RobotSlug, unknown> })?.scrollSection?.[slug]
+  const raw = (dict?.robots as unknown as { scrollSection?: Record<RobotSlug, unknown> })?.scrollSection?.[slug]
+  const fallback = (en.robots as unknown as { scrollSection?: Record<RobotSlug, unknown> })?.scrollSection?.[slug]
   return normalizeScrollSection(raw ?? fallback)
 }
 
 export function getRobotFeatureSectionContent(
   slug: RobotSlug,
-  lang: Language
+  dict: LocaleDictionary
 ): RobotFeatureItem[] {
-  const featureSection = (locales[lang]?.robots as unknown as { featureSection?: Record<RobotSlug, RobotFeatureItem[]> })?.featureSection?.[slug]
-  const fallback = (locales.en.robots as unknown as { featureSection?: Record<RobotSlug, RobotFeatureItem[]> })?.featureSection?.[slug]
+  const featureSection = (dict?.robots as unknown as { featureSection?: Record<RobotSlug, RobotFeatureItem[]> })?.featureSection?.[slug]
+  const fallback = (en.robots as unknown as { featureSection?: Record<RobotSlug, RobotFeatureItem[]> })?.featureSection?.[slug]
   return featureSection ?? fallback ?? []
 }
 
-export function getG1ParameterSectionContent(lang: Language): G1ParameterSectionConfig | null {
-  const specs = (locales[lang]?.robots as { specs?: { g1?: { header?: string; image?: string } } })?.specs?.g1
-  const fallback = (locales.en.robots as { specs?: { g1?: { header?: string; image?: string } } })?.specs?.g1
+export function getG1ParameterSectionContent(dict: LocaleDictionary): G1ParameterSectionConfig | null {
+  const specs = (dict?.robots as { specs?: { g1?: { header?: string; image?: string } } })?.specs?.g1
+  const fallback = (en.robots as { specs?: { g1?: { header?: string; image?: string } } })?.specs?.g1
   const data = specs ?? fallback
   if (!data?.header || !data?.image) return null
   return { header: data.header, image: data.image }
 }
 
 export function getG1ImageSectionContent(
-  lang: Language,
+  dict: LocaleDictionary,
   section: "section1" | "section2"
 ): G1ImageSectionConfig | null {
-  const imageSection = (locales[lang]?.robots as { imageSection?: { g1?: { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig } } })?.imageSection?.g1?.[section]
-  const fallback = (locales.en.robots as { imageSection?: { g1?: { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig } } })?.imageSection?.g1?.[section]
+  const imageSection = (dict?.robots as { imageSection?: { g1?: { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig } } })?.imageSection?.g1?.[section]
+  const fallback = (en.robots as { imageSection?: { g1?: { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig } } })?.imageSection?.g1?.[section]
   return (imageSection ?? fallback) ?? null
 }
 
-export function getH1ImageSectionsBeforeVideo(lang: Language): RobotSingleImageConfig[] {
-  const sections = (locales[lang]?.robots as { imageSection?: { h1?: { beforeVideo?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeVideo
-  const fallback = (locales.en.robots as { imageSection?: { h1?: { beforeVideo?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeVideo
+export function getH1ImageSectionsBeforeVideo(dict: LocaleDictionary): RobotSingleImageConfig[] {
+  const sections = (dict?.robots as { imageSection?: { h1?: { beforeVideo?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeVideo
+  const fallback = (en.robots as { imageSection?: { h1?: { beforeVideo?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeVideo
   return sections ?? fallback ?? []
 }
 
-export function getH1ImageSectionsBeforeTable(lang: Language): RobotSingleImageConfig[] {
-  const sections = (locales[lang]?.robots as { imageSection?: { h1?: { beforeTable?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeTable
-  const fallback = (locales.en.robots as { imageSection?: { h1?: { beforeTable?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeTable
+export function getH1ImageSectionsBeforeTable(dict: LocaleDictionary): RobotSingleImageConfig[] {
+  const sections = (dict?.robots as { imageSection?: { h1?: { beforeTable?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeTable
+  const fallback = (en.robots as { imageSection?: { h1?: { beforeTable?: RobotSingleImageConfig[] } } })?.imageSection?.h1?.beforeTable
   return sections ?? fallback ?? []
 }
 
 export function getRobotImageSectionsBeforeVideo(
   slug: RobotSlug,
-  lang: Language
+  dict: LocaleDictionary
 ): RobotSingleImageConfig[] {
-  const sections = (locales[lang]?.robots as unknown as { imageSection?: Partial<Record<RobotSlug, { beforeVideo?: RobotSingleImageConfig[] }>> })?.imageSection?.[slug]?.beforeVideo
-  const fallback = (locales.en.robots as unknown as { imageSection?: Partial<Record<RobotSlug, { beforeVideo?: RobotSingleImageConfig[] }>> })?.imageSection?.[slug]?.beforeVideo
+  const sections = (dict?.robots as unknown as { imageSection?: Partial<Record<RobotSlug, { beforeVideo?: RobotSingleImageConfig[] }>> })?.imageSection?.[slug]?.beforeVideo
+  const fallback = (en.robots as unknown as { imageSection?: Partial<Record<RobotSlug, { beforeVideo?: RobotSingleImageConfig[] }>> })?.imageSection?.[slug]?.beforeVideo
   return sections ?? fallback ?? []
 }
 
 export function getRobotImageSectionsBeforeTable(
   slug: RobotSlug,
-  lang: Language
+  dict: LocaleDictionary
 ): RobotSingleImageConfig[] {
-  const sections = (locales[lang]?.robots as unknown as { imageSection?: Partial<Record<RobotSlug, { beforeTable?: RobotSingleImageConfig[] }>> })?.imageSection?.[slug]?.beforeTable
-  const fallback = (locales.en.robots as unknown as { imageSection?: Partial<Record<RobotSlug, { beforeTable?: RobotSingleImageConfig[] }>> })?.imageSection?.[slug]?.beforeTable
+  const sections = (dict?.robots as unknown as { imageSection?: Partial<Record<RobotSlug, { beforeTable?: RobotSingleImageConfig[] }>> })?.imageSection?.[slug]?.beforeTable
+  const fallback = (en.robots as unknown as { imageSection?: Partial<Record<RobotSlug, { beforeTable?: RobotSingleImageConfig[] }>> })?.imageSection?.[slug]?.beforeTable
   return sections ?? fallback ?? []
 }
 
 export function getRobotImageSectionContent(
   slug: RobotSlug,
-  lang: Language,
+  dict: LocaleDictionary,
   section: "section1" | "section2"
 ): G1ImageSectionConfig | null {
-  const imageSection = (locales[lang]?.robots as unknown as { imageSection?: Record<RobotSlug, { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig }> })?.imageSection?.[slug]?.[section]
-  const fallback = (locales.en.robots as unknown as { imageSection?: Record<RobotSlug, { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig }> })?.imageSection?.[slug]?.[section]
+  const imageSection = (dict?.robots as unknown as { imageSection?: Record<RobotSlug, { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig }> })?.imageSection?.[slug]?.[section]
+  const fallback = (en.robots as unknown as { imageSection?: Record<RobotSlug, { section1?: G1ImageSectionConfig; section2?: G1ImageSectionConfig }> })?.imageSection?.[slug]?.[section]
   return (imageSection ?? fallback) ?? null
 }
 
@@ -320,15 +321,15 @@ function normalizeG1FlexibleSection(raw: unknown): G1FlexibleSectionConfig {
   }
 }
 
-export function getG1FlexibleSectionContent(lang: Language): G1FlexibleSectionConfig {
-  const raw = (locales[lang]?.robots as { flexibleSection?: { g1?: unknown } })?.flexibleSection?.g1
-  const fallback = (locales.en.robots as { flexibleSection: { g1: unknown } }).flexibleSection.g1
+export function getG1FlexibleSectionContent(dict: LocaleDictionary): G1FlexibleSectionConfig {
+  const raw = (dict?.robots as { flexibleSection?: { g1?: unknown } })?.flexibleSection?.g1
+  const fallback = (en.robots as { flexibleSection: { g1: unknown } }).flexibleSection.g1
   return normalizeG1FlexibleSection(raw ?? fallback)
 }
 
-export function getGo2FlexibleSectionContent(lang: Language): Go2FlexibleSectionConfig {
-  const raw = (locales[lang]?.robots as { flexibleSection?: { go2?: Go2FlexibleSectionConfig } })?.flexibleSection?.go2
-  const fallback = (locales.en.robots as { flexibleSection?: { go2?: Go2FlexibleSectionConfig } })?.flexibleSection?.go2
+export function getGo2FlexibleSectionContent(dict: LocaleDictionary): Go2FlexibleSectionConfig {
+  const raw = (dict?.robots as { flexibleSection?: { go2?: Go2FlexibleSectionConfig } })?.flexibleSection?.go2
+  const fallback = (en.robots as { flexibleSection?: { go2?: Go2FlexibleSectionConfig } })?.flexibleSection?.go2
   return (raw ?? fallback ?? {}) as Go2FlexibleSectionConfig
 }
 
@@ -345,27 +346,27 @@ function stripSpecsPricing(config: RobotSpecsConfig): RobotSpecsConfig {
 
 export function getRobotSpecsContent(
   slug: RobotSlug,
-  lang: Language
+  dict: LocaleDictionary
 ): RobotSpecsConfig | null {
-  const specs = (locales[lang]?.robots as unknown as { specs?: Record<RobotSlug, RobotSpecsConfig> })?.specs?.[slug]
-  const fallback = (locales.en.robots as unknown as { specs?: Record<RobotSlug, RobotSpecsConfig> })?.specs?.[slug]
+  const specs = (dict?.robots as unknown as { specs?: Record<RobotSlug, RobotSpecsConfig> })?.specs?.[slug]
+  const fallback = (en.robots as unknown as { specs?: Record<RobotSlug, RobotSpecsConfig> })?.specs?.[slug]
   const raw = (specs ?? fallback) ?? null
   if (!raw) return null
   return SHOW_ROBOT_PRICING ? raw : stripSpecsPricing(raw)
 }
 
 export function getRobotLabel(
-  lang: Language,
+  dict: LocaleDictionary,
   key: "version" | "viewProduct" | "responsibleUseLabel"
 ): string {
-  const robots = locales[lang]?.robots as {
+  const robots = dict?.robots as {
     version?: string
     viewProduct?: string
     responsibleUseLabel?: string
   }
   return (
     robots?.[key] ??
-    (locales.en.robots as {
+    (en.robots as {
       version: string
       viewProduct: string
       responsibleUseLabel: string
@@ -391,12 +392,12 @@ export interface ResponsibleUseContent {
 export type ResponsibleUseKey = keyof ResponsibleUseContent
 
 export function getResponsibleUseContent<K extends ResponsibleUseKey>(
-  lang: Language,
+  dict: LocaleDictionary,
   key: K
 ): ResponsibleUseContent[K] {
-  const content = (locales[lang]?.robots as { responsibleUse?: ResponsibleUseContent })
+  const content = (dict?.robots as { responsibleUse?: ResponsibleUseContent })
     ?.responsibleUse
-  const fallback = (locales.en.robots as { responsibleUse: ResponsibleUseContent })
+  const fallback = (en.robots as { responsibleUse: ResponsibleUseContent })
     .responsibleUse
   return (content ?? fallback)[key]
 }

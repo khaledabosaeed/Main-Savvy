@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import { getG1FlexibleSectionContent } from "@/lib/robots-locale"
 import type { Language } from "@/lib/robots-locale"
 
@@ -11,7 +12,8 @@ interface G1FlexibleCarouselProps {
 }
 
 export default function G1FlexibleCarousel({ lang }: G1FlexibleCarouselProps) {
-  const content = getG1FlexibleSectionContent(lang)
+  const dict = useLocaleDictionary()
+  const content = getG1FlexibleSectionContent(dict)
   const images = content.images ?? []
   const items = content.items
   const [currentIndex, setCurrentIndex] = useState(0)

@@ -15,7 +15,7 @@ export default async function News({ params }: NewsPageProps) {
   if (!isAppLanguage(lang)) {
     notFound()
   }
-  const texts = newsSectionHeaderTexts(getDictionary(lang))
+  const texts = newsSectionHeaderTexts(await getDictionary(lang))
 
   return (
     <>

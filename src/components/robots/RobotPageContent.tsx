@@ -1,5 +1,7 @@
 "use client"
 
+import { useTranslation } from "react-i18next"
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import RobotHero from "./RobotHero"
 import G1ScrollVideoSection from "./G1ScrollVideoSection"
 import RobotVideoSection from "./RobotVideoSection"
@@ -8,8 +10,6 @@ import G1ParameterSection from "./G1ParameterSection"
 import SpecsTable from "./SpecsTable"
 import { getRobotHeroContent } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
-import en from "@/../public/locales/en.json"
-import ar from "@/../public/locales/ar.json"
 
 interface RobotPageContentProps {
   slug: RobotSlug
@@ -17,7 +17,9 @@ interface RobotPageContentProps {
 }
 
 export default function RobotPageContent({ slug, lang }: RobotPageContentProps) {
-  const heroContent = getRobotHeroContent(slug, lang)
+  const dict = useLocaleDictionary()
+  const { t } = useTranslation()
+  const heroContent = getRobotHeroContent(slug, dict)
 
   return (
     <> 
@@ -43,7 +45,7 @@ export default function RobotPageContent({ slug, lang }: RobotPageContentProps) 
                     lang === "ar" ? "text-right" : "text-left"
                   }`}
                 >
-                  {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
+                  {t("common.specifications")}
                 </h2>
                 <SpecsTable slug="g1" lang={lang} />
               </div>
@@ -61,7 +63,7 @@ export default function RobotPageContent({ slug, lang }: RobotPageContentProps) 
                 lang === "ar" ? "text-right" : "text-left"
               }`}
             >
-              {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
+              {t("common.specifications")}
             </h2>
             <SpecsTable slug="h2" lang={lang} singleColumn />
           </div>

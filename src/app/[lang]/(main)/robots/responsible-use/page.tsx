@@ -14,7 +14,7 @@ export default async function ResponsibleUsePage({ params }: ResponsibleUsePageP
   if (!isAppLanguage(lang)) {
     notFound()
   }
-  const texts = robotsRouteHeaderTexts(lang)
+  const texts = await robotsRouteHeaderTexts(lang)
 
   return (
     <>

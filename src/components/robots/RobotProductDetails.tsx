@@ -4,6 +4,7 @@ import { useMemo, useState } from "react"
 import Link from "next/link"
 import { Package, Truck, DollarSign, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import { useTranslation } from "react-i18next"
 import { getRobotProductContent } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
@@ -22,9 +23,10 @@ interface RobotProductDetailsProps {
 
 export default function RobotProductDetails({ slug, showSpecs = true }: RobotProductDetailsProps) {
   const { language } = useLanguage()
+  const dict = useLocaleDictionary()
   const { t } = useTranslation()
   const currentLang = language as Language
-  const content = getRobotProductContent(slug, currentLang)
+  const content = getRobotProductContent(slug, dict)
   const isRTL = currentLang === "ar"
   const lang = currentLang
 

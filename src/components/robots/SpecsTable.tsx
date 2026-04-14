@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import type { Language } from "@/lib/robots-locale"
 import { getRobotSpecsContent } from "@/lib/robots-locale"
 
@@ -19,7 +20,8 @@ export default function SpecsTable({
   singleColumn = false,
   valueColumnIndex = 0,
 }: SpecsTableProps) {
-  const content = getRobotSpecsContent(slug, lang)
+  const dict = useLocaleDictionary()
+  const content = getRobotSpecsContent(slug, dict)
   if (!content) return null
 
   const isRTL = lang === "ar"

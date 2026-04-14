@@ -1,5 +1,7 @@
 "use client"
 
+import { useTranslation } from "react-i18next"
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import RobotHero from "./RobotHero"
 import G1ScrollVideoSection from "./G1ScrollVideoSection"
 import G1FlexibleCarousel from "./G1FlexibleCarousel"
@@ -8,15 +10,15 @@ import SpecsTable from "./SpecsTable"
 import RobotProductDetails from "./RobotProductDetails"
 import { getRobotHeroContent } from "@/lib/robots-locale"
 import type { Language } from "@/lib/robots-locale"
-import en from "@/../public/locales/en.json"
-import ar from "@/../public/locales/ar.json"
 
 interface G1PageContentProps {
   lang: Language
 }
 
 export default function G1PageContent({ lang }: G1PageContentProps) {
-  const heroContent = getRobotHeroContent("g1", lang)
+  const dict = useLocaleDictionary()
+  const { t } = useTranslation()
+  const heroContent = getRobotHeroContent("g1", dict)
 
   return (
     <>
@@ -40,7 +42,7 @@ export default function G1PageContent({ lang }: G1PageContentProps) {
             <h2
               className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`}
             >
-              {(lang === "ar" ? ar : en).common?.specifications ?? "Specifications"}
+              {t("common.specifications")}
             </h2>
             <SpecsTable slug="g1" lang={lang} />
           </div>

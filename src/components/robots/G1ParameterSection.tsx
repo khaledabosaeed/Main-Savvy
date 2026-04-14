@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import { getG1ParameterSectionContent } from "@/lib/robots-locale"
 import type { Language } from "@/lib/robots-locale"
 
@@ -9,7 +10,8 @@ interface G1ParameterSectionProps {
 }
 
 export default function G1ParameterSection({ lang }: G1ParameterSectionProps) {
-  const content = getG1ParameterSectionContent(lang)
+  const dict = useLocaleDictionary()
+  const content = getG1ParameterSectionContent(dict)
   if (!content) return null
 
 
