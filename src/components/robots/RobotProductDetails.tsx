@@ -11,7 +11,6 @@ import type { RobotSlug, Language } from "@/lib/robots-locale"
 import SpecsTable from "./SpecsTable"
 import ProductImageGallery from "./ProductImageGallery"
 
-const bulletIcons = [Package, Truck, DollarSign, MessageCircle]
 
 const R1_CATALOG_P2 = "/robot/R1/catlouge/p2.webp"
 const R1_CATALOG_P1 = "/robot/R1/catlouge/p1.webp"

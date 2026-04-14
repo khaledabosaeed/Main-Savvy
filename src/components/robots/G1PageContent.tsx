@@ -37,7 +37,7 @@ export default function G1PageContent({ lang }: G1PageContentProps) {
       <G1FlexibleCarousel lang={lang} />
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-6 md:px-10">
-          <G1ParameterSection lang={lang} />
+          <G1ParameterSection  />
           <div className="mt-16">
             <h2
               className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`}

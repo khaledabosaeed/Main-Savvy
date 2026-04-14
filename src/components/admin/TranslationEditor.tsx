@@ -90,6 +90,92 @@ function valueContainsText(value: unknown, qLower: string): boolean {
   return walk(value)
 }
 
+/** One leaf match for sidebar search results (path is dot notation from section root). */
+type SearchMatch = {
+  section: string
+  path: string
+  value: string
+}
+
+const SEARCH_VALUE_PREVIEW_MAX = 160
+
+function truncateForPreview(s: string, max = SEARCH_VALUE_PREVIEW_MAX): string {
+  if (s.length <= max) return s
+  return `${s.slice(0, max - 1)}…`
+}
+
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+}
+
+function HighlightedSearchValue({
+  text,
+  query,
+}: {
+  text: string
+  query: string
+}) {
+  const q = query.trim()
+  const display = truncateForPreview(text)
+  if (!q) {
+    return <span className="break-words">{display}</span>
+  }
+  const re = new RegExp(`(${escapeRegExp(q)})`, "gi")
+  const parts = display.split(re)
+  return (
+    <span className="break-words">
+      {parts.map((part, idx) =>
+        part.toLowerCase() === q.toLowerCase() ? (
+          <mark
+            key={idx}
+            className="rounded bg-amber-400/30 px-0.5 text-amber-200"
+          >
+            {part}
+          </mark>
+        ) : (
+          <span key={idx}>{part}</span>
+        )
+      )}
+    </span>
+  )
+}
+
+/** Collect every string/number/boolean leaf whose text contains `qLower`. */
+function collectMatches(
+  section: string,
+  value: unknown,
+  qLower: string
+): SearchMatch[] {
+  const results: SearchMatch[] = []
+  const walk = (v: unknown, path: string) => {
+    if (v === null || v === undefined) return
+    if (typeof v === "string") {
+      if (v.toLowerCase().includes(qLower)) {
+        results.push({ section, path, value: v })
+      }
+      return
+    }
+    if (typeof v === "number" || typeof v === "boolean") {
+      const s = String(v)
+      if (s.toLowerCase().includes(qLower)) {
+        results.push({ section, path, value: s })
+      }
+      return
+    }
+    if (Array.isArray(v)) {
+      v.forEach((item, i) => walk(item, `${path}[${i}]`))
+      return
+    }
+    if (isPlainObject(v)) {
+      for (const [k, child] of Object.entries(v)) {
+        walk(child, `${path}.${k}`)
+      }
+    }
+  }
+  walk(value, section)
+  return results
+}
+
 function ValueField({
   path,
   value,
@@ -322,6 +408,47 @@ function applyRobotsRobotPageEdit(
   return merged
 }
 
+const ROBOT_PRODUCT_SLUGS = new Set<RobotSidebarPage>(["r1", "g1", "go2", "h2"])
+
+/** From a full field path under `robots.*`, pick which robot sidebar page to open so the field exists in the scoped editor. */
+function inferRobotPageFromMatchPath(path: string): RobotSidebarPage {
+  if (path === "robots" || !path.startsWith("robots.")) return "robots"
+  const parts = path.split(".")
+  if (parts.length < 3) return "robots"
+  const topKey = parts[1]
+  const slug = parts[2]
+  if (
+    (ROBOTS_PER_PAGE_TOP_KEYS as readonly string[]).includes(topKey) &&
+    ROBOT_PRODUCT_SLUGS.has(slug as RobotSidebarPage)
+  ) {
+    return slug as RobotSidebarPage
+  }
+  return "robots"
+}
+
+/** Find the input/textarea for a ValueField `path` id (handles dots/brackets in ids). */
+function findFieldElementByPath(path: string): HTMLElement | null {
+  if (typeof document === "undefined") return null
+  const el = document.getElementById(path)
+  if (el) return el
+  try {
+    if (typeof CSS !== "undefined" && "escape" in CSS) {
+      const byCss = document.querySelector(`#${CSS.escape(path)}`)
+      if (byCss instanceof HTMLElement) return byCss
+    }
+  } catch {
+    /* ignore */
+  }
+  const escAttr = path.replace(/\\/g, "\\\\").replace(/"/g, '\\"')
+  const byAttr = document.querySelector(`[id="${escAttr}"]`)
+  if (byAttr instanceof HTMLElement) return byAttr
+  const prefix = `${path}.`
+  for (const node of document.querySelectorAll<HTMLElement>("[id]")) {
+    if (node.id === path || node.id.startsWith(prefix)) return node
+  }
+  return null
+}
+
 /** Sidebar: robot routes + short copy so admins know which page they are editing */
 const ROBOT_PAGE_ENTRIES: {
   target: RobotSidebarPage
@@ -375,7 +502,10 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
   const [toast, setToast] = useState<{ type: "ok" | "err"; text: string } | null>(null)
+  /** After clicking a search match, scroll this field path to the top of the editor. */
+  const [scrollToFieldPath, setScrollToFieldPath] = useState<string | null>(null)
   const sectionNavRef = useRef<HTMLElement | null>(null)
+  const editorScrollRef = useRef<HTMLDivElement | null>(null)
 
   const load = useCallback(async () => {
     setLoading(true)
@@ -434,6 +564,65 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
     btn?.scrollIntoView({ block: "nearest", inline: "nearest" })
   }, [activeSection])
 
+  useEffect(() => {
+    if (!scrollToFieldPath || loading) return
+
+    const path = scrollToFieldPath
+    let cancelled = false
+    const timers: number[] = []
+
+    const tryScroll = (): boolean => {
+      if (cancelled) return true
+      const field = findFieldElementByPath(path)
+      if (!field) return false
+      const scrollRoot = editorScrollRef.current
+      if (scrollRoot) {
+        const rootRect = scrollRoot.getBoundingClientRect()
+        const fieldRect = field.getBoundingClientRect()
+        const stickyHeader = scrollRoot.querySelector<HTMLElement>(
+          ".sticky.top-0"
+        )
+        const offset = stickyHeader
+          ? stickyHeader.getBoundingClientRect().height
+          : 0
+        const delta = fieldRect.top - rootRect.top - offset - 8
+        scrollRoot.scrollBy({ top: delta, behavior: "smooth" })
+      } else {
+        field.scrollIntoView({ block: "start", behavior: "smooth" })
+      }
+      const focusable =
+        field instanceof HTMLTextAreaElement ||
+        field instanceof HTMLInputElement
+          ? field
+          : field.querySelector<HTMLTextAreaElement | HTMLInputElement>(
+              "textarea, input:not([type=checkbox])"
+            )
+      focusable?.focus({ preventScroll: true })
+      setScrollToFieldPath(null)
+      return true
+    }
+
+    timers.push(
+      window.setTimeout(() => {
+        if (!cancelled) setScrollToFieldPath(null)
+      }, 520)
+    )
+    for (const ms of [0, 50, 120, 250, 400]) {
+      timers.push(
+        window.setTimeout(() => {
+          if (tryScroll()) {
+            for (const t of timers) clearTimeout(t)
+          }
+        }, ms)
+      )
+    }
+
+    return () => {
+      cancelled = true
+      for (const t of timers) clearTimeout(t)
+    }
+  }, [scrollToFieldPath, loading, activeSection, robotPageFocus, content])
+
   const topLevelKeys = useMemo(
     () =>
       content
@@ -461,6 +650,21 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
     }
     return map
   }, [filteredKeys])
+
+  /** When search is non-empty: flat list of all matching leaves (and section key if it matches). */
+  const searchMatches = useMemo(() => {
+    const q = search.trim()
+    if (!q || !content) return null
+    const qLower = q.toLowerCase()
+    const all: SearchMatch[] = []
+    for (const section of topLevelKeys) {
+      if (section.toLowerCase().includes(qLower)) {
+        all.push({ section, path: section, value: section })
+      }
+      all.push(...collectMatches(section, content[section], qLower))
+    }
+    return all
+  }, [search, content, topLevelKeys])
 
   const robotsScopedSlice = useMemo(() => {
     if (
@@ -690,7 +894,7 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
           {loading && (
             <p className="px-2 py-4 text-sm text-zinc-500">Loading…</p>
           )}
-          {!loading && (
+          {!loading && !search.trim() && (
             <div className="mb-4 border-b border-zinc-800 pb-3">
               <p className="mb-2 px-2 text-[10px] font-bold uppercase tracking-wider text-zinc-600">
                 Robot pages
@@ -728,12 +932,78 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
               </ul>
             </div>
           )}
-          {!loading && topLevelKeys.length > 0 && filteredKeys.length === 0 && (
-            <p className="px-2 py-4 text-sm text-amber-200/90">
-              No section name or text matches “{search.trim()}”.
-            </p>
+          {!loading && search.trim() && searchMatches && (
+            <>
+              {searchMatches.length === 0 && (
+                <p className="px-2 py-4 text-sm text-amber-200/90">
+                  No matches for “{search.trim()}”.
+                </p>
+              )}
+              {searchMatches.length > 0 && (
+                <div className="mb-2 px-2">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-zinc-600">
+                    Matches ({searchMatches.length})
+                  </p>
+                  <ul className="space-y-1">
+                    {searchMatches.map((m, i) => {
+                      const isActive = activeSection === m.section
+                      return (
+                        <li key={`${m.section}-${m.path}-${i}`}>
+                          <button
+                            type="button"
+                            data-section={m.section}
+                            onClick={() => {
+                              setScrollToFieldPath(m.path)
+                              setActiveSection(m.section)
+                              if (m.section === "robots") {
+                                const page = inferRobotPageFromMatchPath(m.path)
+                                setRobotPageFocus(page)
+                                setPreviewTarget(
+                                  page === "robots" ? "robots" : page
+                                )
+                              } else {
+                                setRobotPageFocus(null)
+                              }
+                            }}
+                            className={`flex w-full flex-col gap-1 rounded-lg px-2.5 py-2 text-left text-sm transition ${
+                              isActive
+                                ? "bg-primary/20 ring-1 ring-primary/40"
+                                : "text-zinc-300 hover:bg-zinc-800 hover:text-white"
+                            }`}
+                          >
+                            <div className="flex flex-wrap items-center gap-1.5">
+                              <span className="shrink-0 rounded bg-zinc-800 px-1.5 py-0.5 font-mono text-[11px] text-primary">
+                                {m.section}
+                              </span>
+                              <span className="min-w-0 truncate font-mono text-[11px] text-zinc-500">
+                                {formatPathDisplay(m.path)}
+                              </span>
+                            </div>
+                            <div className="text-xs leading-snug text-zinc-200">
+                              <HighlightedSearchValue
+                                text={m.value}
+                                query={search}
+                              />
+                            </div>
+                          </button>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              )}
+            </>
           )}
           {!loading &&
+            !search.trim() &&
+            topLevelKeys.length > 0 &&
+            filteredKeys.length === 0 && (
+              <p className="px-2 py-4 text-sm text-amber-200/90">
+                No section name or text matches “{search.trim()}”.
+              </p>
+            )}
+          {!loading &&
+            !search.trim() &&
             GROUP_ORDER.map((gid) => {
               const keys = grouped.get(gid) ?? []
               if (keys.length === 0) return null
@@ -813,6 +1083,7 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
           {!loading && content && activeSection && (
             <>
               <div
+                ref={editorScrollRef}
                 data-lenis-prevent
                 className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-y-contain px-4 py-4 md:px-6"
               >
