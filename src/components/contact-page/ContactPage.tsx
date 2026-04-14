@@ -2,7 +2,7 @@
 
 import { useState, useRef, useMemo } from "react"
 import { motion, useInView } from "framer-motion"
-import { CheckCircle, AlertCircle, Mail, MapPin, Phone, Clock } from "lucide-react"
+import { CheckCircle, AlertCircle, Mail, MapPin, Phone } from "lucide-react"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
@@ -45,7 +45,6 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const formRef = useRef(null)
-  const faqRef = useRef(null)
   const solutionsScrollRef = useRef<HTMLDivElement>(null)
 
   const isFormInView = useInView(formRef, { once: true, amount: isMobile ? 0.1 : 0.2 })
@@ -62,14 +61,7 @@ export default function ContactPage() {
   const telHref = telHrefFromDisplay(sidebarPhone)
   const mailHref = emailHref(sidebarEmail)
 
-  const faqs = useMemo(
-    () =>
-      [1, 2, 3, 4, 5, 6].map((n) => ({
-        question: t(`contact.faqQuestion${n}`),
-        answer: t(`contact.faqAnswer${n}`),
-      })),
-    [t]
-  )
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

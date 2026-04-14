@@ -55,18 +55,7 @@ export default function UnrealHero() {
     },
   }
 
-  const badgeVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        delay: 0.5,
-        ease: [0.22, 0.61, 0.36, 1] as any,
-      },
-    },
-  }
+
 
   return (
     <section className={`relative w-full bg-white   flex items-center md:mb-0   ${isRTL ? 'rtl' : 'ltr'}`}>

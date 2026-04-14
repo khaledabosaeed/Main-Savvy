@@ -31,7 +31,7 @@ export default function ScrollRestorationHandler() {
       // Force scroll to top immediately
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
-  }, []); // Only run on mount
+  }, [pathname]); // Only run on mount
 
   useEffect(() => {
     // On pathname change, ensure we're at the top

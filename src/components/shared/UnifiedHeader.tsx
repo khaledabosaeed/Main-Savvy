@@ -20,7 +20,7 @@ interface UnifiedHeaderProps {
   transparentHeader?: boolean
 }
 
-export default function UnifiedHeader({ texts = {}, showBadge = true, hasBanner = true, logoHref, logoAlt = "Savvy", logoSrc = "/Savvy 2 1.svg", transparentHeader = false }: UnifiedHeaderProps) {
+export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, logoAlt = "Savvy", logoSrc = "/Savvy 2 1.svg", transparentHeader = false }: UnifiedHeaderProps) {
   const { language } = useLanguage()
   const { t } = useTranslation()
   const isMobile = useIsMobile()

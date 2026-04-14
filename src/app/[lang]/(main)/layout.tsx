@@ -22,7 +22,6 @@ export default async function MainLayout({
     notFound();
   }
 
-  const lang = rawLang as Language;
 
   return (
     <>

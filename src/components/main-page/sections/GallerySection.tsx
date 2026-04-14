@@ -1,6 +1,5 @@
 "use client"
 
-import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { useTranslation } from "react-i18next"
 
@@ -18,10 +17,8 @@ import { motion } from "framer-motion"
 import styles from "./GallerySection.module.css"
 
 export default function GallerySection() {
-    const { language } = useLanguage()
     const { t } = useTranslation()
     const isMobile = useIsMobile()
-    const lang = language as "en" | "ar"
     const content = t("gallerySection", { returnObjects: true }) as {
       title: string
       images: GalleryImage[]

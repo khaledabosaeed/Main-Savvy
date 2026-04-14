@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react"
 import { motion } from "framer-motion"
-import Link from "next/link"
 import Image from "next/image"
 
 export type TextPlacement = "left" | "center" | "right"
@@ -41,12 +40,8 @@ export default function RobotHero({
   title,
   subtitle,
   priceStartsFrom,
-  buttonText,
-  productLink,
   textPlacement = "center",
   poster,
-  features,
-  isRTL = false,
 }: RobotHeroProps) {
   const [isVideoReady, setIsVideoReady] = useState(false)
   const placement = placementClasses[textPlacement]

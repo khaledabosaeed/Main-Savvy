@@ -207,7 +207,10 @@ function stripProductPricing(config: RobotProductConfig): RobotProductConfig {
   return {
     ...config,
     price: "",
-    versions: config.versions.map(({ price: _p, ...v }) => v),
+    versions: config.versions.map(({ price, ...v }) => {
+      void price
+      return v
+    }),
   }
 }
 
@@ -334,7 +337,9 @@ export function getGo2FlexibleSectionContent(dict: LocaleDictionary): Go2Flexibl
 }
 
 function stripSpecsPricing(config: RobotSpecsConfig): RobotSpecsConfig {
-  const { columnPrices: _cp, priceLabel: _pl, ...rest } = config
+  const { columnPrices, priceLabel, ...rest } = config
+  void columnPrices
+  void priceLabel
   return {
     ...rest,
     sections: config.sections.map((section) => ({

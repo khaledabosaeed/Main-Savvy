@@ -429,7 +429,7 @@ function inferRobotPageFromMatchPath(path: string): RobotSidebarPage {
 /** Find the input/textarea for a ValueField `path` id (handles dots/brackets in ids). */
 function findFieldElementByPath(path: string): HTMLElement | null {
   if (typeof document === "undefined") return null
-  let el = document.getElementById(path)
+  const el = document.getElementById(path)
   if (el) return el
   try {
     if (typeof CSS !== "undefined" && "escape" in CSS) {
