@@ -121,7 +121,7 @@ export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, 
                   onClick={() => setIsRobotsOpen(!isRobotsOpen)}
                   className={`${navTextClass} transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap`}
                 >
-                  { (lang === "ar" ? "متجر ساڤي" : "Savvy E-Store")}
+                  {t("common.savvyEStore")}
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isRobotsOpen ? "rotate-180" : ""}`} />
                 </button>
 
