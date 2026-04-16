@@ -14,6 +14,7 @@ import {
   getRobotSpecsContent,
 } from "@/lib/robots-locale"
 import type { Language } from "@/lib/robots-locale"
+import FormattedText from "@/components/shared/FormattedText"
 
 interface R1PageContentProps {
   lang: Language
@@ -65,7 +66,7 @@ export default function R1PageContent({ lang }: R1PageContentProps) {
               <h2
                 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`}
               >
-                {t("common.specifications")}
+                <FormattedText text={t("common.specifications")} as="span" />
               </h2>
               <SpecsTable slug="r1" lang={lang} />
             </div>

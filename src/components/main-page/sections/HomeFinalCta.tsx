@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
+import FormattedText from "@/components/shared/FormattedText"
 
 export default function HomeFinalCta() {
   const { language } = useLanguage()
@@ -25,7 +26,7 @@ export default function HomeFinalCta() {
           transition={{ duration: 0.5 }}
           className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-5"
         >
-          {t("home.finalCta.title")}
+          <FormattedText text={t("home.finalCta.title")} as="span" />
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -34,7 +35,7 @@ export default function HomeFinalCta() {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="text-white/90 text-sm md:text-lg mb-8 md:mb-10 leading-relaxed"
         >
-          {t("home.finalCta.subtitle")}
+          <FormattedText text={t("home.finalCta.subtitle")} />
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -46,7 +47,7 @@ export default function HomeFinalCta() {
             href={`/${lang}/contact`}
             className="inline-flex items-center justify-center rounded-full bg-white text-primary px-8 py-3.5 md:px-10 md:py-4 text-base font-semibold shadow-lg hover:bg-gray-100 transition-colors"
           >
-            {t("home.finalCta.button")}
+            <FormattedText text={t("home.finalCta.button")} as="span" />
           </Link>
         </motion.div>
       </div>

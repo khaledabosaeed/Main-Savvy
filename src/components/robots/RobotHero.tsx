@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import FormattedText from "@/components/shared/FormattedText"
 
 export type TextPlacement = "left" | "center" | "right"
 
@@ -108,20 +109,20 @@ export default function RobotHero({
         <h1
           className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] [text-shadow:0_2px_4px_rgba(0,0,0,0.8),0_4px_12px_rgba(0,0,0,0.6)]"
         >
-          {title}
+          <FormattedText text={title} as="span" />
         </h1>
         {subtitle && (
           <p
             className="text-lg md:text-xl text-white/95 max-w-2xl [text-shadow:0_1px_3px_rgba(0,0,0,0.8),0_2px_8px_rgba(0,0,0,0.5)]"
           >
-            {subtitle}
+            <FormattedText text={subtitle} as="span" />
           </p>
         )}
         {priceStartsFrom && (
           <p
             className="text-xl md:text-2xl font-semibold text-white mt-4 [text-shadow:0_2px_4px_rgba(0,0,0,0.8),0_4px_8px_rgba(0,0,0,0.6)]"
           >
-            {priceStartsFrom}
+            <FormattedText text={priceStartsFrom} as="span" />
           </p>
         )}
 

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion, useMotionValue, useTransform, AnimatePresence, PanInfo, animate } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import FormattedText from '@/components/shared/FormattedText';
 
 export interface ImageItem {
   name: string;
@@ -189,7 +190,7 @@ const ImageSlider = ({ images, heading }: ImageSliderProps) => {
           className="text-center mb-8 sm:mb-10 md:mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-foreground">
-            {displayHeading}
+            <FormattedText text={displayHeading} as="span" />
           </h2>
         </motion.div>
 

@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Shield } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
+import FormattedText from "@/components/shared/FormattedText"
 
 export default function RobotResponsibleUsePage() {
   const { language } = useLanguage()
@@ -71,9 +72,11 @@ export default function RobotResponsibleUsePage() {
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-              {t("robots.responsibleUse.title")}
+              <FormattedText text={t("robots.responsibleUse.title")} as="span" />
             </h1>
-            <p className="text-gray-600 text-lg">{t("robots.responsibleUse.lastUpdated")}</p>
+            <p className="text-gray-600 text-lg">
+              <FormattedText text={t("robots.responsibleUse.lastUpdated")} as="span" />
+            </p>
           </motion.div>
         </div>
       </section>
@@ -90,11 +93,13 @@ export default function RobotResponsibleUsePage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="mb-12"
               >
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-start">{section.title}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-start">
+                  <FormattedText text={section.title} as="span" />
+                </h2>
 
                 {section.content ? (
                   <p className="text-gray-700 leading-relaxed text-lg mb-6 whitespace-pre-line text-start">
-                    {section.content}
+                    <FormattedText text={section.content} as="span" />
                   </p>
                 ) : null}
 
@@ -108,7 +113,9 @@ export default function RobotResponsibleUsePage() {
                         }`}
                       >
                         <span className="text-primary shrink-0 mt-0.5">•</span>
-                        <span className="flex-1">{item}</span>
+                        <span className="flex-1">
+                          <FormattedText text={item} as="span" />
+                        </span>
                       </li>
                     ))}
                   </ul>

@@ -2,6 +2,8 @@
 
 import Image from "next/image"
 import type { Language } from "@/lib/robots-locale"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 
 export interface RobotSingleImageSectionProps {
   title?: string
@@ -20,13 +22,13 @@ export default function RobotSingleImageSection({
         <h3
           className={`text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 text-center`}
         >
-          {title}
+          <FormattedText text={title} as="span" />
         </h3>
       )}
       <div className="relative w-full overflow-hidden rounded-xl">
         <Image
           src={image}
-          alt={title ?? "Robot"}
+          alt={title ? richTextToPlainText(title) : "Robot"}
           width={1200}
           height={800}
           className="w-full h-auto object-contain"

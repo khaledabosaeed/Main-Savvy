@@ -8,6 +8,7 @@ import Image from "next/image"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
+import FormattedText from "@/components/shared/FormattedText"
 
 export default function UnifiedFooter() {
   const { language } = useLanguage()
@@ -28,7 +29,8 @@ export default function UnifiedFooter() {
           className={`flex flex-row items-start  justify-between ${isRTL ? "flex-row" : "flex-row"}`}
         >
               <p className={`text-[10px] w-[200px] md:w-full md:text-sm text-gray-600 leading-relaxed ${isRTL ? "text-right" : "text-left"}`}>
-            <span className="font-bold text-primary">{intorText}</span> {t("common.gateway")}
+            <span className="font-bold text-primary">{intorText}</span>{" "}
+            <FormattedText text={t("common.gateway")} as="span" />
           </p>
           <div className="mb-4">
             <Image src="/footer.svg" alt="Savvy Logo" width={120} height={60} className="h-10 md:h-16 w-auto" />
@@ -69,7 +71,9 @@ export default function UnifiedFooter() {
             </a>
           </div>
 
-          <span className="text-sm text-gray-500">{t("common.copyrightFull")}</span>
+          <span className="text-sm text-gray-500">
+            <FormattedText text={t("common.copyrightFull")} as="span" />
+          </span>
         </div>
       </div>
     </footer>

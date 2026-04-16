@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
+import FormattedText from "@/components/shared/FormattedText"
 
 export default function ResponsibleUseLink() {
   const { language } = useLanguage()
@@ -18,7 +19,7 @@ export default function ResponsibleUseLink() {
         href={`/${lang}/robots/responsible-use`}
         className="text-sm text-gray-500 hover:text-primary transition-colors underline underline-offset-2"
       >
-        {t("robots.responsibleUseLabel")}
+        <FormattedText text={t("robots.responsibleUseLabel")} as="span" />
       </Link>
     </div>
   )

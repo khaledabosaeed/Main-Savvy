@@ -9,6 +9,7 @@ import G1FlexibleCarousel from "./G1FlexibleCarousel"
 import G1ParameterSection from "./G1ParameterSection"
 import SpecsTable from "./SpecsTable"
 import { getRobotHeroContent } from "@/lib/robots-locale"
+import FormattedText from "@/components/shared/FormattedText"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
 
 interface RobotPageContentProps {
@@ -45,7 +46,7 @@ export default function RobotPageContent({ slug, lang }: RobotPageContentProps) 
                     lang === "ar" ? "text-right" : "text-left"
                   }`}
                 >
-                  {t("common.specifications")}
+                  <FormattedText text={t("common.specifications")} as="span" />
                 </h2>
                 <SpecsTable slug="g1" lang={lang} />
               </div>
@@ -63,7 +64,7 @@ export default function RobotPageContent({ slug, lang }: RobotPageContentProps) 
                 lang === "ar" ? "text-right" : "text-left"
               }`}
             >
-              {t("common.specifications")}
+              <FormattedText text={t("common.specifications")} as="span" />
             </h2>
             <SpecsTable slug="h2" lang={lang} singleColumn />
           </div>

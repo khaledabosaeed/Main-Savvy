@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
 import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
+import FormattedText from "@/components/shared/FormattedText"
 
 type Stat = { value: string; label: string }
 
@@ -22,7 +23,7 @@ export default function HomeSocialProof() {
         transition={{ duration: 0.5 }}
         className="text-center text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-10 md:mb-12"
       >
-        {t("home.socialProof.title")}
+        <FormattedText text={t("home.socialProof.title")} />
       </motion.h2>
   
       <motion.div
@@ -38,11 +39,11 @@ export default function HomeSocialProof() {
             className="rounded-2xl border border-gray-200 bg-gray-50/90 px-6 py-8 text-center shadow-sm"
           >
             <p className="font-bold text-primary mb-2 text-[clamp(2.2rem,6vw,4.5rem)] leading-none">
-              {stat.value}
+              <FormattedText text={stat.value} />
             </p>
   
             <p className="text-gray-600 font-medium text-[clamp(1rem,3.5vw,1.5rem)] leading-snug">
-              {stat.label}
+              <FormattedText text={stat.label} />
             </p>
           </div>
         ))}

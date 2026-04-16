@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import Link from "next/link"
 import { Search } from "lucide-react"
+import RichTextArea from "@/components/admin/RichTextArea"
 
 type JsonValue = unknown
 
@@ -198,23 +199,15 @@ function ValueField({
   }
 
   if (typeof value === "string") {
-    const rows = Math.min(12, Math.max(2, value.split("\n").length))
     return (
-      <div className="min-w-0" style={{ marginLeft: pad }}>
-        <label
-          htmlFor={path}
-          className="mb-1 block text-[11px] font-medium uppercase tracking-wide text-zinc-500"
-        >
-          {formatPathDisplay(path)}
-        </label>
-        <textarea
-          id={path}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          rows={rows}
-          className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 font-mono text-sm text-zinc-100 outline-none focus:border-primary focus:ring-1 focus:ring-primary/30"
-        />
-      </div>
+      <RichTextArea
+        key={path}
+        id={path}
+        label={formatPathDisplay(path)}
+        value={value}
+        onChange={(next) => onChange(next)}
+        padLeft={pad}
+      />
     )
   }
 
@@ -498,6 +491,8 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
   const [activeSection, setActiveSection] = useState<string | null>(null)
   const [search, setSearch] = useState("")
   const [updatedAt, setUpdatedAt] = useState<string | null>(null)
+  /** Bumps iframe remount so preview can reload without a full save. */
+  const [previewTick, setPreviewTick] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
@@ -807,7 +802,7 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
             <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">
               Preview
             </p>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap items-center gap-1.5">
               <button
                 type="button"
                 onClick={() => setPreviewTarget("home")}
@@ -819,18 +814,26 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
               >
                 Home
               </button>
+              <button
+                type="button"
+                onClick={() => setPreviewTick((n) => n + 1)}
+                className="rounded-md border border-zinc-600 px-2.5 py-1 text-xs font-medium text-zinc-300 hover:border-zinc-500 hover:bg-zinc-800 hover:text-white sm:text-sm"
+              >
+                Refresh preview
+              </button>
             </div>
             <p className="text-[11px] leading-relaxed text-zinc-500">
-              Robot product pages are opened from the sidebar. Preview shows the
-              live site after saves; unsaved edits are not visible until you
-              publish the <span className="font-mono text-zinc-400">robots</span>{" "}
-              section.
+              Preview loads the live site from the server. Click{" "}
+              <span className="font-medium text-zinc-400">Refresh</span> or save
+              to see the latest published copy (unsaved edits stay in the editor
+              only).
             </p>
           </div>
           <div className="relative min-h-0 flex-1 bg-zinc-950">
             <iframe
+              key={`${previewPath}-${updatedAt ?? "init"}-${locale}-${previewTick}`}
               title="Site preview"
-              src={previewPath}
+              src={`${previewPath}${previewPath.includes("?") ? "&" : "?"}_pv=${previewTick}&_at=${encodeURIComponent(updatedAt ?? "")}`}
               className="absolute inset-0 h-full w-full border-0"
             />
           </div>

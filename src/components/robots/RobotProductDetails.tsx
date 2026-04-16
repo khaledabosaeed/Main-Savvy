@@ -10,6 +10,8 @@ import { getRobotProductContent } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
 import SpecsTable from "./SpecsTable"
 import ProductImageGallery from "./ProductImageGallery"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 
 
 const R1_CATALOG_P2 = "/robot/R1/catlouge/p2.webp"
@@ -78,13 +80,13 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
             <ProductImageGallery
               key={`${slug}-${selected?.id ?? "default"}`}
               images={galleryImages}
-              alt={content.name}
+              alt={richTextToPlainText(content.name)}
               isRTL={isRTL}
               ariaLabels={{
-                close: t("common.close"),
-                previousImage: t("common.previousImage"),
-                nextImage: t("common.nextImage"),
-                viewFullscreen: t("common.viewFullscreen"),
+                close: richTextToPlainText(t("common.close")),
+                previousImage: richTextToPlainText(t("common.previousImage")),
+                nextImage: richTextToPlainText(t("common.nextImage")),
+                viewFullscreen: richTextToPlainText(t("common.viewFullscreen")),
               }}
             />
           </div>
@@ -96,7 +98,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
                 isRTL ? "text-right" : "text-left"
               }`}
             >
-              {content.name}
+              <FormattedText text={content.name} as="span" />
             </h1>
 
             {showCatalogBlock && (
@@ -108,7 +110,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
                 {resolvedManufacturer && resolvedManufacturer.trim() !== "" && (
                   <p>
                     <span className="font-medium text-gray-700">
-                      {t("robots.catalogManufacturer")}:
+                      <FormattedText text={t("robots.catalogManufacturer")} as="span" />:
                     </span>{" "}
                     <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
                       {resolvedManufacturer}
@@ -118,7 +120,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
                 {resolvedSku && resolvedSku.trim() !== "" && (
                   <p>
                     <span className="font-medium text-gray-700">
-                      {t("robots.catalogSku")}:
+                      <FormattedText text={t("robots.catalogSku")} as="span" />:
                     </span>{" "}
                     <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
                       {resolvedSku}
@@ -128,7 +130,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
                 {resolvedMpn && resolvedMpn.trim() !== "" && (
                   <p>
                     <span className="font-medium text-gray-700">
-                      {t("robots.catalogManufacturerPart")}:
+                      <FormattedText text={t("robots.catalogManufacturerPart")} as="span" />:
                     </span>{" "}
                     <span dir="ltr" className="inline-block [unicode-bidi:isolate]">
                       {resolvedMpn}
@@ -204,14 +206,14 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
                   href={`/${lang}/contact`}
                   className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors text-center shadow-sm"
                 >
-                  {t("common.contactUs")}
+                  <FormattedText text={t("common.contactUs")} as="span" />
                 </Link>
               </div>
               <Link
                 href={`/${lang}/robots/responsible-use`}
                 className="text-sm text-gray-500 hover:text-primary transition-colors underline underline-offset-2 w-fit"
               >
-                {t("robots.responsibleUseLabel")}
+                <FormattedText text={t("robots.responsibleUseLabel")} as="span" />
               </Link>
             </div>
           </div>
@@ -225,7 +227,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
                   isRTL ? "text-right" : "text-left"
                 }`}
               >
-                {t("common.specifications")}
+                <FormattedText text={t("common.specifications")} as="span" />
               </h2>
               <SpecsTable slug={slug} lang={lang} />
             </div>

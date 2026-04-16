@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 
 export default function LatestNews() {
     const { language } = useLanguage()
@@ -55,7 +57,7 @@ export default function LatestNews() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    {content.sectionTitle}
+                    <FormattedText text={content.sectionTitle} as="span" />
                 </motion.h2>
 
                 {/* News Cards */}
@@ -79,7 +81,7 @@ export default function LatestNews() {
                             <div className="relative w-full h-64 overflow-hidden bg-gray-100">
                                 <Image
                                     src={card.image}
-                                    alt={card.title}
+                                    alt={richTextToPlainText(card.title)}
                                     fill
                                     className="object-cover transition-transform duration-500 hover:scale-110"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -89,7 +91,7 @@ export default function LatestNews() {
                             {/* Content */}
                             <div className="p-6 flex flex-col gap-4">
                                 <h3 className="text-xl font-semibold text-gray-900 line-clamp-2 min-h-[3.5rem] leading-relaxed">
-                                    {card.title}
+                                    <FormattedText text={card.title} as="span" />
                                 </h3>
                                 <div className="flex justify-between items-center pt-4 border-t border-gray-200">
                                     <span className="text-sm text-gray-500">{card.date}</span>
@@ -97,7 +99,7 @@ export default function LatestNews() {
                                         href={`/${lang}${card.link.startsWith("/") ? card.link : `/${card.link}`}`}
                                         className="px-6 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all duration-300 hover:-translate-y-0.5"
                                     >
-                                        {card.buttonText}
+                                        <FormattedText text={card.buttonText} as="span" />
                                     </Link>
                                 </div>
                             </div>

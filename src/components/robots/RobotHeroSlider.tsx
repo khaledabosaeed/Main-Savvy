@@ -7,6 +7,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 import type { RobotCard, RobotSlide } from "@/lib/robots-locale"
 
 /** Shared container: matches navbar (max-w-7xl, px-4 md:px-6 lg:px-8) */
@@ -55,8 +57,8 @@ export default function RobotHeroSlider() {
 
   const isRTL = lang === "ar"
   const currentSlide = slides[currentIndex]
-  const prevLabel = t("common.previousImage")
-  const nextLabel = t("common.nextImage")
+  const prevLabel = richTextToPlainText(t("common.previousImage"))
+  const nextLabel = richTextToPlainText(t("common.nextImage"))
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -128,10 +130,10 @@ export default function RobotHeroSlider() {
                 className="flex flex-col gap-2.5 md:gap-6"
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight [text-shadow:0_2px_8px_rgba(0,0,0,0.6),0_4px_16px_rgba(0,0,0,0.4)]">
-                  {currentSlide.name}
+                  <FormattedText text={currentSlide.name} />
                 </h1>
-                <p className="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed line-clamp-2 [text-shadow:0_1px_4px_rgba(0,0,0,0.7),0_2px_12px_rgba(0,0,0,0.5)]">
-                  {currentSlide.description}
+                <p className="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed [text-shadow:0_1px_4px_rgba(0,0,0,0.7),0_2px_12px_rgba(0,0,0,0.5)]">
+                  <FormattedText text={currentSlide.description} />
                 </p>
 
                 <div className="flex md:hidden w-full items-center justify-between" dir={isRTL ? "rtl" : "ltr"}>
@@ -170,7 +172,9 @@ export default function RobotHeroSlider() {
                     href={`/${lang}${currentSlide.link}`}
                     className={`${heroCtaSecondary} w-auto  shrink-0`}
                   >
-                    <span>{currentSlide.buttonText}</span>
+                    <span>
+                      <FormattedText text={currentSlide.buttonText} as="span" />
+                    </span>
                     <svg
                       className={`h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5 ${isRTL ? "rotate-180" : ""}`}
                       fill="none"

@@ -10,6 +10,8 @@ import {
   fadeInLeft,
   fadeInRight,
 } from "@/lib/animations"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 
 export default function ServicesGrid() {
   const { language } = useLanguage()
@@ -58,10 +60,10 @@ export default function ServicesGrid() {
           className={`text-center mb-16 ${isRTL ? 'rtl' : 'ltr'}`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            {t("servicesGrid.title")}
+            <FormattedText text={t("servicesGrid.title")} as="span" />
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {t("servicesGrid.subtitle")}
+            <FormattedText text={t("servicesGrid.subtitle")} as="span" />
           </p>
         </motion.div>
 
@@ -89,7 +91,7 @@ export default function ServicesGrid() {
                 >
                   <Image
                     src={service.image}
-                    alt={service.title}
+                    alt={richTextToPlainText(service.title)}
                     fill
                     className="object-cover transition-all duration-500"
                   />
@@ -114,7 +116,7 @@ export default function ServicesGrid() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  {service.title}
+                  <FormattedText text={service.title} as="span" />
                 </motion.h3>
 
                 <motion.p
@@ -124,7 +126,7 @@ export default function ServicesGrid() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
                 >
-                  {service.description}
+                  <FormattedText text={service.description} as="span" />
                 </motion.p>
 
                 <motion.div
@@ -141,7 +143,9 @@ export default function ServicesGrid() {
                     }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span className="relative z-10">{service.button}</span>
+                    <span className="relative z-10">
+                      <FormattedText text={service.button} as="span" />
+                    </span>
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-blue-600 to-primary"
                       initial={{ x: "-100%" }}

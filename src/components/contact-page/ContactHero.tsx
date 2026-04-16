@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { Mail, MessageCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
+import FormattedText from "@/components/shared/FormattedText"
 
 export default function ContactHero() {
   const { language } = useLanguage()
@@ -66,18 +67,16 @@ export default function ContactHero() {
             className={`inline-flex items-center gap-2 px-4 py-2 bg-[#3960F9] rounded-full mb-6 cursor-default shadow-lg ${isRTL ? "flex-row-reverse" : ""}`}
           >
             <MessageCircle className="w-4 h-4 text-white" />
-            <span className="text-white text-sm font-semibold">{t("contact.heroBadge")}</span>
+            <span className="text-white text-sm font-semibold">
+              <FormattedText text={t("contact.heroBadge")} as="span" />
+            </span>
           </motion.div>
 
           <motion.h1
             variants={titleVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
           >
-            {title.split(" ").map((word, index) => (
-              <motion.span key={index} className={`inline-block ${isRTL ? "ml-3" : "mr-3"}`}>
-                {word}
-              </motion.span>
-            ))}
+            <FormattedText text={title} as="span" />
           </motion.h1>
 
           <motion.div
@@ -88,7 +87,9 @@ export default function ContactHero() {
             style={{ width: "120px" }}
           />
 
-          <motion.p className="text-lg md:text-xl text-gray-600 leading-relaxed">{subtitle}</motion.p>
+          <motion.p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            <FormattedText text={subtitle} as="span" />
+          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
