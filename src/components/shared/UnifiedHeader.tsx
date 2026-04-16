@@ -192,7 +192,7 @@ export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, 
                   {/* Robots list */}
                   <div className="px-6 pb-2">
                     <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-2">
-                      { (lang === "ar" ? "روبوتاتنا" : "Our Robots")}
+                      {t("common.savvyEStore")}
                     </p>
                     <Link
                       href={`/${lang}`}
