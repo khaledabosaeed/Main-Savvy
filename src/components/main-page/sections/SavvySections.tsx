@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
+import FormattedText from "@/components/shared/FormattedText"
 import SavvySectionCard from "./SavvySectionCard"
 
 type SavvySectionCardData = {
@@ -29,7 +30,7 @@ export default function SavvySections() {
             <div className="container mx-auto px-4">
                 {/* Section Title - Better mobile sizing */}
                 <h2 className={`text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 md:mb-12 lg:mb-16 text-center`}>
-                    {content.sectionTitle}
+                    <FormattedText text={content.sectionTitle} as="span" />
                 </h2>
 
                 {/* Cards Grid - Tighter spacing on mobile */}

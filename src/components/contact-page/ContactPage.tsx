@@ -7,6 +7,8 @@ import { useIsMobile } from "@/hooks/useIsMobile"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
 import { staggerContainer, fadeInUp } from "@/lib/animations"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 
 type SolutionOptionGroup = { title: string; options: string[] }
 
@@ -137,7 +139,7 @@ export default function ContactPage() {
               className={isRTL ? "text-right" : "text-left"}
             >
               <h1 className="text-3xl mt-20 md:text-4xl font-bold text-gray-900 mb-12 text-center lg:text-start">
-                {t("contact.heroTitle")}
+                <FormattedText text={t("contact.heroTitle")} as="span" />
               </h1>
               {/* <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-12 text-center lg:text-start">
                 {t("contact.formTitle")}
@@ -158,14 +160,14 @@ export default function ContactPage() {
                     <label
                       className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
                     >
-                      {t("contact.fullName")}
+                      <FormattedText text={t("contact.fullName")} as="span" />
                     </label>
                     <input
                       type="text"
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleChange}
-                      placeholder={t("contact.fullNamePlaceholder")}
+                      placeholder={richTextToPlainText(t("contact.fullNamePlaceholder"))}
                       className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all ${isRTL ? "text-right" : "text-left"}`}
                       dir={isRTL ? "rtl" : "ltr"}
                       required
@@ -178,14 +180,14 @@ export default function ContactPage() {
                     <label
                       className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
                     >
-                      {t("contact.email")}
+                      <FormattedText text={t("contact.email")} as="span" />
                     </label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder={t("contact.emailPlaceholder")}
+                      placeholder={richTextToPlainText(t("contact.emailPlaceholder"))}
                       className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all ${isRTL ? "text-right" : "text-left"}`}
                       dir={isRTL ? "rtl" : "ltr"}
                       required
@@ -198,14 +200,14 @@ export default function ContactPage() {
                     <label
                       className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
                     >
-                      {t("contact.phone")}
+                      <FormattedText text={t("contact.phone")} as="span" />
                     </label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder={t("contact.phonePlaceholder")}
+                      placeholder={richTextToPlainText(t("contact.phonePlaceholder"))}
                       className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all ${isRTL ? "text-right" : "text-left"}`}
                       dir={isRTL ? "rtl" : "ltr"}
                     />
@@ -217,14 +219,14 @@ export default function ContactPage() {
                     <label
                       className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
                     >
-                      {t("contact.companyName")}
+                      <FormattedText text={t("contact.companyName")} as="span" />
                     </label>
                     <input
                       type="text"
                       name="companyName"
                       value={formData.companyName}
                       onChange={handleChange}
-                      placeholder={t("contact.companyPlaceholder")}
+                      placeholder={richTextToPlainText(t("contact.companyPlaceholder"))}
                       className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all ${isRTL ? "text-right" : "text-left"}`}
                       dir={isRTL ? "rtl" : "ltr"}
                     />
@@ -235,7 +237,7 @@ export default function ContactPage() {
                   <label
                     className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
                   >
-                    {t("contact.savvySolutions")}
+                    <FormattedText text={t("contact.savvySolutions")} as="span" />
                   </label>
                   <div
                     ref={solutionsScrollRef}
@@ -256,7 +258,7 @@ export default function ContactPage() {
                         <p
                           className={`text-xs font-semibold uppercase tracking-wide text-[#4361EE] ${isRTL ? "text-right" : "text-left"}`}
                         >
-                          {group.title}
+                          <FormattedText text={group.title} as="span" />
                         </p>
                         <div className="space-y-1">
                           {group.options.map((option, index) => (
@@ -274,7 +276,7 @@ export default function ContactPage() {
                                 className={`text-sm text-gray-700 flex-1 ${isRTL ? "text-right" : "text-left"}`}
                                 dir={isRTL ? "rtl" : "ltr"}
                               >
-                                {option}
+                                <FormattedText text={option} as="span" />
                               </span>
                             </label>
                           ))}
@@ -295,7 +297,7 @@ export default function ContactPage() {
                           className={`text-sm text-gray-700 flex-1 ${isRTL ? "text-right" : "text-left"}`}
                           dir={isRTL ? "rtl" : "ltr"}
                         >
-                          {solutionOtherLabel}
+                          <FormattedText text={solutionOtherLabel} as="span" />
                         </span>
                       </label>
                     </div>
@@ -306,13 +308,13 @@ export default function ContactPage() {
                   <label
                     className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
                   >
-                    {t("contact.message")}
+                    <FormattedText text={t("contact.message")} as="span" />
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder={t("contact.messagePlaceholder")}
+                    placeholder={richTextToPlainText(t("contact.messagePlaceholder"))}
                     rows={5}
                     className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all resize-none ${isRTL ? "text-right" : "text-left"}`}
                     dir={isRTL ? "rtl" : "ltr"}
@@ -327,9 +329,13 @@ export default function ContactPage() {
                     className="w-full px-8 py-4 bg-[#4361EE] text-white rounded-md font-bold text-base hover:bg-[#3651DE] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
-                      <span>{t("contact.sending")}</span>
+                      <span>
+                        <FormattedText text={t("contact.sending")} as="span" />
+                      </span>
                     ) : (
-                      <span>{t("contact.send")}</span>
+                      <span>
+                        <FormattedText text={t("contact.send")} as="span" />
+                      </span>
                     )}
                   </button>
                 </motion.div>
@@ -344,7 +350,7 @@ export default function ContactPage() {
                     <div className={`flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
                       <CheckCircle className="w-5 h-5 text-green-600 shrink-0" />
                       <p className={`text-green-700 font-medium text-sm ${isRTL ? "text-right" : "text-left"}`}>
-                        {t("contact.successMessage")}
+                        <FormattedText text={t("contact.successMessage")} as="span" />
                       </p>
                     </div>
                   </motion.div>
@@ -359,7 +365,7 @@ export default function ContactPage() {
                     <div className={`flex items-center gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
                       <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
                       <p className={`text-red-700 font-medium text-sm ${isRTL ? "text-right" : "text-left"}`}>
-                        {t("contact.errorMessage")}
+                        <FormattedText text={t("contact.errorMessage")} as="span" />
                       </p>
                     </div>
                   </motion.div>
@@ -371,12 +377,16 @@ export default function ContactPage() {
               className={`order-2 lg:order-none rounded-lg border border-gray-200 bg-gray-50 p-6 ${isRTL ? "text-right" : "text-left"}`}
               dir={isRTL ? "rtl" : "ltr"}
             >
-              <h2 className="text-lg font-bold text-gray-900 mb-5">{t("contact.sidebarTitle")}</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-5">
+                <FormattedText text={t("contact.sidebarTitle")} as="span" />
+              </h2>
               <ul className="space-y-5 text-sm text-gray-700">
                 <li className={sidebarRowClass}>
                   <Phone className="w-5 h-5 text-[#4361EE] shrink-0 mt-0.5" aria-hidden />
                   <div className="min-w-0 flex-1">
-                    <p className="font-medium text-gray-900">{t("contact.sidebarPhoneLabel")}</p>
+                    <p className="font-medium text-gray-900">
+                      <FormattedText text={t("contact.sidebarPhoneLabel")} as="span" />
+                    </p>
                     {telHref ? (
                       <a href={`tel:${telHref}`} className="text-[#4361EE] hover:underline break-all" dir="ltr">
                         {sidebarPhone}
@@ -389,7 +399,9 @@ export default function ContactPage() {
                 <li className={sidebarRowClass}>
                   <Mail className="w-5 h-5 text-[#4361EE] shrink-0 mt-0.5" aria-hidden />
                   <div className="min-w-0 flex-1">
-                    <p className="font-medium text-gray-900">{t("contact.sidebarEmailLabel")}</p>
+                    <p className="font-medium text-gray-900">
+                      <FormattedText text={t("contact.sidebarEmailLabel")} as="span" />
+                    </p>
                     {mailHref ? (
                       <a href={mailHref} className="text-[#4361EE] hover:underline break-all">
                         {sidebarEmail}
@@ -402,8 +414,12 @@ export default function ContactPage() {
                 <li className={sidebarRowClass}>
                   <MapPin className="w-5 h-5 text-[#4361EE] shrink-0 mt-0.5" aria-hidden />
                   <div className="min-w-0 flex-1">
-                    <p className="font-medium text-gray-900">{t("contact.sidebarAddressLabel")}</p>
-                    <p className="whitespace-pre-line break-words">{t("contact.sidebarAddress")}</p>
+                    <p className="font-medium text-gray-900">
+                      <FormattedText text={t("contact.sidebarAddressLabel")} as="span" />
+                    </p>
+                    <p className="whitespace-pre-line break-words">
+                      <FormattedText text={t("contact.sidebarAddress")} as="span" />
+                    </p>
                   </div>
                 </li>
                 {/* <li className={sidebarRowClass}>

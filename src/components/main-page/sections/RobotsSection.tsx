@@ -5,6 +5,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 import type { RobotCard } from "@/lib/robots-locale"
 
 type RobotsSectionProps = {
@@ -29,7 +31,7 @@ function RobotCardLink({
       <div className="relative w-full aspect-square overflow-hidden bg-gray-100">
         <Image
           src={card.image}
-          alt={card.name}
+          alt={richTextToPlainText(card.name)}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -38,14 +40,16 @@ function RobotCardLink({
 
       <div className="p-6 flex flex-col gap-4">
         <h3 className="text-xl font-semibold text-gray-900 leading-relaxed " >
-          {card.name}
+          <FormattedText text={card.name} />
         </h3>
 
         <div className="pt-4 border-t border-gray-200">
           <span
             className={`inline-flex items-center gap-2 text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors w-fit ${isRTL ? "flex-row-reverse" : ""}`}
           >
-            <span>{card.buttonText}</span>
+            <span>
+              <FormattedText text={card.buttonText} />
+            </span>
             <svg
               className={`h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1 ${isRTL ? "rotate-180" : ""}`}
               fill="none"
@@ -110,7 +114,7 @@ export default function RobotsSection({
     <section id="robots" className="w-full py-20 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 md:mb-16 text-primary">
-          {content.sectionTitle}
+          <FormattedText text={content.sectionTitle} />
         </h2>
 
         <div className={gridClassName}>
@@ -130,7 +134,7 @@ export default function RobotsSection({
               href={`/${lang}/robots`}
               className={`inline-flex items-center justify-center rounded-full border-2 border-primary text-primary px-8 py-3.5 text-base font-semibold hover:bg-primary hover:text-white transition-colors ${isRTL ? "flex-row-reverse" : ""}`}
             >
-              {t("home.robotsSection.exploreStore")}
+              <FormattedText text={t("home.robotsSection.exploreStore")} />
             </Link>
           </div>
         )}

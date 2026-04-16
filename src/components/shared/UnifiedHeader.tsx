@@ -9,6 +9,8 @@ import { useTranslation } from "react-i18next"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import LanguageSwitcher from "./LanguageSwitcher"
 import { motion, AnimatePresence } from "framer-motion"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 
 interface UnifiedHeaderProps {
   texts?: Record<string, string>
@@ -121,7 +123,7 @@ export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, 
                   onClick={() => setIsRobotsOpen(!isRobotsOpen)}
                   className={`${navTextClass} transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap`}
                 >
-                  {t("common.savvyEStore")}
+                  <FormattedText text={t("common.savvyEStore")} as="span" />
                   <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isRobotsOpen ? "rotate-180" : ""}`} />
                 </button>
 
@@ -139,7 +141,13 @@ export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, 
                         onClick={() => setIsRobotsOpen(false)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors font-medium border-b border-gray-100 mb-1"
                       >
-                        {t("common.robotsViewAll") || (lang === "ar" ? "عرض الكل" : "View All")}
+                        <FormattedText
+                          text={
+                            t("common.robotsViewAll") ||
+                            (lang === "ar" ? "عرض الكل" : "View All")
+                          }
+                          as="span"
+                        />
                       </Link>
                       {robots.map((r) => (
                         <Link
@@ -160,7 +168,7 @@ export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className={`md:hidden p-2 transition-colors ${isTransparent ? "text-white" : "text-gray-900"}`}
-                aria-label={t("common.toggleMenu")}
+                aria-label={richTextToPlainText(t("common.toggleMenu"))}
               >
                 {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -172,7 +180,10 @@ export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, 
                   href={`/${lang}/contact`}
                   className="px-5 py-2 bg-[#0066FF] text-white rounded-full hover:bg-[#0052CC] transition-colors text-sm font-medium whitespace-nowrap"
                 >
-                  {texts["contactUs"] || t("common.contactUs")}
+                  <FormattedText
+                    text={texts["contactUs"] || t("common.contactUs")}
+                    as="span"
+                  />
                 </Link>
               </div>
             </div>
@@ -192,14 +203,20 @@ export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, 
                   {/* Robots list */}
                   <div className="px-6 pb-2">
                     <p className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-2">
-                      {t("common.savvyEStore")}
+                      <FormattedText text={t("common.savvyEStore")} as="span" />
                     </p>
                     <Link
                       href={`/${lang}`}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="block px-3 py-2 text-white text-sm font-medium hover:bg-white/10 rounded-lg transition-colors"
                     >
-                      {t("common.robotsViewAll") || (lang === "ar" ? "عرض الكل" : "View All")}
+                      <FormattedText
+                        text={
+                          t("common.robotsViewAll") ||
+                          (lang === "ar" ? "عرض الكل" : "View All")
+                        }
+                        as="span"
+                      />
                     </Link>
                     {robots.map((r) => (
                       <Link
@@ -221,7 +238,10 @@ export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, 
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="block w-full px-5 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-colors text-sm font-medium text-center"
                     >
-                      {texts["contactUs"] || t("common.contactUs")}
+                      <FormattedText
+                        text={texts["contactUs"] || t("common.contactUs")}
+                        as="span"
+                      />
                     </Link>
                   </div>
                 </nav>

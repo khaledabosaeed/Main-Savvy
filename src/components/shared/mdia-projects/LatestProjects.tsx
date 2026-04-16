@@ -14,6 +14,7 @@ import {
   // crossfade,
   sectionSlideUp,
 } from "@/lib/animations"
+import FormattedText from "@/components/shared/FormattedText"
 
 function MadiaProjects() {
   const { language } = useLanguage()
@@ -116,10 +117,10 @@ function MadiaProjects() {
           className={`text-center mb-6 ${isRTL ? 'rtl' : 'ltr'}`}
         >
           <h2 className="text-3xl md:text-4xl  nolg:text-5xl font-bold text-gray-900 mb-3">
-            {title}
+            <FormattedText text={title} as="span" />
           </h2>
           <p className="text-gray-500 text-sm md:text-base">
-            {subtitle}
+            <FormattedText text={subtitle} as="span" />
           </p>
         </motion.div>
 

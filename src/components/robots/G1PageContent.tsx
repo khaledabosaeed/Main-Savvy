@@ -9,6 +9,7 @@ import G1ParameterSection from "./G1ParameterSection"
 import SpecsTable from "./SpecsTable"
 import RobotProductDetails from "./RobotProductDetails"
 import { getRobotHeroContent } from "@/lib/robots-locale"
+import FormattedText from "@/components/shared/FormattedText"
 import type { Language } from "@/lib/robots-locale"
 
 interface G1PageContentProps {
@@ -42,7 +43,7 @@ export default function G1PageContent({ lang }: G1PageContentProps) {
             <h2
               className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 text-center`}
             >
-              {t("common.specifications")}
+              <FormattedText text={t("common.specifications")} as="span" />
             </h2>
             <SpecsTable slug="g1" lang={lang} />
           </div>

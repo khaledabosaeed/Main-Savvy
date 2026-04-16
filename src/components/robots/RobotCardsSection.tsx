@@ -6,6 +6,8 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 import { SHOW_ROBOT_PRICING, type RobotCard } from "@/lib/robots-locale"
 
 export default function RobotCardsSection() {
@@ -39,7 +41,7 @@ export default function RobotCardsSection() {
               <div className="relative w-full aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden mb-6">
                 <Image
                   src={card.image}
-                  alt={card.name}
+                  alt={richTextToPlainText(card.name)}
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -51,7 +53,7 @@ export default function RobotCardsSection() {
                   isRTL ? "text-right" : "text-left"
                 }`}
               >
-                {card.name}
+                <FormattedText text={card.name} />
               </h3>
 
               <p
@@ -59,7 +61,7 @@ export default function RobotCardsSection() {
                   isRTL ? "text-right" : "text-left"
                 }`}
               >
-                {card.description}
+                <FormattedText text={card.description} />
               </p>
 
               <div className={`flex flex-wrap gap-3 ${isRTL ? "flex-row-reverse" : ""}`}>
@@ -67,14 +69,14 @@ export default function RobotCardsSection() {
                   href={`/${lang}${card.link}`}
                   className="inline-block w-fit px-8 py-3 bg-white border-2 border-gray-900 text-gray-900 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors"
                 >
-                  {card.buttonText}
+                  <FormattedText text={card.buttonText} />
                 </Link>
                 {SHOW_ROBOT_PRICING && card.productLink && (
                   <Link
                     href={`/${lang}${card.productLink}`}
                     className="inline-block w-fit px-8 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors"
                   >
-                    {viewPricingText}
+                    <FormattedText text={viewPricingText} as="span" />
                   </Link>
                 )}
               </div>

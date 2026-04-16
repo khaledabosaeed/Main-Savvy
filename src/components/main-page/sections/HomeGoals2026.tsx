@@ -8,6 +8,8 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { useTranslation } from "react-i18next"
 import { Leaf, Wind, Brain, Bot } from "lucide-react"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 
 export default function HomeGoals2026() {
   const [animate, setAnimate] = useState(false)
@@ -73,7 +75,7 @@ export default function HomeGoals2026() {
           viewport={{ once: true, margin: "-40px" }}
           className="text-center text-sm md:text-base text-primary font-medium mb-3 md:mb-4"
         >
-          {t("home.goals2030.intro")}
+          <FormattedText text={t("home.goals2030.intro")} />
         </motion.p>
         <motion.h2
           variants={headerVariants}
@@ -82,7 +84,7 @@ export default function HomeGoals2026() {
           viewport={{ once: true, margin: "-40px" }}
           className="text-center text-lg md:text-xl mb-8 md:mb-10 font-semibold text-gray-900 mb-2 md:mb-3"
         >
-          {t("hero.goalsTitle")}
+          <FormattedText text={t("hero.goalsTitle")} />
         </motion.h2>
         {/* <motion.p
           variants={headerVariants}
@@ -129,7 +131,7 @@ export default function HomeGoals2026() {
                 <p
                   className={`text-sm md:text-base font-bold text-gray-800 leading-relaxed flex-1 text-center transition-colors ${href ? "group-hover:text-gray-900" : ""}`}
                 >
-                  {goal}
+                  <FormattedText text={goal} />
                 </p>
               </motion.div>
             )
@@ -137,7 +139,11 @@ export default function HomeGoals2026() {
             return (
               <motion.div key={i} variants={goalItemVariants}>
                 {href ? (
-                  <Link href={href} className={`${cardClass} ${interactiveClass}`} aria-label={goal}>
+                  <Link
+                    href={href}
+                    className={`${cardClass} ${interactiveClass}`}
+                    aria-label={richTextToPlainText(goal)}
+                  >
                     {inner}
                   </Link>
                 ) : (

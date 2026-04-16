@@ -7,6 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
+import FormattedText from "@/components/shared/FormattedText"
 
 export default function PromoSection() {
     const { language } = useLanguage()
@@ -56,10 +57,10 @@ export default function PromoSection() {
                     >
                         <div className="w-full max-w-[600px]">
                         <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
-                            {t("promo.title")}
+                            <FormattedText text={t("promo.title")} as="span" />
                         </h2>
                         <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                            {t("promo.description")}
+                            <FormattedText text={t("promo.description")} as="span" />
                         </p>
                         </div>
                         <div className="mt-2 md:mt-4 flex md:justify-start justify-center">
@@ -67,7 +68,7 @@ export default function PromoSection() {
                             href={promoHref}
                             className={`px-8 md:px-10 py-3 md:py-4 bg-blue-600 text-white rounded-xl text-base md:text-lg font-semibold hover:bg-blue-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 ${lang === "ar" ? "md:self-end" : "md:self-start"} self-center`}
                         >
-                            {promoButtonText}
+                            <FormattedText text={promoButtonText} as="span" />
                         </Link>
                         </div>
                     </motion.div>

@@ -4,6 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useIsMobile } from "@/hooks/useIsMobile"
+import FormattedText from "@/components/shared/FormattedText"
+import { richTextToPlainText } from "@/lib/rich-text"
 
 interface SavvySectionCardProps {
     title: string
@@ -45,7 +47,7 @@ export default function SavvySectionCard({
                 >
                     <Image
                         src={icon}
-                        alt={`${title} icon`}
+                        alt={`${richTextToPlainText(title)} icon`}
                         width={isMobile ? 32 : 48}
                         height={isMobile ? 32 : 48}
                         className="w-full h-full object-contain brightness-0 invert"
@@ -56,11 +58,11 @@ export default function SavvySectionCard({
                 {/* Title and Description - Better mobile typography */}
                 <div className="flex-1">
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 md:mb-3">
-                        {title}
+                        <FormattedText text={title} as="span" />
                     </h3>
                     <div className="w-full h-px bg-gray-300 mb-3 md:mb-4" />
                     <p className="text-gray-600 leading-relaxed text-sm md:text-base lg:text-lg">
-                        {description}
+                        <FormattedText text={description} as="span" />
                     </p>
                 </div>
             </div>
@@ -75,7 +77,9 @@ export default function SavvySectionCard({
                                 <span className="text-gray-900 font-bold text-sm md:text-base pb-1.5 md:pb-2">
                                     {String(idx + 1).padStart(2, '0')}
                                 </span>
-                                <span className="text-gray-900 font-bold text-sm md:text-base">{feature}</span>
+                                <span className="text-gray-900 font-bold text-sm md:text-base">
+                                  <FormattedText text={feature} as="span" />
+                                </span>
                             </li>
                         ))}
                     </ul>
@@ -84,7 +88,9 @@ export default function SavvySectionCard({
                     <span
                         className={`inline-flex items-center gap-2 text-gray-900 text-sm md:text-base font-medium hover:text-blue-600 transition-colors group ${isRTL ? 'flex-row-reverse' : ''}`}
                     >
-                        <span>{buttonText}</span>
+                        <span>
+                          <FormattedText text={buttonText} as="span" />
+                        </span>
                         <svg
                             className={`w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1 ${isRTL ? 'rotate-180' : ''}`}
                             fill="none"
@@ -100,7 +106,7 @@ export default function SavvySectionCard({
                 <div className={`relative h-[220px] md:h-[320px] lg:h-[380px] ${isRTL ? 'md:order-1' : ''}`}>
                     <Image
                         src={image}
-                        alt={title}
+                        alt={richTextToPlainText(title)}
                         fill
                         className="object-cover rounded-lg md:rounded-xl"
                         sizes="(max-width: 768px) 100vw, 50vw"

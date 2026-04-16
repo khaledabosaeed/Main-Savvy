@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next"
 import { FaInstagram, FaSnapchatGhost, FaTiktok } from "react-icons/fa"
 import { FaLinkedinIn } from "react-icons/fa6"
 import { Check } from "lucide-react"
+import FormattedText from "@/components/shared/FormattedText"
 
 export default function NewHero() {
   const [animate, setAnimate] = useState(false)
@@ -160,7 +161,7 @@ export default function NewHero() {
             animate={animate ? "visible" : "hidden"}
             className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight px-2"
           >
-            {t("hero.welcomeText")}
+            <FormattedText text={t("hero.welcomeText")} />
             {savvyWorldAccent ? (
               <>
                 {" "}
@@ -175,7 +176,7 @@ export default function NewHero() {
             animate={animate ? "visible" : "hidden"}
             className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 mb-6 md:mb-8 max-w-4xl mx-auto px-4 leading-relaxed"
           >
-            {t("hero.description")}
+            <FormattedText text={t("hero.description")} />
           </motion.p>
 
           {valueProps.length > 0 && (
@@ -194,7 +195,9 @@ export default function NewHero() {
                   <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Check className="h-4 w-4" strokeWidth={2.5} />
                   </span>
-                  <p className="text-xs md:text-sm font-semibold text-gray-800 leading-snug">{text}</p>
+                  <p className="text-xs md:text-sm font-semibold text-gray-800 leading-snug">
+                    <FormattedText text={text} />
+                  </p>
                 </motion.div>
               ))}
             </motion.div>
@@ -210,13 +213,13 @@ export default function NewHero() {
               href={`/${lang}/contact`}
               className="inline-flex items-center justify-center rounded-full bg-primary text-white px-8 py-3 text-sm md:text-base font-semibold shadow-md hover:opacity-95 transition-opacity"
             >
-              {t("hero.ctaPrimary")}
+              <FormattedText text={t("hero.ctaPrimary")} as="span" />
             </Link>
             <Link
               href={`/${lang}#about`}
               className="inline-flex items-center justify-center rounded-full border-2 border-primary text-primary bg-white px-8 py-3 text-sm md:text-base font-semibold hover:bg-primary/5 transition-colors"
             >
-              {t("hero.ctaSecondary")}
+              <FormattedText text={t("hero.ctaSecondary")} as="span" />
             </Link>
           </motion.div>
 
