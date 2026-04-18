@@ -19,10 +19,20 @@ interface UnifiedHeaderProps {
   logoHref?: string
   logoAlt?: string
   logoSrc?: string
+  /** Used with `transparentHeader` for the top-of-hero (transparent bar) variant */
+  logoSrcTransparent?: string
   transparentHeader?: boolean
 }
 
-export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, logoAlt = "Savvy", logoSrc = "/Savvy 2 1.svg", transparentHeader = false }: UnifiedHeaderProps) {
+export default function UnifiedHeader({
+  texts = {},
+  hasBanner = true,
+  logoHref,
+  logoAlt = "Savvy",
+  logoSrc = "/Savvy 2 1.svg",
+  logoSrcTransparent = "/white.svg",
+  transparentHeader = false,
+}: UnifiedHeaderProps) {
   const { language } = useLanguage()
   const { t } = useTranslation()
   const isMobile = useIsMobile()
@@ -99,16 +109,59 @@ export default function UnifiedHeader({ texts = {}, hasBanner = true, logoHref, 
         <div className="w-full">
           <div className="container mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-4 lg:py-5">
             <div className={`flex items-center justify-between gap-3 md:gap-4 lg:gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              {/* Logo - Smaller on mobile, white when transparent */}
+              {/* Logo — dual asset + crossfade when transparentHeader; single Image otherwise */}
               <div className="shrink-0">
-                <Link href={logoHref || `/${lang}`}>
-                  <Image
-                    src={logoSrc}
-                    alt={logoAlt}
-                    width={100}
-                    height={70}
-                    className={`h-10 md:h-13 w-auto transition-all duration-300 ${isTransparent ? "brightness-0 invert" : ""}`}
-                  />
+                <Link href={logoHref || `/${lang}`} aria-label={transparentHeader ? logoAlt : undefined}>
+                  {transparentHeader ? (
+                    <div className="relative inline-block h-10 md:h-13">
+                      <Image
+                        src={logoSrc}
+                        alt=""
+                        width={100}
+                        height={70}
+                        className="h-full w-auto max-h-full opacity-0 pointer-events-none select-none"
+                        aria-hidden
+                      />
+                      <motion.div
+                        className="absolute inset-0 flex items-center justify-start"
+                        initial={false}
+                        animate={{ opacity: isTransparent ? 1 : 0 }}
+                        transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        <Image
+                          src={logoSrcTransparent}
+                          alt=""
+                          width={100}
+                          height={70}
+                          className="h-full w-auto max-h-full"
+                          aria-hidden
+                        />
+                      </motion.div>
+                      <motion.div
+                        className="absolute inset-0 flex items-center justify-start"
+                        initial={false}
+                        animate={{ opacity: isTransparent ? 0 : 1 }}
+                        transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        <Image
+                          src={logoSrc}
+                          alt=""
+                          width={100}
+                          height={70}
+                          className="h-full w-auto max-h-full"
+                          aria-hidden
+                        />
+                      </motion.div>
+                    </div>
+                  ) : (
+                    <Image
+                      src={logoSrc}
+                      alt={logoAlt}
+                      width={100}
+                      height={70}
+                      className="h-10 md:h-13 w-auto transition-all duration-300"
+                    />
+                  )}
                 </Link>
               </div>
 
