@@ -22,7 +22,7 @@ export default function PromoSection() {
         : t("promo.buttonText")
 
     return (
-        <section className="w-full py-12 md:py-16 lg:py-20  mt-0 md:mt-50" >
+        <section className="w-full pb-12 md:pb-16 lg:pb-20   mt-0 md:mt-30" >
             <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-10" >
                 <div className={`relative flex flex-col items-center gap-8 md:gap-12 lg:gap-16 bg-[#F4F4F4] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-16 shadow-xl overflow-visible md:flex-row-reverse `}>
                     {/* Image - Optimized for mobile */}

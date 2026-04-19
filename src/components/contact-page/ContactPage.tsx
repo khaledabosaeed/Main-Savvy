@@ -141,9 +141,7 @@ export default function ContactPage() {
               <h1 className="text-3xl mt-20 md:text-4xl font-bold text-gray-900 mb-12 text-center lg:text-start">
                 <FormattedText text={t("contact.heroTitle")} as="span" />
               </h1>
-              {/* <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-12 text-center lg:text-start">
-                {t("contact.formTitle")}
-              </h2> */}
+
 
               <div className="grid grid-cols-1 lg:grid-cols-[1fr_minmax(260px,320px)] gap-10 lg:gap-12 items-start">
                 <div className={`min-w-0 order-1 lg:order-none ${isRTL ? "text-right" : "text-left"}`}>
@@ -422,13 +420,6 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </li>
-                {/* <li className={sidebarRowClass}>
-                  <Clock className="w-5 h-5 text-[#4361EE] shrink-0 mt-0.5" aria-hidden />
-                  <div className="min-w-0 flex-1">
-                    <p className="font-medium text-gray-900">{t("contact.sidebarHoursLabel")}</p>
-                    <p className="whitespace-pre-line break-words">{t("contact.sidebarHours")}</p>
-                  </div>
-                </li> */}
               </ul>
             </aside>
               </div>
@@ -436,40 +427,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* <section className="relative py-16 md:py-24 bg-white">
-        <div className="container px-6">
-          <motion.div
-            ref={faqRef}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{t("contact.faqTitle")}</h2>
-            <h3 className="mt-4 text-lg md:text-xl font-semibold text-gray-700 max-w-2xl mx-auto">
-              {t("contact.faqLead")}
-            </h3>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`${isRTL ? "text-right" : "text-left"}`}
-                dir={isRTL ? "rtl" : "ltr"}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4">{faq.question}</h3>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed">{faq.answer}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
     </>
   )
 }
