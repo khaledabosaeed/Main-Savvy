@@ -457,7 +457,32 @@
           "Brand, content, and social media"
         ]
       }
-    ]
+    ],
+    "robotAcquisition": {
+      "sectionTitle": "Tell us about your robotics needs",
+      "intro": "Goals for acquiring a robot vary widely—much like choosing a vehicle, from compact cars to heavy trucks.\n\nThe clearer you are about your goal, the better we can help.\n\nTell us:\nIs it for entertainment? Marketing? Technical or research use? Industrial? Educational? Or something else?\n\nAlso:\nDo you have specific technical requirements—such as movement, artificial intelligence, or the operating environment?\n\nThe more we know, the faster we can route your request to the right team and offer the best solution.",
+      "purposeLabel": "1 — Purpose of use (optional)",
+      "purposeOptions": [
+        "Entertainment",
+        "Marketing",
+        "Technical or research",
+        "Industrial",
+        "Educational",
+        "Other"
+      ],
+      "techLabel": "2 — Technical requirements (optional)",
+      "techOptions": [
+        "Movement / mobility",
+        "Artificial intelligence",
+        "Operating environment",
+        "Other"
+      ],
+      "closing": "Thank you for your cooperation.",
+      "purposeEmailPrefix": "Purpose:",
+      "techEmailPrefix": "Technical requirements:",
+      "yesLabel": "Yes",
+      "noLabel": "No"
+    }
   },
   "faq": {
     "title": "Frequently Asked Questions",

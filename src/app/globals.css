@@ -249,7 +249,7 @@ a[href^="#"] {
   
   /* Optimize button sizes */
   button {
-    min-height: 44px;
+    /* min-height: 44px; */
     padding: 0.625rem 1rem;
   }
 }

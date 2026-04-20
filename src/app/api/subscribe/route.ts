@@ -3,6 +3,14 @@ import nodemailer from 'nodemailer'
 import path from 'path'
 import fs from 'fs'
 
+function escapeHtml(s: string) {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
 export async function POST(request: NextRequest) {
   try {
 const {
@@ -60,21 +68,30 @@ if (!fullName) {
     const subject = isArabic
       ? 'طلب جديد من صفحة Main - Savvy'
       : 'New Subscription Main- Savvy'
+
+    const safeFullName = escapeHtml(fullName || '')
+    const safeEmail = escapeHtml(email || '')
+    const safePhone = escapeHtml(phone || '-')
+    const safeCompany = escapeHtml(companyName || '-')
+    const safeJobTitle = escapeHtml(jobTitle || '-')
+    const messageBody = message || (isArabic ? 'لا توجد رسالة' : 'No message provided')
+    const safeMessage = escapeHtml(messageBody)
+
 const htmlContent = isArabic
   ? `
   <div dir="rtl" style="font-family: Arial; max-width:600px; margin:auto">
     <h2 style="color:#2563eb">طلب تواصل جديد 📩</h2>
 
-    <p><strong>الاسم الكامل:</strong> ${fullName}</p>
-    <p><strong>البريد الإلكتروني:</strong> ${email}</p>
-    <p><strong>رقم الهاتف:</strong> ${phone || '-'}</p>
-    <p><strong>اسم الشركة:</strong> ${companyName || '-'}</p>
-    <p><strong>المسمى الوظيفي:</strong> ${jobTitle || '-'}</p>
+    <p><strong>الاسم الكامل:</strong> ${safeFullName}</p>
+    <p><strong>البريد الإلكتروني:</strong> ${safeEmail}</p>
+    <p><strong>رقم الهاتف:</strong> ${safePhone}</p>
+    <p><strong>اسم الشركة:</strong> ${safeCompany}</p>
+    <p><strong>المسمى الوظيفي:</strong> ${safeJobTitle}</p>
 
     <hr />
 
     <p><strong>الرسالة:</strong></p>
-    <p>${message || 'لا توجد رسالة'}</p>
+    <p style="white-space: pre-line; word-break: break-word;">${safeMessage}</p>
 
     <hr />
     <p style="font-size:13px;color:#666">
@@ -87,16 +104,16 @@ const htmlContent = isArabic
   <div style="font-family: Arial; max-width:600px; margin:auto">
     <h2 style="color:#2563eb">New Contact Request 📩</h2>
 
-    <p><strong>Full Name:</strong> ${fullName}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Phone:</strong> ${phone || '-'}</p>
-    <p><strong>Company:</strong> ${companyName || '-'}</p>
-    <p><strong>Job Title:</strong> ${jobTitle || '-'}</p>
+    <p><strong>Full Name:</strong> ${safeFullName}</p>
+    <p><strong>Email:</strong> ${safeEmail}</p>
+    <p><strong>Phone:</strong> ${safePhone}</p>
+    <p><strong>Company:</strong> ${safeCompany}</p>
+    <p><strong>Job Title:</strong> ${safeJobTitle}</p>
 
     <hr />
 
     <p><strong>Message:</strong></p>
-    <p>${message || 'No message provided'}</p>
+    <p style="white-space: pre-line; word-break: break-word;">${safeMessage}</p>
 
     <hr />
     <p style="font-size:13px;color:#666">

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed:translations": "node scripts/seed-translations.cjs"
+    "seed:translations": "node scripts/seed-translations.cjs",
+    "merge:translations": "node scripts/merge-missing-locales-into-supabase.cjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.0",
