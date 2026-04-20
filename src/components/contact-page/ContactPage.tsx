@@ -456,24 +456,7 @@ export default function ContactPage() {
                   </div>
                 </motion.div>
 
-                <motion.div variants={fadeInUp} className={`${isRTL ? "rtl" : "ltr"}`}>
-                  <label
-                    className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
-                  >
-                    <FormattedText text={t("contact.message")} as="span" />
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder={richTextToPlainText(t("contact.messagePlaceholder"))}
-                    rows={5}
-                    className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all resize-none ${isRTL ? "text-right" : "text-left"}`}
-                    dir={isRTL ? "rtl" : "ltr"}
-                    required
-                  />
-                </motion.div>
-
+    
                 <motion.div
                   variants={fadeInUp}
                   role="region"
@@ -546,6 +529,24 @@ export default function ContactPage() {
                     <FormattedText text={robotCopy.closing} as="span" />
                   </p>
                 </motion.div>
+                <motion.div variants={fadeInUp} className={`${isRTL ? "rtl" : "ltr"}`}>
+                  <label
+                    className={`block text-sm font-medium text-gray-700 mb-2 ${isRTL ? "text-right" : "text-left"}`}
+                  >
+                    <FormattedText text={t("contact.message")} as="span" />
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder={richTextToPlainText(t("contact.messagePlaceholder"))}
+                    rows={5}
+                    className={`w-full px-4 py-3.5 rounded-md border border-gray-200 bg-gray-50 focus:border-blue-500 focus:bg-white focus:outline-none transition-all resize-none ${isRTL ? "text-right" : "text-left"}`}
+                    dir={isRTL ? "rtl" : "ltr"}
+                    required
+                  />
+                </motion.div>
+
 
                 <motion.div variants={fadeInUp} className="pt-2">
                   <button
@@ -653,7 +654,9 @@ export default function ContactPage() {
               </div>
             </motion.div>
           </div>
+          
         </div>
+        
       </section>
     </>
   )
