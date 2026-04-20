@@ -9,8 +9,45 @@ import { useTranslation } from "react-i18next"
 import { staggerContainer, fadeInUp } from "@/lib/animations"
 import FormattedText from "@/components/shared/FormattedText"
 import { richTextToPlainText } from "@/lib/rich-text"
+import enFallback from "../../../public/locales/en.json"
 
 type SolutionOptionGroup = { title: string; options: string[] }
+
+type RobotAcquisitionCopy = {
+  sectionTitle: string
+  intro: string
+  purposeLabel: string
+  purposeOptions: string[]
+  techLabel: string
+  techOptions: string[]
+  closing: string
+  purposeEmailPrefix: string
+  techEmailPrefix: string
+  yesLabel: string
+  noLabel: string
+}
+
+function isStringArray(a: unknown): a is string[] {
+  return Array.isArray(a) && a.every((x) => typeof x === "string")
+}
+
+function isRobotAcquisitionCopy(raw: unknown): raw is RobotAcquisitionCopy {
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) return false
+  const o = raw as Record<string, unknown>
+  return (
+    typeof o.sectionTitle === "string" &&
+    typeof o.intro === "string" &&
+    typeof o.purposeLabel === "string" &&
+    isStringArray(o.purposeOptions) &&
+    typeof o.techLabel === "string" &&
+    isStringArray(o.techOptions) &&
+    typeof o.closing === "string" &&
+    typeof o.purposeEmailPrefix === "string" &&
+    typeof o.techEmailPrefix === "string" &&
+    typeof o.yesLabel === "string" &&
+    typeof o.noLabel === "string"
+  )
+}
 
 function isPlaceholderContactValue(s: string) {
   const t = s.trim()
@@ -29,6 +66,79 @@ function emailHref(email: string) {
   return `mailto:${email.trim()}`
 }
 
+type RobotYesNo = "yes" | "no"
+type RobotYesNoMap = Partial<Record<string, RobotYesNo>>
+
+function formatRobotYesNoLines(
+  options: readonly string[],
+  answers: RobotYesNoMap,
+  yesWord: string,
+  noWord: string
+): string[] {
+  const lines: string[] = []
+  for (const opt of options) {
+    const v = answers[opt]
+    if (v === undefined) continue
+    lines.push(`${opt}: ${v === "yes" ? yesWord : noWord}`)
+  }
+  return lines
+}
+
+function RobotYesNoToggleRow({
+  option,
+  value,
+  onPick,
+  isRTL,
+  yesLabel,
+  noLabel,
+}: {
+  option: string
+  value: RobotYesNo | undefined
+  onPick: (v: RobotYesNo) => void
+  isRTL: boolean
+  yesLabel: string
+  noLabel: string
+}) {
+  const on = value === "yes"
+  const stateLabel = on ? yesLabel : noLabel
+  return (
+    <div
+      dir={isRTL ? "rtl" : "ltr"}
+      className="flex w-full items-center justify-between gap-3 py-3 border-b border-gray-100 last:border-b-0"
+    >
+        <span className="text-sm font-semibold text-slate-800 flex-1 min-w-0 text-start pe-2">
+          <FormattedText text={option} as="span" />
+        </span>
+      <div className="flex shrink-0 items-center gap-2">
+        <span
+          className={`text-sm font-semibold tabular-nums min-w-[2.75rem] text-end ${on ? "text-[#4361EE]" : "text-slate-500"}`}
+          aria-live="polite"
+        >
+          {stateLabel}
+        </span>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={on}
+          aria-label={`${option}: ${stateLabel}`}
+          onClick={() => onPick(on ? "no" : "yes")}
+          dir="ltr"
+          className={`relative inline-flex h-7 w-12 cursor-pointer rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4361EE] focus-visible:ring-offset-2 ${
+            on ? "bg-[#4361EE]" : "bg-gray-300"
+          }`}
+        >
+          <span
+            className={`pointer-events-none absolute top-0.5 left-0.5 h-6 w-6 rounded-full bg-white shadow-md ring-1 ring-black/5 transition-transform duration-200 ease-out ${
+              on ? "translate-x-5" : "translate-x-0"
+            }`}
+            aria-hidden
+          />
+        </button>
+      </div>
+    </div>
+  )
+}
+
 export default function ContactPage() {
   const { language } = useLanguage()
   const { t } = useTranslation()
@@ -43,6 +153,8 @@ export default function ContactPage() {
     message: "",
   })
   const [selectedSolutions, setSelectedSolutions] = useState<string[]>([])
+  const [robotPurposeYesNo, setRobotPurposeYesNo] = useState<RobotYesNoMap>({})
+  const [robotTechYesNo, setRobotTechYesNo] = useState<RobotYesNoMap>({})
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -57,6 +169,12 @@ export default function ContactPage() {
   }, [t])
 
   const solutionOtherLabel = t("contact.solutionOther")
+
+  const robotCopy = useMemo((): RobotAcquisitionCopy => {
+    const raw = t("contact.robotAcquisition", { returnObjects: true })
+    if (isRobotAcquisitionCopy(raw)) return raw
+    return enFallback.contact.robotAcquisition as RobotAcquisitionCopy
+  }, [t])
 
   const sidebarPhone = t("contact.sidebarPhone")
   const sidebarEmail = t("contact.sidebarEmail")
@@ -76,6 +194,30 @@ export default function ContactPage() {
     setIsSubmitting(true)
 
     try {
+      const purposePrefix = robotCopy.purposeEmailPrefix
+      const techPrefix = robotCopy.techEmailPrefix
+      const messageParts: string[] = []
+      const purposeLines = formatRobotYesNoLines(
+        robotCopy.purposeOptions,
+        robotPurposeYesNo,
+        robotCopy.yesLabel,
+        robotCopy.noLabel
+      )
+      if (purposeLines.length > 0) {
+        messageParts.push(`${purposePrefix}\n${purposeLines.join("\n")}`)
+      }
+      const techLines = formatRobotYesNoLines(
+        robotCopy.techOptions,
+        robotTechYesNo,
+        robotCopy.yesLabel,
+        robotCopy.noLabel
+      )
+      if (techLines.length > 0) {
+        messageParts.push(`${techPrefix}\n${techLines.join("\n")}`)
+      }
+      messageParts.push(...selectedSolutions)
+      messageParts.push(formData.message)
+
       const response = await fetch("/api/subscribe", {
         method: "POST",
         headers: {
@@ -86,7 +228,7 @@ export default function ContactPage() {
           email: formData.email,
           phone: formData.phone,
           companyName: formData.companyName,
-          message: [...selectedSolutions, formData.message].filter(Boolean).join("\n"),
+          message: messageParts.filter(Boolean).join("\n\n"),
           lang,
         }),
       })
@@ -101,6 +243,8 @@ export default function ContactPage() {
           message: "",
         })
         setSelectedSolutions([])
+        setRobotPurposeYesNo({})
+        setRobotTechYesNo({})
         setTimeout(() => setStatus("idle"), 5000)
       } else {
         setStatus("error")
@@ -121,6 +265,16 @@ export default function ContactPage() {
     setSelectedSolutions((prev) =>
       prev.includes(option) ? prev.filter((s) => s !== option) : [...prev, option]
     )
+    setStatus("idle")
+  }
+
+  const pickPurposeYesNo = (option: string, v: RobotYesNo) => {
+    setRobotPurposeYesNo((prev) => ({ ...prev, [option]: v }))
+    setStatus("idle")
+  }
+
+  const pickTechYesNo = (option: string, v: RobotYesNo) => {
+    setRobotTechYesNo((prev) => ({ ...prev, [option]: v }))
     setStatus("idle")
   }
 
@@ -320,6 +474,79 @@ export default function ContactPage() {
                   />
                 </motion.div>
 
+                <motion.div
+                  variants={fadeInUp}
+                  role="region"
+                  aria-labelledby="contact-robot-acquisition-heading"
+                  className={`space-y-5 rounded-lg border-2 border-[#4361EE]/20 bg-gradient-to-b from-[#4361EE]/[0.06] to-gray-50/80 p-5 md:p-6 shadow-sm ${isRTL ? "rtl" : "ltr"}`}
+                >
+                  <div>
+                    <h2
+                      id="contact-robot-acquisition-heading"
+                      className={`text-lg md:text-xl font-bold text-gray-900 mb-3 ${isRTL ? "text-right" : "text-left"}`}
+                    >
+                      <FormattedText text={robotCopy.sectionTitle} as="span" />
+                    </h2>
+                    <div
+                      className={`text-base text-gray-800 leading-relaxed ${isRTL ? "text-right" : "text-left"}`}
+                    >
+                      <FormattedText text={robotCopy.intro} as="div" />
+                    </div>
+                  </div>
+
+                  <div className="h-px w-full bg-[#4361EE]/20" aria-hidden />
+
+                  <div className="space-y-2">
+                    <p
+                      className={`block text-sm font-semibold text-[#4361EE] mb-2 ${isRTL ? "text-right" : "text-left"}`}
+                    >
+                      <FormattedText text={robotCopy.purposeLabel} as="span" />
+                    </p>
+                    <div className="rounded-md border border-gray-200 bg-white/80 px-2">
+                      {robotCopy.purposeOptions.map((option, index) => (
+                        <RobotYesNoToggleRow
+                          key={`purpose-${index}`}
+                          option={option}
+                          value={robotPurposeYesNo[option]}
+                          onPick={(v) => pickPurposeYesNo(option, v)}
+                          isRTL={isRTL}
+                          yesLabel={robotCopy.yesLabel}
+                          noLabel={robotCopy.noLabel}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="h-px w-full bg-gray-200" aria-hidden />
+
+                  <div className="space-y-2">
+                    <p
+                      className={`block text-sm font-semibold text-[#4361EE] mb-2 ${isRTL ? "text-right" : "text-left"}`}
+                    >
+                      <FormattedText text={robotCopy.techLabel} as="span" />
+                    </p>
+                    <div className="rounded-md border border-gray-200 bg-white/80 px-2">
+                      {robotCopy.techOptions.map((option, index) => (
+                        <RobotYesNoToggleRow
+                          key={`tech-${index}`}
+                          option={option}
+                          value={robotTechYesNo[option]}
+                          onPick={(v) => pickTechYesNo(option, v)}
+                          isRTL={isRTL}
+                          yesLabel={robotCopy.yesLabel}
+                          noLabel={robotCopy.noLabel}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <p
+                    className={`block text-base font-medium text-gray-900 pt-2 border-t border-gray-200 ${isRTL ? "text-right" : "text-left"}`}
+                  >
+                    <FormattedText text={robotCopy.closing} as="span" />
+                  </p>
+                </motion.div>
+
                 <motion.div variants={fadeInUp} className="pt-2">
                   <button
                     type="submit"
@@ -337,6 +564,7 @@ export default function ContactPage() {
                     )}
                   </button>
                 </motion.div>
+
 
                 {status === "success" && (
                   <motion.div

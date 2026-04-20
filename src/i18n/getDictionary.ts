@@ -6,6 +6,38 @@ import type { AppLanguage } from "./settings"
 
 export type LocaleDictionary = typeof en
 
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value)
+}
+
+/**
+ * Deep-merge Supabase snapshot onto the repo JSON bundle.
+ * Keys present only in the file (e.g. new copy) are kept; DB values override on conflict.
+ */
+function mergeTranslationsTree(
+  base: Record<string, unknown>,
+  override: Record<string, unknown>
+): Record<string, unknown> {
+  const out: Record<string, unknown> = {}
+  for (const key of new Set([
+    ...Object.keys(base),
+    ...Object.keys(override),
+  ])) {
+    const bb = base[key]
+    const ob = override[key]
+    if (ob === undefined) {
+      out[key] = bb
+    } else if (bb === undefined) {
+      out[key] = ob
+    } else if (isPlainObject(ob) && isPlainObject(bb)) {
+      out[key] = mergeTranslationsTree(bb, ob)
+    } else {
+      out[key] = ob
+    }
+  }
+  return out
+}
+
 async function fetchLocaleFromSupabase(
   locale: AppLanguage
 ): Promise<LocaleDictionary | null> {
@@ -41,7 +73,12 @@ export async function getDictionary(
     async () => {
       try {
         const fromDb = await fetchLocaleFromSupabase(lang)
-        if (fromDb) return fromDb
+        if (fromDb) {
+          return mergeTranslationsTree(
+            staticDictionary(lang) as unknown as Record<string, unknown>,
+            fromDb as unknown as Record<string, unknown>
+          ) as LocaleDictionary
+        }
       } catch {
         /* network / missing table — fall back */
       }
