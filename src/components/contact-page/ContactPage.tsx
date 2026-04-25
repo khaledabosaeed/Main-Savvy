@@ -2,7 +2,6 @@
 
 import { useState, useRef, useMemo } from "react"
 import { motion, useInView } from "framer-motion"
-import { CheckCircle, AlertCircle, Mail, Phone, MapPin } from "lucide-react"
 import { CheckCircle, AlertCircle, Phone, Mail, MapPin, Clock } from "lucide-react"
 import { useIsMobile } from "@/hooks/useIsMobile"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -27,8 +26,8 @@ export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const formRef = useRef(null)
-  const faqRef = useRef(null)
+  const formRef = useRef<HTMLDivElement>(null)
+  const faqRef = useRef<HTMLDivElement>(null)
   const solutionsScrollRef = useRef<HTMLDivElement>(null)
 
   const isFormInView = useInView(formRef, { once: true, amount: isMobile ? 0.1 : 0.2 })
@@ -112,7 +111,7 @@ export default function ContactPage() {
     <>
       <section className="relative pt-20 md:pt-0 py-20 md:py-24 bg-white overflow-hidden">
         <div className="container relative z-10 px-6">
-          <div className="max-w-6xl mx-auto" dir={isRTL ? "rtl" : "ltr"}>
+          <motion.div className="max-w-6xl mx-auto" dir={isRTL ? "rtl" : "ltr"}>
             <motion.div
               ref={formRef}
               initial={{ opacity: 0, y: 30 }}
@@ -342,7 +341,6 @@ export default function ContactPage() {
             >
               <h2 className="text-lg font-bold text-gray-900 mb-5">{t("contact.sidebarTitle")}</h2>
               <ul className="space-y-5 text-sm text-gray-700">
-                  <li className="flex items-center gap-3 cursor-pointer hover:bg-gray-100/80 rounded px-2 py-1.5 -mx-2">
                 <li className="flex items-center gap-3 cursor-pointer hover:bg-gray-100/80 rounded px-2 py-1.5 -mx-2">
                   <Phone className="w-5 h-5 text-[#4361EE] shrink-0 mt-0.5" aria-hidden />
                   <div className="min-w-0 flex-1">
@@ -350,12 +348,8 @@ export default function ContactPage() {
                     <a href={`tel:${t("contact.sidebarPhone")}`} className="text-[#4361EE] hover:underline break-all">
                       {t("contact.sidebarPhone")}
                     </a>
-                    <a href={`tel:${t("contact.sidebarPhone")}`} className="text-[#4361EE] hover:underline break-all">
-                      {t("contact.sidebarPhone")}
-                    </a>
                   </div>
                 </li>
-                <li className="flex items-center gap-3 cursor-pointer hover:bg-gray-100/80 rounded px-2 py-1.5 -mx-2">
                 <li className="flex items-center gap-3 cursor-pointer hover:bg-gray-100/80 rounded px-2 py-1.5 -mx-2">
                   <Mail className="w-5 h-5 text-[#4361EE] shrink-0 mt-0.5" aria-hidden />
                   <div className="min-w-0 flex-1">
@@ -363,17 +357,12 @@ export default function ContactPage() {
                     <a href={`mailto:${t("contact.sidebarEmail")}`} className="text-[#4361EE] hover:underline break-all">
                       {t("contact.sidebarEmail")}
                     </a>
-                    <a href={`mailto:${t("contact.sidebarEmail")}`} className="text-[#4361EE] hover:underline break-all">
-                      {t("contact.sidebarEmail")}
-                    </a>
                   </div>
                 </li>
-                <li className="flex items-center gap-3 cursor-pointer hover:bg-gray-100/80 rounded px-2 py-1.5 -mx-2">
                 <li className="flex items-center gap-3 cursor-pointer hover:bg-gray-100/80 rounded px-2 py-1.5 -mx-2">
                   <MapPin className="w-5 h-5 text-[#4361EE] shrink-0 mt-0.5" aria-hidden />
                   <div className="min-w-0 flex-1">
                     <p className="font-medium text-gray-900">{t("contact.sidebarAddressLabel")}</p>
-                    <p className="whitespace-pre-line break-words">{Object.values(t("contact.sidebarAddress", { returnObjects: true }) as Record<string, string>).join(", ")}</p>
                     <p className="whitespace-pre-line break-words">{Object.values(t("contact.sidebarAddress", { returnObjects: true }) as Record<string, string>).join(", ")}</p>
                   </div>
                 </li>
@@ -387,9 +376,10 @@ export default function ContactPage() {
               </ul>
             </aside>
               </div>
+
+            </motion.div>
             </motion.div>
           </div>
-        </div>
       </section>
 
       <section className="relative py-16 md:py-24 bg-white">
