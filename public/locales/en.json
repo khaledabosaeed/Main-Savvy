@@ -441,7 +441,8 @@
           "Alcrea — intelligent assistants to reduce workload"
         ]
       }
-    "solutionOptions": [
+    ],
+      "solutionOptions": [
       "Advisory services in Data Management",
       "Advisory services in Responsible AI",
       " Industrial robots (firefighting, inspection, security)",
@@ -457,7 +458,6 @@
       "Digital marketing",
       "Creative content production",
       "Digital marketing",
-      "Large-scale screens on building facades promoting your brand",
       "Humanoid robots (with training services)",
       "Alcrea Intelligent assistants designed to reduce your workload.",
       "Other"

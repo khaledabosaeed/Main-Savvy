@@ -36,7 +36,6 @@ export default function HomePageClient({ texts, galleryHeading }: HomePageClient
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      <HomeGoals2026 />
       if ("scrollRestoration" in window.history) {
         window.history.scrollRestoration = "manual"
       }
