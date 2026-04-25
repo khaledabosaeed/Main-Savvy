@@ -415,7 +415,7 @@
     "sidebarHoursLabel": "Business hours",
     "sidebarHours": "24/7",
     "solutionOther": "Other",
-    "solutionOptionGroups": [
+    "solutionOptionGroups": [ 
       {
         "title": "Savvy Innovation",
         "options": [
