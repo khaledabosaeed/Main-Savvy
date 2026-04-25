@@ -357,28 +357,8 @@ export default function NewHero() {
               })}
             </motion.div>
           </motion.div>
-
         </div>
       </div>
-<<<<<<< HEAD
-=======
-
-      {/* Fade effect at bottom of section */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-30"
-        style={{
-          background: `
-            linear-gradient(
-              to bottom,
-              transparent 0%,
-              rgba(255, 255, 255, 0.4) 30%,
-              rgba(255, 255, 255, 0.8) 60%,
-              rgb(255, 255, 255) 100%
-            )
-          `
-        }}
-      />
->>>>>>> parent of b502e60 (Merge branch 'saif-edit's')
     </section>
   )
 }

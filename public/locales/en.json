@@ -415,7 +415,7 @@
     "sidebarHoursLabel": "Business hours",
     "sidebarHours": "24/7",
     "solutionOther": "Other",
-    "solutionOptionGroups": [
+    "solutionOptionGroups": [ 
       {
         "title": "Savvy Innovation",
         "options": [
@@ -441,26 +441,6 @@
           "Alcrea — intelligent assistants to reduce workload"
         ]
       }
-    "solutionOptions": [
-      "Advisory services in Data Management",
-      "Advisory services in Responsible AI",
-      " Industrial robots (firefighting, inspection, security)",
-      "Strategic partnerships",
-      " Electric vehicle (EV) charging stations",
-      "Eco-friendly cement",
-      "Energy-efficient smart home solutions",
-      "Strategic partnerships",
-      "Engaging and purposeful activities",
-      "mr.savvy robot",
-      "Innovative and interactive visitor experiences",
-      "Brand building",
-      "Digital marketing",
-      "Creative content production",
-      "Digital marketing",
-      "Large-scale screens on building facades promoting your brand",
-      "Humanoid robots (with training services)",
-      "Alcrea Intelligent assistants designed to reduce your workload.",
-      "Other"
     ]
   },
   "faq": {
