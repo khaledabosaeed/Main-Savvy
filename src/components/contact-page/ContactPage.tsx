@@ -601,7 +601,7 @@ export default function ContactPage() {
                 </div>
 
             <aside
-              className={`order-2 lg:order-none rounded-lg border border-gray-200 bg-gray-50 p-6 ${isRTL ? "text-right" : "text-left"}`}
+              className={`order-2 lg:order-none lg:mt-7 self-start rounded-lg border border-gray-200 bg-gray-50 p-6 ${isRTL ? "text-right" : "text-left"}`}
               dir={isRTL ? "rtl" : "ltr"}
             >
               <h2 className="text-lg font-bold text-gray-900 mb-5">
