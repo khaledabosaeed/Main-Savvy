@@ -101,13 +101,11 @@ export default function RobotsSection({
   const content = useMemo(() => {
     const raw = t("robots.cards", { returnObjects: true })
     const robots = (Array.isArray(raw) ? raw : []) as RobotCard[]
-    const capped =
-      typeof limit === "number" && limit > 0 ? robots.slice(0, limit) : robots
     return {
       sectionTitle: t("robots.heading"),
-      robots: capped,
+      robots,
     }
-  }, [t, limit])
+  }, [t])
 
   const isRTL = lang === "ar"
 
@@ -179,6 +177,7 @@ export default function RobotsSection({
                   transition: { duration: 0.3 },
                 }}
                 className="h-full"
+
               >
                 <RobotCardLink card={card} lang={lang} isRTL={isRTL} />
               </motion.div>
@@ -222,6 +221,7 @@ export default function RobotsSection({
             />
           </div>
         )}
+
       </div>
     </section>
   )

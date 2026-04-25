@@ -66,13 +66,6 @@
       "3": ""
     },
     "ctaButton": "Contact Us",
-    "ctaPrimary": "Contact us",
-    "ctaSecondary": "Explore our divisions",
-    "valueProps": [
-      "Governed and purpose-driven robotics",
-      "Sustainability and green solutions",
-      "Net-zero emissions solutions"
-    ],
     "partners": "Partners who trusted us to create different experiences… you're next",
     "socialTiktok": "Follow us on TikTok",
     "socialLinkedin": "Follow us on LinkedIn",
@@ -379,26 +372,19 @@
   },
   "contact": {
     "heroBadge": "Get In Touch",
-    "heroTitle": "Contact the Savvy team — we respond within 24 hours",
+    "heroTitle": "Get In Touch",
     "heroSubtitle": "We're here to answer your questions and help with your next project",
-    "formTitle": "Complete the form below and our team will get back to you",
+    "formTitle": "Send a Message",
     "fullName": "Full Name",
     "email": "Email",
     "phone": "Phone Number",
     "companyName": "Company Name",
-    "jobTitle": "Job role",
+    "jobTitle": "Job Title",
     "fullNamePlaceholder": "John Doe",
     "emailPlaceholder": "user@email.com",
     "phonePlaceholder": "0581234567",
     "companyPlaceholder": "company Name",
-    "jobRolePlaceholder": "Select role",
-    "jobRoles": [
-      { "value": "ceo_gm", "label": "CEO / GM" },
-      { "value": "cto", "label": "CTO" },
-      { "value": "operations_manager", "label": "Operations Manager" },
-      { "value": "procurement", "label": "Procurement" },
-      { "value": "other", "label": "Other" }
-    ],
+    "jobPlaceholder": "Company Manager",
     "savvySolutions": "Savvy solutions (optional)",
     "message": "Message",
     "messagePlaceholder": "Please put in a brief about your product of interest. Example (Innovation, Media, Expo)",
@@ -406,10 +392,9 @@
     "send": "Send",
     "successMessage": "Your message has been sent successfully!",
     "errorMessage": "An error occurred. Please try again.",
-    "faqTitle": "Everything you want to know about Savvy World",
-    "faqLead": "Quick answers before you reach out",
+    "faqTitle": "Frequently Asked Questions",
     "faqQuestion1": "What is Savvy World?",
-    "faqAnswer1": "Savvy World is a Saudi consulting and technology platform that helps companies adopt industrial robotics, responsible AI, and green energy solutions — aligned with Vision 2030.",
+    "faqAnswer1": "Savvy World is an innovative Saudi platform combining modern technologies + sustainability + digital transformation + robotics, presented to people and businesses in a simple way, aiming to bring AI and robotics into a better world — the Savvy World.",
     "faqQuestion2": "What does Savvy Media offer?",
     "faqAnswer2": "It provides indoor and outdoor digital display screens operating 24/7, along with advanced immersive content using 3D and AR technologies, featuring smart targeting and precise interaction measurement.",
     "faqQuestion3": "Who is Mr.savvy?",
@@ -456,6 +441,26 @@
           "Alcrea — intelligent assistants to reduce workload"
         ]
       }
+    "solutionOptions": [
+      "Advisory services in Data Management",
+      "Advisory services in Responsible AI",
+      " Industrial robots (firefighting, inspection, security)",
+      "Strategic partnerships",
+      " Electric vehicle (EV) charging stations",
+      "Eco-friendly cement",
+      "Energy-efficient smart home solutions",
+      "Strategic partnerships",
+      "Engaging and purposeful activities",
+      "mr.savvy robot",
+      "Innovative and interactive visitor experiences",
+      "Brand building",
+      "Digital marketing",
+      "Creative content production",
+      "Digital marketing",
+      "Large-scale screens on building facades promoting your brand",
+      "Humanoid robots (with training services)",
+      "Alcrea Intelligent assistants designed to reduce your workload.",
+      "Other"
     ]
   },
   "faq": {

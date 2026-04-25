@@ -3,12 +3,9 @@
 import { useState, useEffect } from "react"
 import NewHero from "@/components/main-page/sections/NewHero"
 import SavvySections from "@/components/main-page/sections/SavvySections"
-import HomeSocialProof from "@/components/main-page/sections/HomeSocialProof"
-import HomeUseCases from "@/components/main-page/sections/HomeUseCases"
-import HomeGoals2026 from "@/components/main-page/sections/HomeGoals2026"
-import HomeFinalCta from "@/components/main-page/sections/HomeFinalCta"
 import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import TopBanner from "@/components/shared/TopBanner"
+import PartnersSlider from "@/components/shared/PartnersSlider/PartnersSlider"
 import LatestProjects from "@/components/shared/LatestProjects/LatestProjects"
 import ImageSlider, { ImageItem } from "@/components/media-page/sections/PartnersSlider"
 import RobotsSection from "@/components/main-page/sections/RobotsSection"
@@ -39,6 +36,7 @@ export default function HomePageClient({ texts, galleryHeading }: HomePageClient
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      <HomeGoals2026 />
       if ("scrollRestoration" in window.history) {
         window.history.scrollRestoration = "manual"
       }
@@ -72,19 +70,16 @@ export default function HomePageClient({ texts, galleryHeading }: HomePageClient
         <NewHero />
       </section>
 
-      <HomeSocialProof />
+      <PartnersSlider />
 
       <section id="about">
         <SavvySections />
       </section>
 
-      <HomeUseCases />
 
-      <HomeGoals2026 />
 
       <RobotsSection limit={2} showExploreStore animated={false} />
 
-      <HomeFinalCta />
 
       <section id="services">
         <ImageSlider images={images} heading={galleryHeading} />

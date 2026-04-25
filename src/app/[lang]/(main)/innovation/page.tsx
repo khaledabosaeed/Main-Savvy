@@ -24,16 +24,20 @@ export default async function InnovationPage({ params }: InnovationPageProps) {
   return (
     <>
       <UnifiedHeader texts={texts} hasBanner={false} logoSrc="/innovation/invo.svg" logoHref="#hero" />
+
       <PageTransition>
         <section id="hero">
           <InnovationHero />
         </section>
+
         <section id="solutions">
           <InnovationSolutions />
         </section>
+
         <section id="partners">
           <ExpoPartners />
         </section>
+
         <section id="robots">
           <RobotsSection />
         </section>

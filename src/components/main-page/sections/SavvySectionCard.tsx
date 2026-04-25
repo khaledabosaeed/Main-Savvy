@@ -32,7 +32,7 @@ export default function SavvySectionCard({
     return (
         <Link 
             href={`/${language}${link}`} 
-            className="relative rounded-xl md:rounded-2xl overflow-hidden p-8 md:p-10 lg:p-14 block hover:shadow-lg transition-shadow duration-300" 
+            className="relative rounded-xl md:rounded-2xl overflow-hidden p-6 md:p-8 lg:p-12 block hover:shadow-lg transition-shadow duration-300" 
             style={{ backgroundColor: '#F6F6F6' }}
         >
 
@@ -55,11 +55,11 @@ export default function SavvySectionCard({
 
                 {/* Title and Description - Better mobile typography */}
                 <div className="flex-1">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-2 md:mb-3">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1.5 md:mb-2">
                         {title}
                     </h3>
-                    <div className="w-full h-px bg-gray-300 mb-3 md:mb-4" />
-                    <p className="text-gray-600 leading-relaxed text-sm md:text-base lg:text-lg">
+                    <div className="w-full h-px bg-gray-300 mb-2 md:mb-3" />
+                    <p className="text-gray-600 leading-relaxed text-xs md:text-sm lg:text-base">
                         {description}
                     </p>
                 </div>
@@ -72,10 +72,10 @@ export default function SavvySectionCard({
                     <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                         {features.map((feature, idx) => (
                             <li key={idx} className={`flex items-start gap-2 md:gap-3 border-b border-[rgba(0,0,0,0.2)]`}>
-                                <span className="text-gray-900 font-bold text-sm md:text-base pb-1.5 md:pb-2">
+                                <span className="text-gray-900 font-bold  text-xs md:text-sm pb-1.5 md:pb-2">
                                     {String(idx + 1).padStart(2, '0')}
                                 </span>
-                                <span className="text-gray-900 font-bold text-sm md:text-base">{feature}</span>
+                                <span className="text-gray-900 font-bold   text-xs md:text-sm">{feature}</span>
                             </li>
                         ))}
                     </ul>
@@ -97,7 +97,7 @@ export default function SavvySectionCard({
                 </div>
 
                 {/* Image - Smaller height on mobile */}
-                <div className={`relative h-[220px] md:h-[320px] lg:h-[380px] ${isRTL ? 'md:order-1' : ''}`}>
+                <div className={`relative h-[200px] md:h-[300px] lg:h-[350px] ${isRTL ? 'md:order-1' : ''}`}>
                     <Image
                         src={image}
                         alt={title}
