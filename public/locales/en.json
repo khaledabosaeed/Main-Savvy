@@ -141,11 +141,26 @@
     "companyPlaceholder": "company Name",
     "jobRolePlaceholder": "Select role",
     "jobRoles": [
-      { "value": "ceo_gm", "label": "CEO / GM" },
-      { "value": "cto", "label": "CTO" },
-      { "value": "operations_manager", "label": "Operations Manager" },
-      { "value": "procurement", "label": "Procurement" },
-      { "value": "other", "label": "Other" }
+      {
+        "value": "ceo_gm",
+        "label": "CEO / GM"
+      },
+      {
+        "value": "cto",
+        "label": "CTO"
+      },
+      {
+        "value": "operations_manager",
+        "label": "Operations Manager"
+      },
+      {
+        "value": "procurement",
+        "label": "Procurement"
+      },
+      {
+        "value": "other",
+        "label": "Other"
+      }
     ],
     "savvySolutions": "Savvy solutions (optional)",
     "message": "Message",
@@ -186,7 +201,6 @@
           "R1 Humanoid Robot",
           "Go2 Robo-Dog Robot",
           "Industrial robots (firefighting, inspection, security)"
-
         ]
       },
       {
@@ -253,6 +267,13 @@
     "viewProduct": "Technical information",
     "viewAll": "View all robots",
     "notFound": "Robot not found",
+    "catalogPageTitle": "Robot store",
+    "catalogSearchPlaceholder": "Search by name or model…",
+    "categoryAll": "All",
+    "categoryIndustrial": "Industrial",
+    "categoryEducational": "Educational",
+    "categoryEntertainment": "Entertainment",
+    "noCatalogResults": "No robots match your search or filter.",
     "moreRobots": "More Robots",
     "sliderDescriptionSuffix": " Contact us directly to obtain price.",
     "version": "Version",
@@ -289,7 +310,6 @@
       ]
     },
     "cards": [
-      
       {
         "id": "r1",
         "name": "Unitree Humanoid R1",
@@ -297,7 +317,8 @@
         "image": "/robot/R1/R!.png",
         "link": "/robots/r1",
         "buttonText": "Explore the world of R1",
-        "productLink": "/robots/r1/product"
+        "productLink": "/robots/r1/product",
+        "category": "educational"
       },
       {
         "id": "g1",
@@ -306,9 +327,9 @@
         "image": "/robot/g1/g1.png",
         "link": "/robots/g1",
         "buttonText": "Explore the world of G1",
-        "productLink": "/robots/g1/product"
+        "productLink": "/robots/g1/product",
+        "category": "educational"
       },
-
       {
         "id": "go2",
         "name": "Unitree Robo-Dog Go2",
@@ -316,7 +337,8 @@
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
         "buttonText": "Explore the world of Go2",
-        "productLink": "/robots/go2/product"
+        "productLink": "/robots/go2/product",
+        "category": "educational"
       }
     ],
     "hero": {
@@ -327,9 +349,7 @@
         "priceStartsFrom": "Contact Sales",
         "buttonText": "View Product",
         "textPlacement": "center"
-
       },
-
       "go2": {
         "videoSrc": "/robot/go2/hero.mp4",
         "title": "Unitree Robo-Dog Go2",
@@ -343,6 +363,140 @@
         "title": "Unitree Humanoid  R1",
         "subtitle": "A lightweight humanoid robot, approximately 1.2 meters tall and weighing less than 30 kg, designed to be easy to transport and use daily.",
         "priceStartsFrom": "From 18,375 SAR",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "h2": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Unitree Humanoid H2",
+        "subtitle": "Advanced humanoid platform for research and education.",
+        "priceStartsFrom": "Contact Sales",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "bellabot": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Bellabot",
+        "subtitle": "Industrial service robot by Pudu Robotics — Bellabot. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "bellabot-pro": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Bellabot Pro",
+        "subtitle": "Industrial service robot by Pudu Robotics — Bellabot Pro. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "cc1": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu CC1",
+        "subtitle": "Industrial service robot by Pudu Robotics — CC1. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "cc1-pro": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu CC1 Pro",
+        "subtitle": "Industrial service robot by Pudu Robotics — CC1 Pro. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "cc1-self-cleaning": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu CC1 Self-cleaning",
+        "subtitle": "Industrial service robot by Pudu Robotics — CC1 Self-cleaning. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "d5": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu D5",
+        "subtitle": "Industrial service robot by Pudu Robotics — D5. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "d9": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu D9",
+        "subtitle": "Industrial service robot by Pudu Robotics — D9. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "executive-statement": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Executive Statement",
+        "subtitle": "Industrial service robot by Pudu Robotics — Executive Statement. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "flashbot": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Flashbot",
+        "subtitle": "Industrial service robot by Pudu Robotics — Flashbot. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "kettybot-pro": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Kettybot Pro",
+        "subtitle": "Industrial service robot by Pudu Robotics — Kettybot Pro. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "mt1": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu MT1",
+        "subtitle": "Industrial service robot by Pudu Robotics — MT1. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "mt1-max": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu MT1 MAX",
+        "subtitle": "Industrial service robot by Pudu Robotics — MT1 MAX. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "mt1-vac": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu MT1 Vac",
+        "subtitle": "Industrial service robot by Pudu Robotics — MT1 Vac. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "multi-robot-scheduling": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Multi-Robot Scheduling",
+        "subtitle": "Industrial service robot by Pudu Robotics — Multi-Robot Scheduling. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "pudubot2": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Pudubot2",
+        "subtitle": "Industrial service robot by Pudu Robotics — Pudubot2. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "sh1": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu SH1",
+        "subtitle": "Industrial service robot by Pudu Robotics — SH1. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "t300": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu T300",
+        "subtitle": "Industrial service robot by Pudu Robotics — T300. Contact us for specifications and availability.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "t600": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu T600",
+        "subtitle": "Industrial service robot by Pudu Robotics — T600. Contact us for specifications and availability.",
         "buttonText": "View Product",
         "textPlacement": "center"
       }
@@ -367,7 +521,6 @@
           }
         ]
       },
-
       "go2": {
         "items": [
           {
@@ -408,7 +561,6 @@
       }
     },
     "imageSection": {
-
       "go2": {
         "beforeTable": [
           {
@@ -498,40 +650,148 @@
                   "NVIDIA Jetson Orin (GPU)"
                 ]
               },
-              { "name": "Height, Width and Thickness (Stand)", "values": [ "1320 x 450 x 200mm"] },
-              { "name": "Height, Width and Thickness (Fold)", "values": ["690 x 450 x 300mm"] },
-              { "name": "Weight (With Battery)", "values": [ " 35kg"] },
-              { "name": "Battery Life", "values": [ " 2h"] },
-
-              { "name": "Total Degrees of Freedom (Joint Freedom)", "values": [ "23-43"] },
-              { "name": "Single Leg Degrees of Freedom", "values": [ "6"] },
-              { "name": "Waist Degrees of Freedom", "values": [ "1+(Optional 2 additional waist degrees of freedom)"] },
-              { "name": "Single Arm Degrees of Freedom", "values": [ "5"] },
-              { "name": "Single Hand Degrees of Freedom", "values": ["7 (Optional Force control of three-fingered hand)\n+2(Optional 2 additional wrist degrees of freedom)\n*Three-fingered dexterous hand Dex3-1 Parameter: The thumb has 3 active degrees of freedom; the index finger has 2 active degrees of freedom; the middle finger has 2 active degrees of freedom.\n**Dex3-1 can optionally be installed with tactile sensor arrays"] },
-              { "name": "Joint output bearing", "values": [ "Industrial grade crossed "] },
-              { "name": "Joint motor", "values": [ "PMSM (permanent magnet) "] }
+              {
+                "name": "Height, Width and Thickness (Stand)",
+                "values": [
+                  "1320 x 450 x 200mm"
+                ]
+              },
+              {
+                "name": "Height, Width and Thickness (Fold)",
+                "values": [
+                  "690 x 450 x 300mm"
+                ]
+              },
+              {
+                "name": "Weight (With Battery)",
+                "values": [
+                  " 35kg"
+                ]
+              },
+              {
+                "name": "Battery Life",
+                "values": [
+                  " 2h"
+                ]
+              },
+              {
+                "name": "Total Degrees of Freedom (Joint Freedom)",
+                "values": [
+                  "23-43"
+                ]
+              },
+              {
+                "name": "Single Leg Degrees of Freedom",
+                "values": [
+                  "6"
+                ]
+              },
+              {
+                "name": "Waist Degrees of Freedom",
+                "values": [
+                  "1+(Optional 2 additional waist degrees of freedom)"
+                ]
+              },
+              {
+                "name": "Single Arm Degrees of Freedom",
+                "values": [
+                  "5"
+                ]
+              },
+              {
+                "name": "Single Hand Degrees of Freedom",
+                "values": [
+                  "7 (Optional Force control of three-fingered hand)\n+2(Optional 2 additional wrist degrees of freedom)\n*Three-fingered dexterous hand Dex3-1 Parameter: The thumb has 3 active degrees of freedom; the index finger has 2 active degrees of freedom; the middle finger has 2 active degrees of freedom.\n**Dex3-1 can optionally be installed with tactile sensor arrays"
+                ]
+              },
+              {
+                "name": "Joint output bearing",
+                "values": [
+                  "Industrial grade crossed "
+                ]
+              },
+              {
+                "name": "Joint motor",
+                "values": [
+                  "PMSM (permanent magnet) "
+                ]
+              }
             ]
           },
           {
             "label": "Electrical Characteristics",
             "rows": [
-              { "name": "Maximum Torque of Knee Joint [1]", "values": ["120N.m"] },
-              { "name": "Arm Maximum Load (2)", "values": [ " 3Kg"] },
-              { "name": "Calf + Thigh Length", "values": [ "0.45M"] },
-              { "name": "Extra Large Joint Movement Space", "values": ["Waist, Knee, Hip joints\nWrist joint"] },
-              { "name": "Full Joint Hollow Electrical Routing", "values": [ "YES"] },
-              { "name": "Joint Encoder", "values": [ "Dual encoder"] },
-              { "name": "4 Microphone Array", "values": [ "YES"] },
-              { "name": "Heat Dissipation", "values": ["Local air cooling"] },
-              { "name": "Battery", "values": [ "13 string lithium battery"] },
-              { "name": "Computing Platform", "values": [ "8-core high-performance CPU"] },
-              { "name": "Perception", "values": [ "Depth Camera+3D LIDAR"] }
+              {
+                "name": "Maximum Torque of Knee Joint [1]",
+                "values": [
+                  "120N.m"
+                ]
+              },
+              {
+                "name": "Arm Maximum Load (2)",
+                "values": [
+                  " 3Kg"
+                ]
+              },
+              {
+                "name": "Calf + Thigh Length",
+                "values": [
+                  "0.45M"
+                ]
+              },
+              {
+                "name": "Extra Large Joint Movement Space",
+                "values": [
+                  "Waist, Knee, Hip joints\nWrist joint"
+                ]
+              },
+              {
+                "name": "Full Joint Hollow Electrical Routing",
+                "values": [
+                  "YES"
+                ]
+              },
+              {
+                "name": "Joint Encoder",
+                "values": [
+                  "Dual encoder"
+                ]
+              },
+              {
+                "name": "4 Microphone Array",
+                "values": [
+                  "YES"
+                ]
+              },
+              {
+                "name": "Heat Dissipation",
+                "values": [
+                  "Local air cooling"
+                ]
+              },
+              {
+                "name": "Battery",
+                "values": [
+                  "13 string lithium battery"
+                ]
+              },
+              {
+                "name": "Computing Platform",
+                "values": [
+                  "8-core high-performance CPU"
+                ]
+              },
+              {
+                "name": "Perception",
+                "values": [
+                  "Depth Camera+3D LIDAR"
+                ]
+              }
             ]
           },
           {
             "label": "Accessories",
             "rows": [
-          
               {
                 "name": "Smart Battery (Quick Release)",
                 "values": [
@@ -554,13 +814,13 @@
           }
         ]
       },
-
       "r1": {
         "specLabel": "Specification",
         "valueLabel": "Value",
         "columnHeaders": [
-  
-          "R1 EDU"
+          "R1 EDU",
+          "R1 Air",
+          "R1 Basic"
         ],
         "headerImage": "/robot/R1/tabel.webp",
         "columnPrices": [
@@ -574,34 +834,153 @@
           {
             "label": "Mechanical Dimensions",
             "rows": [
-              { "name": "Height, Width and Thickness (Stand)", "values": [ "1230 x 357 x 190mm"] },
-              { "name": "Weight (With Battery)", "values": [ " 29kg"] },
-              { "name": "Degree of Freedom(Total Joints)", "values": ["20", "26", "26-40"] },
-              { "name": "Single Leg Degrees of Freedom", "values": [ "6"] },
-              { "name": "Single Arm Degrees of Freedom", "values": [ "5"] },
-              { "name": "Waist Degrees of Freedom", "values": [ "2"] },
-              { "name": "Head Degrees of Freedom", "values": [ "2"] },
-              { "name": "Dexterous Hand", "values": [ "Optional"] },
-              { "name": "Joint output bearing", "values": [ "Crossed roller bearings, Double Hook Ball Bearings"] },
-              { "name": "Joint motor", "values": ["Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"] }
+              {
+                "name": "Height, Width and Thickness (Stand)",
+                "values": [
+                  "1230 x 357 x 190mm"
+                ]
+              },
+              {
+                "name": "Weight (With Battery)",
+                "values": [
+                  " 29kg"
+                ]
+              },
+              {
+                "name": "Degree of Freedom(Total Joints)",
+                "values": [
+                  "20",
+                  "26",
+                  "26-40"
+                ]
+              },
+              {
+                "name": "Single Leg Degrees of Freedom",
+                "values": [
+                  "6"
+                ]
+              },
+              {
+                "name": "Single Arm Degrees of Freedom",
+                "values": [
+                  "5"
+                ]
+              },
+              {
+                "name": "Waist Degrees of Freedom",
+                "values": [
+                  "2"
+                ]
+              },
+              {
+                "name": "Head Degrees of Freedom",
+                "values": [
+                  "2"
+                ]
+              },
+              {
+                "name": "Dexterous Hand",
+                "values": [
+                  "Optional"
+                ]
+              },
+              {
+                "name": "Joint output bearing",
+                "values": [
+                  "Crossed roller bearings, Double Hook Ball Bearings"
+                ]
+              },
+              {
+                "name": "Joint motor",
+                "values": [
+                  "Low inertia high-speed internal rotor PMSM(permanent magnet synchronous motor, better response speed and heat dissipation)"
+                ]
+              }
             ]
           },
           {
             "label": "Electrical Characteristics",
             "rows": [
-              { "name": "Maximum Torque of Arm Joint [1]", "values": [" 2kg"] },
-              { "name": "Calf + Thigh Length", "values": [ "600"] },
-              { "name": "Forearm + Upper Arm Length", "values": [ "420"] },
-              { "name": "Joint Movement Space", "values": [ "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°"] },
-              { "name": "Electrical Routing", "values": [ "Hollow + Internal Routing"] },
-              { "name": "Joint Encoder", "values": [ "Dual + single encoder"] },
-              { "name": "Cooling System", "values": [ "Local air cooling"] },
-              { "name": "Power Supply", "values": ["Lithium battery", "Lithium battery", "Lithium battery"] },
-              { "name": "Basic Computing Power", "values": [ "8-core high-performance CPU"] },
-              { "name": "Microphone Array", "values": [ "4-Mic Array"] },
-              { "name": "Speaker", "values": [ "YES"] },
-              { "name": "WiFi 6 Bluetooth 5.2", "values": [ "YES"] },
-              { "name": "Camera", "values": [ "Binocular camera"] }
+              {
+                "name": "Maximum Torque of Arm Joint [1]",
+                "values": [
+                  " 2kg"
+                ]
+              },
+              {
+                "name": "Calf + Thigh Length",
+                "values": [
+                  "600"
+                ]
+              },
+              {
+                "name": "Forearm + Upper Arm Length",
+                "values": [
+                  "420"
+                ]
+              },
+              {
+                "name": "Joint Movement Space",
+                "values": [
+                  "Waist Joint: Y±150° R±30°\nKnee Joint: -10°~+139°\nHip Joint: Y:±157° P:-168° ~+146° R:-60°~+100°"
+                ]
+              },
+              {
+                "name": "Electrical Routing",
+                "values": [
+                  "Hollow + Internal Routing"
+                ]
+              },
+              {
+                "name": "Joint Encoder",
+                "values": [
+                  "Dual + single encoder"
+                ]
+              },
+              {
+                "name": "Cooling System",
+                "values": [
+                  "Local air cooling"
+                ]
+              },
+              {
+                "name": "Power Supply",
+                "values": [
+                  "Lithium battery",
+                  "Lithium battery",
+                  "Lithium battery"
+                ]
+              },
+              {
+                "name": "Basic Computing Power",
+                "values": [
+                  "8-core high-performance CPU"
+                ]
+              },
+              {
+                "name": "Microphone Array",
+                "values": [
+                  "4-Mic Array"
+                ]
+              },
+              {
+                "name": "Speaker",
+                "values": [
+                  "YES"
+                ]
+              },
+              {
+                "name": "WiFi 6 Bluetooth 5.2",
+                "values": [
+                  "YES"
+                ]
+              },
+              {
+                "name": "Camera",
+                "values": [
+                  "Binocular camera"
+                ]
+              }
             ]
           },
           {
@@ -636,10 +1015,34 @@
           {
             "label": "Other",
             "rows": [
-              { "name": "Battery Life", "values": [" 1h"] },
-              { "name": "Upgraded Intelligent OTA", "values": [ "YES"] },
-              { "name": "Secondary Development [2]", "values": ["/", "/", "YES"] },
-              { "name": "Warranty Period [3]", "values": ["6 Months", "8 Months", "12 Months"] }
+              {
+                "name": "Battery Life",
+                "values": [
+                  " 1h"
+                ]
+              },
+              {
+                "name": "Upgraded Intelligent OTA",
+                "values": [
+                  "YES"
+                ]
+              },
+              {
+                "name": "Secondary Development [2]",
+                "values": [
+                  "/",
+                  "/",
+                  "YES"
+                ]
+              },
+              {
+                "name": "Warranty Period [3]",
+                "values": [
+                  "6 Months",
+                  "8 Months",
+                  "12 Months"
+                ]
+              }
             ]
           }
         ]
@@ -648,7 +1051,6 @@
         "specLabel": "Specification",
         "valueLabel": "Value",
         "columnHeaders": [
-
           "EDU"
         ],
         "headerImage": "/robot/go2/table.png",
@@ -664,37 +1066,117 @@
           {
             "label": "Mechanical Specifications",
             "rows": [
-              { "name": "Dimension of standing", "values": ["70cm x 31cm x 40cm"] },
-              { "name": "Dimension of crouching", "values": [ "76cm x 31cm x 20cm"] },
-              { "name": "Weight (with battery)", "values": [ " 15kg"] },
-              { "name": "Material", "values": ["Aluminium alloy + High strength engineering plastic"] }
+              {
+                "name": "Dimension of standing",
+                "values": [
+                  "70cm x 31cm x 40cm"
+                ]
+              },
+              {
+                "name": "Dimension of crouching",
+                "values": [
+                  "76cm x 31cm x 20cm"
+                ]
+              },
+              {
+                "name": "Weight (with battery)",
+                "values": [
+                  " 15kg"
+                ]
+              },
+              {
+                "name": "Material",
+                "values": [
+                  "Aluminium alloy + High strength engineering plastic"
+                ]
+              }
             ]
           },
           {
             "label": "Electronic Parameter",
             "rows": [
-              { "name": "Voltage", "values": [ "28V - 33.6V"] },
-              { "name": "Working maximum power", "values": [" 3000W"] }
+              {
+                "name": "Voltage",
+                "values": [
+                  "28V - 33.6V"
+                ]
+              },
+              {
+                "name": "Working maximum power",
+                "values": [
+                  " 3000W"
+                ]
+              }
             ]
           },
           {
             "label": "Performance Parameters",
             "rows": [
-              { "name": "Payload", "values": [ "=8kg (MAX ~ 12kg)"] },
-              { "name": "Speed", "values": [ "0 ~ 3.7m/s (MAX ~ 5m/s)"] },
-              { "name": "Max Climb Drop Height", "values": [ " 16cm"] },
-              { "name": "Max Climb Angle", "values": [ "40°"] },
-              { "name": "Basic Computing Power", "values": ["Standard 8-core High-performance CPU"] }
+              {
+                "name": "Payload",
+                "values": [
+                  "=8kg (MAX ~ 12kg)"
+                ]
+              },
+              {
+                "name": "Speed",
+                "values": [
+                  "0 ~ 3.7m/s (MAX ~ 5m/s)"
+                ]
+              },
+              {
+                "name": "Max Climb Drop Height",
+                "values": [
+                  " 16cm"
+                ]
+              },
+              {
+                "name": "Max Climb Angle",
+                "values": [
+                  "40°"
+                ]
+              },
+              {
+                "name": "Basic Computing Power",
+                "values": [
+                  "Standard 8-core High-performance CPU"
+                ]
+              }
             ]
           },
           {
             "label": "Knee Joint Parameters",
             "rows": [
-              { "name": "Max Joint Torque [1]", "values": [" 45N.m"] },
-              { "name": "Aluminum knee joint motor", "values": ["12 set"] },
-              { "name": "Range of Motion", "values": ["body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°"] },
-              { "name": "Intra-joint circuit (knee)", "values": ["✓"] },
-              { "name": "Joint Heat Pipe Cooler", "values": ["✓"] }
+              {
+                "name": "Max Joint Torque [1]",
+                "values": [
+                  " 45N.m"
+                ]
+              },
+              {
+                "name": "Aluminum knee joint motor",
+                "values": [
+                  "12 set"
+                ]
+              },
+              {
+                "name": "Range of Motion",
+                "values": [
+                  "body: -48~48°\nthigh: -200°~90°\nshank: -156°~-48°"
+                ]
+              },
+              {
+                "name": "Intra-joint circuit (knee)",
+                "values": [
+                  "✓"
+                ]
+              },
+              {
+                "name": "Joint Heat Pipe Cooler",
+                "values": [
+                  "✓"
+                ]
+              }
             ]
           },
           {
@@ -777,7 +1259,6 @@
               {
                 "name": "Bluetooth 5.2/4.2/2.1",
                 "values": [
-             
                   "✓"
                 ]
               },
@@ -822,14 +1303,631 @@
           {
             "label": "Accessories",
             "rows": [
-              { "name": "Manual controller", "values": [ "Included"] },
-              { "name": "High computing power module", "values": ["NVIDIA Jetson Orin (optional) (40-100Tops computing power)"] },
-              { "name": "Depth Camera", "values": [ "Included"] },
-              { "name": "Smart battery", "values": ["Long endurance (15000mAh)"] },
-              { "name": "Battery life", "values": [ " 2-4h"] },
-              { "name": "Charger", "values": [ "Fast charge (33.6V 9A)"] },
-              { "name": "Warranty period [7]", "values": ["12 months"] },
-              { "name": "Price in SAR (tax and freight excluded)", "values": [ "Contact Sales"], "highlight": true }
+              {
+                "name": "Manual controller",
+                "values": [
+                  "Included"
+                ]
+              },
+              {
+                "name": "High computing power module",
+                "values": [
+                  "NVIDIA Jetson Orin (optional) (40-100Tops computing power)"
+                ]
+              },
+              {
+                "name": "Depth Camera",
+                "values": [
+                  "Included"
+                ]
+              },
+              {
+                "name": "Smart battery",
+                "values": [
+                  "Long endurance (15000mAh)"
+                ]
+              },
+              {
+                "name": "Battery life",
+                "values": [
+                  " 2-4h"
+                ]
+              },
+              {
+                "name": "Charger",
+                "values": [
+                  "Fast charge (33.6V 9A)"
+                ]
+              },
+              {
+                "name": "Warranty period [7]",
+                "values": [
+                  "12 months"
+                ]
+              },
+              {
+                "name": "Price in SAR (tax and freight excluded)",
+                "values": [
+                  "Contact Sales"
+                ],
+                "highlight": true
+              }
+            ]
+          }
+        ]
+      },
+      "bellabot": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "Bellabot"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "Bellabot"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "bellabot-pro": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "Bellabot Pro"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "Bellabot Pro"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "cc1": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "CC1"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "CC1"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "cc1-pro": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "CC1 Pro"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "CC1 Pro"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "cc1-self-cleaning": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "CC1 Self-cleaning"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "CC1 Self-cleaning"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "d5": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "D5"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "D5"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "d9": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "D9"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "D9"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "executive-statement": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "Executive Statement"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "Executive Statement"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "flashbot": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "Flashbot"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "Flashbot"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "kettybot-pro": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "Kettybot Pro"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "Kettybot Pro"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "mt1": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "MT1"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "MT1"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "mt1-max": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "MT1 MAX"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "MT1 MAX"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "mt1-vac": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "MT1 Vac"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "MT1 Vac"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "multi-robot-scheduling": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "Multi-Robot Scheduling"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "Multi-Robot Scheduling"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "pudubot2": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "Pudubot2"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "Pudubot2"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sh1": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "SH1"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "SH1"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "t300": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "T300"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "T300"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "t600": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "T600"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "T600"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
             ]
           }
         ]
@@ -853,8 +1951,16 @@
         "versions": [
           {
             "id": "g1-edu",
-            "name": "G1 EDU ",
+            "name": "G1 EDU",
             "price": "Contact Sales"
+          },
+          {
+            "id": "g1-standard",
+            "name": "G1 Standard",
+            "price": "Contact Sales",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-50",
+            "manufacturerPartNumber": "G1-STD"
           }
         ],
         "bulletPoints": [
@@ -896,10 +2002,25 @@
           "/robot/go2/catlouge/go2c5.webp"
         ],
         "versions": [
-
+          {
+            "id": "go2-edu",
+            "name": "Go2 EDU",
+            "price": "Contact Sales",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-04",
+            "manufacturerPartNumber": "Go2-EDU"
+          },
+          {
+            "id": "go2-air",
+            "name": "Go2 Air",
+            "price": "Contact Sales",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-06",
+            "manufacturerPartNumber": "Go2-AIR"
+          },
           {
             "id": "go2-pro",
-            "name": "Go2 Pro (without controller)",
+            "name": "Go2 Pro",
             "price": "10,500 SAR",
             "manufacturerName": "Unitree Robotics",
             "sku": "RB-Unt-05",
@@ -922,17 +2043,32 @@
           "/robot/R1/catlouge/p1.webp"
         ],
         "versions": [
-   
           {
-            "id": "r1-red",
-            "name": "R1 (Red)",
-            "price": "22,125 SAR"
+            "id": "r1-edu",
+            "name": "R1 EDU",
+            "price": "Contact Sales",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-164",
+            "manufacturerPartNumber": "R1-EDU",
+            "images": ["/robot/R1/catlouge/p2.webp", "/robot/R1/catlouge/p1.webp"]
           },
-
           {
-            "id": "r1-white",
-            "name": "R1 (White)",
-            "price": "22,125 SAR"
+            "id": "r1-air",
+            "name": "R1 Air",
+            "price": "Contact Sales",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-165",
+            "manufacturerPartNumber": "R1-AIR",
+            "images": ["/robot/R1/catlouge/p1.webp", "/robot/R1/catlouge/p2.webp"]
+          },
+          {
+            "id": "r1-basic",
+            "name": "R1 Basic",
+            "price": "From 18,375 SAR",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-164",
+            "manufacturerPartNumber": "R1-Basic-US",
+            "images": ["/robot/R1/catlouge/p2.webp", "/robot/R1/catlouge/p1.webp"]
           }
         ],
         "bulletPoints": [
@@ -940,8 +2076,586 @@
           "Customer is responsible for customs duties and taxes",
           "Contact sales to get Unitree Humanoid R1 price"
         ]
+      },
+      "bellabot": {
+        "name": "Pudu Bellabot",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-BELLABOT",
+        "manufacturerPartNumber": "Bellabot",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/bellabot.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Bellabot"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "bellabot-pro": {
+        "name": "Pudu Bellabot Pro",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-BELLABOT-PRO",
+        "manufacturerPartNumber": "Bellabot-Pro",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/bellabot-pro.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Bellabot Pro"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "cc1": {
+        "name": "Pudu CC1",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-CC1",
+        "manufacturerPartNumber": "CC1",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/cc1.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "CC1"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "cc1-pro": {
+        "name": "Pudu CC1 Pro",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-CC1-PRO",
+        "manufacturerPartNumber": "CC1-Pro",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/cc1-pro.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "CC1 Pro"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "cc1-self-cleaning": {
+        "name": "Pudu CC1 Self-cleaning",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-CC1-SELF-CLEANING",
+        "manufacturerPartNumber": "CC1-Self-cleaning",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/cc1-self-cleaning.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "CC1 Self-cleaning"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "d5": {
+        "name": "Pudu D5",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-D5",
+        "manufacturerPartNumber": "D5",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/d5.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "D5"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "d9": {
+        "name": "Pudu D9",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-D9",
+        "manufacturerPartNumber": "D9",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/d9.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "D9"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "executive-statement": {
+        "name": "Pudu Executive Statement",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-EXECUTIVE-STATEMENT",
+        "manufacturerPartNumber": "Executive-Statement",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/executive-statement.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Executive Statement"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "flashbot": {
+        "name": "Pudu Flashbot",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-FLASHBOT",
+        "manufacturerPartNumber": "Flashbot",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/flashbot.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Flashbot"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "kettybot-pro": {
+        "name": "Pudu Kettybot Pro",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-KETTYBOT-PRO",
+        "manufacturerPartNumber": "Kettybot-Pro",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/kettybot-pro.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Kettybot Pro"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "mt1": {
+        "name": "Pudu MT1",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-MT1",
+        "manufacturerPartNumber": "MT1",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/mt1.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "MT1"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "mt1-max": {
+        "name": "Pudu MT1 MAX",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-MT1-MAX",
+        "manufacturerPartNumber": "MT1-MAX",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/mt1-max.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "MT1 MAX"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "mt1-vac": {
+        "name": "Pudu MT1 Vac",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-MT1-VAC",
+        "manufacturerPartNumber": "MT1-Vac",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/mt1-vac.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "MT1 Vac"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "multi-robot-scheduling": {
+        "name": "Pudu Multi-Robot Scheduling",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-MULTI-ROBOT-SCHEDULING",
+        "manufacturerPartNumber": "Multi-Robot-Scheduling",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/multi-robot-scheduling.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Multi-Robot Scheduling"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "pudubot2": {
+        "name": "Pudu Pudubot2",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-PUDUBOT2",
+        "manufacturerPartNumber": "Pudubot2",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/pudubot2.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Pudubot2"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "sh1": {
+        "name": "Pudu SH1",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-SH1",
+        "manufacturerPartNumber": "SH1",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/sh1.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "SH1"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "t300": {
+        "name": "Pudu T300",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-T300",
+        "manufacturerPartNumber": "T300",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/t300.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "T300"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "t600": {
+        "name": "Pudu T600",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-T600",
+        "manufacturerPartNumber": "T600",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/t600.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "T600"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
       }
-    }
+    },
+    "catalogCards": [
+      {
+        "id": "bellabot",
+        "name": "Pudu Bellabot",
+        "description": "Industrial robot by Pudu Robotics — Bellabot.",
+        "image": "/robot/pudu/bellabot.png",
+        "link": "/robots/bellabot",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "bellabot-pro",
+        "name": "Pudu Bellabot Pro",
+        "description": "Industrial robot by Pudu Robotics — Bellabot Pro.",
+        "image": "/robot/pudu/bellabot-pro.png",
+        "link": "/robots/bellabot-pro",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "cc1",
+        "name": "Pudu CC1",
+        "description": "Industrial robot by Pudu Robotics — CC1.",
+        "image": "/robot/pudu/cc1.png",
+        "link": "/robots/cc1",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "cc1-pro",
+        "name": "Pudu CC1 Pro",
+        "description": "Industrial robot by Pudu Robotics — CC1 Pro.",
+        "image": "/robot/pudu/cc1-pro.png",
+        "link": "/robots/cc1-pro",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "cc1-self-cleaning",
+        "name": "Pudu CC1 Self-cleaning",
+        "description": "Industrial robot by Pudu Robotics — CC1 Self-cleaning.",
+        "image": "/robot/pudu/cc1-self-cleaning.png",
+        "link": "/robots/cc1-self-cleaning",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "d5",
+        "name": "Pudu D5",
+        "description": "Industrial robot by Pudu Robotics — D5.",
+        "image": "/robot/pudu/d5.png",
+        "link": "/robots/d5",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "d9",
+        "name": "Pudu D9",
+        "description": "Industrial robot by Pudu Robotics — D9.",
+        "image": "/robot/pudu/d9.png",
+        "link": "/robots/d9",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "executive-statement",
+        "name": "Pudu Executive Statement",
+        "description": "Industrial robot by Pudu Robotics — Executive Statement.",
+        "image": "/robot/pudu/executive-statement.png",
+        "link": "/robots/executive-statement",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "flashbot",
+        "name": "Pudu Flashbot",
+        "description": "Industrial robot by Pudu Robotics — Flashbot.",
+        "image": "/robot/pudu/flashbot.png",
+        "link": "/robots/flashbot",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "kettybot-pro",
+        "name": "Pudu Kettybot Pro",
+        "description": "Industrial robot by Pudu Robotics — Kettybot Pro.",
+        "image": "/robot/pudu/kettybot-pro.png",
+        "link": "/robots/kettybot-pro",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "mt1",
+        "name": "Pudu MT1",
+        "description": "Industrial robot by Pudu Robotics — MT1.",
+        "image": "/robot/pudu/mt1.png",
+        "link": "/robots/mt1",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "mt1-max",
+        "name": "Pudu MT1 MAX",
+        "description": "Industrial robot by Pudu Robotics — MT1 MAX.",
+        "image": "/robot/pudu/mt1-max.png",
+        "link": "/robots/mt1-max",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "mt1-vac",
+        "name": "Pudu MT1 Vac",
+        "description": "Industrial robot by Pudu Robotics — MT1 Vac.",
+        "image": "/robot/pudu/mt1-vac.png",
+        "link": "/robots/mt1-vac",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "multi-robot-scheduling",
+        "name": "Pudu Multi-Robot Scheduling",
+        "description": "Industrial robot by Pudu Robotics — Multi-Robot Scheduling.",
+        "image": "/robot/pudu/multi-robot-scheduling.png",
+        "link": "/robots/multi-robot-scheduling",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "pudubot2",
+        "name": "Pudu Pudubot2",
+        "description": "Industrial robot by Pudu Robotics — Pudubot2.",
+        "image": "/robot/pudu/pudubot2.png",
+        "link": "/robots/pudubot2",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "sh1",
+        "name": "Pudu SH1",
+        "description": "Industrial robot by Pudu Robotics — SH1.",
+        "image": "/robot/pudu/sh1.png",
+        "link": "/robots/sh1",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "t300",
+        "name": "Pudu T300",
+        "description": "Industrial robot by Pudu Robotics — T300.",
+        "image": "/robot/pudu/t300.png",
+        "link": "/robots/t300",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "t600",
+        "name": "Pudu T600",
+        "description": "Industrial robot by Pudu Robotics — T600.",
+        "image": "/robot/pudu/t600.png",
+        "link": "/robots/t600",
+        "buttonText": "View details",
+        "category": "industrial"
+      },
+      {
+        "id": "g1-edu",
+        "name": "Unitree Humanoid G1 EDU",
+        "description": "Education and research humanoid — G1 EDU variant.",
+        "image": "/robot/g1/g1.png",
+        "link": "/robots/g1?variant=g1-edu",
+        "buttonText": "Explore G1 EDU",
+        "category": "educational"
+      },
+      {
+        "id": "go2-edu",
+        "name": "Unitree Robo-Dog Go2 EDU",
+        "description": "Quadruped platform for education and development — Go2 EDU.",
+        "image": "/robot/go2/DZDA.654.png",
+        "link": "/robots/go2?variant=go2-edu",
+        "buttonText": "Explore Go2 EDU",
+        "category": "educational"
+      },
+      {
+        "id": "r1-edu",
+        "name": "Unitree Humanoid R1 EDU",
+        "description": "Lightweight humanoid for learning and labs — R1 EDU.",
+        "image": "/robot/R1/R!.png",
+        "link": "/robots/r1?variant=r1-edu",
+        "buttonText": "Explore R1 EDU",
+        "category": "educational"
+      },
+      {
+        "id": "go2-air",
+        "name": "Unitree Go2 Air",
+        "description": "Go2 Air — entertainment and everyday use.",
+        "image": "/robot/go2/DZDA.654.png",
+        "link": "/robots/go2?variant=go2-air",
+        "buttonText": "Explore Go2 Air",
+        "category": "entertainment"
+      },
+      {
+        "id": "go2-pro",
+        "name": "Unitree Go2 Pro",
+        "description": "Go2 Pro — advanced features for enthusiasts and pros.",
+        "image": "/robot/go2/DZDA.654.png",
+        "link": "/robots/go2?variant=go2-pro",
+        "buttonText": "Explore Go2 Pro",
+        "category": "entertainment"
+      },
+      {
+        "id": "r1-air",
+        "name": "Unitree R1 Air",
+        "description": "R1 Air — streamlined humanoid experience.",
+        "image": "/robot/R1/R!.png",
+        "link": "/robots/r1?variant=r1-air",
+        "buttonText": "Explore R1 Air",
+        "category": "entertainment"
+      },
+      {
+        "id": "r1-basic",
+        "name": "Unitree R1 Basic",
+        "description": "R1 Basic — essential humanoid platform.",
+        "image": "/robot/R1/R!.png",
+        "link": "/robots/r1?variant=r1-basic",
+        "buttonText": "Explore R1 Basic",
+        "category": "entertainment"
+      },
+      {
+        "id": "g1-standard",
+        "name": "Unitree G1 Standard",
+        "description": "G1 Standard — balanced humanoid for broader use.",
+        "image": "/robot/g1/g1.png",
+        "link": "/robots/g1?variant=g1-standard",
+        "buttonText": "Explore G1 Standard",
+        "category": "entertainment"
+      }
+    ]
   },
   "common": {
     "main": "Home",

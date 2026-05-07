@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronDown, Menu, X } from "lucide-react"
@@ -44,11 +44,17 @@ export default function UnifiedHeader({
   const robotsDropdownRef = useRef<HTMLDivElement>(null)
   const robotsTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  const robots = [
-    { href: `/${lang}/robots/g1`, label: "Unitree Humanoid G1" },
-    { href: `/${lang}/robots/go2`, label: "Unitree Robo-Dog Go2" },
-    { href: `/${lang}/robots/r1`, label: "Unitree Humanoid R1" },
-  ]
+  const robots = useMemo(
+    () => [
+      { href: `/${lang}/robots#industrial`, label: t("robots.categoryIndustrial") },
+      { href: `/${lang}/robots#educational`, label: t("robots.categoryEducational") },
+      { href: `/${lang}/robots#entertainment`, label: t("robots.categoryEntertainment") },
+      { href: `/${lang}/robots/g1`, label: "Unitree Humanoid G1" },
+      { href: `/${lang}/robots/go2`, label: "Unitree Robo-Dog Go2" },
+      { href: `/${lang}/robots/r1`, label: "Unitree Humanoid R1" },
+    ],
+    [lang, t]
+  )
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -187,10 +193,10 @@ export default function UnifiedHeader({
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -8, scale: 0.97 }}
                       transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                      className={`absolute top-full mt-2 w-52 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? "right-0" : "left-0"}`}
+                      className={`absolute top-full mt-2 w-72 bg-white rounded-2xl shadow-lg py-2 overflow-hidden z-50 ${isRTL ? "right-0" : "left-0"}`}
                     >
                       <Link
-                        href={`/${lang}`}
+                        href={`/${lang}/robots`}
                         onClick={() => setIsRobotsOpen(false)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors font-medium border-b border-gray-100 mb-1"
                       >
@@ -259,7 +265,7 @@ export default function UnifiedHeader({
                       <FormattedText text={t("common.savvyEStore")} as="span" />
                     </p>
                     <Link
-                      href={`/${lang}`}
+                      href={`/${lang}/robots`}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="block px-3 py-2 text-white text-sm font-medium hover:bg-white/10 rounded-lg transition-colors"
                     >

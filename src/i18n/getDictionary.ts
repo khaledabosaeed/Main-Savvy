@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js"
 import en from "../../public/locales/en.json"
 import ar from "../../public/locales/ar.json"
 import type { AppLanguage } from "./settings"
+import { applyEnglishRobotDisplayNames } from "./robot-names-en-overlay"
 
 export type LocaleDictionary = typeof en
 
@@ -73,16 +74,31 @@ export async function getDictionary(
     async () => {
       try {
         const fromDb = await fetchLocaleFromSupabase(lang)
+        let dict: LocaleDictionary
         if (fromDb) {
-          return mergeTranslationsTree(
+          dict = mergeTranslationsTree(
             staticDictionary(lang) as unknown as Record<string, unknown>,
             fromDb as unknown as Record<string, unknown>
           ) as LocaleDictionary
+        } else {
+          dict = staticDictionary(lang)
         }
+        if (lang === "ar") {
+          const clone = JSON.parse(JSON.stringify(dict)) as LocaleDictionary
+          applyEnglishRobotDisplayNames(clone, staticDictionary("en"))
+          return clone
+        }
+        return dict
       } catch {
         /* network / missing table — fall back */
+        const dict = staticDictionary(lang)
+        if (lang === "ar") {
+          const clone = JSON.parse(JSON.stringify(dict)) as LocaleDictionary
+          applyEnglishRobotDisplayNames(clone, staticDictionary("en"))
+          return clone
+        }
+        return dict
       }
-      return staticDictionary(lang)
     },
     ["translations-dictionary", lang],
     { tags: ["translations"] }

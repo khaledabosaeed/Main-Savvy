@@ -17,7 +17,6 @@
     "pricing": "الأسعار",
     "steps": "الخطوات"
   },
-
   "footer": {
     "savvyWorld": "عالم ذكي",
     "aboutSavvy": "حول ساففي",
@@ -138,11 +137,26 @@
     "companyPlaceholder": "اسم الشركة",
     "jobRolePlaceholder": "اختر الدور الوظيفي",
     "jobRoles": [
-      { "value": "ceo_gm", "label": "الرئيس التنفيذي / المدير العام" },
-      { "value": "cto", "label": "مدير التقنية (CTO)" },
-      { "value": "operations_manager", "label": "مدير العمليات" },
-      { "value": "procurement", "label": "المشتريات" },
-      { "value": "other", "label": "أخرى" }
+      {
+        "value": "ceo_gm",
+        "label": "الرئيس التنفيذي / المدير العام"
+      },
+      {
+        "value": "cto",
+        "label": "مدير التقنية (CTO)"
+      },
+      {
+        "value": "operations_manager",
+        "label": "مدير العمليات"
+      },
+      {
+        "value": "procurement",
+        "label": "المشتريات"
+      },
+      {
+        "value": "other",
+        "label": "أخرى"
+      }
     ],
     "savvySolutions": "حلول ساڤي (اختياري)",
     "message": "الرسالة",
@@ -173,7 +187,7 @@
     "sidebarAddressLabel": "الموقع",
     "sidebarAddress": "الرياض، المملكة العربية السعودية",
     "sidebarHoursLabel": "أوقات العمل",
-    "sidebarHours":"24/7",
+    "sidebarHours": "24/7",
     "solutionOther": "أخرى",
     "solutionOptionGroups": [
       {
@@ -205,9 +219,21 @@
       "sectionTitle": "أخبرنا عن احتياجك للروبوتات",
       "intro": "تتنوع أهداف اقتناء الروبوت\nمثل تنوع اقتناء السيارات.. من السيارات الميني إلى الشاحنات الكبيرة..\n\nكلما أوضحت لنا هدفك بشكل أدق،\nنقدر نخدمك بشكل أفضل.\n\nاحكي لنا:\nهل الهدف ترفيهي؟ تسويقي؟ تقني أو بحثي؟ صناعي؟ تعليمي؟ أو استخدام آخر؟\n\nوأيضًا:\nهل عندك متطلبات تقنية محددة؟\nمثل الحركة، الذكاء الاصطناعي، أو بيئة التشغيل؟\n\nكلما عرفنا أكثر،\nنقدر نوجه طلبك للفريق المناسب بسرعة\nونقدّم لك الحل الأفضل.",
       "purposeLabel": "١ — هدف الاستخدام (اختياري)",
-      "purposeOptions": ["ترفيهي", "تسويقي", "تقني أو بحثي", "صناعي", "تعليمي", "أخرى"],
+      "purposeOptions": [
+        "ترفيهي",
+        "تسويقي",
+        "تقني أو بحثي",
+        "صناعي",
+        "تعليمي",
+        "أخرى"
+      ],
       "techLabel": "٢ — متطلبات تقنية (اختياري)",
-      "techOptions": ["الحركة", "الذكاء الاصطناعي", "بيئة التشغيل", "أخرى"],
+      "techOptions": [
+        "الحركة",
+        "الذكاء الاصطناعي",
+        "بيئة التشغيل",
+        "أخرى"
+      ],
       "closing": "شاكرين تعاونك.",
       "purposeEmailPrefix": "هدف الاستخدام:",
       "techEmailPrefix": "المتطلبات التقنية:",
@@ -237,6 +263,13 @@
     "viewProduct": "معلومات تقنيّة ",
     "viewAll": "عرض جميع الروبوتات",
     "notFound": "الروبوت غير موجود",
+    "catalogPageTitle": "متجر الروبوتات",
+    "catalogSearchPlaceholder": "ابحث بالاسم أو الطراز…",
+    "categoryAll": "الكل",
+    "categoryIndustrial": "صناعي",
+    "categoryEducational": "تعليمي",
+    "categoryEntertainment": "ترفيهي",
+    "noCatalogResults": "لا توجد نتائج مطابقة للبحث أو التصفية.",
     "moreRobots": "المزيد من الروبوتات",
     "sliderDescriptionSuffix": " يمكنك التواصل معنا مباشرة للحصول على السعر.",
     "version": "الإصدار",
@@ -280,7 +313,8 @@
         "image": "/robot/R1/R!.png",
         "link": "/robots/r1",
         "buttonText": "استكشف عالم R1",
-        "productLink": "/robots/r1/product"
+        "productLink": "/robots/r1/product",
+        "category": "educational"
       },
       {
         "id": "g1",
@@ -289,9 +323,9 @@
         "image": "/robot/g1/g1.png",
         "link": "/robots/g1",
         "buttonText": "استكشف عالم G1",
-        "productLink": "/robots/g1/product"
+        "productLink": "/robots/g1/product",
+        "category": "educational"
       },
-
       {
         "id": "go2",
         "name": "Unitree Robo-Dog Go2",
@@ -299,9 +333,9 @@
         "image": "/robot/go2/DZDA.654.png",
         "link": "/robots/go2",
         "buttonText": "استكشف عالم Go2",
-        "productLink": "/robots/go2/product"
+        "productLink": "/robots/go2/product",
+        "category": "educational"
       }
-
     ],
     "hero": {
       "g1": {
@@ -311,9 +345,7 @@
         "priceStartsFrom": "تواصل مع المبيعات",
         "buttonText": "عرض المنتج",
         "textPlacement": "center"
-
       },
-
       "go2": {
         "videoSrc": "/robot/go2/hero.mp4",
         "title": "Unitree Robo-Dog Go2",
@@ -324,10 +356,144 @@
       },
       "r1": {
         "videoSrc": "/robot/R1/hero.mp4",
-        "title": "Unitree Humanoid R1",
+        "title": "Unitree Humanoid  R1",
         "subtitle": " روبوت بشري خفيف بارتفاع يقارب 1.2 متر ووزن أقل من 30 كجم، مصمم ليكون سهل النقل والاستخدام اليومي.",
         "priceStartsFrom": "السعر يبدأ من 18,375 ريال سعودي",
         "buttonText": "عرض المنتج",
+        "textPlacement": "center"
+      },
+      "h2": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Unitree Humanoid H2",
+        "subtitle": "منصة بشرية متقدمة للبحث والتعليم.",
+        "priceStartsFrom": "تواصل مع المبيعات",
+        "buttonText": "عرض المنتج",
+        "textPlacement": "center"
+      },
+      "bellabot": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Bellabot",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — بيلابوت. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "bellabot-pro": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Bellabot Pro",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — بيلابوت برو. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "cc1": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu CC1",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — سي سي 1. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "cc1-pro": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu CC1 Pro",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — سي سي 1 برو. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "cc1-self-cleaning": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu CC1 Self-cleaning",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — سي سي 1 ذاتي التنظيف. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "d5": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu D5",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — دي 5. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "d9": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu D9",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — دي 9. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "executive-statement": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Executive Statement",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — البيان التنفيذي. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "flashbot": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Flashbot",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — فلاشبوت. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "kettybot-pro": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Kettybot Pro",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — كتيبوت برو. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "mt1": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu MT1",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — إم تي 1. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "mt1-max": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu MT1 MAX",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — إم تي 1 ماكس. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "mt1-vac": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu MT1 Vac",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — إم تي 1 فاك. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "multi-robot-scheduling": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Multi-Robot Scheduling",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — جدولة متعددة الروبوتات. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "pudubot2": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu Pudubot2",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — بودوبوت 2. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "sh1": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu SH1",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — إس إتش 1. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "t300": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu T300",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — تي 300. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
+        "textPlacement": "center"
+      },
+      "t600": {
+        "videoSrc": "/robot/g1/hero.mp4",
+        "title": "Pudu T600",
+        "subtitle": "روبوت خدمات صناعي من بودو روبوتكس — تي 600. تواصل معنا للمواصفات والتوفر.",
+        "buttonText": "View Product",
         "textPlacement": "center"
       }
     },
@@ -351,7 +517,6 @@
           }
         ]
       },
-
       "go2": {
         "items": [
           {
@@ -482,39 +647,148 @@
                   "NVIDIA Jetson Orin (GPU)"
                 ]
               },
-              { "name": "الارتفاع والعرض والسماكة (وضعية الوقوف)", "values": [ "1320 x 450 x 200mm"] },
-              { "name": "الارتفاع والعرض والسماكة (وضعية الطي الكامل)", "values": [ "690 x 450 x 300mm"] },
-              { "name": "الوزن (مع البطارية)", "values": [ "35 كجم"] },
-              { "name": "عمر البطارية", "values": [ " ساعتين"] },
-              { "name": "إجمالي عدد المفاصل", "values": [ "23 - 43"] },
-              { "name": "درجات حرية الساق الواحدة", "values": [ "6"] },
-              { "name": "درجات حرية الخصر", "values": [ "1 + (اختياري 2 إضافية)"] },
-              { "name": "درجات حرية الذراع الواحدة", "values": [ "5"] },
-              { "name": "درجات حرية اليد الواحدة", "values": [ "7 (اختياري تحكم بالقوة لليد ثلاثية الأصابع)\n+2(اختياري 2 إضافية للمعصم)"] },
-              { "name": "درجة تحمل المفصل", "values": [ "محامل أسطوانية صناعية متقاطعة"] },
-              { "name": "محرك المفصل", "values": ["PMSM دوار داخلي عالي السرعة"] }
+              {
+                "name": "الارتفاع والعرض والسماكة (وضعية الوقوف)",
+                "values": [
+                  "1320 x 450 x 200mm"
+                ]
+              },
+              {
+                "name": "الارتفاع والعرض والسماكة (وضعية الطي الكامل)",
+                "values": [
+                  "690 x 450 x 300mm"
+                ]
+              },
+              {
+                "name": "الوزن (مع البطارية)",
+                "values": [
+                  "35 كجم"
+                ]
+              },
+              {
+                "name": "عمر البطارية",
+                "values": [
+                  " ساعتين"
+                ]
+              },
+              {
+                "name": "إجمالي عدد المفاصل",
+                "values": [
+                  "23 - 43"
+                ]
+              },
+              {
+                "name": "درجات حرية الساق الواحدة",
+                "values": [
+                  "6"
+                ]
+              },
+              {
+                "name": "درجات حرية الخصر",
+                "values": [
+                  "1 + (اختياري 2 إضافية)"
+                ]
+              },
+              {
+                "name": "درجات حرية الذراع الواحدة",
+                "values": [
+                  "5"
+                ]
+              },
+              {
+                "name": "درجات حرية اليد الواحدة",
+                "values": [
+                  "7 (اختياري تحكم بالقوة لليد ثلاثية الأصابع)\n+2(اختياري 2 إضافية للمعصم)"
+                ]
+              },
+              {
+                "name": "درجة تحمل المفصل",
+                "values": [
+                  "محامل أسطوانية صناعية متقاطعة"
+                ]
+              },
+              {
+                "name": "محرك المفصل",
+                "values": [
+                  "PMSM دوار داخلي عالي السرعة"
+                ]
+              }
             ]
           },
           {
             "label": "الخصائص التقنية",
             "rows": [
-              { "name": "أقصى عزم لمفصل الركبة [1]", "values": [ "120N.m"] },
-              { "name": "أقصى حمل للذراع (2)", "values": [ " 3 كجم"] },
-              { "name": "طول الساق + الفخذ", "values": [ "0.45M"] },
-              { "name": "مساحة حركة مفصل كبيرة", "values": [ "الخصر، الركبة، الورك، المعصم"] },
-              { "name": "توجيه كهربائي مجوف للمفصل", "values": [ "نعم"] },
-              { "name": "حماية المفصل", "values": [ "مزدوجة "] },
-              { "name": "مصفوفة 4 ميكروفونات", "values": [ "نعم"] },
-              { "name": "تبديد الحرارة", "values": [ "تبريد هوائي محلي"] },
-              { "name": "البطارية", "values": [ "بطارية ليثيوم 13 خلية"] },
-              { "name": "منصة الحوسبة", "values": [ "معالج 8 نوى عالي الأداء"] },
-              { "name": "كاميرا العمق", "values": [ " LIDAR ثلاثي الأبعاد"] }
+              {
+                "name": "أقصى عزم لمفصل الركبة [1]",
+                "values": [
+                  "120N.m"
+                ]
+              },
+              {
+                "name": "أقصى حمل للذراع (2)",
+                "values": [
+                  " 3 كجم"
+                ]
+              },
+              {
+                "name": "طول الساق + الفخذ",
+                "values": [
+                  "0.45M"
+                ]
+              },
+              {
+                "name": "مساحة حركة مفصل كبيرة",
+                "values": [
+                  "الخصر، الركبة، الورك، المعصم"
+                ]
+              },
+              {
+                "name": "توجيه كهربائي مجوف للمفصل",
+                "values": [
+                  "نعم"
+                ]
+              },
+              {
+                "name": "حماية المفصل",
+                "values": [
+                  "مزدوجة "
+                ]
+              },
+              {
+                "name": "مصفوفة 4 ميكروفونات",
+                "values": [
+                  "نعم"
+                ]
+              },
+              {
+                "name": "تبديد الحرارة",
+                "values": [
+                  "تبريد هوائي محلي"
+                ]
+              },
+              {
+                "name": "البطارية",
+                "values": [
+                  "بطارية ليثيوم 13 خلية"
+                ]
+              },
+              {
+                "name": "منصة الحوسبة",
+                "values": [
+                  "معالج 8 نوى عالي الأداء"
+                ]
+              },
+              {
+                "name": "كاميرا العمق",
+                "values": [
+                  " LIDAR ثلاثي الأبعاد"
+                ]
+              }
             ]
           },
           {
             "label": "الملحقات",
             "rows": [
-            
               {
                 "name": "البطارية الذكية (إطلاق سريع)",
                 "values": [
@@ -537,13 +811,13 @@
           }
         ]
       },
-
       "r1": {
         "specLabel": "المواصفة",
         "valueLabel": "القيمة",
         "columnHeaders": [
-  
-          "R1 EDU"
+          "R1 EDU",
+          "R1 Air",
+          "R1 Basic"
         ],
         "headerImage": "/robot/R1/tabel.webp",
         "columnPrices": [
@@ -557,34 +831,150 @@
           {
             "label": "الأبعاد الميكانيكية",
             "rows": [
-              { "name": "الارتفاع والعرض والسماكة (وضع الوقوف)", "values": [ "1230 x 357 x 190mm"] },
-              { "name": "الوزن (مع البطارية)", "values": [ " 29 كجم"] },
-              { "name": "درجات الحرية (إجمالي المفاصل)", "values": [ "26 - 40"] },
-              { "name": "درجات حرية الساق الواحدة", "values": [ "6"] },
-              { "name": "درجات حرية الذراع الواحدة", "values": [ "5"] },
-              { "name": "درجات حرية الخصر", "values": [ "2"] },
-              { "name": "درجات حرية الرأس", "values": ["2"] },
-              { "name": "اليد الماهرة", "values": [ "اختياري"] },
-              { "name": "محمل مخرجات المفصل", "values": [ "محامل أسطوانية متقاطعة، "] },
-              { "name": "محرك المفصل", "values": ["PMSM  محرك مغناطيسي "] }
+              {
+                "name": "الارتفاع والعرض والسماكة (وضع الوقوف)",
+                "values": [
+                  "1230 x 357 x 190mm"
+                ]
+              },
+              {
+                "name": "الوزن (مع البطارية)",
+                "values": [
+                  " 29 كجم"
+                ]
+              },
+              {
+                "name": "درجات الحرية (إجمالي المفاصل)",
+                "values": [
+                  "26 - 40"
+                ]
+              },
+              {
+                "name": "درجات حرية الساق الواحدة",
+                "values": [
+                  "6"
+                ]
+              },
+              {
+                "name": "درجات حرية الذراع الواحدة",
+                "values": [
+                  "5"
+                ]
+              },
+              {
+                "name": "درجات حرية الخصر",
+                "values": [
+                  "2"
+                ]
+              },
+              {
+                "name": "درجات حرية الرأس",
+                "values": [
+                  "2"
+                ]
+              },
+              {
+                "name": "اليد الماهرة",
+                "values": [
+                  "اختياري"
+                ]
+              },
+              {
+                "name": "محمل مخرجات المفصل",
+                "values": [
+                  "محامل أسطوانية متقاطعة، "
+                ]
+              },
+              {
+                "name": "محرك المفصل",
+                "values": [
+                  "PMSM  محرك مغناطيسي "
+                ]
+              }
             ]
           },
           {
             "label": "الخصائص الكهربائية",
             "rows": [
-              { "name": "أقصى عزم لمفصل الذراع [1]", "values": [ " 2 كجم"] },
-              { "name": "طول الساق + الفخذ", "values": ["600"] },
-              { "name": "طول الساعد + الذراع العلوية", "values": [ "420"] },
-              { "name": "مساحة حركة المفصل", "values": [ "مفصل الخصر: Y±150° R±30°\nمفصل الركبة: -10°~+139°\nمفصل الورك: Y:±157° P:-168° ~+146° R:-60°~+100°", "مفصل الخصر: Y±150° R±30°\nمفصل الركبة: -10°~+139°\nمفصل الورك: Y:±157° P:-168° ~+146° R:-60°~+100°"] },
-              { "name": "التوجيه الكهربائي", "values": [ "مجوف + توجيه داخلي"] },
-              { "name": "مشفر المفصل", "values": [ "مشفر مزدوج + مفرد"] },
-              { "name": "نظام التبريد", "values": [ "تبريد هوائي محلي"] },
-              { "name": "مصدر الطاقة", "values": ["بطارية ليثيوم"] },
-              { "name": "قوة الحوسبة الأساسية", "values": [ "معالج 8 نوى عالي الأداء"] },
-              { "name": "مصفوفة الميكروفون", "values": [ "مصفوفة 4 ميكروفونات"] },
-              { "name": "مكبر الصوت", "values": [ "نعم"] },
-              { "name": "WiFi 6 Bluetooth 5.2", "values": [ "نعم"] },
-              { "name": "الكاميرا", "values": [ "كاميرا ثنائية العين"] }
+              {
+                "name": "أقصى عزم لمفصل الذراع [1]",
+                "values": [
+                  " 2 كجم"
+                ]
+              },
+              {
+                "name": "طول الساق + الفخذ",
+                "values": [
+                  "600"
+                ]
+              },
+              {
+                "name": "طول الساعد + الذراع العلوية",
+                "values": [
+                  "420"
+                ]
+              },
+              {
+                "name": "مساحة حركة المفصل",
+                "values": [
+                  "مفصل الخصر: Y±150° R±30°\nمفصل الركبة: -10°~+139°\nمفصل الورك: Y:±157° P:-168° ~+146° R:-60°~+100°",
+                  "مفصل الخصر: Y±150° R±30°\nمفصل الركبة: -10°~+139°\nمفصل الورك: Y:±157° P:-168° ~+146° R:-60°~+100°"
+                ]
+              },
+              {
+                "name": "التوجيه الكهربائي",
+                "values": [
+                  "مجوف + توجيه داخلي"
+                ]
+              },
+              {
+                "name": "مشفر المفصل",
+                "values": [
+                  "مشفر مزدوج + مفرد"
+                ]
+              },
+              {
+                "name": "نظام التبريد",
+                "values": [
+                  "تبريد هوائي محلي"
+                ]
+              },
+              {
+                "name": "مصدر الطاقة",
+                "values": [
+                  "بطارية ليثيوم"
+                ]
+              },
+              {
+                "name": "قوة الحوسبة الأساسية",
+                "values": [
+                  "معالج 8 نوى عالي الأداء"
+                ]
+              },
+              {
+                "name": "مصفوفة الميكروفون",
+                "values": [
+                  "مصفوفة 4 ميكروفونات"
+                ]
+              },
+              {
+                "name": "مكبر الصوت",
+                "values": [
+                  "نعم"
+                ]
+              },
+              {
+                "name": "WiFi 6 Bluetooth 5.2",
+                "values": [
+                  "نعم"
+                ]
+              },
+              {
+                "name": "الكاميرا",
+                "values": [
+                  "كاميرا ثنائية العين"
+                ]
+              }
             ]
           },
           {
@@ -619,10 +1009,30 @@
           {
             "label": "أخرى",
             "rows": [
-              { "name": "عمر البطارية", "values": [ " ساعة"] },
-              { "name": "ترقية OTA الذكية", "values": [ "نعم"] },
-              { "name": "التطوير الثانوي [2]", "values": [ "نعم"] },
-              { "name": "فترة الضمان [3]", "values": [ "12 شهراً"] }
+              {
+                "name": "عمر البطارية",
+                "values": [
+                  " ساعة"
+                ]
+              },
+              {
+                "name": "ترقية OTA الذكية",
+                "values": [
+                  "نعم"
+                ]
+              },
+              {
+                "name": "التطوير الثانوي [2]",
+                "values": [
+                  "نعم"
+                ]
+              },
+              {
+                "name": "فترة الضمان [3]",
+                "values": [
+                  "12 شهراً"
+                ]
+              }
             ]
           }
         ]
@@ -631,7 +1041,6 @@
         "specLabel": "المواصفة",
         "valueLabel": "القيمة",
         "columnHeaders": [
-    
           "EDU"
         ],
         "headerImage": "/robot/go2/table.png",
@@ -647,37 +1056,117 @@
           {
             "label": "المواصفات الميكانيكية",
             "rows": [
-              { "name": "أبعاد وضع الوقوف", "values": [ "70سم × 31سم × 40سم"] },
-              { "name": "أبعاد وضع الانحناء", "values": [ "76سم × 31سم × 20سم"] },
-              { "name": "الوزن (مع البطارية)", "values": [ " 15 كجم"] },
-              { "name": "المادة", "values": [ "من الألمنيوم والبلاستيك عالي القوة"] }
+              {
+                "name": "أبعاد وضع الوقوف",
+                "values": [
+                  "70سم × 31سم × 40سم"
+                ]
+              },
+              {
+                "name": "أبعاد وضع الانحناء",
+                "values": [
+                  "76سم × 31سم × 20سم"
+                ]
+              },
+              {
+                "name": "الوزن (مع البطارية)",
+                "values": [
+                  " 15 كجم"
+                ]
+              },
+              {
+                "name": "المادة",
+                "values": [
+                  "من الألمنيوم والبلاستيك عالي القوة"
+                ]
+              }
             ]
           },
           {
             "label": "المعاملات الإلكترونية",
             "rows": [
-              { "name": "الجهد", "values": [ "28V - 33.6V"] },
-              { "name": "أقصى قدرة تشغيل", "values": [ " 3000 واط"] }
+              {
+                "name": "الجهد",
+                "values": [
+                  "28V - 33.6V"
+                ]
+              },
+              {
+                "name": "أقصى قدرة تشغيل",
+                "values": [
+                  " 3000 واط"
+                ]
+              }
             ]
           },
           {
             "label": "معاملات الأداء",
             "rows": [
-              { "name": "الحمولة", "values": [ "= 8 كجم (MAX ~ 12 كجم)"] },
-              { "name": "السرعة", "values": [ "0 ~ 3.7 م/ث (MAX ~ 5 م/ث)"] },
-              { "name": "أقصى ارتفاع صعود", "values": [ " 16 سم"] },
-              { "name": "أقصى زاوية صعود", "values": [ "40°"] },
-              { "name": "قوة الحوسبة الأساسية", "values": [ "معالج 8 نوى عالي الأداء"] }
+              {
+                "name": "الحمولة",
+                "values": [
+                  "= 8 كجم (MAX ~ 12 كجم)"
+                ]
+              },
+              {
+                "name": "السرعة",
+                "values": [
+                  "0 ~ 3.7 م/ث (MAX ~ 5 م/ث)"
+                ]
+              },
+              {
+                "name": "أقصى ارتفاع صعود",
+                "values": [
+                  " 16 سم"
+                ]
+              },
+              {
+                "name": "أقصى زاوية صعود",
+                "values": [
+                  "40°"
+                ]
+              },
+              {
+                "name": "قوة الحوسبة الأساسية",
+                "values": [
+                  "معالج 8 نوى عالي الأداء"
+                ]
+              }
             ]
           },
           {
             "label": "معاملات مفصل الركبة",
             "rows": [
-              { "name": "أقصى عزم المفصل [1]", "values": [ " 45 نيوتن.م"] },
-              { "name": "محرك مفصل الركبة الألومنيوم", "values": [ "12 مجموعة"] },
-              { "name": "نطاق الحركة", "values": [ "الجسم: - 48 ~ 48°\nالفخذ: - 200 ~ 90°\nالساق: - 156 ~ - 48°"] },
-              { "name": "دائرة داخل المفصل (الركبة)", "values": [ "✓"] },
-              { "name": "مبرد أنبوب الحرارة للمفصل", "values": [ "✓"] }
+              {
+                "name": "أقصى عزم المفصل [1]",
+                "values": [
+                  " 45 نيوتن.م"
+                ]
+              },
+              {
+                "name": "محرك مفصل الركبة الألومنيوم",
+                "values": [
+                  "12 مجموعة"
+                ]
+              },
+              {
+                "name": "نطاق الحركة",
+                "values": [
+                  "الجسم: - 48 ~ 48°\nالفخذ: - 200 ~ 90°\nالساق: - 156 ~ - 48°"
+                ]
+              },
+              {
+                "name": "دائرة داخل المفصل (الركبة)",
+                "values": [
+                  "✓"
+                ]
+              },
+              {
+                "name": "مبرد أنبوب الحرارة للمفصل",
+                "values": [
+                  "✓"
+                ]
+              }
             ]
           },
           {
@@ -686,25 +1175,25 @@
               {
                 "name": "4D LIDAR بزاوية فائقة الاتساع",
                 "values": [
-                    "✓"
+                  "✓"
                 ]
               },
               {
                 "name": "وحدة تتبع التموضع اللاسلكي",
                 "values": [
-                    "✓"
+                  "✓"
                 ]
               },
               {
                 "name": "كاميرا عريضة الزاوية HD",
                 "values": [
-                    "✓"
+                  "✓"
                 ]
               },
               {
                 "name": "مستشعر القوة في نهاية القدم",
                 "values": [
-                    "✓"
+                  "✓"
                 ]
               }
             ]
@@ -715,97 +1204,84 @@
               {
                 "name": "الإجراء الأساسي",
                 "values": [
-                    "✓"
+                  "✓"
                 ]
               },
               {
                 "name": "حزام التحجيم التلقائي",
                 "values": [
-         
                   "—"
                 ]
               },
               {
                 "name": "ترقية OTA الذكية",
                 "values": [
-          
                   "✓"
                 ]
               },
               {
                 "name": "معاملة صور RTT 2.0",
                 "values": [
-   
                   "✓"
                 ]
               },
               {
                 "name": "البرنامج الرسومي",
                 "values": [
-       
                   "✓"
                 ]
               },
               {
                 "name": "المصباح الأمامي",
                 "values": [
-           
                   "✓"
                 ]
               },
               {
                 "name": "WiFi6 ثنائي النطاق",
                 "values": [
-          
                   "✓"
                 ]
               },
               {
                 "name": "Bluetooth 5.2/4.2/2.1",
                 "values": [
-            
                   "✓"
                 ]
               },
               {
                 "name": "وحدة 4G (مع GPS)",
                 "values": [
-        
                   "✓"
                 ]
               },
               {
                 "name": "وظيفة الصوت [5]",
                 "values": [
-            
                   "✓"
                 ]
               },
               {
                 "name": "نظام ISS 2.0 الذكي للمتابعة الجانبية",
                 "values": [
-       
                   "✓"
                 ]
               },
               {
                 "name": "الكشف والتفادي الذكي",
                 "values": [
-               
                   "✓"
                 ]
               },
               {
                 "name": "توافق محطة الشحن",
                 "values": [
-           
                   "—"
                 ]
               },
               {
                 "name": "التطوير الثانوي [6]",
                 "values": [
-       
                   "—"
                 ]
               }
@@ -814,14 +1290,631 @@
           {
             "label": "الملحقات",
             "rows": [
-              { "name": "المتحكم اليدوي", "values": [ "اختياري"] },
-              { "name": "وحدة الحوسبة العالية", "values": [ "NVIDIA Jetson Orin (اختياري) (40-100Tops)"] },
-              { "name": "كاميرا العمق", "values": [ "مشمول"] },
-              { "name": "البطارية الذكية", "values": [ "تحمل طويل (15000mAh)"] },
-              { "name": "عمر البطارية", "values": [ " 2-4 ساعات"] },
-              { "name": "الشاحن", "values": [ "شحن سريع (33.6V 9A)"] },
-              { "name": "فترة الضمان [7]", "values": [ "12 شهراً"] },
-              { "name": "السعر بالريال السعودي (بدون الضريبة والشحن)", "values": [ "تواصل مع المبيعات"], "highlight": true }
+              {
+                "name": "المتحكم اليدوي",
+                "values": [
+                  "اختياري"
+                ]
+              },
+              {
+                "name": "وحدة الحوسبة العالية",
+                "values": [
+                  "NVIDIA Jetson Orin (اختياري) (40-100Tops)"
+                ]
+              },
+              {
+                "name": "كاميرا العمق",
+                "values": [
+                  "مشمول"
+                ]
+              },
+              {
+                "name": "البطارية الذكية",
+                "values": [
+                  "تحمل طويل (15000mAh)"
+                ]
+              },
+              {
+                "name": "عمر البطارية",
+                "values": [
+                  " 2-4 ساعات"
+                ]
+              },
+              {
+                "name": "الشاحن",
+                "values": [
+                  "شحن سريع (33.6V 9A)"
+                ]
+              },
+              {
+                "name": "فترة الضمان [7]",
+                "values": [
+                  "12 شهراً"
+                ]
+              },
+              {
+                "name": "السعر بالريال السعودي (بدون الضريبة والشحن)",
+                "values": [
+                  "تواصل مع المبيعات"
+                ],
+                "highlight": true
+              }
+            ]
+          }
+        ]
+      },
+      "bellabot": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "بيلابوت"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "بيلابوت"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "bellabot-pro": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "بيلابوت برو"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "بيلابوت برو"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "cc1": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "سي سي 1"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "سي سي 1"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "cc1-pro": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "سي سي 1 برو"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "سي سي 1 برو"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "cc1-self-cleaning": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "سي سي 1 ذاتي التنظيف"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "سي سي 1 ذاتي التنظيف"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "d5": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "دي 5"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "دي 5"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "d9": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "دي 9"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "دي 9"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "executive-statement": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "البيان التنفيذي"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "البيان التنفيذي"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "flashbot": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "فلاشبوت"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "فلاشبوت"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "kettybot-pro": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "كتيبوت برو"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "كتيبوت برو"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "mt1": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "إم تي 1"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "إم تي 1"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "mt1-max": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "إم تي 1 ماكس"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "إم تي 1 ماكس"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "mt1-vac": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "إم تي 1 فاك"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "إم تي 1 فاك"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "multi-robot-scheduling": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "جدولة متعددة الروبوتات"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "جدولة متعددة الروبوتات"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "pudubot2": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "بودوبوت 2"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "بودوبوت 2"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sh1": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "إس إتش 1"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "إس إتش 1"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "t300": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "تي 300"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "تي 300"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "t600": {
+        "specLabel": "Specification",
+        "valueLabel": "Value",
+        "columnHeaders": [
+          "تي 600"
+        ],
+        "sections": [
+          {
+            "label": "Overview",
+            "rows": [
+              {
+                "name": "Model",
+                "values": [
+                  "تي 600"
+                ]
+              },
+              {
+                "name": "Manufacturer",
+                "values": [
+                  "Pudu Robotics"
+                ]
+              },
+              {
+                "name": "Details",
+                "values": [
+                  "Full technical documentation available on request. Contact our team for datasheets and deployment options."
+                ]
+              }
             ]
           }
         ]
@@ -829,7 +1922,7 @@
     },
     "product": {
       "g1": {
-        "name": "Unitree Humanoid  G1 EDU ",
+        "name": "Unitree Humanoid G1 EDU ",
         "manufacturerName": "Unitree Robotics",
         "sku": "RB-Unt-50",
         "manufacturerPartNumber": "G1-EDU-U1",
@@ -845,8 +1938,16 @@
         "versions": [
           {
             "id": "g1-edu",
-            "name": "G1 EDU ",
+            "name": "G1 EDU",
             "price": "تواصل مع المبيعات"
+          },
+          {
+            "id": "g1-standard",
+            "name": "G1 Standard",
+            "price": "تواصل مع المبيعات",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-50",
+            "manufacturerPartNumber": "G1-STD"
           }
         ],
         "bulletPoints": [
@@ -854,7 +1955,6 @@
           "تواصل مع المبيعات للحصول على سعر G1 EDU"
         ]
       },
-
       "go2": {
         "name": "Unitree Robo-Dog Go2",
         "price": "يبدأ من 6,000 ريال سعودي",
@@ -866,21 +1966,38 @@
           "/robot/go2/catlouge/go2c5.webp"
         ],
         "versions": [
-
+          {
+            "id": "go2-edu",
+            "name": "Go2 EDU",
+            "price": "تواصل مع المبيعات",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-04",
+            "manufacturerPartNumber": "Go2-EDU"
+          },
+          {
+            "id": "go2-air",
+            "name": "Go2 Air",
+            "price": "تواصل مع المبيعات",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-06",
+            "manufacturerPartNumber": "Go2-AIR"
+          },
           {
             "id": "go2-pro",
-            "name": "Go2 ",
+            "name": "Go2 Pro",
             "price": "10,500 ريال سعودي",
             "manufacturerName": "Unitree Robotics",
             "sku": "RB-Unt-05",
             "manufacturerPartNumber": "Go2-PRO"
           }
-
+        ],
+        "bulletPoints": [
+          "اطلب الآن والشحن خلال ٣ أشهر",
+          "تواصل مع المبيعات للحصول على سعر Go2"
         ]
-
       },
       "r1": {
-        "name": "Unitree Humanoid R1",
+        "name": "Unitree Humanoid R1 ",
         "manufacturerName": "Unitree Robotics",
         "sku": "RB-Unt-164",
         "manufacturerPartNumber": "R1-Basic-US",
@@ -890,17 +2007,41 @@
           "/robot/R1/catlouge/p1.webp"
         ],
         "versions": [
-
           {
-            "id": "r1-red",
-            "name": "R1 (أحمر)",
-            "price": "22,125 ريال سعودي"
+            "id": "r1-edu",
+            "name": "R1 EDU",
+            "price": "تواصل مع المبيعات",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-164",
+            "manufacturerPartNumber": "R1-EDU",
+            "images": [
+              "/robot/R1/catlouge/p2.webp",
+              "/robot/R1/catlouge/p1.webp"
+            ]
           },
-      
           {
-            "id": "r1-white",
-            "name": "R1 (أبيض)",
-            "price": "22,125 ريال سعودي"
+            "id": "r1-air",
+            "name": "R1 Air",
+            "price": "تواصل مع المبيعات",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-165",
+            "manufacturerPartNumber": "R1-AIR",
+            "images": [
+              "/robot/R1/catlouge/p1.webp",
+              "/robot/R1/catlouge/p2.webp"
+            ]
+          },
+          {
+            "id": "r1-basic",
+            "name": "R1 Basic",
+            "price": "يبدأ من 18,375 ريال سعودي",
+            "manufacturerName": "Unitree Robotics",
+            "sku": "RB-Unt-164",
+            "manufacturerPartNumber": "R1-Basic-US",
+            "images": [
+              "/robot/R1/catlouge/p2.webp",
+              "/robot/R1/catlouge/p1.webp"
+            ]
           }
         ],
         "bulletPoints": [
@@ -908,8 +2049,586 @@
           "العميل مسؤول عن الرسوم الجمركية والضرائب",
           "تواصل مع المبيعات للحصول على سعر Unitree Humanoid R1"
         ]
+      },
+      "bellabot": {
+        "name": "Pudu Bellabot",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-BELLABOT",
+        "manufacturerPartNumber": "Bellabot",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/bellabot.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Bellabot"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "bellabot-pro": {
+        "name": "Pudu Bellabot Pro",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-BELLABOT-PRO",
+        "manufacturerPartNumber": "Bellabot-Pro",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/bellabot-pro.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Bellabot Pro"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "cc1": {
+        "name": "Pudu CC1",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-CC1",
+        "manufacturerPartNumber": "CC1",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/cc1.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "CC1"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "cc1-pro": {
+        "name": "Pudu CC1 Pro",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-CC1-PRO",
+        "manufacturerPartNumber": "CC1-Pro",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/cc1-pro.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "CC1 Pro"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "cc1-self-cleaning": {
+        "name": "Pudu CC1 Self-cleaning",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-CC1-SELF-CLEANING",
+        "manufacturerPartNumber": "CC1-Self-cleaning",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/cc1-self-cleaning.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "CC1 Self-cleaning"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "d5": {
+        "name": "Pudu D5",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-D5",
+        "manufacturerPartNumber": "D5",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/d5.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "D5"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "d9": {
+        "name": "Pudu D9",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-D9",
+        "manufacturerPartNumber": "D9",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/d9.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "D9"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "executive-statement": {
+        "name": "Pudu Executive Statement",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-EXECUTIVE-STATEMENT",
+        "manufacturerPartNumber": "Executive-Statement",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/executive-statement.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Executive Statement"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "flashbot": {
+        "name": "Pudu Flashbot",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-FLASHBOT",
+        "manufacturerPartNumber": "Flashbot",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/flashbot.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Flashbot"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "kettybot-pro": {
+        "name": "Pudu Kettybot Pro",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-KETTYBOT-PRO",
+        "manufacturerPartNumber": "Kettybot-Pro",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/kettybot-pro.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Kettybot Pro"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "mt1": {
+        "name": "Pudu MT1",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-MT1",
+        "manufacturerPartNumber": "MT1",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/mt1.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "MT1"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "mt1-max": {
+        "name": "Pudu MT1 MAX",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-MT1-MAX",
+        "manufacturerPartNumber": "MT1-MAX",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/mt1-max.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "MT1 MAX"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "mt1-vac": {
+        "name": "Pudu MT1 Vac",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-MT1-VAC",
+        "manufacturerPartNumber": "MT1-Vac",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/mt1-vac.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "MT1 Vac"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "multi-robot-scheduling": {
+        "name": "Pudu Multi-Robot Scheduling",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-MULTI-ROBOT-SCHEDULING",
+        "manufacturerPartNumber": "Multi-Robot-Scheduling",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/multi-robot-scheduling.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Multi-Robot Scheduling"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "pudubot2": {
+        "name": "Pudu Pudubot2",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-PUDUBOT2",
+        "manufacturerPartNumber": "Pudubot2",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/pudubot2.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "Pudubot2"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "sh1": {
+        "name": "Pudu SH1",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-SH1",
+        "manufacturerPartNumber": "SH1",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/sh1.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "SH1"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "t300": {
+        "name": "Pudu T300",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-T300",
+        "manufacturerPartNumber": "T300",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/t300.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "T300"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
+      },
+      "t600": {
+        "name": "Pudu T600",
+        "manufacturerName": "Pudu Robotics",
+        "sku": "PD-T600",
+        "manufacturerPartNumber": "T600",
+        "price": "Contact Sales",
+        "images": [
+          "/robot/pudu/t600.png"
+        ],
+        "versions": [
+          {
+            "id": "default",
+            "name": "T600"
+          }
+        ],
+        "bulletPoints": [
+          "Contact Savvy for pricing, delivery, and integration support in Saudi Arabia."
+        ]
       }
-    }
+    },
+    "catalogCards": [
+      {
+        "id": "bellabot",
+        "name": "Pudu Bellabot",
+        "description": "روبوت صناعي من بودو روبوتكس — بيلابوت.",
+        "image": "/robot/pudu/bellabot.png",
+        "link": "/robots/bellabot",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "bellabot-pro",
+        "name": "Pudu Bellabot Pro",
+        "description": "روبوت صناعي من بودو روبوتكس — بيلابوت برو.",
+        "image": "/robot/pudu/bellabot-pro.png",
+        "link": "/robots/bellabot-pro",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "cc1",
+        "name": "Pudu CC1",
+        "description": "روبوت صناعي من بودو روبوتكس — سي سي 1.",
+        "image": "/robot/pudu/cc1.png",
+        "link": "/robots/cc1",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "cc1-pro",
+        "name": "Pudu CC1 Pro",
+        "description": "روبوت صناعي من بودو روبوتكس — سي سي 1 برو.",
+        "image": "/robot/pudu/cc1-pro.png",
+        "link": "/robots/cc1-pro",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "cc1-self-cleaning",
+        "name": "Pudu CC1 Self-cleaning",
+        "description": "روبوت صناعي من بودو روبوتكس — سي سي 1 ذاتي التنظيف.",
+        "image": "/robot/pudu/cc1-self-cleaning.png",
+        "link": "/robots/cc1-self-cleaning",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "d5",
+        "name": "Pudu D5",
+        "description": "روبوت صناعي من بودو روبوتكس — دي 5.",
+        "image": "/robot/pudu/d5.png",
+        "link": "/robots/d5",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "d9",
+        "name": "Pudu D9",
+        "description": "روبوت صناعي من بودو روبوتكس — دي 9.",
+        "image": "/robot/pudu/d9.png",
+        "link": "/robots/d9",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "executive-statement",
+        "name": "Pudu Executive Statement",
+        "description": "روبوت صناعي من بودو روبوتكس — البيان التنفيذي.",
+        "image": "/robot/pudu/executive-statement.png",
+        "link": "/robots/executive-statement",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "flashbot",
+        "name": "Pudu Flashbot",
+        "description": "روبوت صناعي من بودو روبوتكس — فلاشبوت.",
+        "image": "/robot/pudu/flashbot.png",
+        "link": "/robots/flashbot",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "kettybot-pro",
+        "name": "Pudu Kettybot Pro",
+        "description": "روبوت صناعي من بودو روبوتكس — كتيبوت برو.",
+        "image": "/robot/pudu/kettybot-pro.png",
+        "link": "/robots/kettybot-pro",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "mt1",
+        "name": "Pudu MT1",
+        "description": "روبوت صناعي من بودو روبوتكس — إم تي 1.",
+        "image": "/robot/pudu/mt1.png",
+        "link": "/robots/mt1",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "mt1-max",
+        "name": "Pudu MT1 MAX",
+        "description": "روبوت صناعي من بودو روبوتكس — إم تي 1 ماكس.",
+        "image": "/robot/pudu/mt1-max.png",
+        "link": "/robots/mt1-max",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "mt1-vac",
+        "name": "Pudu MT1 Vac",
+        "description": "روبوت صناعي من بودو روبوتكس — إم تي 1 فاك.",
+        "image": "/robot/pudu/mt1-vac.png",
+        "link": "/robots/mt1-vac",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "multi-robot-scheduling",
+        "name": "Pudu Multi-Robot Scheduling",
+        "description": "روبوت صناعي من بودو روبوتكس — جدولة متعددة الروبوتات.",
+        "image": "/robot/pudu/multi-robot-scheduling.png",
+        "link": "/robots/multi-robot-scheduling",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "pudubot2",
+        "name": "Pudu Pudubot2",
+        "description": "روبوت صناعي من بودو روبوتكس — بودوبوت 2.",
+        "image": "/robot/pudu/pudubot2.png",
+        "link": "/robots/pudubot2",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "sh1",
+        "name": "Pudu SH1",
+        "description": "روبوت صناعي من بودو روبوتكس — إس إتش 1.",
+        "image": "/robot/pudu/sh1.png",
+        "link": "/robots/sh1",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "t300",
+        "name": "Pudu T300",
+        "description": "روبوت صناعي من بودو روبوتكس — تي 300.",
+        "image": "/robot/pudu/t300.png",
+        "link": "/robots/t300",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "t600",
+        "name": "Pudu T600",
+        "description": "روبوت صناعي من بودو روبوتكس — تي 600.",
+        "image": "/robot/pudu/t600.png",
+        "link": "/robots/t600",
+        "buttonText": "عرض التفاصيل",
+        "category": "industrial"
+      },
+      {
+        "id": "g1-edu",
+        "name": "Unitree Humanoid G1 EDU",
+        "description": "روبوت بشري للتعليم والبحث — نسخة EDU.",
+        "image": "/robot/g1/g1.png",
+        "link": "/robots/g1?variant=g1-edu",
+        "buttonText": "استكشف جي1 EDU",
+        "category": "educational"
+      },
+      {
+        "id": "go2-edu",
+        "name": "Unitree Robo-Dog Go2 EDU",
+        "description": "منصة رباعية للتعليم والتطوير.",
+        "image": "/robot/go2/DZDA.654.png",
+        "link": "/robots/go2?variant=go2-edu",
+        "buttonText": "استكشف جو2 EDU",
+        "category": "educational"
+      },
+      {
+        "id": "r1-edu",
+        "name": "Unitree Humanoid R1 EDU",
+        "description": "روبوت بشري خفيف للمختبرات — آر1 EDU.",
+        "image": "/robot/R1/R!.png",
+        "link": "/robots/r1?variant=r1-edu",
+        "buttonText": "استكشف آر1 EDU",
+        "category": "educational"
+      },
+      {
+        "id": "go2-air",
+        "name": "Unitree Go2 Air",
+        "description": "جو2 آير — للترفيه والاستخدام اليومي.",
+        "image": "/robot/go2/DZDA.654.png",
+        "link": "/robots/go2?variant=go2-air",
+        "buttonText": "استكشف جو2 آير",
+        "category": "entertainment"
+      },
+      {
+        "id": "go2-pro",
+        "name": "Unitree Go2 Pro",
+        "description": "جو2 برو — ميزات متقدمة.",
+        "image": "/robot/go2/DZDA.654.png",
+        "link": "/robots/go2?variant=go2-pro",
+        "buttonText": "استكشف جو2 برو",
+        "category": "entertainment"
+      },
+      {
+        "id": "r1-air",
+        "name": "Unitree R1 Air",
+        "description": "آر1 آير.",
+        "image": "/robot/R1/R!.png",
+        "link": "/robots/r1?variant=r1-air",
+        "buttonText": "استكشف آر1 آير",
+        "category": "entertainment"
+      },
+      {
+        "id": "r1-basic",
+        "name": "Unitree R1 Basic",
+        "description": "آر1 بيسك.",
+        "image": "/robot/R1/R!.png",
+        "link": "/robots/r1?variant=r1-basic",
+        "buttonText": "استكشف آر1 بيسك",
+        "category": "entertainment"
+      },
+      {
+        "id": "g1-standard",
+        "name": "Unitree G1 Standard",
+        "description": "جي1 ستاندرد.",
+        "image": "/robot/g1/g1.png",
+        "link": "/robots/g1?variant=g1-standard",
+        "buttonText": "استكشف جي1 ستاندرد",
+        "category": "entertainment"
+      }
+    ]
   },
   "common": {
     "main": "الرئيسية",
@@ -954,5 +2673,4 @@
     "mediaContentSection": "المحتوى",
     "mediaGallerySection": "معرض الميديا"
   }
-
 }

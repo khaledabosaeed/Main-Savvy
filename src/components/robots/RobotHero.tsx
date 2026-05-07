@@ -107,7 +107,8 @@ export default function RobotHero({
         className={`relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 flex flex-col ${placement}`}
       >
         <h1
-          className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] [text-shadow:0_2px_4px_rgba(0,0,0,0.8),0_4px_12px_rgba(0,0,0,0.6)]"
+          dir="ltr"
+          className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] [text-shadow:0_2px_4px_rgba(0,0,0,0.8),0_4px_12px_rgba(0,0,0,0.6)] [unicode-bidi:isolate]"
         >
           <FormattedText text={title} as="span" />
         </h1>

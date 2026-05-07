@@ -2,7 +2,45 @@ import en from "../../public/locales/en.json"
 import type { LocaleDictionary } from "@/i18n/getDictionary"
 
 export type Language = "en" | "ar"
-export type RobotSlug = "g1" | "h2" | "go2" | "r1"
+
+export type RobotCategory = "industrial" | "educational" | "entertainment"
+
+/** Unitree + legacy pages that use full page templates */
+export type CoreRobotSlug = "g1" | "h2" | "go2" | "r1"
+
+/** Pudu industrial robots — detail pages use `/robots/[slug]` + locale data */
+export const PUDU_ROBOT_SLUGS = [
+  "bellabot",
+  "bellabot-pro",
+  "cc1",
+  "cc1-pro",
+  "cc1-self-cleaning",
+  "d5",
+  "d9",
+  "executive-statement",
+  "flashbot",
+  "kettybot-pro",
+  "mt1",
+  "mt1-max",
+  "mt1-vac",
+  "multi-robot-scheduling",
+  "pudubot2",
+  "sh1",
+  "t300",
+  "t600",
+] as const
+
+export type PuduRobotSlug = (typeof PUDU_ROBOT_SLUGS)[number]
+
+export type RobotSlug = CoreRobotSlug | PuduRobotSlug
+
+export function isPuduRobotSlug(slug: string): slug is PuduRobotSlug {
+  return (PUDU_ROBOT_SLUGS as readonly string[]).includes(slug)
+}
+
+export function isCoreRobotSlug(slug: string): slug is CoreRobotSlug {
+  return slug === "g1" || slug === "h2" || slug === "go2" || slug === "r1"
+}
 
 /** Set to `true` to show hero prices, spec table prices, product prices, and “View pricing” CTAs. */
 export const SHOW_ROBOT_PRICING = false
@@ -15,6 +53,8 @@ export interface RobotCard {
   link: string
   buttonText: string
   productLink?: string
+  /** Used on `/robots` catalog — filter + grouping */
+  category?: RobotCategory
 }
 
 export interface RobotHeroConfig {
@@ -50,6 +90,22 @@ export interface RobotProductConfig {
   manufacturerName?: string
   sku?: string
   manufacturerPartNumber?: string
+}
+
+const EMPTY_PRODUCT: RobotProductConfig = {
+  name: "",
+  price: "",
+  images: [],
+  versions: [],
+  bulletPoints: [],
+}
+
+const DEFAULT_HERO_FALLBACK: RobotHeroConfig = {
+  videoSrc: "/robot/g1/hero.mp4",
+  title: "",
+  subtitle: "",
+  buttonText: "View Product",
+  textPlacement: "center",
 }
 
 export interface RobotSlide extends RobotCard {
@@ -159,6 +215,21 @@ export function getRobotCards(dict: LocaleDictionary): RobotCard[] {
   return (robots?.cards ?? en.robots.cards) as RobotCard[]
 }
 
+/** Full store listing (all categories). Falls back to `cards` if `catalogCards` absent. */
+export function getRobotCatalogCards(dict: LocaleDictionary): RobotCard[] {
+  const robots = dict?.robots as { catalogCards?: RobotCard[]; cards?: RobotCard[] }
+  const list = robots?.catalogCards ?? robots?.cards ?? en.robots.cards
+  return list as RobotCard[]
+}
+
+export function filterRobotCardsByCategory(
+  cards: RobotCard[],
+  category: RobotCategory | "all"
+): RobotCard[] {
+  if (category === "all") return cards
+  return cards.filter((c) => c.category === category)
+}
+
 export function getRobotsSectionContent(
   lang: Language,
   dict: LocaleDictionary
@@ -197,9 +268,13 @@ export function getRobotHeroContent(
   slug: RobotSlug,
   dict: LocaleDictionary
 ): RobotHeroConfig {
-  const hero = (dict?.robots as unknown as { hero?: Record<RobotSlug, RobotHeroConfig> })?.hero?.[slug]
-  const fallback = (en.robots as unknown as { hero: Record<RobotSlug, RobotHeroConfig> }).hero[slug]
-  const config = (hero ?? fallback) as RobotHeroConfig
+  const hero = (dict?.robots as unknown as { hero?: Partial<Record<RobotSlug, RobotHeroConfig>> })?.hero?.[slug]
+  const fallback = (en.robots as unknown as { hero: Partial<Record<RobotSlug, RobotHeroConfig>> }).hero?.[slug]
+  const raw = hero ?? fallback
+  const config = (raw ?? {
+    ...DEFAULT_HERO_FALLBACK,
+    title: String(slug),
+  }) as RobotHeroConfig
   return SHOW_ROBOT_PRICING ? config : stripHeroPricing(config)
 }
 
@@ -218,9 +293,10 @@ export function getRobotProductContent(
   slug: RobotSlug,
   dict: LocaleDictionary
 ): RobotProductConfig {
-  const product = (dict?.robots as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
-  const fallback = (en.robots as unknown as { product?: Record<RobotSlug, RobotProductConfig> })?.product?.[slug]
-  const config = (product ?? fallback) as RobotProductConfig
+  const product = (dict?.robots as { product?: Partial<Record<RobotSlug, RobotProductConfig>> })?.product?.[slug]
+  const fallback = (en.robots as unknown as { product?: Partial<Record<RobotSlug, RobotProductConfig>> })?.product?.[slug]
+  const base = product ?? fallback ?? { ...EMPTY_PRODUCT, name: String(slug) }
+  const config = base as RobotProductConfig
   return SHOW_ROBOT_PRICING ? config : stripProductPricing(config)
 }
 

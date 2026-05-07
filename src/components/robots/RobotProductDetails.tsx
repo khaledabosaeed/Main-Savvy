@@ -1,28 +1,40 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useState, useEffect, useCallback, Suspense } from "react"
 import Link from "next/link"
-import { Package, Truck, DollarSign, MessageCircle } from "lucide-react"
+import { useSearchParams, usePathname, useRouter } from "next/navigation"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useLocaleDictionary } from "@/contexts/LocaleDictionaryContext"
 import { useTranslation } from "react-i18next"
-import { getRobotProductContent } from "@/lib/robots-locale"
+import { getRobotProductContent, isCoreRobotSlug } from "@/lib/robots-locale"
 import type { RobotSlug, Language } from "@/lib/robots-locale"
 import SpecsTable from "./SpecsTable"
 import ProductImageGallery from "./ProductImageGallery"
 import FormattedText from "@/components/shared/FormattedText"
+import VariantSelector from "./VariantSelector"
 import { richTextToPlainText } from "@/lib/rich-text"
 
 
 const R1_CATALOG_P2 = "/robot/R1/catlouge/p2.webp"
 const R1_CATALOG_P1 = "/robot/R1/catlouge/p1.webp"
 
+function r1LegacyGalleryOrder(selectedId: string | undefined): string[] | null {
+  if (!selectedId) return null
+  if (selectedId.includes("white")) {
+    return [R1_CATALOG_P1, R1_CATALOG_P2]
+  }
+  if (selectedId.includes("red")) {
+    return [R1_CATALOG_P2, R1_CATALOG_P1]
+  }
+  return null
+}
+
 interface RobotProductDetailsProps {
   slug: RobotSlug
   showSpecs?: boolean
 }
 
-export default function RobotProductDetails({ slug, showSpecs = true }: RobotProductDetailsProps) {
+function RobotProductDetailsInner({ slug, showSpecs = true }: RobotProductDetailsProps) {
   const { language } = useLanguage()
   const dict = useLocaleDictionary()
   const { t } = useTranslation()
@@ -30,12 +42,31 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
   const content = getRobotProductContent(slug, dict)
   const isRTL = currentLang === "ar"
   const lang = currentLang
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const router = useRouter()
 
-  const [selectedVersion] = useState(0)
+  const [selectedVersion, setSelectedVersion] = useState(0)
 
+  const variantFromUrl = searchParams.get("variant")
 
+  useEffect(() => {
+    if (!variantFromUrl || content.versions.length === 0) return
+    const idx = content.versions.findIndex((v) => v.id === variantFromUrl)
+    if (idx >= 0) setSelectedVersion(idx)
+  }, [variantFromUrl, content.versions])
 
-  
+  const setVersion = useCallback(
+    (i: number) => {
+      setSelectedVersion(i)
+      const id = content.versions[i]?.id
+      if (id && isCoreRobotSlug(slug)) {
+        router.replace(`${pathname}?variant=${encodeURIComponent(id)}`, { scroll: false })
+      }
+    },
+    [content.versions, pathname, router, slug]
+  )
+
   const selected =
     content.versions[selectedVersion] ?? content.versions[0]
   const displayPrice = selected?.price ?? content.price
@@ -51,13 +82,8 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
   )
 
   const galleryImages = useMemo(() => {
-    if (slug === "r1" && selected?.id) {
-      // Same two catalogue assets as before; order puts the matching color first
-      if (selected.id.includes("white")) {
-        return [R1_CATALOG_P1, R1_CATALOG_P2]
-      }
-      return [R1_CATALOG_P2, R1_CATALOG_P1]
-    }
+    const legacy = r1LegacyGalleryOrder(selected?.id)
+    if (legacy) return legacy
     if (selected?.images && selected.images.length > 0) {
       return selected.images
     }
@@ -65,7 +91,7 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
       return content.images
     }
     return ["/robot/go2/go2.webp"]
-  }, [slug, selected, content.images])
+  }, [selected, content.images])
 
   return (
     <section className="py-25 md:py-25 bg-white">
@@ -94,9 +120,8 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
           {/* Right - Product details */}
           <div className={ isRTL ? "lg:order-1 py-5 md:py-25" : "py-5 md:py-25"}>
             <h1
-              className={`text-3xl md:text-4xl font-bold text-gray-900 mb-4 ${
-                isRTL ? "text-right" : "text-left"
-              }`}
+              dir="ltr"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-left [unicode-bidi:isolate]"
             >
               <FormattedText text={content.name} as="span" />
             </h1>
@@ -141,34 +166,14 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
             )}
 
             {/* Version selector — price below reflects selected variant */}
-            {content.versions.length > 0 && (
-              <div className="mb-4">
-                {/* <p
-                  className={`font-semibold text-gray-900 mb-3 ${
-                    isRTL ? "text-right" : "text-left"
-                  }`}
-                >
-                  {slug === "r1"
-                    ? t("robots.r1VariantLabel")
-                    : t("robots.version")}
-                </p> */}
-                {/* <div className="flex flex-wrap gap-2">
-                  {content.versions.map((v, i) => (
-                    <button
-                      key={v.id}
-                      type="button"
-                      onClick={() => setSelectedVersion(i)}
-                      className={`px-4 py-2 rounded-lg border-2 text-sm font-medium transition-colors ${
-                        selectedVersion === i
-                          ? "border-gray-900 bg-gray-900 text-white"
-                          : "border-gray-300 text-gray-700 hover:border-gray-300"
-                      }`}
-                    >
-                      {v.name}
-                    </button>
-                  ))}
-                </div> */}
-              </div>
+            {content.versions.length > 1 && (
+              <VariantSelector
+                versions={content.versions}
+                selectedIndex={selectedVersion}
+                onSelect={setVersion}
+                isRTL={isRTL}
+                label={t("robots.version")}
+              />
             )}
 
             {displayPrice.trim() !== "" && (
@@ -234,5 +239,13 @@ export default function RobotProductDetails({ slug, showSpecs = true }: RobotPro
           )}
       </div>
     </section>
+  )
+}
+
+export default function RobotProductDetails(props: RobotProductDetailsProps) {
+  return (
+    <Suspense fallback={<section className="py-16 md:py-24 bg-white" aria-hidden />}>
+      <RobotProductDetailsInner {...props} />
+    </Suspense>
   )
 }
