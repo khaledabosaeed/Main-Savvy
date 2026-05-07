@@ -28,7 +28,7 @@ export function contactPageHeaderTexts(d: LocaleDictionary): PageHeaderTexts {
 
 export function expoPageHeaderTexts(d: LocaleDictionary): {
   texts: PageHeaderTexts
-  imageSliderHeading: string
+  // imageSliderHeading: string
 } {
   const c = d.common
   return {
@@ -40,7 +40,7 @@ export function expoPageHeaderTexts(d: LocaleDictionary): {
       ourRobots: c.robots,
       contactUs: c.contactUs,
     },
-    imageSliderHeading: d.imageSlider.heading,
+    // imageSliderHeading: d.imageSlider.heading,
   }
 }
 

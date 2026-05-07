@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "seed:translations": "node scripts/seed-translations.cjs",
-    "merge:translations": "node scripts/merge-missing-locales-into-supabase.cjs"
+    "merge:translations": "node scripts/merge-missing-locales-into-supabase.cjs",
+    "check:translations:db-extra": "node scripts/check-supabase-locales-not-in-repo.cjs",
+    "prune:translations:db-extra": "node scripts/remove-supabase-locales-not-in-repo.cjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.0",
