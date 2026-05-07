@@ -11,9 +11,38 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value)
 }
 
+/** Robot card arrays: repo JSON decides which `id`s exist; DB only overlays fields per id. */
+const ROBOT_CARD_ARRAY_KEYS = new Set(["catalogCards", "cards"])
+
+function mergeRobotCardArrays(base: unknown[], override: unknown[]): unknown[] {
+  const obById = new Map<string, Record<string, unknown>>()
+  for (const item of override) {
+    if (
+      isPlainObject(item) &&
+      typeof item.id === "string" &&
+      item.id.length > 0
+    ) {
+      obById.set(item.id, item)
+    }
+  }
+  return base.map((b) => {
+    if (
+      !isPlainObject(b) ||
+      typeof b.id !== "string" ||
+      b.id.length === 0
+    ) {
+      return b
+    }
+    const fromDb = obById.get(b.id)
+    return fromDb ? { ...b, ...fromDb } : b
+  })
+}
+
 /**
  * Deep-merge Supabase snapshot onto the repo JSON bundle.
  * Keys present only in the file (e.g. new copy) are kept; DB values override on conflict.
+ * Exception: `robots.catalogCards` and `robots.cards` merge by `id` so removing a card from
+ * the repo JSON removes it even when older DB snapshots still list it.
  */
 function mergeTranslationsTree(
   base: Record<string, unknown>,
@@ -32,6 +61,12 @@ function mergeTranslationsTree(
       out[key] = ob
     } else if (isPlainObject(ob) && isPlainObject(bb)) {
       out[key] = mergeTranslationsTree(bb, ob)
+    } else if (
+      ROBOT_CARD_ARRAY_KEYS.has(key) &&
+      Array.isArray(bb) &&
+      Array.isArray(ob)
+    ) {
+      out[key] = mergeRobotCardArrays(bb, ob)
     } else {
       out[key] = ob
     }
@@ -100,7 +135,7 @@ export async function getDictionary(
         return dict
       }
     },
-    ["translations-dictionary", lang],
+    ["translations-dictionary", "catalog-merge-by-id", lang],
     { tags: ["translations"] }
   )()
 }

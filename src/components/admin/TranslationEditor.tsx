@@ -765,6 +765,12 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
         </p>
         <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
           <Link
+            href="/admin/robots"
+            className="rounded-lg border border-zinc-700 px-3 py-2 text-sm text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900 hover:text-white"
+          >
+            Robot pages
+          </Link>
+          <Link
             href={previewPath}
             target="_blank"
             rel="noopener noreferrer"

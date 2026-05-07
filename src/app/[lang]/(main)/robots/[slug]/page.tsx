@@ -1,9 +1,12 @@
 import PageTransition from "@/components/shared/PageTransition/PageTransition"
 import UnifiedHeader from "@/components/shared/UnifiedHeader"
 import GenericRobotPageContent from "@/components/robots/GenericRobotPageContent"
+import DynamicRobotPageContent from "@/components/robots/DynamicRobotPageContent"
 import { robotsRouteHeaderTexts } from "@/lib/robots-route-header"
 import { isAppLanguage } from "@/i18n/settings"
-import { isPuduRobotSlug, type PuduRobotSlug } from "@/lib/robots-locale"
+import { hasLocaleRobotDefinition } from "@/lib/robots-locale"
+import { getDictionary } from "@/i18n/getDictionary"
+import { getCustomPagesFromDict } from "@/lib/robots-custom-page"
 import { notFound } from "next/navigation"
 
 interface RobotSlugPageProps {
@@ -15,7 +18,13 @@ export default async function RobotDynamicSlugPage({ params }: RobotSlugPageProp
   if (!isAppLanguage(lang)) {
     notFound()
   }
-  if (!isPuduRobotSlug(slug)) {
+
+  const dict = await getDictionary(lang)
+  const customPages = getCustomPagesFromDict(dict)
+  const isCustom = Boolean(customPages[slug])
+  const isLocaleRobot = hasLocaleRobotDefinition(dict, slug)
+
+  if (!isCustom && !isLocaleRobot) {
     notFound()
   }
 
@@ -25,7 +34,11 @@ export default async function RobotDynamicSlugPage({ params }: RobotSlugPageProp
     <>
       <UnifiedHeader texts={texts} hasBanner={false} transparentHeader />
       <PageTransition>
-        <GenericRobotPageContent slug={slug as PuduRobotSlug} lang={lang} />
+        {isCustom ? (
+          <DynamicRobotPageContent slug={slug} />
+        ) : (
+          <GenericRobotPageContent slug={slug} lang={lang} />
+        )}
       </PageTransition>
     </>
   )

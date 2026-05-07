@@ -1,5 +1,9 @@
 import en from "../../public/locales/en.json"
 import type { LocaleDictionary } from "@/i18n/getDictionary"
+import {
+  extractCatalogCard,
+  getCustomPagesFromDict,
+} from "@/lib/robots-custom-page"
 
 export type Language = "en" | "ar"
 
@@ -8,38 +12,34 @@ export type RobotCategory = "industrial" | "educational" | "entertainment"
 /** Unitree + legacy pages that use full page templates */
 export type CoreRobotSlug = "g1" | "h2" | "go2" | "r1"
 
-/** Pudu industrial robots — detail pages use `/robots/[slug]` + locale data */
-export const PUDU_ROBOT_SLUGS = [
-  "bellabot",
-  "bellabot-pro",
-  "cc1",
-  "cc1-pro",
-  "cc1-self-cleaning",
-  "d5",
-  "d9",
-  "executive-statement",
-  "flashbot",
-  "kettybot-pro",
-  "mt1",
-  "mt1-max",
-  "mt1-vac",
-  "multi-robot-scheduling",
-  "pudubot2",
-  "sh1",
-  "t300",
-  "t600",
-] as const
-
-export type PuduRobotSlug = (typeof PUDU_ROBOT_SLUGS)[number]
-
-export type RobotSlug = CoreRobotSlug | PuduRobotSlug
-
-export function isPuduRobotSlug(slug: string): slug is PuduRobotSlug {
-  return (PUDU_ROBOT_SLUGS as readonly string[]).includes(slug)
-}
+/** Slug string keyed under `robots.hero` / `robots.product` in locale JSON (no hardcoded list). */
+export type RobotSlug = string
 
 export function isCoreRobotSlug(slug: string): slug is CoreRobotSlug {
   return slug === "g1" || slug === "h2" || slug === "go2" || slug === "r1"
+}
+
+/**
+ * True if `slug` has hero or product entries in the active locale or English fallback.
+ * Used for `/robots/[slug]` instead of a fixed Pudu slug array.
+ */
+export function hasLocaleRobotDefinition(
+  dict: LocaleDictionary,
+  slug: string
+): boolean {
+  const robots = dict?.robots as {
+    hero?: Record<string, unknown>
+    product?: Record<string, unknown>
+  } | undefined
+  const enRobots = en.robots as {
+    hero?: Record<string, unknown>
+    product?: Record<string, unknown>
+  }
+  const inHero =
+    slug in (robots?.hero ?? {}) || slug in (enRobots.hero ?? {})
+  const inProduct =
+    slug in (robots?.product ?? {}) || slug in (enRobots.product ?? {})
+  return inHero || inProduct
 }
 
 /** Set to `true` to show hero prices, spec table prices, product prices, and “View pricing” CTAs. */
@@ -215,11 +215,37 @@ export function getRobotCards(dict: LocaleDictionary): RobotCard[] {
   return (robots?.cards ?? en.robots.cards) as RobotCard[]
 }
 
-/** Full store listing (all categories). Falls back to `cards` if `catalogCards` absent. */
+/** Full store listing (all categories). Falls back to `cards` if `catalogCards` absent. Appends admin `customPages` catalog cards. */
 export function getRobotCatalogCards(dict: LocaleDictionary): RobotCard[] {
   const robots = dict?.robots as { catalogCards?: RobotCard[]; cards?: RobotCard[] }
   const list = robots?.catalogCards ?? robots?.cards ?? en.robots.cards
-  return list as RobotCard[]
+  const base = list as RobotCard[]
+  const pages = getCustomPagesFromDict(dict)
+  const customCards: RobotCard[] = []
+  for (const [slug, page] of Object.entries(pages)) {
+    const card = extractCatalogCard(page.sections, slug)
+    if (!card) continue
+    customCards.push({
+      id: slug,
+      name: card.name,
+      description: card.description,
+      image: card.image,
+      link: card.link,
+      buttonText: card.buttonText,
+      productLink: card.productLink,
+      category: card.category as RobotCategory,
+    })
+  }
+  if (customCards.length === 0) return base
+  const seen = new Set(base.map((c) => c.id))
+  const merged = [...base]
+  for (const c of customCards) {
+    if (!seen.has(c.id)) {
+      merged.push(c)
+      seen.add(c.id)
+    }
+  }
+  return merged
 }
 
 export function filterRobotCardsByCategory(

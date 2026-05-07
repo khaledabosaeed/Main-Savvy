@@ -7,11 +7,11 @@ import {
   getRobotHeroContent,
   getRobotProductContent,
   type Language,
-  type PuduRobotSlug,
+  type RobotSlug,
 } from "@/lib/robots-locale"
 
 interface GenericRobotPageContentProps {
-  slug: PuduRobotSlug
+  slug: RobotSlug
   lang: Language
 }
 
@@ -29,7 +29,7 @@ export default function GenericRobotPageContent({ slug, lang }: GenericRobotPage
         subtitle={heroContent.subtitle}
         priceStartsFrom={heroContent.priceStartsFrom}
         buttonText={heroContent.buttonText}
-        productLink={`/${lang}/contact`}
+        productLink={`/${lang}/robots/${slug}/product`}
         textPlacement={heroContent.textPlacement}
         poster={poster}
       />
