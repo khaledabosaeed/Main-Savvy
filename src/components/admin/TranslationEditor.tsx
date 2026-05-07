@@ -758,7 +758,7 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
       className="flex h-dvh min-h-0 flex-col overflow-hidden"
       data-lenis-prevent
     >
-      {/* Top bar: View site, Sign out, Save */}
+      {/* Top bar: View site, Media library, Sign out, Save */}
       <header className="z-30 flex shrink-0 flex-wrap items-center justify-between gap-3 border-b border-zinc-800 bg-zinc-950/95 px-4 py-3 backdrop-blur md:px-6">
         <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">
           Admin
@@ -771,6 +771,12 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
             className="rounded-lg border border-zinc-700 px-3 py-2 text-sm text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900 hover:text-white"
           >
             View website
+          </Link>
+          <Link
+            href="/admin/media"
+            className="rounded-lg border border-zinc-700 px-3 py-2 text-sm text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900 hover:text-white"
+          >
+            Media library
           </Link>
           <button
             type="button"
