@@ -5,7 +5,14 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import RobotSectionEditor from "@/components/admin/RobotSectionEditor"
 import { createDefaultSection } from "@/lib/robot-section-defaults"
-import type { RobotPageSectionData } from "@/lib/robots-custom-page"
+import {
+  applySharedMedia,
+  mergeEmptyArMediaFromEn,
+} from "@/lib/robot-page-shared-media"
+import type {
+  CustomPagePublishStatus,
+  RobotPageSectionData,
+} from "@/lib/robots-custom-page"
 import { sectionSummary } from "@/lib/robots-custom-page"
 
 const SECTION_TYPES: RobotPageSectionData["type"][] = [
@@ -39,11 +46,13 @@ export default function RobotPageBuilder({
   initialSlug = "",
   initialEn,
   initialAr,
+  initialPublishingStatus = "published",
 }: {
   mode: "create" | "edit"
   initialSlug?: string
   initialEn: RobotPageSectionData[]
   initialAr: RobotPageSectionData[]
+  initialPublishingStatus?: CustomPagePublishStatus
 }) {
   const router = useRouter()
   const [slug, setSlug] = useState(initialSlug)
@@ -81,14 +90,31 @@ export default function RobotPageBuilder({
     [setSections]
   )
 
-  /** Editing applies to active language only (sections can differ by locale). */
+  /** Create: mirror media to the peer locale at the same section index; edit: active locale only. */
   const handleSectionChange = useCallback(
     (next: RobotPageSectionData) => {
-      if (selectedSection && sections[selected]) {
-        updateSectionForActiveLangOnly(selected, next)
-      }
+      if (!selectedSection || !sections[selected]) return
+      updateSectionForActiveLangOnly(selected, next)
+
+      if (mode !== "create") return
+
+      const otherSetSections = lang === "en" ? setSectionsAr : setSectionsEn
+      otherSetSections((prev) => {
+        const copy = [...prev]
+        const peer = copy[selected]
+        if (!peer || peer.type !== next.type) return prev
+        copy[selected] = applySharedMedia(next, peer)
+        return copy
+      })
     },
-    [selected, selectedSection, sections, updateSectionForActiveLangOnly]
+    [
+      selected,
+      selectedSection,
+      sections,
+      updateSectionForActiveLangOnly,
+      lang,
+      mode,
+    ]
   )
 
   const addSection = useCallback(
@@ -141,7 +167,7 @@ export default function RobotPageBuilder({
     setSelected(to)
   }, [])
 
-  async function save() {
+  async function persist(action: "draft" | "publish") {
     setToast(null)
     if (!slugOk || !slug) {
       setToast({ ok: false, text: "Enter a valid kebab-case slug." })
@@ -162,13 +188,20 @@ export default function RobotPageBuilder({
       return
     }
 
+    const enSections = patchCatalogCardLinks(sectionsEn, slug)
+    const arSectionsPatched = patchCatalogCardLinks(sectionsAr, slug)
+    const arSections =
+      mode === "create"
+        ? mergeEmptyArMediaFromEn(enSections, arSectionsPatched)
+        : arSectionsPatched
+
     const enPayload = {
       slug,
-      sections: patchCatalogCardLinks(sectionsEn, slug),
+      sections: enSections,
     }
     const arPayload = {
       slug,
-      sections: patchCatalogCardLinks(sectionsAr, slug),
+      sections: arSections,
     }
 
     setSaving(true)
@@ -178,26 +211,37 @@ export default function RobotPageBuilder({
           ? "/api/admin/robots"
           : `/api/admin/robots/${encodeURIComponent(slug)}`
       const method = mode === "create" ? "POST" : "PUT"
-      const payload =
+      const body =
         mode === "create"
-          ? { slug, en: enPayload, ar: arPayload }
-          : { en: enPayload, ar: arPayload }
+          ? JSON.stringify({
+              slug,
+              action,
+              en: enPayload,
+              ar: arPayload,
+            })
+          : JSON.stringify({ action, en: enPayload, ar: arPayload })
       const res = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify(payload),
+        body,
       })
-      const body = (await res.json()) as { error?: unknown; ok?: boolean }
+      const bodyJson = (await res.json()) as { error?: unknown; ok?: boolean }
       if (!res.ok) {
         const msg =
-          typeof body.error === "string"
-            ? body.error
-            : JSON.stringify(body.error ?? res.statusText)
+          typeof bodyJson.error === "string"
+            ? bodyJson.error
+            : JSON.stringify(bodyJson.error ?? res.statusText)
         setToast({ ok: false, text: msg })
         return
       }
-      setToast({ ok: true, text: "Saved. Cache updated." })
+      setToast({
+        ok: true,
+        text:
+          action === "publish"
+            ? "Published. Cache updated."
+            : "Draft saved. Page stays off the live site.",
+      })
       router.push("/admin/robots")
       router.refresh()
     } catch (e) {
@@ -223,11 +267,30 @@ export default function RobotPageBuilder({
           <h1 className="text-sm font-semibold text-white">
             {mode === "create" ? "New robot page" : `Edit “${initialSlug}”`}
           </h1>
+          {mode === "edit" && (
+            <span
+              className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide ${
+                initialPublishingStatus === "draft"
+                  ? "bg-amber-500/15 text-amber-300 ring-1 ring-amber-500/30"
+                  : "bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-500/30"
+              }`}
+            >
+              {initialPublishingStatus === "draft" ? "Draft" : "Published"}
+            </span>
+          )}
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <button
             type="button"
-            onClick={() => void save()}
+            onClick={() => void persist("draft")}
+            disabled={saving}
+            className="rounded-lg border border-zinc-600 px-4 py-2 text-sm font-semibold text-zinc-200 hover:bg-zinc-800 disabled:opacity-50"
+          >
+            {saving ? "Saving…" : "Save draft"}
+          </button>
+          <button
+            type="button"
+            onClick={() => void persist("publish")}
             disabled={saving}
             className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-md shadow-primary/20 disabled:opacity-50"
           >
@@ -289,8 +352,9 @@ export default function RobotPageBuilder({
               ))}
             </div>
             <p className="mt-2 text-[11px] leading-snug text-zinc-500">
-              Section order is shared between EN and AR. Text fields differ per
-              language.
+              Section order is shared. Text differs per language. On new pages,
+              media URLs mirror across EN/AR; after publish, editing media is
+              per language.
             </p>
           </div>
 

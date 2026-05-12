@@ -1,8 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
 import { motion } from "framer-motion"
-import Image from "next/image"
 import FormattedText from "@/components/shared/FormattedText"
 
 export type TextPlacement = "left" | "center" | "right"
@@ -15,11 +13,9 @@ interface RobotHeroProps {
   buttonText?: string
   productLink?: string
   textPlacement?: TextPlacement
-  /** Optional poster image shown while video loads. Falls back to dark placeholder if not provided. */
+  /** Accepted for API compatibility; hero background is video-only when `videoSrc` is set. */
   poster?: string
-  /** Optional numbered feature points rendered below the title */
   features?: string[]
-  /** Optional RTL direction for features list */
   isRTL?: boolean
 }
 
@@ -29,7 +25,6 @@ const placementClasses: Record<TextPlacement, string> = {
   right: "items-end text-right",
 }
 
-/** Gradient overlay: stronger near text, fades across video. Direction matches text placement. */
 const gradientOverlays: Record<TextPlacement, string> = {
   left: "bg-gradient-to-r from-black/70 via-black/40 to-black/20",
   center: "bg-gradient-to-r from-black/30 via-black/60 to-black/30",
@@ -42,57 +37,30 @@ export default function RobotHero({
   subtitle,
   priceStartsFrom,
   textPlacement = "center",
-  poster,
 }: RobotHeroProps) {
-  const [isVideoReady, setIsVideoReady] = useState(false)
   const placement = placementClasses[textPlacement]
-  const gradientOverlay = gradientOverlays[textPlacement]
-
-  const handleVideoCanPlay = useCallback(() => {
-    setIsVideoReady(true)
-  }, [])
+  const gradientOverlay = gradientOverlays[textPlacement] 
 
   return (
     <section className="relative h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden">
-      {/* Background layer - placeholder first, then video fades in */}
       <div className="absolute inset-0 z-0">
-        {/* Placeholder: poster image or dark gradient while video loads */}
-        <div
-          className={`absolute inset-0 transition-opacity duration-700 ${
-            isVideoReady ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
-          aria-hidden
-        >
-          {poster ? (
-            <Image
-              src={poster}  
-              alt=""
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority={false}
-            />
-          ) : (
-            <div className="absolute inset-0 bg-neutral-900" />
-          )}
-        </div>
+        {/* Dark background shown while video loads */}
+        <div className="absolute inset-0 bg-neutral-900" />
 
-        {/* Video - loads in background, fades in when ready */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-            isVideoReady ? "opacity-100" : "opacity-0"
-          }`}
-          src={videoSrc}
-          onCanPlay={handleVideoCanPlay}
-          onLoadedData={handleVideoCanPlay}
-        />
+        {/* Direct video background */}
+          <video
+            key={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
 
-        {/* Dark gradient overlay for text readability */}
+        {/* Gradient overlay for text readability */}
         <div
           className={`absolute inset-0 pointer-events-none ${gradientOverlay}`}
           aria-hidden

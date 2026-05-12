@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { createSupabaseServerClient } from "@/lib/supabase/server"
-import { listImageKitFiles } from "@/lib/imagekit-list"
+import { listR2Files } from "@/lib/r2-media"
 
 async function requireUser() {
   try {
@@ -42,7 +42,7 @@ export async function GET(request: Request) {
     skipRaw != null ? Math.max(parseInt(skipRaw, 10) || 0, 0) : 0
 
   try {
-    const files = await listImageKitFiles({
+    const files = await listR2Files({
       path: folder,
       limit,
       skip,

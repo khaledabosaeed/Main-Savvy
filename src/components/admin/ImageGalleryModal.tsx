@@ -7,6 +7,7 @@ type GalleryFile = {
   url: string
   thumbnailUrl: string
   name: string
+  kind?: "image" | "video"
 }
 
 const PAGE_SIZE = 48
@@ -19,7 +20,10 @@ export default function ImageGalleryModal({
 }: {
   open: boolean
   onClose: () => void
-  onSelect: (url: string) => void
+  onSelect: (
+    url: string,
+    meta?: { kind?: "image" | "video" }
+  ) => void
   folder: string
 }) {
   const [files, setFiles] = useState<GalleryFile[]>([])
@@ -113,7 +117,7 @@ export default function ImageGalleryModal({
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
-      aria-label="Image gallery"
+      aria-label="Media gallery"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
@@ -124,7 +128,7 @@ export default function ImageGalleryModal({
       >
         <div className="flex shrink-0 items-center justify-between gap-3 border-b border-zinc-800 px-4 py-3">
           <div>
-            <p className="text-sm font-semibold text-white">Choose from gallery</p>
+            <p className="text-sm font-semibold text-white">Choose image or video</p>
             <p className="text-[11px] text-zinc-500">
               Folder: <code className="text-zinc-400">{folder}</code>
             </p>
@@ -149,8 +153,8 @@ export default function ImageGalleryModal({
           )}
           {!loading && !err && files.length === 0 && (
             <p className="py-12 text-center text-sm text-zinc-500">
-              No images in this folder yet. Use <strong>Upload</strong> first,
-              then pick the file here.
+              No images or videos in this folder yet. Use <strong>Upload</strong>{" "}
+              first, then pick the file here.
             </p>
           )}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
@@ -159,19 +163,37 @@ export default function ImageGalleryModal({
                 key={`${f.url}-${f.name}`}
                 type="button"
                 onClick={() => {
-                  onSelect(f.url)
+                  onSelect(f.url, { kind: f.kind ?? "image" })
                   onClose()
                 }}
                 className="group relative aspect-square overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900 text-left transition hover:border-primary hover:ring-1 hover:ring-primary/40"
               >
-                <Image
-                  src={f.thumbnailUrl}
-                  alt={f.name}
-                  fill
-                  className="object-cover transition group-hover:scale-105"
-                  sizes="200px"
-                  unoptimized
-                />
+                {f.kind === "video" ? (
+                  <video
+                    src={f.url}
+                    poster={
+                      f.thumbnailUrl !== f.url ? f.thumbnailUrl : undefined
+                    }
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="pointer-events-none absolute inset-0 h-full w-full object-cover transition group-hover:scale-105"
+                  />
+                ) : (
+                  <Image
+                    src={f.thumbnailUrl}
+                    alt={f.name}
+                    fill
+                    className="object-cover transition group-hover:scale-105"
+                    sizes="200px"
+                    unoptimized
+                  />
+                )}
+                {f.kind === "video" && (
+                  <span className="absolute left-1.5 top-1.5 rounded bg-black/70 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-white">
+                    Video
+                  </span>
+                )}
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-2 py-2 text-[10px] text-white line-clamp-2">
                   {f.name}
                 </span>

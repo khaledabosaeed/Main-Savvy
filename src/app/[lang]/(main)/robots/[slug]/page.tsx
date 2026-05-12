@@ -6,7 +6,7 @@ import { robotsRouteHeaderTexts } from "@/lib/robots-route-header"
 import { isAppLanguage } from "@/i18n/settings"
 import { hasLocaleRobotDefinition } from "@/lib/robots-locale"
 import { getDictionary } from "@/i18n/getDictionary"
-import { getCustomPagesFromDict } from "@/lib/robots-custom-page"
+import { getCustomPageForSlug } from "@/lib/robots-custom-page"
 import { notFound } from "next/navigation"
 
 interface RobotSlugPageProps {
@@ -20,10 +20,9 @@ export default async function RobotDynamicSlugPage({ params }: RobotSlugPageProp
   }
 
   const dict = await getDictionary(lang)
-  const customPages = getCustomPagesFromDict(dict)
-  const isCustom = Boolean(customPages[slug])
+  const customPage = getCustomPageForSlug(dict, slug)
+  const isCustom = customPage !== null
   const isLocaleRobot = hasLocaleRobotDefinition(dict, slug)
-
   if (!isCustom && !isLocaleRobot) {
     notFound()
   }

@@ -4,7 +4,13 @@ import { useCallback, useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 
-type Row = { slug: string; name: string; category: string; image: string }
+type Row = {
+  slug: string
+  name: string
+  category: string
+  image: string
+  status: "draft" | "published"
+}
 
 export default function RobotManager() {
   const [rows, setRows] = useState<Row[]>([])
@@ -86,7 +92,7 @@ export default function RobotManager() {
         {!loading && !err && rows.length === 0 && (
           <p className="text-sm text-zinc-500">
             No custom robot pages yet. Create one to store data in Supabase and
-            images on ImageKit.
+            images on Cloudflare R2.
           </p>
         )}
         {!loading && rows.length > 0 && (
@@ -100,6 +106,7 @@ export default function RobotManager() {
                   <th className="px-4 py-3 font-medium text-zinc-400">
                     Category
                   </th>
+                  <th className="px-4 py-3 font-medium text-zinc-400">Status</th>
                   <th className="px-4 py-3 font-medium text-zinc-400">Actions</th>
                 </tr>
               </thead>
@@ -131,6 +138,17 @@ export default function RobotManager() {
                       {r.slug}
                     </td>
                     <td className="px-4 py-3 text-zinc-400">{r.category}</td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`inline-flex rounded-full px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide ${
+                          r.status === "draft"
+                            ? "bg-amber-500/15 text-amber-300 ring-1 ring-amber-500/25"
+                            : "bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-500/25"
+                        }`}
+                      >
+                        {r.status}
+                      </span>
+                    </td>
                     <td className="px-4 py-3">
                       <div className="flex flex-wrap gap-2">
                         <Link

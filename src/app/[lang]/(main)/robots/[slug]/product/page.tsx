@@ -24,6 +24,7 @@ export default async function RobotProductPage({ params }: Props) {
 
   const dict = await getDictionary(lang)
   const customPage = getCustomPageForSlug(dict, slug)
+  console.log("robot product page: customPage", customPage )
   let productFromCustom: ProductSectionData | undefined
   if (customPage) {
     const raw = customPage.sections.find((s) => s.type === "product")

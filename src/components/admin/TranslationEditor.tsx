@@ -709,6 +709,95 @@ export default function TranslationEditor({ onSignOut }: TranslationEditorProps)
     setToast(null)
     setError(null)
     try {
+      if (
+        activeSection === "robots" &&
+        baseline &&
+        isPlainObject(content.robots)
+      ) {
+        const cr = content.robots as Record<string, JsonValue>
+        const br = (
+          isPlainObject(baseline.robots)
+            ? baseline.robots
+            : {}
+        ) as Record<string, JsonValue>
+        const topKeys = new Set([...Object.keys(cr), ...Object.keys(br)])
+        let chunks = 0
+        for (const key of topKeys) {
+          if (deepEqualJson(cr[key], br[key])) continue
+          if (key === "customPages" && isPlainObject(cr[key])) {
+            const curCp = cr[key] as Record<string, JsonValue>
+            const baseCp = (br[key] as Record<string, JsonValue>) ?? {}
+            const slugKeys = new Set([
+              ...Object.keys(curCp),
+              ...Object.keys(baseCp),
+            ])
+            for (const slug of slugKeys) {
+              if (deepEqualJson(curCp[slug], baseCp[slug])) continue
+              const partial =
+                curCp[slug] === undefined
+                  ? { customPages: { [slug]: null } }
+                  : { customPages: { [slug]: curCp[slug] } }
+              const res = await fetch("/api/admin/translations", {
+                method: "PUT",
+                credentials: "include",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ locale, robotsPartial: partial }),
+              })
+              const bodyJson = (await res.json()) as {
+                error?: unknown
+                ok?: boolean
+              }
+              if (!res.ok) {
+                const msg =
+                  typeof bodyJson.error === "string"
+                    ? bodyJson.error
+                    : JSON.stringify(bodyJson.error ?? res.statusText)
+                setToast({ type: "err", text: msg })
+                return
+              }
+              chunks++
+            }
+          } else {
+            const res = await fetch("/api/admin/translations", {
+              method: "PUT",
+              credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                locale,
+                robotsPartial: { [key]: cr[key] },
+              }),
+            })
+            const bodyJson = (await res.json()) as {
+              error?: unknown
+              ok?: boolean
+            }
+            if (!res.ok) {
+              const msg =
+                typeof bodyJson.error === "string"
+                  ? bodyJson.error
+                  : JSON.stringify(bodyJson.error ?? res.statusText)
+              setToast({ type: "err", text: msg })
+              return
+            }
+            chunks++
+          }
+        }
+        if (chunks === 0) {
+          setToast({
+            type: "ok",
+            text: `Saved “robots” (no changes detected).`,
+          })
+          await load()
+          return
+        }
+        setToast({
+          type: "ok",
+          text: `Saved “robots” (${chunks} update${chunks === 1 ? "" : "s"}). Public cache updated.`,
+        })
+        await load()
+        return
+      }
+
       const res = await fetch("/api/admin/translations", {
         method: "PUT",
         credentials: "include",

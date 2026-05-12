@@ -100,6 +100,68 @@ function staticDictionary(lang: AppLanguage): LocaleDictionary {
 }
 
 /**
+ * When AR `customPages` hero has no `videoSrc`, copy media from the merged EN bundle
+ * so `/ar/...` matches EN for assets saved only on the EN tab historically.
+ */
+function fillArCustomPagesHeroMediaFromEn(
+  arDict: LocaleDictionary,
+  enDict: LocaleDictionary
+): void {
+  const mediaString = (obj: Record<string, unknown>, ...keys: string[]): string => {
+    for (const k of keys) {
+      const v = obj[k]
+      if (typeof v === "string" && v.trim()) return v.trim()
+    }
+    return ""
+  }
+
+  const arRobots = arDict.robots as Record<string, unknown> | undefined
+  const enRobots = enDict.robots as Record<string, unknown> | undefined
+  const arPages = arRobots?.customPages as
+    | Record<string, { sections?: unknown[] }>
+    | undefined
+  const enPages = enRobots?.customPages as
+    | Record<string, { sections?: unknown[] }>
+    | undefined
+  if (!arPages || !enPages) return
+
+  for (const pageSlug of Object.keys(arPages)) {
+    const arPage = arPages[pageSlug]
+    const enPage = enPages[pageSlug]
+    if (!arPage?.sections || !enPage?.sections) continue
+    const arSections = arPage.sections
+    const enSections = enPage.sections
+    for (let i = 0; i < arSections.length; i++) {
+      const arS = arSections[i] as Record<string, unknown>
+      const enS = enSections[i] as Record<string, unknown>
+      if (
+        !isPlainObject(arS) ||
+        arS.type !== "hero" ||
+        !isPlainObject(enS) ||
+        enS.type !== "hero"
+      ) {
+        continue
+      }
+      const arVid = mediaString(arS, "videoSrc", "video_src", "videoUrl", "video_url")
+      if (arVid) continue
+      const enVid = mediaString(enS, "videoSrc", "video_src", "videoUrl", "video_url")
+      if (enVid) arS.videoSrc = enVid
+
+      const arPoster = mediaString(arS, "posterImage", "poster_image")
+      const enPoster = mediaString(enS, "posterImage", "poster_image")
+      if (!arPoster && enPoster) arS.posterImage = enPoster
+
+      if (
+        (arS.textPlacement == null || arS.textPlacement === "") &&
+        typeof enS.textPlacement === "string"
+      ) {
+        arS.textPlacement = enS.textPlacement
+      }
+    }
+  }
+}
+
+/**
  * Cached locale bundle. Use `revalidateTag("translations")` after admin saves.
  */
 export async function getDictionary(
@@ -118,7 +180,16 @@ export async function getDictionary(
         } else {
           dict = staticDictionary(lang)
         }
+
         if (lang === "ar") {
+          const enFromDb = await fetchLocaleFromSupabase("en")
+          const enDict = enFromDb
+            ? (mergeTranslationsTree(
+                staticDictionary("en") as unknown as Record<string, unknown>,
+                enFromDb as unknown as Record<string, unknown>
+              ) as LocaleDictionary)
+            : staticDictionary("en")
+          fillArCustomPagesHeroMediaFromEn(dict, enDict)
           const clone = JSON.parse(JSON.stringify(dict)) as LocaleDictionary
           applyEnglishRobotDisplayNames(clone, staticDictionary("en"))
           return clone
@@ -128,6 +199,14 @@ export async function getDictionary(
         /* network / missing table — fall back */
         const dict = staticDictionary(lang)
         if (lang === "ar") {
+          const enFromDb = await fetchLocaleFromSupabase("en")
+          const enDict = enFromDb
+            ? (mergeTranslationsTree(
+                staticDictionary("en") as unknown as Record<string, unknown>,
+                enFromDb as unknown as Record<string, unknown>
+              ) as LocaleDictionary)
+            : staticDictionary("en")
+          fillArCustomPagesHeroMediaFromEn(dict, enDict)
           const clone = JSON.parse(JSON.stringify(dict)) as LocaleDictionary
           applyEnglishRobotDisplayNames(clone, staticDictionary("en"))
           return clone

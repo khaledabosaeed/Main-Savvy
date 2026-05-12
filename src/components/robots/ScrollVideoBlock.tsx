@@ -6,6 +6,10 @@ import {
   hasScrollHighlights,
   parseScrollHighlights,
 } from "@/components/robots/scroll-rich-text"
+import {
+  isLikelyDirectVideoFileUrl,
+  resolveVideoUrl,
+} from "@/lib/video-embed"
 
 export interface ScrollVideoItem {
   scrollVideoSrc: string
@@ -23,6 +27,13 @@ export function ScrollVideoBlock({
   item: ScrollVideoItem
   isRTL: boolean
 }) {
+  const src = item.scrollVideoSrc.trim()
+  const resolved = src ? resolveVideoUrl(src, { embedMinimal: false }) : null
+  const isDirectVideo =
+    resolved?.kind === "direct" && isLikelyDirectVideoFileUrl(src)
+  const isDirectImage =
+    resolved?.kind === "direct" && !isLikelyDirectVideoFileUrl(src)
+
   const title = item.scrollTitle.trim()
   const subtitle = item.scrollSubtitle.trim()
 
@@ -68,15 +79,36 @@ export function ScrollVideoBlock({
         {textBlock}
       </div>
 
-      <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-          src={item.scrollVideoSrc}
-        />
+      <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-neutral-900">
+        {resolved?.kind === "youtube" || resolved?.kind === "vimeo" ? (
+          <iframe
+            title=""
+            src={resolved.embedSrc}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
+          />
+        ) : isDirectVideo ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover"
+            src={resolved.src}
+          />
+        ) : isDirectImage ? (
+          // eslint-disable-next-line @next/next/no-img-element -- scroll media may be remote R2/CDN still
+          <img
+            src={src}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : (
+          <div className="flex h-full min-h-[200px] items-center justify-center px-4 text-center text-sm text-neutral-500">
+            Add a video URL (MP4/WebM or YouTube / Vimeo link)
+          </div>
+        )}
         <div className="pointer-events-none absolute inset-0 bg-black/20" />
       </div>
     </div>

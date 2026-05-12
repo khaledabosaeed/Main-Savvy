@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server"
 import { createSupabaseServerClient } from "@/lib/supabase/server"
-import { uploadBufferToImageKit } from "@/lib/imagekit-upload"
+import { uploadBufferToR2 } from "@/lib/r2-media"
 
-const MAX_BYTES = 10 * 1024 * 1024
+/**
+ * Server proxies file bytes — Vercel limits request bodies (~4.5 MB), so large uploads return 413.
+ * Admin UI uses direct browser → R2 upload via `/api/admin/r2-upload-url` instead.
+ */
+const MAX_BYTES = 4 * 1024 * 1024
 
 async function requireUser() {
   try {
@@ -53,7 +57,7 @@ export async function POST(request: Request) {
 
   if (file.size > MAX_BYTES) {
     return NextResponse.json(
-      { error: "File too large (max 10 MB)" },
+      { error: "File too large for this endpoint (max 4 MB). Use the admin image field upload (direct to Cloudflare R2) for larger files." },
       { status: 400 }
     )
   }
@@ -63,10 +67,10 @@ export async function POST(request: Request) {
   const buffer = Buffer.from(await file.arrayBuffer())
 
   try {
-    const result = await uploadBufferToImageKit(buffer, safeName, folder)
+    const result = await uploadBufferToR2(buffer, safeName, folder, file.type)
     return NextResponse.json({
       url: result.url,
-      fileId: result.fileId,
+      key: result.key,
       name: result.name,
     })
   } catch (e) {

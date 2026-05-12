@@ -91,20 +91,31 @@ function HeroFields({
 }) {
   return (
     <div className="flex flex-col gap-4">
-      <Field label="Video URL">
-        <input
+      <div>
+        <ImageUploadField
+          label="Video URL"
           value={section.videoSrc}
-          onChange={(e) =>
-            onChange({ ...section, videoSrc: e.target.value })
-          }
-          className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm text-zinc-100"
+          onChange={(url) => onChange({ ...section, videoSrc: url })}
+          folder="/robots"
         />
-      </Field>
-      <ImageUploadField
-        label="Poster image (optional)"
-        value={section.posterImage ?? ""}
-        onChange={(url) => onChange({ ...section, posterImage: url })}
-      />
+        <p className="mt-1.5 text-[10px] leading-snug text-zinc-500">
+          Upload an <strong>MP4/WebM</strong> file, pick from gallery, or paste a{" "}
+          <strong>YouTube / Vimeo</strong> link. Watch-page URLs are converted to
+          embeds automatically.
+        </p>
+      </div>
+      <div>
+        <ImageUploadField
+          label="Poster image (optional)"
+          value={section.posterImage ?? ""}
+          onChange={(url) => onChange({ ...section, posterImage: url })}
+        />
+        <p className="mt-1.5 text-[10px] leading-snug text-zinc-500">
+          Optional still shown while the hero loads. If this matches{" "}
+          <strong>Video URL</strong>, it is ignored so one file plays directly with no
+          duplicate layer.
+        </p>
+      </div>
       <Field label="Title">
         <textarea
           value={section.title}
@@ -587,6 +598,10 @@ function ScrollVideoEditor({
 }) {
   return (
     <div className="space-y-4">
+      <p className="text-[10px] leading-snug text-zinc-500">
+        Each block: direct MP4/WebM/R2 URL, or YouTube/Vimeo link (embedded
+        automatically).
+      </p>
       {items.map((item, i) => (
         <div
           key={i}
@@ -612,6 +627,7 @@ function ScrollVideoEditor({
                 next[i] = { ...next[i], videoSrc: e.target.value }
                 onChange(next)
               }}
+              placeholder="MP4 URL or YouTube / Vimeo…"
               className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm text-zinc-100"
             />
           </Field>

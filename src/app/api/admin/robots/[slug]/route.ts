@@ -3,7 +3,11 @@ import { revalidateTag } from "next/cache"
 import { z } from "zod"
 import { createSupabaseServerClient } from "@/lib/supabase/server"
 import { createSupabaseServiceRoleClient } from "@/lib/supabase/admin"
-import type { RobotCustomPagePayload } from "@/lib/robots-custom-page"
+import type {
+  CustomPagePublishStatus,
+  RobotCustomPagePayload,
+} from "@/lib/robots-custom-page"
+import { patchLocaleRobotsJson } from "@/lib/robots-admin-db"
 
 async function requireUser() {
   try {
@@ -42,49 +46,10 @@ const pagePayloadSchema = z.object({
 })
 
 const putSchema = z.object({
+  action: z.enum(["draft", "publish"]).default("publish"),
   en: pagePayloadSchema,
   ar: pagePayloadSchema,
 })
-
-async function upsertCustomPageLocale(
-  locale: "en" | "ar",
-  slug: string,
-  payload: RobotCustomPagePayload | null
-) {
-  const admin = createSupabaseServiceRoleClient()
-  const { data: row } = await admin
-    .from("translations")
-    .select("content")
-    .eq("locale", locale)
-    .maybeSingle()
-
-  const current = (row?.content as Record<string, unknown>) ?? {}
-  const robots = { ...(current.robots as Record<string, unknown>) }
-
-  const customPages = {
-    ...((robots.customPages as Record<string, RobotCustomPagePayload>) ?? {}),
-  }
-
-  if (payload === null) {
-    delete customPages[slug]
-  } else {
-    customPages[slug] = payload
-  }
-
-  robots.customPages = customPages
-  const merged = { ...current, robots }
-
-  const { error: upError } = await admin.from("translations").upsert(
-    {
-      locale,
-      content: merged,
-      updated_at: new Date().toISOString(),
-    },
-    { onConflict: "locale" }
-  )
-
-  if (upError) throw new Error(upError.message)
-}
 
 function normalizePayload(
   slug: string,
@@ -94,6 +59,23 @@ function normalizePayload(
     slug,
     sections: data.sections as RobotCustomPagePayload["sections"],
   }
+}
+
+function resolvePublishingStatus(
+  slug: string,
+  robots: {
+    customPages?: Record<string, unknown>
+    customPageDrafts?: Record<string, unknown>
+    customPageStatus?: Record<string, string>
+  }
+): CustomPagePublishStatus {
+  const st = robots.customPageStatus?.[slug]
+  if (st === "draft") return "draft"
+  const hasPub = Boolean(robots.customPages?.[slug])
+  const hasDraftOnly =
+    Boolean(robots.customPageDrafts?.[slug]) && !hasPub
+  if (hasDraftOnly) return "draft"
+  return "published"
 }
 
 export async function GET(
@@ -127,23 +109,39 @@ export async function GET(
     const enContent = (enRow.data?.content as Record<string, unknown>) ?? {}
     const arContent = (arRow.data?.content as Record<string, unknown>) ?? {}
     const enRobots = enContent.robots as
-      | { customPages?: Record<string, RobotCustomPagePayload> }
+      | {
+          customPages?: Record<string, RobotCustomPagePayload>
+          customPageDrafts?: Record<string, RobotCustomPagePayload>
+          customPageStatus?: Record<string, string>
+        }
       | undefined
     const arRobots = arContent.robots as
-      | { customPages?: Record<string, RobotCustomPagePayload> }
+      | {
+          customPages?: Record<string, RobotCustomPagePayload>
+          customPageDrafts?: Record<string, RobotCustomPagePayload>
+          customPageStatus?: Record<string, string>
+        }
       | undefined
 
-    const enPage = enRobots?.customPages?.[slug] ?? null
-    const arPage = arRobots?.customPages?.[slug] ?? null
+    const enDraft = enRobots?.customPageDrafts?.[slug]
+    const enPub = enRobots?.customPages?.[slug]
+    const arDraft = arRobots?.customPageDrafts?.[slug]
+    const arPub = arRobots?.customPages?.[slug]
+
+    const enPage = enDraft ?? enPub ?? null
+    const arPage = arDraft ?? arPub ?? null
 
     if (!enPage && !arPage) {
       return NextResponse.json({ error: "Not found" }, { status: 404 })
     }
 
+    const publishingStatus = resolvePublishingStatus(slug, enRobots ?? {})
+
     return NextResponse.json({
       slug,
       en: enPage ?? { slug, sections: [] },
       ar: arPage ?? { slug, sections: [] },
+      publishingStatus,
     })
   } catch (e) {
     const message = e instanceof Error ? e.message : "Server error"
@@ -177,7 +175,7 @@ export async function PUT(
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 })
   }
 
-  const { en, ar } = parsed.data
+  const { action, en, ar } = parsed.data
   if (en.slug !== slug || ar.slug !== slug) {
     return NextResponse.json(
       { error: "Payload slug must match URL" },
@@ -185,11 +183,82 @@ export async function PUT(
     )
   }
 
+  const enPayload = normalizePayload(slug, en)
+  const arPayload = normalizePayload(slug, ar)
+
   try {
-    await upsertCustomPageLocale("en", slug, normalizePayload(slug, en))
-    await upsertCustomPageLocale("ar", slug, normalizePayload(slug, ar))
+    if (action === "draft") {
+      await patchLocaleRobotsJson("en", (r) => {
+        const d = {
+          ...((r.customPageDrafts as Record<string, RobotCustomPagePayload>) ??
+            {}),
+        }
+        const st = {
+          ...((r.customPageStatus as Record<string, string>) ?? {}),
+        }
+        d[slug] = enPayload
+        st[slug] = "draft"
+        return { ...r, customPageDrafts: d, customPageStatus: st }
+      })
+      await patchLocaleRobotsJson("ar", (r) => {
+        const d = {
+          ...((r.customPageDrafts as Record<string, RobotCustomPagePayload>) ??
+            {}),
+        }
+        const st = {
+          ...((r.customPageStatus as Record<string, string>) ?? {}),
+        }
+        d[slug] = arPayload
+        st[slug] = "draft"
+        return { ...r, customPageDrafts: d, customPageStatus: st }
+      })
+    } else {
+      await patchLocaleRobotsJson("en", (r) => {
+        const cp = {
+          ...((r.customPages as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const d = {
+          ...((r.customPageDrafts as Record<string, RobotCustomPagePayload>) ??
+            {}),
+        }
+        const st = {
+          ...((r.customPageStatus as Record<string, string>) ?? {}),
+        }
+        cp[slug] = enPayload
+        delete d[slug]
+        st[slug] = "published"
+        return {
+          ...r,
+          customPages: cp,
+          customPageDrafts: d,
+          customPageStatus: st,
+        }
+      })
+      await patchLocaleRobotsJson("ar", (r) => {
+        const cp = {
+          ...((r.customPages as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const d = {
+          ...((r.customPageDrafts as Record<string, RobotCustomPagePayload>) ??
+            {}),
+        }
+        const st = {
+          ...((r.customPageStatus as Record<string, string>) ?? {}),
+        }
+        cp[slug] = arPayload
+        delete d[slug]
+        st[slug] = "published"
+        return {
+          ...r,
+          customPages: cp,
+          customPageDrafts: d,
+          customPageStatus: st,
+        }
+      })
+    }
+
     revalidateTag("translations")
-    return NextResponse.json({ ok: true })
+    return NextResponse.json({ ok: true, action })
   } catch (e) {
     const message = e instanceof Error ? e.message : "Server error"
     return NextResponse.json({ error: message }, { status: 500 })
@@ -211,8 +280,29 @@ export async function DELETE(
   const slug = slugParsed.data
 
   try {
-    await upsertCustomPageLocale("en", slug, null)
-    await upsertCustomPageLocale("ar", slug, null)
+    for (const locale of ["en", "ar"] as const) {
+      await patchLocaleRobotsJson(locale, (r) => {
+        const cp = {
+          ...((r.customPages as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const d = {
+          ...((r.customPageDrafts as Record<string, RobotCustomPagePayload>) ??
+            {}),
+        }
+        const st = {
+          ...((r.customPageStatus as Record<string, string>) ?? {}),
+        }
+        delete cp[slug]
+        delete d[slug]
+        delete st[slug]
+        return {
+          ...r,
+          customPages: cp,
+          customPageDrafts: d,
+          customPageStatus: st,
+        }
+      })
+    }
     revalidateTag("translations")
     return NextResponse.json({ ok: true })
   } catch (e) {

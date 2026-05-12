@@ -13,7 +13,7 @@ export type RobotPageSectionType =
   | "image"
   | "carousel"
   | "catalogCard"
-
+  
 export interface HeroSectionData {
   type: "hero"
   videoSrc: string
@@ -107,6 +107,15 @@ export interface RobotCustomPagePayload {
 
 export type CustomPagesMap = Record<string, RobotCustomPagePayload>
 
+/** Duplicated on `en` and `ar` translation rows (`robots.customPageStatus`). */
+export type CustomPagePublishStatus = "draft" | "published"
+
+/** Work-in-progress copy per slug / locale (`robots.customPageDrafts`). */
+export type CustomPageDraftsMap = Record<string, RobotCustomPagePayload>
+
+/** Per-slug status map (`robots.customPageStatus`). */
+export type CustomPageStatusMap = Record<string, CustomPagePublishStatus>
+
 export function getCustomPagesFromDict(
   dict: LocaleDictionary
 ): CustomPagesMap {
@@ -114,12 +123,100 @@ export function getCustomPagesFromDict(
   return robots?.customPages ?? {}
 }
 
+export function getCustomPageDraftsFromDict(
+  dict: LocaleDictionary
+): CustomPageDraftsMap {
+  const robots = dict.robots as
+    | { customPageDrafts?: CustomPageDraftsMap }
+    | undefined
+  return robots?.customPageDrafts ?? {}
+}
+
+export function getCustomPageStatusFromDict(
+  dict: LocaleDictionary,
+  slug: string
+): CustomPagePublishStatus {
+  const robots = dict.robots as
+    | { customPageStatus?: CustomPageStatusMap }
+    | undefined
+  const st = robots?.customPageStatus?.[slug]
+  return st === "draft" ? "draft" : "published"
+}
+
+/** True when this slug is hidden from the public site (draft mode). */
+export function isCustomPageDraftInDict(
+  dict: LocaleDictionary,
+  slug: string
+): boolean {
+  return getCustomPageStatusFromDict(dict, slug) === "draft"
+}
+
+function pickFirstNonEmptyString(...vals: unknown[]): string {
+  for (const v of vals) {
+    if (typeof v === "string" && v.trim()) return v.trim()
+  }
+  return ""
+}
+
+/**
+ * DB / JSON may store `null`, omit the field, or use snake_case. Also falls back to
+ * `dict.robots.hero[pageSlug].videoSrc` when the custom hero has no URL (same slug as catalog).
+ */
+function normalizeHeroSectionForRead(
+  section: HeroSectionData,
+  pageSlug: string,
+  dict: LocaleDictionary
+): HeroSectionData {
+  const o = section as unknown as Record<string, unknown>
+  let videoSrc = pickFirstNonEmptyString(
+    o.videoSrc,
+    o.video_src,
+    o.videoUrl,
+    o.video_url
+  )
+
+  const robots = dict.robots as
+    | { hero?: Record<string, { videoSrc?: unknown }> }
+    | undefined
+  const catalog = robots?.hero?.[pageSlug]
+  if (!videoSrc) {
+    videoSrc = pickFirstNonEmptyString(catalog?.videoSrc)
+  }
+
+  const posterImage = pickFirstNonEmptyString(
+    o.posterImage,
+    o.poster_image,
+    o.posterUrl,
+    o.poster_url
+  )
+
+  return {
+    ...section,
+    videoSrc,
+    posterImage: posterImage || undefined,
+  }
+}
+
+/**
+ * Custom robot pages live at `dict.robots.customPages[slug]` (usually from Supabase),
+ * not under `dict.robots.hero` — that object is for static catalog robots only.
+ */
 export function getCustomPageForSlug(
   dict: LocaleDictionary,
   slug: string
 ): RobotCustomPagePayload | null {
+  if (isCustomPageDraftInDict(dict, slug)) return null
   const pages = getCustomPagesFromDict(dict)
-  return pages[slug] ?? null
+  const raw = pages[slug]
+  if (!raw) return null
+  return {
+    slug: raw.slug,
+    sections: raw.sections.map((s) =>
+      s.type === "hero"
+        ? normalizeHeroSectionForRead(s, slug, dict)
+        : s
+    ),
+  }
 }
 
 export function extractCatalogCard(

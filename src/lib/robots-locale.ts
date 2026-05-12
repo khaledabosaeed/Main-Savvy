@@ -3,6 +3,7 @@ import type { LocaleDictionary } from "@/i18n/getDictionary"
 import {
   extractCatalogCard,
   getCustomPagesFromDict,
+  isCustomPageDraftInDict,
 } from "@/lib/robots-custom-page"
 
 export type Language = "en" | "ar"
@@ -223,6 +224,7 @@ export function getRobotCatalogCards(dict: LocaleDictionary): RobotCard[] {
   const pages = getCustomPagesFromDict(dict)
   const customCards: RobotCard[] = []
   for (const [slug, page] of Object.entries(pages)) {
+    if (isCustomPageDraftInDict(dict, slug)) continue
     const card = extractCatalogCard(page.sections, slug)
     if (!card) continue
     customCards.push({
