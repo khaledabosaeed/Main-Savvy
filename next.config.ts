@@ -10,6 +10,18 @@ remotePatterns.push({
   pathname: "/**",
 })
 
+remotePatterns.push({
+  protocol: "https",
+  hostname: "cdn.savvyworld.ai",
+  pathname: "/**",
+})
+
+remotePatterns.push({
+  protocol: "https",
+  hostname: "pub-ff1ecaf91dc54382914edbd33fecd6c7.r2.dev",
+  pathname: "/**",
+})
+
 if (r2PublicUrl) {
   try {
     const url = new URL(r2PublicUrl)
