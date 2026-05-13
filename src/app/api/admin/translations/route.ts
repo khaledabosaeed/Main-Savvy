@@ -15,9 +15,13 @@ function mergeRobotsPartial(
 ): Record<string, unknown> {
   const robots = { ...(existing ?? {}) }
   for (const [key, val] of Object.entries(partial)) {
-    if (key === "customPages" && isPlainObject(val)) {
-      const prev = isPlainObject(robots.customPages)
-        ? { ...(robots.customPages as Record<string, unknown>) }
+    if (
+      (key === "customPages" || key === "customPageDrafts") &&
+      isPlainObject(val)
+    ) {
+      const currentBranch = robots[key]
+      const prev = isPlainObject(currentBranch)
+        ? { ...(currentBranch as Record<string, unknown>) }
         : {}
       for (const [slug, page] of Object.entries(val)) {
         if (page === null) {
@@ -26,7 +30,7 @@ function mergeRobotsPartial(
           prev[slug] = page
         }
       }
-      robots.customPages = prev
+      robots[key] = prev
     } else {
       robots[key] = val
     }
