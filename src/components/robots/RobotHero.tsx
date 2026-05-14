@@ -33,6 +33,7 @@ const gradientOverlays: Record<TextPlacement, string> = {
 
 export default function RobotHero({
   videoSrc,
+  poster,
   title,
   subtitle,
   priceStartsFrom,
@@ -40,6 +41,8 @@ export default function RobotHero({
 }: RobotHeroProps) {
   const placement = placementClasses[textPlacement]
   const gradientOverlay = gradientOverlays[textPlacement] 
+console.log(poster , videoSrc  );
+
 
   return (
     <section className="relative h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden">

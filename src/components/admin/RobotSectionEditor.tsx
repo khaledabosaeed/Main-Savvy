@@ -599,8 +599,9 @@ function ScrollVideoEditor({
   return (
     <div className="space-y-4">
       <p className="text-[10px] leading-snug text-zinc-500">
-        Each block: direct MP4/WebM/R2 URL, or YouTube/Vimeo link (embedded
-        automatically).
+        Per block: upload an <strong>MP4/WebM</strong> file, pick from gallery,
+        or paste a <strong>YouTube / Vimeo</strong> link. Watch-page URLs are
+        converted to embeds automatically.
       </p>
       {items.map((item, i) => (
         <div
@@ -619,18 +620,16 @@ function ScrollVideoEditor({
               Remove
             </button>
           </div>
-          <Field label="Video URL">
-            <input
-              value={item.videoSrc}
-              onChange={(e) => {
-                const next = [...items]
-                next[i] = { ...next[i], videoSrc: e.target.value }
-                onChange(next)
-              }}
-              placeholder="MP4 URL or YouTube / Vimeo…"
-              className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm text-zinc-100"
-            />
-          </Field>
+          <ImageUploadField
+            label="Video URL"
+            value={item.videoSrc}
+            onChange={(url) => {
+              const next = [...items]
+              next[i] = { ...next[i], videoSrc: url }
+              onChange(next)
+            }}
+            folder="/robots"
+          />
           <Field label="Title">
             <textarea
               value={item.title}
