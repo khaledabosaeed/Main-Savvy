@@ -1,4 +1,7 @@
-import type { RobotPageSectionData } from "@/lib/robots-custom-page"
+import {
+  normalizeRobotImageSlides,
+  type RobotPageSectionData,
+} from "@/lib/robots-custom-page"
 
 function nonEmptyUrl(s: string | undefined): boolean {
   return typeof s === "string" && s.trim().length > 0
@@ -69,8 +72,17 @@ export function applySharedMedia(
       }
     }
     case "image": {
+      const f = from as Extract<RobotPageSectionData, { type: "image" }>
       const tTo = to as Extract<RobotPageSectionData, { type: "image" }>
-      return { ...tTo, images: [...from.images] }
+      const fromItems = normalizeRobotImageSlides(f.images)
+      const peerItems = normalizeRobotImageSlides(tTo.images)
+      const images = fromItems.map((srcSlide, i) => {
+        const peerTitle = peerItems[i]?.title?.trim()
+        const fromTitle = srcSlide.title?.trim()
+        const title = peerTitle || fromTitle || undefined
+        return { url: srcSlide.url, ...(title ? { title } : {}) }
+      })
+      return { ...tTo, images }
     }
     case "carousel": {
       const tFrom = from as Extract<RobotPageSectionData, { type: "carousel" }>
@@ -156,10 +168,19 @@ export function mergeEmptyArMediaFromEn(
       }
       case "image": {
         if (enSec.type !== "image") return arSec
-        return {
-          ...arSec,
-          images: mergeUrlArraysPreferAr(arSec.images, enSec.images),
-        }
+        const arSlides = normalizeRobotImageSlides(arSec.images)
+        const enSlides = normalizeRobotImageSlides(enSec.images)
+        const len = Math.max(arSlides.length, enSlides.length)
+        const images = Array.from({ length: len }, (_, i) => {
+          const a = arSlides[i]
+          const e = enSlides[i]
+          const url = (a?.url ?? "").trim() || (e?.url ?? "").trim() || ""
+          const arTitle = (a?.title ?? "").trim()
+          const enTitle = (e?.title ?? "").trim()
+          const title = arTitle || enTitle || undefined
+          return { url, ...(title ? { title } : {}) }
+        })
+        return { ...arSec, images }
       }
       case "carousel": {
         if (enSec.type !== "carousel") return arSec

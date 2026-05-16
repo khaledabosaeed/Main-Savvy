@@ -2,12 +2,14 @@
 
 import type { ReactNode } from "react"
 import ImageUploadField from "@/components/admin/ImageUploadField"
-import type {
-  RobotPageSectionData,
-  CatalogCardSectionData,
-  StoreRobotCategory,
-  ScrollVideoSectionData,
-  SpecsSectionData,
+import {
+  normalizeRobotImageSlides,
+  type CatalogCardSectionData,
+  type RobotPageSectionData,
+  type RobotImageSlide,
+  type ScrollVideoSectionData,
+  type SpecsSectionData,
+  type StoreRobotCategory,
 } from "@/lib/robots-custom-page"
 
 const CATEGORIES: StoreRobotCategory[] = [
@@ -679,6 +681,13 @@ function ImageSectionFields({
   section: Extract<RobotPageSectionData, { type: "image" }>
   onChange: (next: RobotPageSectionData) => void
 }) {
+  const slides = normalizeRobotImageSlides(section.images)
+
+  const patchSlide = (index: number, patch: Partial<RobotImageSlide>) => {
+    const next = slides.map((s, i) => (i === index ? { ...s, ...patch } : s))
+    onChange({ ...section, images: next })
+  }
+
   return (
     <div className="flex flex-col gap-4">
       <Field label="Section title (optional)">
@@ -688,12 +697,58 @@ function ImageSectionFields({
           className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm text-zinc-100"
         />
       </Field>
-      <StringList
-        label="Images"
-        items={section.images}
-        onChange={(images) => onChange({ ...section, images })}
-        useImageUpload
-      />
+      <div className="space-y-2">
+        <p className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">
+          Images
+        </p>
+        {slides.map((slide, i) => (
+          <div
+            key={i}
+            className="flex flex-col gap-2 rounded-lg border border-zinc-800 bg-zinc-900/40 p-3"
+          >
+            <Field label="Title above image (optional)">
+              <textarea
+                value={slide.title ?? ""}
+                onChange={(e) => {
+                  const v = e.target.value
+                  patchSlide(i, v.trim() ? { title: v } : { title: undefined })
+                }}
+                placeholder="Centered headline; omit to show image only."
+                rows={2}
+                className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600"
+              />
+            </Field>
+            <div className="min-w-0">
+              <ImageUploadField
+                label={`Image ${i + 1}`}
+                value={slide.url}
+                onChange={(url) => patchSlide(i, { url })}
+              />
+            </div>
+            <button
+              type="button"
+              className="self-start rounded border border-zinc-600 px-2 py-1 text-xs text-zinc-400 hover:bg-zinc-800"
+              onClick={() =>
+                onChange({
+                  ...section,
+                  images: slides.filter((_, j) => j !== i),
+                })
+              }
+            >
+              Remove
+            </button>
+          </div>
+        ))}
+        <button
+          type="button"
+          className="text-xs text-primary hover:underline"
+          onClick={() =>
+            onChange({ ...section, images: [...slides, { url: "" }] })
+          }
+        >
+          + Add image
+        </button>
+      </div>
     </div>
   )
 }

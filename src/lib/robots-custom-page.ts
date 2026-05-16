@@ -64,10 +64,34 @@ export interface ScrollVideoSectionData {
   }[]
 }
 
+/** Stored under `robots.customPages` — legacy rows may still use `images: string[]`. */
+export interface RobotImageSlide {
+  url: string
+  title?: string
+}
+
+export function normalizeRobotImageSlides(raw: unknown): RobotImageSlide[] {
+  if (!Array.isArray(raw)) return []
+  return raw.map((entry) => {
+    if (typeof entry === "string") {
+      return { url: entry }
+    }
+    if (entry && typeof entry === "object") {
+      const o = entry as Record<string, unknown>
+      const url =
+        (typeof o.url === "string" ? o.url : "") ||
+        (typeof o.src === "string" ? o.src : "")
+      const tt = typeof o.title === "string" ? o.title.trim() : ""
+      return tt ? { url, title: tt } : { url }
+    }
+    return { url: "" }
+  })
+}
+
 export interface ImageSectionData {
   type: "image"
   title?: string
-  images: string[]
+  images: RobotImageSlide[]
 }
 
 export interface CarouselSectionData {
@@ -211,12 +235,27 @@ export function getCustomPageForSlug(
   if (!raw) return null
   return {
     slug: raw.slug,
-    sections: raw.sections.map((s) =>
-      s.type === "hero"
-        ? normalizeHeroSectionForRead(s, slug, dict)
-        : s
-    ),
+    sections: raw.sections.map((s) => {
+      if (s.type === "hero") {
+        return normalizeHeroSectionForRead(s, slug, dict)
+      }
+      if (s.type === "image") {
+        return { ...s, images: normalizeRobotImageSlides(s.images) }
+      }
+      return s
+    }),
   }
+}
+
+/** Migrate legacy payload shapes before editing or saving sections. */
+export function normalizeRobotPageSections(
+  sections: RobotPageSectionData[]
+): RobotPageSectionData[] {
+  return sections.map((s) =>
+    s.type === "image"
+      ? { ...s, images: normalizeRobotImageSlides(s.images) }
+      : s
+  )
 }
 
 export function extractCatalogCard(

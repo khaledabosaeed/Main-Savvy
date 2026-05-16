@@ -1,50 +1,63 @@
 "use client"
 
 import Image from "next/image"
-import type { Language } from "@/lib/robots-locale"
+import FormattedText from "@/components/shared/FormattedText"
+import {
+  normalizeRobotImageSlides,
+  type RobotImageSlide,
+} from "@/lib/robots-custom-page"
+import { richTextToPlainText } from "@/lib/rich-text"
 
 export interface RobotImageSectionProps {
   title?: string
-  images: string[]
-  lang: Language
+  images: RobotImageSlide[]
 }
+
+const TITLE_CLASSES =
+  "text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center"
 
 export default function RobotImageSection({
   title,
   images,
-  lang,
 }: RobotImageSectionProps) {
-  const isRTL = lang === "ar"
+  const slides = normalizeRobotImageSlides(images).filter((s) => s.url.trim())
 
-  if (!images?.length) return null
+  if (!slides.length) return null
+
+  const sectionHeading = title?.trim()
 
   return (
-    <section className="w-full">
-      {title && (
-        <h3
-          className={`text-xl md:text-2xl font-bold text-gray-900 mb-4 ${
-            isRTL ? "text-right" : "text-left"
-          }`}
-        >
-          {title}
+    <div className="w-full flex flex-col gap-10 md:gap-14">
+      {sectionHeading && (
+        <h3 className={TITLE_CLASSES}>
+          <FormattedText text={sectionHeading} as="span" />
         </h3>
       )}
-      <div className="flex flex-col gap-4 md:gap-6">
-        {images.map((src) => (
-          <div
-            key={src}
-            className="relative w-full overflow-hidden rounded-xl aspect-[4/3]"
-          >
-            <Image
-              src={src}
-              alt={title ?? "Robot"}
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-          </div>
-        ))}
+      <div className="flex flex-col gap-10 md:gap-14">
+        {slides.map((slide, i) => {
+          const caption = slide.title?.trim()
+          const altTail = caption || sectionHeading || "Robot image"
+          return (
+            <section key={`${slide.url}-${i}`} className="w-full">
+              {caption && (
+                <h3 className={TITLE_CLASSES}>
+                  <FormattedText text={caption} as="span" />
+                </h3>
+              )}
+              <div className="relative w-full overflow-hidden rounded-xl">
+                <Image
+                  src={slide.url}
+                  alt={richTextToPlainText(altTail)}
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto object-contain"
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                />
+              </div>
+            </section>
+          )
+        })}
       </div>
-    </section>
+    </div>
   )
 }

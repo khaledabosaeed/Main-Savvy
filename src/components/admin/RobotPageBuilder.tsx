@@ -9,11 +9,12 @@ import {
   applySharedMedia,
   mergeEmptyArMediaFromEn,
 } from "@/lib/robot-page-shared-media"
-import type {
-  CustomPagePublishStatus,
-  RobotPageSectionData,
+import {
+  normalizeRobotPageSections,
+  sectionSummary,
+  type CustomPagePublishStatus,
+  type RobotPageSectionData,
 } from "@/lib/robots-custom-page"
-import { sectionSummary } from "@/lib/robots-custom-page"
 
 const SECTION_TYPES: RobotPageSectionData["type"][] = [
   "catalogCard",
@@ -56,8 +57,12 @@ export default function RobotPageBuilder({
 }) {
   const router = useRouter()
   const [slug, setSlug] = useState(initialSlug)
-  const [sectionsEn, setSectionsEn] = useState<RobotPageSectionData[]>(initialEn)
-  const [sectionsAr, setSectionsAr] = useState<RobotPageSectionData[]>(initialAr)
+  const [sectionsEn, setSectionsEn] = useState<RobotPageSectionData[]>(() =>
+    normalizeRobotPageSections(initialEn)
+  )
+  const [sectionsAr, setSectionsAr] = useState<RobotPageSectionData[]>(() =>
+    normalizeRobotPageSections(initialAr)
+  )
   const [lang, setLang] = useState<"en" | "ar">("en")
   const [selected, setSelected] = useState(0)
   const [saving, setSaving] = useState(false)

@@ -101,11 +101,7 @@ function SectionRenderer({
     case "image":
       return (
         <section className="container mx-auto px-4 py-16 md:py-24">
-          <RobotImageSection
-            title={section.title}
-            images={section.images}
-            lang={lang}
-          />
+          <RobotImageSection title={section.title} images={section.images} />
         </section>
       )
     case "carousel":
