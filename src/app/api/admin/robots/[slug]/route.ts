@@ -51,6 +51,10 @@ const putSchema = z.object({
   ar: pagePayloadSchema,
 })
 
+const patchIntentSchema = z.object({
+  intent: z.enum(["to-draft", "to-published"]),
+})
+
 function normalizePayload(
   slug: string,
   data: z.infer<typeof pagePayloadSchema>
@@ -259,6 +263,198 @@ export async function PUT(
 
     revalidateTag("translations")
     return NextResponse.json({ ok: true, action })
+  } catch (e) {
+    const message = e instanceof Error ? e.message : "Server error"
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
+}
+
+export async function PATCH(
+  request: Request,
+  context: { params: Promise<{ slug: string }> }
+) {
+  const { user, error } = await requireUser()
+  if (!user) return error!
+
+  const { slug: rawSlug } = await context.params
+  const slugParsed = slugParamSchema.safeParse(rawSlug)
+  if (!slugParsed.success) {
+    return NextResponse.json({ error: "Invalid slug" }, { status: 400 })
+  }
+  const slug = slugParsed.data
+
+  let body: unknown
+  try {
+    body = await request.json()
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 })
+  }
+
+  const parsed = patchIntentSchema.safeParse(body)
+  if (!parsed.success) {
+    return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 })
+  }
+  const { intent } = parsed.data
+
+  try {
+    if (intent === "to-draft") {
+      const admin = createSupabaseServiceRoleClient()
+      const [enRow, arRow] = await Promise.all([
+        admin.from("translations").select("content").eq("locale", "en").maybeSingle(),
+        admin.from("translations").select("content").eq("locale", "ar").maybeSingle(),
+      ])
+      if (enRow.error || arRow.error) {
+        return NextResponse.json(
+          { error: enRow.error?.message ?? arRow.error?.message },
+          { status: 500 }
+        )
+      }
+
+      type RobotsMaps = {
+        customPages?: Record<string, RobotCustomPagePayload>
+        customPageDrafts?: Record<string, RobotCustomPagePayload>
+      }
+      const enRobots = ((enRow.data?.content as Record<string, unknown>)?.robots ??
+        {}) as RobotsMaps
+      const arRobots = ((arRow.data?.content as Record<string, unknown>)?.robots ??
+        {}) as RobotsMaps
+
+      const enPub = enRobots.customPages?.[slug]
+      const arPub = arRobots.customPages?.[slug]
+      if (!enPub || !arPub) {
+        return NextResponse.json(
+          {
+            error:
+              "There is nothing published under this slug to move to draft (requires both EN and AR published copies).",
+          },
+          { status: 400 }
+        )
+      }
+
+      await patchLocaleRobotsJson("en", (r) => {
+        const cp = {
+          ...((r.customPages as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const d = {
+          ...((r.customPageDrafts as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const st = {
+          ...((r.customPageStatus as Record<string, string>) ?? {}),
+        }
+        const page = cp[slug]
+        if (!page) return r
+        d[slug] = page
+        delete cp[slug]
+        st[slug] = "draft"
+        return {
+          ...r,
+          customPages: cp,
+          customPageDrafts: d,
+          customPageStatus: st,
+        }
+      })
+      await patchLocaleRobotsJson("ar", (r) => {
+        const cp = {
+          ...((r.customPages as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const d = {
+          ...((r.customPageDrafts as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const st = {
+          ...((r.customPageStatus as Record<string, string>) ?? {}),
+        }
+        const page = cp[slug]
+        if (!page) return r
+        d[slug] = page
+        delete cp[slug]
+        st[slug] = "draft"
+        return {
+          ...r,
+          customPages: cp,
+          customPageDrafts: d,
+          customPageStatus: st,
+        }
+      })
+    } else {
+      const admin = createSupabaseServiceRoleClient()
+      const [enRow, arRow] = await Promise.all([
+        admin.from("translations").select("content").eq("locale", "en").maybeSingle(),
+        admin.from("translations").select("content").eq("locale", "ar").maybeSingle(),
+      ])
+      if (enRow.error || arRow.error) {
+        return NextResponse.json(
+          { error: enRow.error?.message ?? arRow.error?.message },
+          { status: 500 }
+        )
+      }
+
+      type RobotsMaps = {
+        customPages?: Record<string, RobotCustomPagePayload>
+        customPageDrafts?: Record<string, RobotCustomPagePayload>
+      }
+      const enRobots = ((enRow.data?.content as Record<string, unknown>)?.robots ??
+        {}) as RobotsMaps
+      const arRobots = ((arRow.data?.content as Record<string, unknown>)?.robots ??
+        {}) as RobotsMaps
+
+      const enPage =
+        enRobots.customPageDrafts?.[slug] ?? enRobots.customPages?.[slug]
+      const arPage =
+        arRobots.customPageDrafts?.[slug] ?? arRobots.customPages?.[slug]
+      if (!enPage || !arPage) {
+        return NextResponse.json(
+          {
+            error:
+              "Cannot publish without both EN and AR page data for this slug.",
+          },
+          { status: 400 }
+        )
+      }
+
+      await patchLocaleRobotsJson("en", (r) => {
+        const cp = {
+          ...((r.customPages as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const d = {
+          ...((r.customPageDrafts as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const st = {
+          ...((r.customPageStatus as Record<string, string>) ?? {}),
+        }
+        cp[slug] = enPage
+        delete d[slug]
+        st[slug] = "published"
+        return {
+          ...r,
+          customPages: cp,
+          customPageDrafts: d,
+          customPageStatus: st,
+        }
+      })
+      await patchLocaleRobotsJson("ar", (r) => {
+        const cp = {
+          ...((r.customPages as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const d = {
+          ...((r.customPageDrafts as Record<string, RobotCustomPagePayload>) ?? {}),
+        }
+        const st = {
+          ...((r.customPageStatus as Record<string, string>) ?? {}),
+        }
+        cp[slug] = arPage
+        delete d[slug]
+        st[slug] = "published"
+        return {
+          ...r,
+          customPages: cp,
+          customPageDrafts: d,
+          customPageStatus: st,
+        }
+      })
+    }
+
+    revalidateTag("translations")
+    return NextResponse.json({ ok: true, intent })
   } catch (e) {
     const message = e instanceof Error ? e.message : "Server error"
     return NextResponse.json({ error: message }, { status: 500 })
