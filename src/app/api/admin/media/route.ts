@@ -35,19 +35,17 @@ export async function GET(request: Request) {
   const folder =
     searchParams.get("folder")?.trim() || "/robots"
   const limitRaw = searchParams.get("limit")
-  const skipRaw = searchParams.get("skip")
+  const cursor = searchParams.get("cursor")?.trim() || undefined
   const limit =
     limitRaw != null ? Math.min(Math.max(parseInt(limitRaw, 10) || 50, 1), 1000) : 50
-  const skip =
-    skipRaw != null ? Math.max(parseInt(skipRaw, 10) || 0, 0) : 0
 
   try {
-    const files = await listR2Files({
+    const { files, nextContinuationToken } = await listR2Files({
       path: folder,
       limit,
-      skip,
+      cursor: cursor ?? null,
     })
-    return NextResponse.json({ files })
+    return NextResponse.json({ files, nextContinuationToken })
   } catch (e) {
     const message = e instanceof Error ? e.message : "Failed to list media"
     return NextResponse.json({ error: message }, { status: 500 })
