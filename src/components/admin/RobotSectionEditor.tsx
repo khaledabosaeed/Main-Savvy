@@ -238,12 +238,18 @@ function ProductFields({
           className="w-full max-w-md rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm text-zinc-100"
         />
       </Field>
-      <StringList
-        label="Gallery images"
-        items={section.images}
-        onChange={(images) => onChange({ ...section, images })}
-        multiline={false}
-      />
+      <div>
+        <StringList
+          label="Gallery images"
+          items={section.images}
+          onChange={(images) => onChange({ ...section, images })}
+          useImageUpload
+        />
+        <p className="mt-1.5 text-[10px] leading-snug text-zinc-500">
+          Upload to Cloudflare R2, open the media gallery, or paste an image
+          URL (same controls as carousel slides).
+        </p>
+      </div>
       <StringList
         label="Bullet points"
         items={section.bulletPoints}
