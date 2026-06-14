@@ -3,17 +3,6 @@ import type { LocaleDictionary } from "./getDictionary"
 /** UnifiedHeader `texts` maps keyed for nav / mobile menu. */
 export type PageHeaderTexts = Record<string, string>
 
-export function mediaPageHeaderTexts(d: LocaleDictionary): PageHeaderTexts {
-  const c = d.common
-  return {
-    main: c.main,
-    news: c.news,
-    gallery: c.gallery,
-    "why-savvy": c.whySavvy,
-    ourRobots: c.robots,
-    contactUs: c.contactUs,
-  }
-}
 
 export function contactPageHeaderTexts(d: LocaleDictionary): PageHeaderTexts {
   const c = d.common
@@ -26,34 +15,7 @@ export function contactPageHeaderTexts(d: LocaleDictionary): PageHeaderTexts {
   }
 }
 
-export function expoPageHeaderTexts(d: LocaleDictionary): {
-  texts: PageHeaderTexts
-  // imageSliderHeading: string
-} {
-  const c = d.common
-  return {
-    texts: {
-      main: c.main,
-      services: c.servicesLabel,
-      projects: c.projects,
-      partners: c.partnersLabel,
-      ourRobots: c.robots,
-      contactUs: c.contactUs,
-    },
-    // imageSliderHeading: d.imageSlider.heading,
-  }
-}
 
-export function innovationPageHeaderTexts(d: LocaleDictionary): PageHeaderTexts {
-  const c = d.common
-  return {
-    main: c.main,
-    solutions: c.solutions,
-    partners: c.partnersLabel,
-    ourRobots: c.robots,
-    contactUs: c.contactUs,
-  }
-}
 
 export function privacyPageHeaderTexts(d: LocaleDictionary): PageHeaderTexts {
   const c = d.common

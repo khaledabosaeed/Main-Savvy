@@ -24,7 +24,7 @@ export default async function Home({ params }: HomePageProps) {
       <UnifiedHeader texts={texts} hasBanner={false}  transparentHeader/>
       <PageTransition>
         <RobotHeroSlider />
-        <RobotsSection />
+        <RobotsSection showExploreStore />
         {/* <ResponsibleUseLink /> */}
       </PageTransition>
     </>

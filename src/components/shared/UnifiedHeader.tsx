@@ -49,9 +49,6 @@ export default function UnifiedHeader({
       { href: `/${lang}/robots#industrial`, label: t("robots.categoryIndustrial") },
       { href: `/${lang}/robots#educational`, label: t("robots.categoryEducational") },
       { href: `/${lang}/robots#entertainment`, label: t("robots.categoryEntertainment") },
-      { href: `/${lang}/robots/g1`, label: "Unitree Humanoid G1" },
-      { href: `/${lang}/robots/go2`, label: "Unitree Robo-Dog Go2" },
-      { href: `/${lang}/robots/r1`, label: "Unitree Humanoid R1" },
     ],
     [lang, t]
   )

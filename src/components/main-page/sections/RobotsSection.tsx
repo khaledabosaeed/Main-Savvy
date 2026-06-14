@@ -2,6 +2,7 @@
 
 import { useMemo } from "react"
 import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { useTranslation } from "react-i18next"
 import FormattedText from "@/components/shared/FormattedText"
@@ -60,9 +61,13 @@ export default function RobotsSection({
           <div className="mt-12 md:mt-16 flex justify-center px-4">
             <Link
               href={`/${lang}/robots`}
-              className={`inline-flex items-center justify-center rounded-full border-2 border-primary text-primary px-8 py-3.5 text-base font-semibold hover:bg-primary hover:text-white transition-colors ${isRTL ? "flex-row-reverse" : ""}`}
+              className={`group inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-8 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${isRTL ? "flex-row-reverse" : ""}`}
             >
-              <FormattedText text={t("home.robotsSection.exploreStore")} />
+              <FormattedText text={t("robots.moreRobots")} />
+              <ArrowRight
+                className={`h-4 w-4 shrink-0 transition-transform ${isRTL ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"}`}
+                aria-hidden
+              />
             </Link>
           </div>
         )}
