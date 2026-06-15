@@ -2,6 +2,10 @@
 
 import { motion } from "framer-motion"
 import FormattedText from "@/components/shared/FormattedText"
+import {
+  isLikelyDirectVideoFileUrl,
+  resolveVideoUrl,
+} from "@/lib/video-embed"
 
 export type TextPlacement = "left" | "center" | "right"
 
@@ -13,7 +17,7 @@ interface RobotHeroProps {
   buttonText?: string
   productLink?: string
   textPlacement?: TextPlacement
-  /** Accepted for API compatibility; hero background is video-only when `videoSrc` is set. */
+  /** Used as the video poster, or as the image background when `videoSrc` is empty. */
   poster?: string
   features?: string[]
   isRTL?: boolean
@@ -40,9 +44,15 @@ export default function RobotHero({
   textPlacement = "center",
 }: RobotHeroProps) {
   const placement = placementClasses[textPlacement]
-  const gradientOverlay = gradientOverlays[textPlacement] 
-console.log(poster , videoSrc  );
-
+  const gradientOverlay = gradientOverlays[textPlacement]
+  const mediaSrc = videoSrc.trim() || poster?.trim() || ""
+  const resolved = mediaSrc
+    ? resolveVideoUrl(mediaSrc, { embedMinimal: true })
+    : null
+  const isDirectVideo =
+    resolved?.kind === "direct" && isLikelyDirectVideoFileUrl(mediaSrc)
+  const isDirectImage =
+    resolved?.kind === "direct" && !isLikelyDirectVideoFileUrl(mediaSrc)
 
   return (
     <section className="relative h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden">
@@ -50,18 +60,38 @@ console.log(poster , videoSrc  );
         {/* Dark background shown while video loads */}
         <div className="absolute inset-0 bg-neutral-900" />
 
-        {/* Direct video background */}
+        {/* Media background: supports direct video, direct image, and embeds */}
+        {resolved?.kind === "youtube" || resolved?.kind === "vimeo" ? (
+          <iframe
+            key={resolved.embedSrc}
+            title=""
+            src={resolved.embedSrc}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
+          />
+        ) : isDirectVideo ? (
           <video
-            key={videoSrc}
+            key={resolved.src}
             autoPlay
             loop
             muted
             playsInline
             preload="auto"
+            poster={poster}
             className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
+            src={resolved.src}
+          />
+        ) : isDirectImage ? (
+          // eslint-disable-next-line @next/next/no-img-element -- hero media may be remote R2/CDN stills
+          <img
+            key={mediaSrc}
+            src={mediaSrc}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            draggable={false}
+          />
+        ) : null}
 
         {/* Gradient overlay for text readability */}
         <div
