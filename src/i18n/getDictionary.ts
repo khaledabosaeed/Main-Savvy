@@ -100,10 +100,10 @@ function staticDictionary(lang: AppLanguage): LocaleDictionary {
 }
 
 /**
- * When AR `customPages` hero has no `videoSrc`, copy media from the merged EN bundle
- * so `/ar/...` matches EN for assets saved only on the EN tab historically.
+ * Keep shared custom-page metadata aligned between AR and EN. Translatable fields
+ * stay in Arabic, while media, placement, and category follow the EN source.
  */
-function fillArCustomPagesHeroMediaFromEn(
+function fillArCustomPagesSharedFieldsFromEn(
   arDict: LocaleDictionary,
   enDict: LocaleDictionary
 ): void {
@@ -134,28 +134,41 @@ function fillArCustomPagesHeroMediaFromEn(
     for (let i = 0; i < arSections.length; i++) {
       const arS = arSections[i] as Record<string, unknown>
       const enS = enSections[i] as Record<string, unknown>
-      if (
-        !isPlainObject(arS) ||
-        arS.type !== "hero" ||
-        !isPlainObject(enS) ||
-        enS.type !== "hero"
-      ) {
-        continue
+      if (!isPlainObject(arS) || !isPlainObject(enS)) continue
+
+      if (arS.type === "hero" && enS.type === "hero") {
+        const arVid = mediaString(arS, "videoSrc", "video_src", "videoUrl", "video_url")
+        if (!arVid) {
+          const enVid = mediaString(enS, "videoSrc", "video_src", "videoUrl", "video_url")
+          if (enVid) arS.videoSrc = enVid
+        }
+
+        const arPoster = mediaString(arS, "posterImage", "poster_image")
+        const enPoster = mediaString(enS, "posterImage", "poster_image")
+        if (!arPoster && enPoster) arS.posterImage = enPoster
+
+        if (
+          (arS.textPlacement == null || arS.textPlacement === "") &&
+          typeof enS.textPlacement === "string"
+        ) {
+          arS.textPlacement = enS.textPlacement
+        }
       }
-      const arVid = mediaString(arS, "videoSrc", "video_src", "videoUrl", "video_url")
-      if (arVid) continue
-      const enVid = mediaString(enS, "videoSrc", "video_src", "videoUrl", "video_url")
-      if (enVid) arS.videoSrc = enVid
+    }
 
-      const arPoster = mediaString(arS, "posterImage", "poster_image")
-      const enPoster = mediaString(enS, "posterImage", "poster_image")
-      if (!arPoster && enPoster) arS.posterImage = enPoster
-
-      if (
-        (arS.textPlacement == null || arS.textPlacement === "") &&
-        typeof enS.textPlacement === "string"
-      ) {
-        arS.textPlacement = enS.textPlacement
+    const arCatalog = arSections.find(
+      (section): section is Record<string, unknown> =>
+        isPlainObject(section) && section.type === "catalogCard"
+    )
+    const enCatalog = enSections.find(
+      (section): section is Record<string, unknown> =>
+        isPlainObject(section) && section.type === "catalogCard"
+    )
+    if (arCatalog && enCatalog) {
+      for (const key of ["category", "image", "link", "productLink"]) {
+        if (typeof enCatalog[key] === "string" && enCatalog[key].trim()) {
+          arCatalog[key] = enCatalog[key]
+        }
       }
     }
   }
@@ -189,7 +202,7 @@ export async function getDictionary(
                 enFromDb as unknown as Record<string, unknown>
               ) as LocaleDictionary)
             : staticDictionary("en")
-          fillArCustomPagesHeroMediaFromEn(dict, enDict)
+          fillArCustomPagesSharedFieldsFromEn(dict, enDict)
           const clone = JSON.parse(JSON.stringify(dict)) as LocaleDictionary
           applyEnglishRobotDisplayNames(clone, staticDictionary("en"))
           return clone
@@ -206,7 +219,7 @@ export async function getDictionary(
                 enFromDb as unknown as Record<string, unknown>
               ) as LocaleDictionary)
             : staticDictionary("en")
-          fillArCustomPagesHeroMediaFromEn(dict, enDict)
+          fillArCustomPagesSharedFieldsFromEn(dict, enDict)
           const clone = JSON.parse(JSON.stringify(dict)) as LocaleDictionary
           applyEnglishRobotDisplayNames(clone, staticDictionary("en"))
           return clone
