@@ -8,7 +8,11 @@ import {
 
 export type Language = "en" | "ar"
 
-export type RobotCategory = "industrial" | "educational" | "entertainment"
+export type RobotCategory =
+  | "industrial"
+  | "service"
+  | "educational"
+  | "entertainment"
 
 /** Unitree + legacy pages that use full page templates */
 export type CoreRobotSlug = "g1" | "h2" | "go2" | "r1"

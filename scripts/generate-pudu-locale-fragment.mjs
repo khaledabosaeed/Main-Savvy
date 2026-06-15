@@ -86,7 +86,7 @@ const catalogCardsIndustrial = models.map(([slug, label]) => ({
   image: `/robot/pudu/${slug}.png`,
   link: `/robots/${slug}`,
   buttonText: "View details",
-  category: "industrial",
+  category: "service",
 }))
 
 const catalogCardsEdu = [

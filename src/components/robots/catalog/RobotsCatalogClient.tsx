@@ -16,6 +16,7 @@ type FilterKey = RobotCategory | "all"
 const FILTERS: { key: FilterKey; labelKey: string }[] = [
   { key: "all", labelKey: "robots.categoryAll" },
   { key: "industrial", labelKey: "robots.categoryIndustrial" },
+  { key: "service", labelKey: "robots.categoryService" },
   { key: "educational", labelKey: "robots.categoryEducational" },
   { key: "entertainment", labelKey: "robots.categoryEntertainment" },
 ]
@@ -35,7 +36,12 @@ export default function RobotsCatalogClient({
   useEffect(() => {
     const applyHash = () => {
       const raw = window.location.hash.replace(/^#/, "")
-      if (raw === "industrial" || raw === "educational" || raw === "entertainment") {
+      if (
+        raw === "industrial" ||
+        raw === "service" ||
+        raw === "educational" ||
+        raw === "entertainment"
+      ) {
         setCategory(raw)
       }
     }

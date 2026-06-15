@@ -47,6 +47,7 @@ export default function UnifiedHeader({
   const robots = useMemo(
     () => [
       { href: `/${lang}/robots#industrial`, label: t("robots.categoryIndustrial") },
+      { href: `/${lang}/robots#service`, label: t("robots.categoryService") },
       { href: `/${lang}/robots#educational`, label: t("robots.categoryEducational") },
       { href: `/${lang}/robots#entertainment`, label: t("robots.categoryEntertainment") },
     ],

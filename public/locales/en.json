@@ -271,6 +271,7 @@
     "catalogSearchPlaceholder": "Search by name or model…",
     "categoryAll": "All",
     "categoryIndustrial": "Industrial",
+    "categoryService": "Service Robots",
     "categoryEducational": "Educational",
     "categoryEntertainment": "Entertainment",
     "noCatalogResults": "No robots match your search or filter.",

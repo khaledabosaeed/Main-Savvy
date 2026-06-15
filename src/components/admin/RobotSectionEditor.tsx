@@ -14,6 +14,7 @@ import {
 
 const CATEGORIES: StoreRobotCategory[] = [
   "industrial",
+  "service",
   "educational",
   "entertainment",
 ]

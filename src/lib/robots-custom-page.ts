@@ -3,6 +3,7 @@ import type { LocaleDictionary } from "@/i18n/getDictionary"
 /** Same values as `RobotCategory` in robots-locale (avoid circular imports). */
 export type StoreRobotCategory =
   | "industrial"
+  | "service"
   | "educational"
   | "entertainment"
 export type RobotPageSectionType =
